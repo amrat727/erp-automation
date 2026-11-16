@@ -8,3 +8,6 @@ playwright-report/
 screenshots/
 # backup archive from the move to this computer
 erp-automation.zip
+# office lock files
+.~lock.*#
+~$*
