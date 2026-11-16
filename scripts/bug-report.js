@@ -196,6 +196,46 @@ const BUGS = [
     title: 'Removing a currency that a contract uses leaves the contract Approved (should become Provisional)',
     steps: '1. Testing season 3 > Financials > Add currency USD\n2. Hotel > Add contract in USD > Save > Approve\n3. Financials > Remove USD > popup "USD is used by contracts" > Remove anyway\n4. Open the contract list',
     expected: 'The USD contract moves to Provisional, so no booking can be made on it', actual: 'The popup appears (correct) but the contract stays "Approved" and active', tc: 'TC-RULE-21/22' },
+  // ----- round 2: product owner's answers in Supplier-Questions.ods (17-Nov-2026) -----
+  { id: "BUG-56", mod: "Supplier", screen: "Supplier > Overview (Blocked) > Edit", type: "Business rule", sev: "Medium",
+    title: "A Blocked supplier can be moved back to \"On hold\"",
+    steps: "1. Open a Blocked supplier (e.g. \"QA Auto Supplier RNMKVV evidence\")\n2. Click Edit and look at the status buttons", expected: "Blocked can only go to Approved (On hold is only for new suppliers)", actual: "\"On Hold\" is offered and selectable", tc: "TC-R2-01" },
+  { id: "BUG-57", mod: "Supplier", screen: "Supplier > Overview > Edit > Location", type: "Business rule", sev: "Medium",
+    title: "The supplier City can be changed after the supplier is created",
+    steps: "1. Testing season 3 > Edit\n2. Open Location", expected: "City is fixed after creation (read-only)", actual: "City \"Abu Dhabi\" is an editable drop-down", tc: "TC-R2-02" },
+  { id: "BUG-58", mod: "Supplier", screen: "Supplier > Financials > Add currency", type: "Validation", sev: "Low",
+    title: "Payment due of 366 days is accepted (allowed 0-365)",
+    steps: "1. Testing season 3 > Financials > Add currency USD\n2. Payment due days 366 > Save", expected: "Refused: payment days must be 0-365", actual: "The currency is sent with 366 days (red banner only because the test blocks the save)", tc: "TC-R2-03" },
+  { id: "BUG-59", mod: "Supplier", screen: "Supplier > Financials > Add bank account", type: "Validation", sev: "Medium",
+    title: "IBAN is not validated (\"123\" is accepted)",
+    steps: "1. Financials > Add bank account\n2. Holder, bank, IBAN \"123\", SWIFT \"ABCDAEAD\" > Save", expected: "IBAN checked (country format, length, check digits)", actual: "The bank account is sent with IBAN \"123\"", tc: "TC-R2-04" },
+  { id: "BUG-60", mod: "Supplier", screen: "Supplier > Contacts > Add contact", type: "Validation", sev: "Medium",
+    title: "A contact without email is accepted (email must be mandatory)",
+    steps: "1. Contacts > Add contact\n2. Name and role only, no email > Save", expected: "\"Email is required\"", actual: "The contact is sent without an email", tc: "TC-R2-05" },
+  { id: "BUG-61", mod: "Supplier", screen: "Supplier list", type: "Enhancement", sev: "Low",
+    title: "Supplier list cannot be searched by city",
+    steps: "1. Supplier list\n2. Look for a City column / search", expected: "A City column with search (product owner request)", actual: "Only Name, Code and Status", tc: "TC-R2-06" },
+  { id: "BUG-62", mod: "Supplier - Contract", screen: "Products > Hotel > Contract > Add contract", type: "Business rule", sev: "Medium",
+    title: "\"Sell to\" after \"Valid to\" is accepted",
+    steps: "1. Add contract (BB, AED)\n2. Sell to = Valid to + 20 days > Save", expected: "Refused: Sell to must be on or before Valid to", actual: "The contract is sent", tc: "TC-R2-10" },
+  { id: "BUG-63", mod: "Supplier - Contract", screen: "Products > Hotel > Contract (Rates)", type: "Business rule", sev: "Low",
+    title: "Contract warns \"No allotment holds <room> ... bookings go on request\" (the contract always comes before the allotment)",
+    steps: "1. Add contract, base plan BB, add a season, enter one price", expected: "No allotment warning on the contract", actual: "Orange warning \"No allotment holds Club for these contract dates ... Add it to an allotment\"", tc: "TC-R2-11" },
+  { id: "BUG-64", mod: "Supplier - Contract", screen: "Contract > Cancellation policy", type: "Validation", sev: "High",
+    title: "A cancellation charge of 150% is accepted (max 100%)",
+    steps: "1. Add contract > Add cancellation policy\n2. Charge 150 (%) > Save", expected: "Refused: a percentage charge cannot exceed 100%", actual: "Sent with \"chargeValue\":150", tc: "TC-R2-14" },
+  { id: "BUG-65", mod: "Supplier - Contract", screen: "Products > Hotel > Contract", type: "Business rule", sev: "Medium",
+    title: "Two contracts with the same name are saved",
+    steps: "1. Save contract \"QA Auto Contract <tag> same name\"\n2. Save a second contract with the same name", expected: "Second one refused: contract names are unique", actual: "Both are saved", tc: "TC-R2-23" },
+  { id: "BUG-66", mod: "Supplier - Allotment", screen: "Products > Excursion > Allotment", type: "Business rule", sev: "High",
+    title: "An allotment is saved for a product that has no contract",
+    steps: "1. Testing season 3 > Excursion (no contract) > Allotment > Add allotment\n2. Name, unit, one block of 3 > Save", expected: "Refused: no allotment without a contract", actual: "The allotment is saved", tc: "TC-R2-30" },
+  { id: "BUG-67", mod: "Supplier - Promotion", screen: "Products > Hotel > Promotions", type: "Validation", sev: "High",
+    title: "A promotion with a 100% discount is saved (max 99%)",
+    steps: "1. Add promotion, currency AED\n2. Discount 100 % > Save", expected: "Refused: maximum discount is 99%", actual: "The promotion is saved", tc: "TC-R2-31" },
+  { id: "BUG-68", mod: "Supplier - Product", screen: "Products > Hotel > Add room", type: "Business rule", sev: "Medium",
+    title: "Two rooms with the same name are saved on the same hotel",
+    steps: "1. Create room \"QA Auto Room <tag>\" and rename it \"... edited\"\n2. Add another room with exactly that name > Create product", expected: "Refused: room names are unique per hotel (to be confirmed)", actual: "Both rooms are saved and shown side by side", tc: "TC-PRDC-05" },
 ];
 async function main() {
   fs.mkdirSync(path.join(OUT_DIR, 'screenshots'), { recursive: true });
@@ -298,6 +338,8 @@ async function main() {
     ['Supplier end-to-end (supplier-crud.spec.ts)', 'Create, rename, 2 contacts, currency, bank account, status changes, audit, 3 duplicate-name variants, block. Every QA supplier is left Blocked', '14'],
     ['Supplier contracts UI (contract-ui.spec.ts)', 'Products > Contract list (search, columns), Import from Excel, Add contract (defaults, required fields, base plan / currency / markets lists, date rules, priority, seasons and price sheet, warnings, discard), approved contract (values, Sheet/Rows, back-to-Draft question), Allotment, Promotions, Rate check, global Contracts list (search, filter, bulk actions). Read-only: every save is blocked', '34'],
     ['Supplier business rules (supplier-rules.spec.ts)', 'Rules confirmed by the product owner: Blocked supplier cannot be edited / get contacts / currencies, On hold stays editable, same contract priority refused, removing a used currency warns and makes the contract Provisional', '10'],
+    ['Supplier rules round 2 (supplier-rules2.spec.ts)', "The product owner's 63 answers: blocked status flow, fixed city, payment days, IBAN, contact email, city search, default currency, sell dates, allotment warning, min stay, meal supplement, cancellation %, missing prices, price 0, seasons, contract names, allotment without contract, promotion % and scope", '20'],
+    ['Supplier products (product-ui.spec.ts, product-crud.spec.ts)', 'Hotel rooms, excursions and private transfers: lists, read-only view, Edit, validation (name, view, capacity, height), drop-down lists, occupancy rows, age policy, pax bands, create / edit / history / duplicate / same name', '35'],
     ['Supplier contracts end-to-end (contract-crud.spec.ts)', 'On "Testing season 3" > Hotel: create contract with season and 4 prices, list + global list, re-open, rename and re-price, cancellation band, approve, Rate check, create allotment (Club, 5 rooms) and promotion (10%), then switch all to Active = No', '12'],
     ['Bug evidence (bug-evidence.spec.ts)', 'One red-outlined screenshot per bug (this report). Run: $env:EVIDENCE=\'1\'; npx playwright test bug-evidence', '31'],
   ];
@@ -305,8 +347,8 @@ async function main() {
     const r = cv.getRow(3 + i); r.values = v;
     r.eachCell(c => { c.border = border; c.alignment = { wrapText: true, vertical: 'top' }; c.font = i ? font : head; if (!i) c.fill = headFill; });
   });
-  cv.getCell('A15').value = 'Test data: every record created by the tests is named "QA Auto ..." and left DEACTIVATED (the ERP has no delete).';
-  cv.getCell('A15').font = { ...font, italic: true };
+  cv.getCell('A17').value = 'Test data: every record created by the tests is named "QA Auto ..." and left DEACTIVATED (the ERP has no delete).';
+  cv.getCell('A17').font = { ...font, italic: true };
 
   const out = path.join(OUT_DIR, 'ERP-Bug-Report.xlsx');
   await wb.xlsx.writeFile(out);
