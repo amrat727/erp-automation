@@ -97,6 +97,7 @@ test.describe('Supplier business rules', () => {
   });
 
   test('TC-RULE-02: Blocked supplier - a new contact cannot be added', async () => {
+    test.fail(true, 'BUG: a contact can still be added to a Blocked supplier (POST .../contacts -> 201)');
     await openBlocked('contacts');
     const add = page.getByRole('button', { name: /Add contact$/ }).last();
     if (!(await add.isVisible()) || await add.isDisabled()) return;

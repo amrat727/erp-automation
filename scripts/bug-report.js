@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Builds the bug report Excel file from the list below + screenshots/bugs/*.png
  *   Run:  npm run bug-report
  *   Out:  reports/ERP-Bug-Report.xlsx
@@ -175,9 +175,28 @@ const BUGS = [
     steps: '1. Add contract as in BUG-48, choose Currency AED\n2. Priority: -5\n3. Click Save', expected: 'Refused: the Priority field has a minimum of 0', actual: 'The contract is sent with "priority": -5', tc: 'TC-CON-20' },
   { id: 'BUG-50', mod: 'Supplier - Contract', screen: 'Contracts list (menu Contracts)', type: 'Usability', sev: 'Low',
     title: '"Valid" column has no year - a one-year contract looks like it ends before it starts',
-    steps: '1. Menu Contracts\n2. Read the Valid column of "Connaught Demo 2026-27 BAR"', expected: '"15 Oct 2026 – 14 Oct 2027" (as on the supplier\'s Contract tab)', actual: '"15 Oct – 14 Oct" (same for every contract)', tc: 'TC-CON-65' },
+    steps: '1. Menu Contracts\n2. Read the Valid column of "Connaught Demo 2026-27 BAR"',
+    expected: '"15 Oct 2026 – 14 Oct 2027" (as on the supplier\'s Contract tab)', actual: '"15 Oct – 14 Oct" (same for every contract)', tc: 'TC-CON-65' },
+  // ----- business rules confirmed by the product owner on 16-Nov-2026 (supplier-rules.spec.ts) -----
+  { id: 'BUG-51', mod: 'Supplier', screen: 'Supplier > Overview (Blocked)', type: 'Business rule', sev: 'High',
+    title: 'A Blocked supplier can still be edited and saved',
+    steps: '1. Open a supplier with status Blocked (e.g. "QA Auto Supplier RNMKVV evidence", DXB-009)\n2. Click Edit, change the name, click Save',
+    expected: 'Blocked = deactivated: no detail can be saved (Edit not offered, or the save is refused)', actual: 'The change is saved (PUT /suppliers/27 -> 204)', tc: 'TC-RULE-01' },
+  { id: 'BUG-52', mod: 'Supplier', screen: 'Supplier > Contacts (Blocked)', type: 'Business rule', sev: 'High',
+    title: 'A contact can be added to a Blocked supplier',
+    steps: '1. Blocked supplier > Contacts > Add contact\n2. Name "QA Auto Contact ... blocked", role Admin > Save', expected: 'Refused - no new detail on a blocked supplier', actual: 'The contact is saved (201) and shown as Primary', tc: 'TC-RULE-02' },
+  { id: 'BUG-53', mod: 'Supplier', screen: 'Supplier > Financials (Blocked)', type: 'Business rule', sev: 'High',
+    title: 'A currency can be added to a Blocked supplier',
+    steps: '1. Blocked supplier > Financials > Add currency\n2. Currency USD > Save', expected: 'Refused - no new detail on a blocked supplier', actual: 'USD is saved (204). The test removed it again', tc: 'TC-RULE-03' },
+  { id: 'BUG-54', mod: 'Supplier - Contract', screen: 'Products > Hotel > Contract', type: 'Business rule', sev: 'High',
+    title: 'Two contracts with the same priority are both saved',
+    steps: '1. Testing season 3 > Hotel > Add contract: BB, AED, priority 71, default dates, 1 season with prices > Save\n2. Add a second contract with the same dates and priority 71 > Save',
+    expected: 'The second contract is refused: the same priority is not allowed', actual: 'Both are saved ("QA Auto Contract SSMNRL prio A" and "prio B", both priority 71)', tc: 'TC-RULE-11' },
+  { id: 'BUG-55', mod: 'Supplier - Contract', screen: 'Financials > Remove currency / Contract list', type: 'Business rule', sev: 'High',
+    title: 'Removing a currency that a contract uses leaves the contract Approved (should become Provisional)',
+    steps: '1. Testing season 3 > Financials > Add currency USD\n2. Hotel > Add contract in USD > Save > Approve\n3. Financials > Remove USD > popup "USD is used by contracts" > Remove anyway\n4. Open the contract list',
+    expected: 'The USD contract moves to Provisional, so no booking can be made on it', actual: 'The popup appears (correct) but the contract stays "Approved" and active', tc: 'TC-RULE-21/22' },
 ];
-
 async function main() {
   fs.mkdirSync(path.join(OUT_DIR, 'screenshots'), { recursive: true });
   const shots = fs.readdirSync(SHOTS).filter(f => f.endsWith('.png'));
@@ -278,6 +297,7 @@ async function main() {
     ['Supplier UI (supplier-ui.spec.ts, supplier-gaps.spec.ts)', 'List (search, filter, paging, sort, Columns), Add form validation, supplier tabs: Overview, Contacts and addresses, Products, Financials (currencies, bank accounts, tax), Content editor, audit history. Read-only: every save is blocked', '67'],
     ['Supplier end-to-end (supplier-crud.spec.ts)', 'Create, rename, 2 contacts, currency, bank account, status changes, audit, 3 duplicate-name variants, block. Every QA supplier is left Blocked', '14'],
     ['Supplier contracts UI (contract-ui.spec.ts)', 'Products > Contract list (search, columns), Import from Excel, Add contract (defaults, required fields, base plan / currency / markets lists, date rules, priority, seasons and price sheet, warnings, discard), approved contract (values, Sheet/Rows, back-to-Draft question), Allotment, Promotions, Rate check, global Contracts list (search, filter, bulk actions). Read-only: every save is blocked', '34'],
+    ['Supplier business rules (supplier-rules.spec.ts)', 'Rules confirmed by the product owner: Blocked supplier cannot be edited / get contacts / currencies, On hold stays editable, same contract priority refused, removing a used currency warns and makes the contract Provisional', '10'],
     ['Supplier contracts end-to-end (contract-crud.spec.ts)', 'On "Testing season 3" > Hotel: create contract with season and 4 prices, list + global list, re-open, rename and re-price, cancellation band, approve, Rate check, create allotment (Club, 5 rooms) and promotion (10%), then switch all to Active = No', '12'],
     ['Bug evidence (bug-evidence.spec.ts)', 'One red-outlined screenshot per bug (this report). Run: $env:EVIDENCE=\'1\'; npx playwright test bug-evidence', '31'],
   ];
@@ -285,8 +305,8 @@ async function main() {
     const r = cv.getRow(3 + i); r.values = v;
     r.eachCell(c => { c.border = border; c.alignment = { wrapText: true, vertical: 'top' }; c.font = i ? font : head; if (!i) c.fill = headFill; });
   });
-  cv.getCell('A14').value = 'Test data: every record created by the tests is named "QA Auto ..." and left DEACTIVATED (the ERP has no delete).';
-  cv.getCell('A14').font = { ...font, italic: true };
+  cv.getCell('A15').value = 'Test data: every record created by the tests is named "QA Auto ..." and left DEACTIVATED (the ERP has no delete).';
+  cv.getCell('A15').font = { ...font, italic: true };
 
   const out = path.join(OUT_DIR, 'ERP-Bug-Report.xlsx');
   await wb.xlsx.writeFile(out);
