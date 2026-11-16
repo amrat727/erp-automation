@@ -236,6 +236,10 @@ const BUGS = [
   { id: "BUG-68", mod: "Supplier - Product", screen: "Products > Hotel > Add room", type: "Business rule", sev: "Medium",
     title: "Two rooms with the same name are saved on the same hotel",
     steps: "1. Create room \"QA Auto Room <tag>\" and rename it \"... edited\"\n2. Add another room with exactly that name > Create product", expected: "Refused: room names are unique per hotel (to be confirmed)", actual: "Both rooms are saved and shown side by side", tc: "TC-PRDC-05" },
+  // ----- Agent -----
+  { id: "BUG-69", mod: "Agent", screen: "Agent > Add Agent", type: "Validation", sev: "Medium",
+    title: "A negative credit limit (-500) is accepted when creating an agent",
+    steps: "1. Agent > Add Agent\n2. Name, email, exchange type, country, currency USD\n3. Allow credit on, Credit limit -500 > Create agent", expected: "Refused: the credit limit cannot be negative", actual: "The agent is sent with credit limit -500 (red banner only because the test blocks the save)", tc: "TC-AGF-06" },
 ];
 async function main() {
   fs.mkdirSync(path.join(OUT_DIR, 'screenshots'), { recursive: true });
@@ -258,7 +262,7 @@ async function main() {
     { key: 'actual', width: 32 }, { key: 'tc', width: 20 }, { key: 'status', width: 10 }, { key: 'shot', width: 60 }, { key: 'file', width: 30 },
   ];
   ws.mergeCells('A1:M1');
-  ws.getCell('A1').value = 'ERP (Pilot) - Bug Report: Login, Core and Supplier modules';
+  ws.getCell('A1').value = 'ERP (Pilot) - Bug Report: Login, Core, Supplier and Agent modules';
   ws.getCell('A1').font = { name: 'Arial', size: 14, bold: true };
   ws.mergeCells('A2:M2');
   ws.getCell('A2').value = `Environment: ${ENV}   |   Reported by: ${REPORTED_BY}   |   Date: ${DATE}   |   Click a file name to open the full-size screenshot.`;
@@ -340,6 +344,8 @@ async function main() {
     ['Supplier business rules (supplier-rules.spec.ts)', 'Rules confirmed by the product owner: Blocked supplier cannot be edited / get contacts / currencies, On hold stays editable, same contract priority refused, removing a used currency warns and makes the contract Provisional', '10'],
     ['Supplier rules round 2 (supplier-rules2.spec.ts)', "The product owner's 63 answers: blocked status flow, fixed city, payment days, IBAN, contact email, city search, default currency, sell dates, allotment warning, min stay, meal supplement, cancellation %, missing prices, price 0, seasons, contract names, allotment without contract, promotion % and scope", '20'],
     ['Supplier products (product-ui.spec.ts, product-crud.spec.ts)', 'Hotel rooms, excursions and private transfers: lists, read-only view, Edit, validation (name, view, capacity, height), drop-down lists, occupancy rows, age policy, pax bands, create / edit / history / duplicate / same name', '35'],
+    ['Agent forms (agent-forms.spec.ts)', 'Every Agent button and dialog: add-form lists and switches (credit, portal login), inline and full edit, addresses, currencies, top-up, 4 ledger actions, loyalty, access, on-behalf. Read-only: every save is blocked', '26'],
+    ['Agent end-to-end (agent-crud.spec.ts)', 'Create QA Auto Agent, list / email search, rename, addresses, add / remove currency, wallet top-up 100, deduct 20, promotional credit 25, loyalty +10 / over-deduct refused, products access, approve, duplicate email refused, block', '17'],
     ['Supplier contracts end-to-end (contract-crud.spec.ts)', 'On "Testing season 3" > Hotel: create contract with season and 4 prices, list + global list, re-open, rename and re-price, cancellation band, approve, Rate check, create allotment (Club, 5 rooms) and promotion (10%), then switch all to Active = No', '12'],
     ['Bug evidence (bug-evidence.spec.ts)', 'One red-outlined screenshot per bug (this report). Run: $env:EVIDENCE=\'1\'; npx playwright test bug-evidence', '31'],
   ];
@@ -347,8 +353,8 @@ async function main() {
     const r = cv.getRow(3 + i); r.values = v;
     r.eachCell(c => { c.border = border; c.alignment = { wrapText: true, vertical: 'top' }; c.font = i ? font : head; if (!i) c.fill = headFill; });
   });
-  cv.getCell('A17').value = 'Test data: every record created by the tests is named "QA Auto ..." and left DEACTIVATED (the ERP has no delete).';
-  cv.getCell('A17').font = { ...font, italic: true };
+  cv.getCell('A19').value = 'Test data: every record created by the tests is named "QA Auto ..." and left DEACTIVATED (the ERP has no delete).';
+  cv.getCell('A19').font = { ...font, italic: true };
 
   const out = path.join(OUT_DIR, 'ERP-Bug-Report.xlsx');
   await wb.xlsx.writeFile(out);
