@@ -184,4 +184,15 @@ test.describe('Rules round 2 - bug evidence', () => {
     await shown.scrollIntoViewIfNeeded();
     await shot(page, 'BUG-79-document-txt-accepted', shown);
   });
+  test('BUG-80 Supplier names are saved with spaces around them', async ({ page }) => {
+    await page.goto('/suppliers');
+    await expect(page.locator('main tbody tr:visible').first()).toBeVisible({ timeout: 90_000 });
+    await page.getByRole('columnheader', { name: /^Name/ }).locator('span, div').filter({ hasText: /^Name$/ }).first().click();
+    await page.waitForTimeout(2500);
+    const cells = page.locator('main tbody tr:visible td:first-child');
+    const n = await cells.count();
+    const marks = [];
+    for (let i = 0; i < n; i++) { const t = await cells.nth(i).evaluate(el => el.textContent ?? ''); if (t !== t.trim()) marks.push(cells.nth(i)); }
+    await shot(page, 'BUG-80-supplier-names-not-trimmed', ...marks);
+  });
 });

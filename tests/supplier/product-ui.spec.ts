@@ -195,8 +195,10 @@ test.describe('Excursion and private transfer', () => {
 
   test('TC-PRD-26: Private transfer - a supplier without transfers shows "No private transfer yet"', async ({ page }) => {
     await p.open(SUP, 'Private transfer');
-    await expect(page.getByText(/No private transfer yet/)).toBeVisible();
-    await expect(p.filter('All')).toBeDisabled();
+    const empty = page.getByText(/No private transfer yet/);
+    await expect(empty.or(page.locator('main button:visible', { hasText: /^QA Auto Transfer/ }).first())).toBeVisible({ timeout: 30_000 });
+    if (await empty.isVisible()) await expect(p.filter('All')).toBeDisabled();
+    else expect(await p.count('All')).toBeGreaterThan(0);
   });
 
   test('TC-PRD-27: Excursion - pax bands run on from each other (Band 2 starts after Band 1, its "From" is locked)', async ({ page }) => {

@@ -65,6 +65,9 @@ test.describe('Supplier contract: end-to-end data flow', () => {
     } finally { await page.close(); }
   });
 
+  /** the contract row whose name is exactly `n` */
+  const exact = (n: string) => c.rows.filter({ has: page.locator('td:first-child p').getByText(n, { exact: true }) });
+
   const openMine = async () => {
     await c.openProduct(SUP, 'Hotel', 'Contract');
     await c.rows.filter({ hasText: current }).first().locator('td').first().click();
@@ -82,12 +85,12 @@ test.describe('Supplier contract: end-to-end data flow', () => {
     for (const [room, p] of PRICES) await c.setPrice(room, 'QA Season', p);
     await expect(page.getByText(/prices? (is|are) missing/)).toBeHidden();
     await saved(/\/contracts/);
-    await expect(c.rows.filter({ hasText: NAME })).toContainText('Draft');
+    await expect(exact(NAME)).toContainText('Draft');
   });
 
   test('TC-CONC-02: The contract is in the product\'s contract list: code, 4 rates, Draft, Active', async () => {
     await c.openProduct(SUP, 'Hotel', 'Contract');
-    const row = c.rows.filter({ hasText: NAME });
+    const row = exact(NAME);
     await expect(row).toHaveCount(1);
     await expect(row).toContainText(CODE);
     await expect(row).toContainText('4 rates');
@@ -121,7 +124,7 @@ test.describe('Supplier contract: end-to-end data flow', () => {
     await saved(/\/contracts/);
     current = RENAMED;
     await c.openProduct(SUP, 'Hotel', 'Contract');
-    await expect(c.rows.filter({ hasText: RENAMED })).toHaveCount(1);
+    await expect(exact(RENAMED)).toHaveCount(1);
     await openMine();
     await expect(c.price('Club Single', 'QA Season')).toHaveValue(/^420/);
   });

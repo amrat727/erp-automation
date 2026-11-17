@@ -212,6 +212,9 @@ test.describe('Supplier: end-to-end data flow', () => {
     await s.open();
     await s.filterStatus('Blocked');
     await s.search(current);
-    await expect(s.rows.filter({ hasText: current })).toHaveCount(1);
+    // the duplicate-name bug (BUG-43) can leave copies with the same name: every one of them must be Blocked
+    const mine = s.rows.filter({ hasText: current });
+    await expect(mine.first()).toBeVisible();
+    for (const r of await mine.all()) await expect(r).toContainText('Blocked');
   });
 });

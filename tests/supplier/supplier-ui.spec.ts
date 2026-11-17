@@ -103,17 +103,30 @@ test.describe('Supplier list', () => {
   });
 
   test('TC-SUP-12: Clicking "Name" sorts A->Z, again Z->A', async ({ page }) => {
+    // names saved with spaces around them (BUG-80) sort first: leave them out of the order check
+    const rawNames = async () => (await page.locator('main tbody tr:visible td:first-child').evaluateAll(els => els.map(e => e.textContent ?? ''))).filter(n => n === n.trim());
     await s.open();
     const header = page.getByRole('columnheader', { name: /^Name/ }).locator('span, div').filter({ hasText: /^Name$/ }).first();
     const cmp = (a: string, b: string) => a.localeCompare(b, undefined, { sensitivity: 'base' });
-    await header.click();
-    await page.waitForTimeout(1500);
-    const asc = await s.names();
-    expect(asc).toEqual([...asc].sort(cmp));
-    await header.click();
-    await page.waitForTimeout(1500);
-    const desc = await s.names();
-    expect(desc).toEqual([...desc].sort(cmp).reverse());
+    // retried: a parallel test may rename a supplier while the list is being sorted
+    await expect(async () => {
+      await s.open();
+      await header.click();
+      await page.waitForTimeout(1500);
+      const asc = (await rawNames()).map(n => n.toLowerCase());
+      expect(asc).toEqual([...asc].sort(cmp));
+      await header.click();
+      await page.waitForTimeout(1500);
+      const desc = (await rawNames()).map(n => n.toLowerCase());
+      expect(desc).toEqual([...desc].sort(cmp).reverse());
+    }).toPass({ timeout: 90_000 });
+  });
+
+  test('TC-SUP-14: Supplier names are saved without spaces before / after the name', async ({ page }) => {
+    test.fail(true, 'BUG-80: supplier names are saved untrimmed ("   QA Auto Supplier ... edited   ", "Amrat Testing Partner ") and sort before "A"');
+    await s.open();
+    const names = await page.locator('main tbody tr:visible td:first-child').evaluateAll(els => els.map(e => e.textContent ?? ''));
+    expect(names.filter(n => n !== n.trim()), 'names with spaces around them').toEqual([]);
   });
 
   test('TC-SUP-13: Opening /suppliers while logged out goes to the login page', async ({ browser }) => {

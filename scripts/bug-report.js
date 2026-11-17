@@ -272,6 +272,9 @@ const BUGS = [
   { id: "BUG-79", mod: "Supplier", screen: "Supplier > Overview > Edit > Documents", type: "Validation", sev: "Medium",
     title: "A document slot takes a .txt file (only PDF / images allowed)",
     steps: "1. Testing season 3 > Edit\n2. Fire safety certificate > choose a .txt file", expected: "Refused: only PDF or image files", actual: "\"qa-auto.txt\" is shown as the uploaded document", tc: "TC-REST-04" },
+  { id: "BUG-80", mod: "Supplier", screen: "Supplier list / Add supplier", type: "Validation", sev: "Medium",
+    title: "Supplier names are saved with spaces before / after the name (not trimmed) and sort before \"A\"",
+    steps: "1. Add supplier with the name \"   QA Auto Supplier X   \" (spaces around)\n2. Supplier list > sort by Name", expected: "The name is saved trimmed (\"QA Auto Supplier X\") and sorts under Q", actual: "Saved as \"   QA Auto Supplier X edited   \" and listed before \"Ace Travels\"; real data also has \"Amrat Testing Partner \" with a trailing space", tc: "TC-SUP-14" },
 ];
 async function main() {
   fs.mkdirSync(path.join(OUT_DIR, 'screenshots'), { recursive: true });

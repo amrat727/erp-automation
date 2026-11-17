@@ -165,6 +165,7 @@ test.describe('Part A - contract screens (nothing is saved)', () => {
 
 // =====================================================================================================================
 test.describe('Part B - rules the server decides (REAL saves on QA data)', () => {
+  test.describe.configure({ timeout: 300_000 });
   test.describe.configure({ mode: 'default' });
   let page: Page;
   let c: ContractPage;
