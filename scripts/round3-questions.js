@@ -9,6 +9,20 @@ const OUT_DIR = path.join(ROOT, 'reports', 'Round3-Questions');
 const SHOT_DIRS = [path.join(OUT_DIR, 'screenshots'), path.join(ROOT, 'reports', 'Supplier-Questions', 'screenshots'), path.join(ROOT, 'reports', 'Agent-Questions', 'screenshots'), path.join(ROOT, 'screenshots', 'bugs')];
 const DATE = '17-Nov-2026';
 
+const SUPPLIER_FOLLOW_UP = [
+  { id: 'S-01', shot: 'Q-05', area: 'Primary contact (Q-05 "a")', q: 'Your answer was "a": exactly one primary contact, it can be moved to another contact, and it cannot be deleted. Correct?', tests: 'Move primary, delete primary', },
+  { id: 'S-02', shot: 'Q-15', area: 'Sell / valid dates (Q-15 "a")', q: '"a" = Sell to must be on or before Valid to (BUG-62 raised). Is a Valid from in the past allowed?', tests: 'Past validity', },
+  { id: 'S-03', shot: 'Q-17', area: 'Contract code (Q-17 "a")', q: '"a" = contract code optional, unique when filled. Correct? (Duplicate codes not tested yet.)', tests: 'Duplicate code', },
+  { id: 'S-04', shot: 'Q-22', area: 'Blackout dates (Q-61, blank)', q: 'Promotion blackout dates: the promotion does not apply to STAYS on those dates, or to BOOKINGS made on those dates?', tests: 'Blackout behaviour', },
+  { id: 'S-05', shot: 'Q-11', area: 'Other products (Q-62 "b")', q: 'You answered "b" (Excursion / Transfer rules differ from Hotel). Which rules differ?', tests: 'Product-specific contract and allotment rules', },
+  { id: 'S-06', shot: 'Q-04', area: 'Phone format (Q-35)', q: 'Which phone format should contacts accept (e.g. +971 4 555 0900, country code required)?', tests: 'Phone validation', },
+  { id: 'S-07', shot: 'BUG-68', area: 'Room names', q: 'Must room names be unique per hotel? Today two rooms with the same name are saved (raised as BUG-68).', tests: 'Duplicate room name', },
+  { id: 'S-08', shot: 'Q-18', area: 'Overlapping seasons', q: 'Adding a season over existing dates SPLITS them automatically (16-22 Nov / 23 Nov - 15 Nov). Is that wanted, or should the screen refuse the overlap and ask?', tests: 'Overlap handling', },
+  { id: 'S-09', shot: 'Q-18', area: 'Missing-price message', q: 'With a missing price the contract is NOT saved ("1 problem to fix") - matching your rule - but the warning text says "The contract saves as a draft". Should the text change?', tests: 'Message text', },
+  { id: 'S-10', shot: 'Q-11', area: 'Deactivating a product', q: 'You said products are deactivated, never deleted - but a room / excursion has no Active switch (only per occupancy row). How is a product deactivated?', tests: 'Deactivate product', },
+  { id: 'S-11', shot: 'Q-13', area: 'Second user (Q-63)', q: 'Please create a low-access test user in the ERP and put its login in .env as ERP_USERNAME2 / ERP_PASSWORD2 (I do not set or type passwords on the live site). Which rights should it lack?', tests: 'Approve supplier / contract without rights', },
+];
+
 const SUPPLIER = [
   { id: 'S3-01', shot: 'Q-01', area: 'On-hold supplier selling', q: 'Can contracts of an On hold supplier be approved and sold in B2B, or only after the supplier is Approved?', tests: 'Book a product of an On hold supplier' },
   { id: 'S3-02', shot: 'Q-19', area: 'Child policy overlap', q: 'Child bands may overlap (your answer). When two bands match a child of 8, which band prices the child (first, cheapest, most specific)?', tests: 'Price a child in overlapping bands' },
@@ -22,6 +36,7 @@ const SUPPLIER = [
   { id: 'S3-10', shot: 'Q-14', area: 'Taxes and commission', q: 'Contracts carry "rates include tax" and "commission" settings in the saved data, but the screen does not show them. Are taxes (VAT, tourism fee) and supplier commission part of this phase?', tests: 'Tax / commission in price' },
   { id: 'S3-11', shot: 'Q-15', area: 'Book before vs release', q: 'Contract "Book before 3 days" and allotment "release 7 days" - which applies when they differ?', tests: 'Booking window conflict' },
   { id: 'S3-12', shot: 'Q-20', area: 'Cancellation at booking time', q: 'If the cancellation policy changes after a booking is made, does the booking keep the policy it was booked with?', tests: 'Cancel an old booking after a policy change' },
+  { id: 'S3-14', shot: 'Q-13', area: 'Contract approval flow', q: 'Draft -> "Submit for approval" -> "Pending approval" -> Approve. May the person who submitted also approve? Can a Draft be approved directly from the list without submitting (it can today)?', tests: 'Approval flow and rights' },
   { id: 'S3-13', shot: 'Q-26', area: 'Copy of an approved contract', q: 'Is a copied contract always Draft (needs approval), even when the original was Approved? Does the copy keep allotments / promotions?', tests: 'Copy approved contract' },
 ];
 
@@ -37,6 +52,7 @@ const AGENT = [
   { id: 'A3-09', shot: 'A-09', area: 'Refunds', q: 'Cancelled booking: is the refund returned to the same method (wallet / credit / gateway) or always to the wallet? Minus the cancellation charge?', tests: 'Refund flows' },
   { id: 'A3-10', shot: 'A-01', area: 'Blocked agent with bookings', q: 'An agent is blocked while having future bookings: are those bookings kept, can they still be cancelled / amended by staff?', tests: 'Block agent with bookings' },
   { id: 'A3-11', shot: 'A-09', area: 'Booking currency', q: 'Is a B2B booking always in the agent\'s default currency, or can the agent choose any of its currencies?', tests: 'Currency selection in B2B' },
+  { id: 'A3-13', shot: 'A-17', area: 'Login on behalf rule', q: 'Login on behalf is refused while the agent is On Hold ("isn\'t active and approved") and allowed once Approved. Correct? What happens to on-behalf access when the agent is later Blocked?', tests: 'On-behalf access per status' },
   { id: 'A3-12', shot: 'A-20', area: 'Notifications', q: 'Which emails are sent (booking confirmation, voucher, invoice, credit low, top-up received) and to whom (agent email, portal user, account manager)?', tests: 'Email checks' },
 ];
 
@@ -86,16 +102,17 @@ async function sheet(wb, name, title, rows, shots) {
 async function main() {
   fs.mkdirSync(path.join(OUT_DIR, 'screenshots'), { recursive: true });
   const shots = SHOT_DIRS.filter(d => fs.existsSync(d)).flatMap(d => fs.readdirSync(d).filter(f => f.endsWith('.png')).map(f => ({ name: f, full: path.join(d, f) })));
-  for (const q of [...SUPPLIER, ...AGENT, ...B2B]) {
+  for (const q of [...SUPPLIER_FOLLOW_UP, ...SUPPLIER, ...AGENT, ...B2B]) {
     const hit = q.shot ? shots.find(s => s.name.startsWith(q.shot + '-')) : null;
     if (hit && path.dirname(hit.full) !== path.join(OUT_DIR, 'screenshots')) fs.copyFileSync(hit.full, path.join(OUT_DIR, 'screenshots', hit.name));
   }
   const wb = new ExcelJS.Workbook();
+  await sheet(wb, 'Supplier follow-up', 'Open from the previous round - Supplier follow-up (S-01 to S-11)', SUPPLIER_FOLLOW_UP.map(q => ({ ...q, tests: q.tests })), shots);
   await sheet(wb, 'Supplier', 'Round 3 - Supplier business scenarios', SUPPLIER, shots);
   await sheet(wb, 'Agent', 'Round 3 - Agent business scenarios (credit, wallet, payments)', AGENT, shots);
   await sheet(wb, 'B2B', 'Round 3 - B2B booking portal (https://b2b.nexgenpilot.com)', B2B, shots);
-  const out = path.join(OUT_DIR, 'Round3-Questions.xlsx');
+  const out = path.join(OUT_DIR, 'Open-Questions.xlsx');
   await wb.xlsx.writeFile(out);
-  console.log(`written ${out}: ${SUPPLIER.length} supplier + ${AGENT.length} agent + ${B2B.length} B2B questions`);
+  console.log(`written ${out}: ${SUPPLIER_FOLLOW_UP.length} follow-up + ${SUPPLIER.length} supplier + ${AGENT.length} agent + ${B2B.length} B2B questions`);
 }
 main().catch(e => { console.error(e); process.exit(1); });
