@@ -265,6 +265,13 @@ const BUGS = [
   { id: "BUG-77", mod: "Agent", screen: "Agent > Add Agent", type: "Business rule", sev: "Medium",
     title: "A second agent with the same name is refused (duplicate names must be allowed)",
     steps: "1. Agent > Add Agent\n2. Name of an existing agent (\"QA Auto Agent RTKKMV edited\"), new email > Create agent", expected: "Saved: only the code must be unique", actual: "400 \"An agent named 'QA Auto Agent RTKKMV edited' already exists.\" (DUPLICATE_AgentName)", tc: "TC-AR-14" },
+  // ----- Supplier documents (product owner Q-10) -----
+  { id: "BUG-78", mod: "Supplier", screen: "Supplier > Overview > Edit > Documents", type: "Validation", sev: "Medium",
+    title: "A document above 5 MB gets no message (max 5 MB with a prompt)",
+    steps: "1. Testing season 3 > Edit\n2. Fire safety certificate > Upload a 6 MB PDF", expected: "A message that the file must be smaller than 5 MB; the file is not taken", actual: "No message at all", tc: "TC-REST-02" },
+  { id: "BUG-79", mod: "Supplier", screen: "Supplier > Overview > Edit > Documents", type: "Validation", sev: "Medium",
+    title: "A document slot takes a .txt file (only PDF / images allowed)",
+    steps: "1. Testing season 3 > Edit\n2. Fire safety certificate > choose a .txt file", expected: "Refused: only PDF or image files", actual: "\"qa-auto.txt\" is shown as the uploaded document", tc: "TC-REST-04" },
 ];
 async function main() {
   fs.mkdirSync(path.join(OUT_DIR, 'screenshots'), { recursive: true });
@@ -369,6 +376,8 @@ async function main() {
     ['Supplier business rules (supplier-rules.spec.ts)', 'Rules confirmed by the product owner: Blocked supplier cannot be edited / get contacts / currencies, On hold stays editable, same contract priority refused, removing a used currency warns and makes the contract Provisional', '10'],
     ['Supplier rules round 2 (supplier-rules2.spec.ts)', "The product owner's 63 answers: blocked status flow, fixed city, payment days, IBAN, contact email, city search, default currency, sell dates, allotment warning, min stay, meal supplement, cancellation %, missing prices, price 0, seasons, contract names, allotment without contract, promotion % and scope", '20'],
     ['Supplier products (product-ui.spec.ts, product-crud.spec.ts)', 'Hotel rooms, excursions and private transfers: lists, read-only view, Edit, validation (name, view, capacity, height), drop-down lists, occupancy rows, age policy, pax bands, create / edit / history / duplicate / same name', '35'],
+    ['Supplier documents, audit, contact roles (supplier-rest.spec.ts)', 'Document slots, 5 MB limit, file types; audit history with old and new values; contact roles from Core', '9'],
+    ['Excursion / transfer contracts and promotion details (supplier-excursion.spec.ts)', 'Rate basis and pax-band rates, empty-save check, allotment form, all 5 promotion benefits, combinable, blackout, booking window; excursion contract created, approved, allotment added', '15'],
     ['Agent forms (agent-forms.spec.ts)', 'Every Agent button and dialog: add-form lists and switches (credit, portal login), inline and full edit, addresses, currencies, top-up, 4 ledger actions, loyalty, access, on-behalf. Read-only: every save is blocked', '26'],
     ['Agent business rules (agent-rules.spec.ts)', "The product owner's agent answers: status flow, client types, phone format, code filter, account manager, payment days, change default currency, currency removal, deduct beyond wallet, duplicate name", '12'],
     ['Agent end-to-end (agent-crud.spec.ts)', 'Create QA Auto Agent, list / email search, rename, addresses, add / remove currency, wallet top-up 100, deduct 20, promotional credit 25, loyalty +10 / over-deduct refused, products access, approve, duplicate email refused, block', '17'],
@@ -379,8 +388,8 @@ async function main() {
     const r = cv.getRow(3 + i); r.values = v;
     r.eachCell(c => { c.border = border; c.alignment = { wrapText: true, vertical: 'top' }; c.font = i ? font : head; if (!i) c.fill = headFill; });
   });
-  cv.getCell('A20').value = 'Test data: every record created by the tests is named "QA Auto ..." and left DEACTIVATED (the ERP has no delete).';
-  cv.getCell('A20').font = { ...font, italic: true };
+  cv.getCell('A22').value = 'Test data: every record created by the tests is named "QA Auto ..." and left DEACTIVATED (the ERP has no delete).';
+  cv.getCell('A22').font = { ...font, italic: true };
 
   const out = path.join(OUT_DIR, 'ERP-Bug-Report.xlsx');
   await wb.xlsx.writeFile(out);

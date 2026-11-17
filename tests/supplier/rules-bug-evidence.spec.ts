@@ -162,4 +162,26 @@ test.describe('Rules round 2 - bug evidence', () => {
     const both = page.locator('main button:visible', { hasText: new RegExp(`^${dup}$`) });
     await shot(page, 'BUG-68-room-same-name-saved', both.nth(0), both.nth(1));
   });
+  const pdf = (n: number) => Buffer.concat([Buffer.from('%PDF-1.4\n'), Buffer.alloc(n, 32), Buffer.from('\n%%EOF\n')]);
+  const docsEdit = async (page: Page) => {
+    await page.goto(`/suppliers/${SUP}/overview`);
+    await page.getByRole('button', { name: 'Edit', exact: true }).first().click();
+    await expect(page.locator('main input[type=file]').first()).toBeAttached({ timeout: 60_000 });
+  };
+  test('BUG-78 Supplier document above 5 MB gets no message', async ({ page }) => {
+    await docsEdit(page);
+    await page.locator('main input[type=file]').first().setInputFiles({ name: 'qa-auto-6mb.pdf', mimeType: 'application/pdf', buffer: pdf(6 * 1024 * 1024) });
+    await page.waitForTimeout(3000);
+    const slot = page.locator('main').getByText('Fire safety certificate', { exact: true }).first().locator('xpath=ancestor::div[2]');
+    await slot.scrollIntoViewIfNeeded();
+    await shot(page, 'BUG-78-document-over-5mb-no-message', slot);
+  });
+  test('BUG-79 Supplier document slot takes a .txt file', async ({ page }) => {
+    await docsEdit(page);
+    await page.locator('main input[type=file]').first().setInputFiles({ name: 'qa-auto.txt', mimeType: 'text/plain', buffer: Buffer.from('not a document') });
+    await page.waitForTimeout(3000);
+    const shown = page.getByText('qa-auto.txt').first();
+    await shown.scrollIntoViewIfNeeded();
+    await shot(page, 'BUG-79-document-txt-accepted', shown);
+  });
 });
