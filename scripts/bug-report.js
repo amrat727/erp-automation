@@ -240,6 +240,31 @@ const BUGS = [
   { id: "BUG-69", mod: "Agent", screen: "Agent > Add Agent", type: "Validation", sev: "Medium",
     title: "A negative credit limit (-500) is accepted when creating an agent",
     steps: "1. Agent > Add Agent\n2. Name, email, exchange type, country, currency USD\n3. Allow credit on, Credit limit -500 > Create agent", expected: "Refused: the credit limit cannot be negative", actual: "The agent is sent with credit limit -500 (red banner only because the test blocks the save)", tc: "TC-AGF-06" },
+  // ----- Agent rules: product owner's answers in Agent-Questions.xlsx (17-Nov-2026) -----
+  { id: "BUG-70", mod: "Agent", screen: "Agent > Overview > Edit", type: "Business rule", sev: "Medium",
+    title: "An Approved agent can be moved back to \"On Hold\"",
+    steps: "1. Open AG-00002 (Approved) > Edit\n2. Open the Status list", expected: "Once an agent leaves On Hold it can only be Approved or Blocked", actual: "\"On Hold\" is offered", tc: "TC-AR-01" },
+  { id: "BUG-71", mod: "Agent", screen: "Agent > Add Agent", type: "Business rule", sev: "Medium",
+    title: "Client type General / Concierge / Desk exists (only B2B / B2C wanted)",
+    steps: "1. Agent > Add Agent\n2. Look at \"Client type\"", expected: "Only the account types B2B / B2C", actual: "Client type General / Concierge / Desk is shown and saved", tc: "TC-AR-02" },
+  { id: "BUG-72", mod: "Agent", screen: "Agent > Addresses", type: "Validation", sev: "Low",
+    title: "The address phone number is not checked (\"abc!!\" is accepted)",
+    steps: "1. AG-00002 > Addresses > Edit\n2. Phone \"abc!!\" > Save", expected: "Refused: a standard phone format (e.g. +971 4 555 0900)", actual: "The address is sent with phone \"abc!!\" (red banner only because the test blocks the save)", tc: "TC-AR-03" },
+  { id: "BUG-73", mod: "Agent", screen: "Agent list", type: "Enhancement", sev: "Low",
+    title: "The agent list cannot be filtered by Code",
+    steps: "1. Agent list\n2. Look at the Code column", expected: "A search / filter on Code (like Name and Email)", actual: "Code can only be sorted", tc: "TC-AR-04" },
+  { id: "BUG-74", mod: "Agent", screen: "Agent > Add Agent", type: "Business rule", sev: "Medium",
+    title: "Account manager is not required - the Add form has no Account manager field",
+    steps: "1. Agent > Add Agent\n2. Look for Account manager", expected: "Account manager is a required field", actual: "No Account manager field; agents are created without one (it can only be set later in Edit)", tc: "TC-AR-05" },
+  { id: "BUG-75", mod: "Agent", screen: "Agent > Financials > Add currency", type: "Validation", sev: "Low",
+    title: "Agent currency payment days of 366 are accepted (allowed 0-365)",
+    steps: "1. AG-00002 > Financials > Add currency\n2. Any currency, Days 366 > Add", expected: "Refused: 0-365 days (same as supplier)", actual: "The currency is sent with 366 days", tc: "TC-AR-06" },
+  { id: "BUG-76", mod: "Agent", screen: "Agent > Financials > More for <currency>", type: "Business rule", sev: "High",
+    title: "An agent currency can be removed (currencies must never be removed)",
+    steps: "1. QA agent with AED + USD, USD made default\n2. More for AED > Remove currency", expected: "Remove currency not offered / refused", actual: "AED is deleted (DELETE .../currencies/161 -> 204); only USD remains", tc: "TC-AR-12" },
+  { id: "BUG-77", mod: "Agent", screen: "Agent > Add Agent", type: "Business rule", sev: "Medium",
+    title: "A second agent with the same name is refused (duplicate names must be allowed)",
+    steps: "1. Agent > Add Agent\n2. Name of an existing agent (\"QA Auto Agent RTKKMV edited\"), new email > Create agent", expected: "Saved: only the code must be unique", actual: "400 \"An agent named 'QA Auto Agent RTKKMV edited' already exists.\" (DUPLICATE_AgentName)", tc: "TC-AR-14" },
 ];
 async function main() {
   fs.mkdirSync(path.join(OUT_DIR, 'screenshots'), { recursive: true });
@@ -345,6 +370,7 @@ async function main() {
     ['Supplier rules round 2 (supplier-rules2.spec.ts)', "The product owner's 63 answers: blocked status flow, fixed city, payment days, IBAN, contact email, city search, default currency, sell dates, allotment warning, min stay, meal supplement, cancellation %, missing prices, price 0, seasons, contract names, allotment without contract, promotion % and scope", '20'],
     ['Supplier products (product-ui.spec.ts, product-crud.spec.ts)', 'Hotel rooms, excursions and private transfers: lists, read-only view, Edit, validation (name, view, capacity, height), drop-down lists, occupancy rows, age policy, pax bands, create / edit / history / duplicate / same name', '35'],
     ['Agent forms (agent-forms.spec.ts)', 'Every Agent button and dialog: add-form lists and switches (credit, portal login), inline and full edit, addresses, currencies, top-up, 4 ledger actions, loyalty, access, on-behalf. Read-only: every save is blocked', '26'],
+    ['Agent business rules (agent-rules.spec.ts)', "The product owner's agent answers: status flow, client types, phone format, code filter, account manager, payment days, change default currency, currency removal, deduct beyond wallet, duplicate name", '12'],
     ['Agent end-to-end (agent-crud.spec.ts)', 'Create QA Auto Agent, list / email search, rename, addresses, add / remove currency, wallet top-up 100, deduct 20, promotional credit 25, loyalty +10 / over-deduct refused, products access, approve, duplicate email refused, block', '17'],
     ['Supplier contracts end-to-end (contract-crud.spec.ts)', 'On "Testing season 3" > Hotel: create contract with season and 4 prices, list + global list, re-open, rename and re-price, cancellation band, approve, Rate check, create allotment (Club, 5 rooms) and promotion (10%), then switch all to Active = No', '12'],
     ['Bug evidence (bug-evidence.spec.ts)', 'One red-outlined screenshot per bug (this report). Run: $env:EVIDENCE=\'1\'; npx playwright test bug-evidence', '31'],
@@ -353,8 +379,8 @@ async function main() {
     const r = cv.getRow(3 + i); r.values = v;
     r.eachCell(c => { c.border = border; c.alignment = { wrapText: true, vertical: 'top' }; c.font = i ? font : head; if (!i) c.fill = headFill; });
   });
-  cv.getCell('A19').value = 'Test data: every record created by the tests is named "QA Auto ..." and left DEACTIVATED (the ERP has no delete).';
-  cv.getCell('A19').font = { ...font, italic: true };
+  cv.getCell('A20').value = 'Test data: every record created by the tests is named "QA Auto ..." and left DEACTIVATED (the ERP has no delete).';
+  cv.getCell('A20').font = { ...font, italic: true };
 
   const out = path.join(OUT_DIR, 'ERP-Bug-Report.xlsx');
   await wb.xlsx.writeFile(out);

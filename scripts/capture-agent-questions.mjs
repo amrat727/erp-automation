@@ -73,4 +73,46 @@ await shot('BUG-69', 'agent-negative-credit-limit-sent', async () => {
   await page.waitForTimeout(2500);
   console.log('requests sent (blocked): ' + sentCount);
 }, () => page.locator('main input[aria-label="Credit limit"]').locator('xpath=ancestor::div[contains(@class,"MuiFormControl-root")][1]'));
+
+// ---------------- agent business-rule bugs (product owner's answers) ----------------
+await shot('BUG-70', 'approved-agent-offers-on-hold', async () => { await go(`${AG}/overview`); await vbtn('Edit').click(); await page.locator('main input[value="Approved"]').first().click(); }, () => page.getByRole('option', { name: 'On Hold', exact: true }));
+await shot('BUG-71', 'agent-client-type-general-concierge-desk', async () => { await go('/agents/new'); }, () => page.getByRole('button', { name: 'Concierge', exact: true }).locator('xpath=..'));
+await shot('BUG-72', 'agent-phone-format-not-checked', async () => {
+  await go(`${AG}/addresses`); await vbtn('Edit').click();
+  await page.locator('main input[placeholder="Phone"]:visible').first().fill('abc!!');
+  await vbtn('Save').click(); await page.waitForTimeout(2000);
+  console.log('phone requests sent (blocked): ' + sentCount);
+}, () => page.locator('main input[placeholder="Phone"]:visible').first());
+await shot('BUG-73', 'agent-list-no-code-filter', async () => { await go('/agents'); }, () => page.getByRole('columnheader', { name: /^Code/ }));
+await shot('BUG-74', 'agent-no-account-manager-on-add', async () => { await go('/agents/new'); }, () => page.locator('main').getByText('Basic details').first().locator('xpath=ancestor::div[3]'));
+await shot('BUG-75', 'agent-currency-366-days-sent', async () => {
+  await go(`${AG}/financials`); await vbtn('Add currency').click();
+  const d = page.getByRole('dialog').last();
+  await d.getByPlaceholder('Select currency').click(); await page.getByRole('option').first().click();
+  await d.locator('input[aria-label="Days"]').first().fill('366');
+  await d.getByRole('button', { name: 'Add' }).click(); await page.waitForTimeout(2000);
+}, () => page.getByRole('dialog').last().locator('input[aria-label="Days"]').first());
+await shot('BUG-76', 'agent-currency-removed', async () => {
+  await go('/agents'); await page.getByRole('columnheader', { name: /^Name/ }).getByRole('textbox').fill('rules'); await page.waitForTimeout(3000); await page.locator('main tbody tr:visible', { hasText: 'rules' }).first().locator('td').first().click();
+  await page.waitForTimeout(3000); await page.goto(page.url().replace(/\/overview.*/, '/financials')); await page.waitForTimeout(4000);
+}, () => page.locator('main table:visible').last());
+if (!ONLY.length || ONLY.includes('BUG-77')) {
+  // REAL attempt (expected to be refused): a second agent with an existing QA agent name
+  await ctx.unroute('**/pilottest.runasp.net/**');
+  await shot('BUG-77', 'agent-duplicate-name-refused', async () => {
+    await go('/agents');
+    await page.getByRole('columnheader', { name: /^Name/ }).getByRole('textbox').fill('QA Auto Agent'); await page.waitForTimeout(3000);
+    const nm = (await page.locator('main tbody tr:visible', { hasText: 'QA Auto Agent' }).first().locator('td').nth(1).innerText()).split(/\r?\n/).map(s => s.trim()).filter(Boolean).pop();
+    await go('/agents/new');
+    await page.locator('main input[placeholder="Agent name"]').fill(nm);
+    await page.locator('main input[placeholder="agency@example.com"]').fill('qa.auto.dupname.' + Date.now() + '@example.com');
+    await page.locator('main input[placeholder="Exchange type"]').click(); await page.getByRole('option').first().click();
+    await page.locator('main input[placeholder="Country"]').first().click(); await page.keyboard.type('United Arab', { delay: 60 }); await page.waitForTimeout(2000); await page.getByRole('option', { name: 'United Arab Emirates' }).first().click();
+    await page.locator('main input[placeholder="Select currency"]').click(); await page.getByRole('option', { name: 'UAE Dirham' }).click();
+    const res = page.waitForResponse(r => r.request().method() === 'POST' && /\/agent\/agents$/.test(r.url()), { timeout: 20000 }).catch(() => null);
+    await page.getByRole('button', { name: 'Create agent' }).click();
+    const r = await res; console.log('duplicate-name create -> ' + (r ? r.status() + ' ' + (await r.text()).slice(0, 200) : 'not sent') + ' for "' + nm + '"');
+    await page.waitForTimeout(1500);
+  }, () => page.locator('[role=alert]:visible, .MuiAlert-root:visible').first(), () => page.locator('main input[placeholder="Agent name"]'));
+}
 await browser.close();
