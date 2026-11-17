@@ -103,8 +103,20 @@ export class ContractPage {
     return this.dates.evaluateAll(els => els.map(e => (e as HTMLInputElement).value));
   }
 
-  /** Add a season through the "Add season" popup (dates default to the contract dates) */
+  /** Keep only these rooms in the price sheet ("Rooms" chips) - other test rooms (QA Auto Room ...) would otherwise need prices too */
+  async keepRooms(keep: string[] = ['Club', 'Family']) {
+    for (let i = 0; i < 30; i++) {
+      const extra = this.page.locator('main .MuiChip-root:visible').filter({ has: this.page.locator('.MuiChip-deleteIcon') })
+        .filter({ hasNotText: new RegExp(`^(${keep.join('|')})$`) });
+      if (await extra.count() === 0) return;
+      await extra.first().locator('.MuiChip-deleteIcon').click();
+      await this.page.waitForTimeout(200);
+    }
+  }
+
+  /** Add a season through the "Add season" popup (dates default to the contract dates); first trims the rooms to Club + Family */
   async addSeason(name: string) {
+    await this.keepRooms();
     await this.button('Add season').click();
     const d = this.page.getByRole('dialog').last();
     await d.getByPlaceholder('Enter a season name').fill(name);
