@@ -12,7 +12,7 @@ let p: ProductPage;
 test.beforeEach(async ({ page }) => { blocked = await blockWrites(page); p = new ProductPage(page); });
 
 test.describe('Hotel rooms', () => {
-  test('TC-PRD-01: Hotel lists its rooms (Club, Family) with All / Active / Inactive counts and Cards / Table view', async ({ page }) => {
+  test('TC-PRD-01: Hotel lists its rooms (Club, Family) with All / Active / Inactive counts and Cards / Table view @smoke', async ({ page }) => {
     await p.open(SUP, 'Hotel');
     await expect(p.item('Club')).toBeVisible();
     await expect(p.item('Family')).toBeVisible();

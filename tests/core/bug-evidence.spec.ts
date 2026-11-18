@@ -2,6 +2,7 @@ import { test, expect } from '../../fixtures';
 import { Page, Locator } from '@playwright/test';
 import { MasterListPage, blockWrites } from '../../pages/MasterListPage';
 import { LoginPage } from '../../pages/LoginPage';
+import { bugShot } from '../../pages/FormHelpers';
 
 /*
  * BUG EVIDENCE - takes ONE screenshot per bug, with the problem outlined in RED.
@@ -10,15 +11,7 @@ import { LoginPage } from '../../pages/LoginPage';
  * SAFETY: all save/update/delete requests are blocked (except the one login attempt in BUG-01).
  */
 
-async function shot(page: Page, file: string, ...targets: Locator[]) {
-  for (const t of targets) {
-    await t.first().evaluate(el => { (el as HTMLElement).style.outline = '4px solid red'; (el as HTMLElement).style.outlineOffset = '2px'; });
-  }
-  await page.waitForTimeout(500);
-  const path = `screenshots/bugs/${file}.png`;
-  await page.screenshot({ path });
-  await test.info().attach(file, { path, contentType: 'image/png' });
-}
+const shot = bugShot;   // shared helper: pages/FormHelpers.ts
 
 test.describe('Bug evidence', () => {
   test.skip(process.env.EVIDENCE !== '1', 'set EVIDENCE=1 to run');

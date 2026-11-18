@@ -320,7 +320,7 @@ test.describe('Tax Detail', () => {
 
 // ======================= RESTRICTION GROUPS =======================
 test.describe('Restriction Groups', () => {
-  test('TC-RG-01: Opens from Core > System > Restriction Group; list has Name, Modules, Active', async ({ page }) => {
+  test('TC-RG-01: Opens from Core > System > Restriction Group; list has Name, Modules, Active @smoke', async ({ page }) => {
     await page.goto('/dashboard');
     for (const b of ['Core', 'System', 'Restriction Group']) await page.getByRole('button', { name: b, exact: true }).click({ timeout: 60_000 });
     await expect(page).toHaveURL(/\/restrictions$/);

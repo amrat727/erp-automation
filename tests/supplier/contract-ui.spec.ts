@@ -22,7 +22,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Supplier product: Contract list', () => {
-  test('TC-CON-01: A product has the sub-tabs Products / Contract / Allotment / Promotions / Rate check', async () => {
+  test('TC-CON-01: A product has the sub-tabs Products / Contract / Allotment / Promotions / Rate check @smoke', async () => {
     await c.openProduct(EMPTY, 'Hotel');
     for (const t of ['Products', 'Contract', 'Allotment', 'Promotions', 'Rate check'] as const) await expect(c.subTab(t)).toBeVisible();
   });

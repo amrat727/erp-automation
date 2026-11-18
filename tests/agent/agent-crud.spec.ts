@@ -1,6 +1,7 @@
 import { test, expect } from '../../fixtures';
 import { Page, Locator, Response } from '@playwright/test';
 import { AgentPage } from '../../pages/AgentPage';
+import { buttonNamed, waitForSave } from '../../pages/FormHelpers';
 
 /*
  * AGENT - end-to-end data flow (REAL saves, approved by the product owner).
@@ -27,7 +28,7 @@ test.describe('Agent: end-to-end data flow', () => {
     a = new AgentPage(page);
   });
 
-  const vbtn = (name: string): Locator => page.locator('main button:visible', { hasText: new RegExp(`^${name.replace(/[()&+−-]/g, '\\$&')}$`) }).first();
+  const vbtn = (name: string): Locator => buttonNamed(page, name);
   const dlg = () => page.getByRole('dialog').last();
   const aedRow = () => page.locator('main tbody tr:visible', { hasText: 'UAE Dirham' }).first();
   const go = async (tab: string) => {
@@ -36,13 +37,7 @@ test.describe('Agent: end-to-end data flow', () => {
     await page.waitForTimeout(2500);
   };
   /** click, wait for the save request, return the reply */
-  const saved = async (click: () => Promise<unknown>, what = /agent/i): Promise<Response> => {
-    const res = page.waitForResponse(r => ['POST', 'PUT', 'PATCH', 'DELETE'].includes(r.request().method()) && what.test(r.url()), { timeout: 60_000 });
-    await click();
-    const r = await res;
-    console.log(`SAVE ${r.request().method()} ${r.url()} -> ${r.status()}`);
-    return r;
-  };
+  const saved = async (click: () => Promise<unknown>, what = /agent/i): Promise<Response> => (await waitForSave(page, click, what, { timeout: 60_000, required: true }))!;
   const setStatus = async (status: 'Approved' | 'On Hold' | 'Blocked') => {
     await go('overview');
     await vbtn('Edit').click();

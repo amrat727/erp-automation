@@ -2,6 +2,7 @@ import { test, expect } from '../../fixtures';
 import { Page, Locator } from '@playwright/test';
 import { blockWrites } from '../../pages/MasterListPage';
 import { SupplierPage } from '../../pages/SupplierPage';
+import { bugShot } from '../../pages/FormHelpers';
 
 /*
  * SUPPLIER BUG EVIDENCE - ONE screenshot per bug, the problem outlined in RED -> screenshots/bugs/
@@ -9,13 +10,7 @@ import { SupplierPage } from '../../pages/SupplierPage';
  * SAFETY: every save is blocked, EXCEPT BUG-43 which creates two "QA Auto Supplier <STAMP> evidence" suppliers
  *         (same approval as supplier-crud.spec.ts) and ALWAYS sets both to Blocked at the end.
  */
-async function shot(page: Page, file: string, ...targets: Locator[]) {
-  for (const t of targets) await t.first().evaluate(el => { (el as HTMLElement).style.outline = '4px solid red'; (el as HTMLElement).style.outlineOffset = '2px'; });
-  await page.waitForTimeout(500);
-  const path = `screenshots/bugs/${file}.png`;
-  await page.screenshot({ path });
-  await test.info().attach(file, { path, contentType: 'image/png' });
-}
+const shot = bugShot;   // shared helper: pages/FormHelpers.ts
 
 test.describe('Supplier bug evidence', () => {
   test.skip(process.env.EVIDENCE !== '1', 'set EVIDENCE=1 to run');

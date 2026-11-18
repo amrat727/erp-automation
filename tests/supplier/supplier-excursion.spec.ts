@@ -2,6 +2,7 @@ import { test, expect } from '../../fixtures';
 import { Page, Response } from '@playwright/test';
 import { blockWrites } from '../../pages/MasterListPage';
 import { ContractPage } from '../../pages/ContractPage';
+import { waitForSave } from '../../pages/FormHelpers';
 
 /*
  * SUPPLIER - Excursion / Private transfer contracts and allotments, and promotion details.
@@ -114,13 +115,7 @@ test.describe('Part B - excursion contract end to end (REAL saves on Testing sea
     } catch (e) { console.log('cleanup failed: ' + e); } finally { await page.close(); }
   });
 
-  const saved = async (click: () => Promise<unknown>, what: RegExp): Promise<Response | null> => {
-    const res = page.waitForResponse(r => ['POST', 'PUT'].includes(r.request().method()) && what.test(r.url()), { timeout: 30_000 }).catch(() => null);
-    await click();
-    const r = await res;
-    if (r) console.log(`SAVE ${r.request().method()} ${r.url()} -> ${r.status()} ${r.ok() ? '' : (await r.text().catch(() => '')).slice(0, 200)}`);
-    return r;
-  };
+  const saved = (click: () => Promise<unknown>, what: RegExp) => waitForSave(page, click, what, { methods: ['POST', 'PUT'] });
 
   test(`TC-EXCC-01: Create "${NAME}" (AED, 1 pax-band rate: Jungle Safari, adult 100)`, async () => {
     await c.openAddContract(SUP, 'Excursion');

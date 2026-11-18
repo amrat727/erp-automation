@@ -1,6 +1,7 @@
 import { test, expect } from '../../fixtures';
 import { blockWrites } from '../../pages/MasterListPage';
 import { AgentPage } from '../../pages/AgentPage';
+import { BASE_URL } from '../../env';
 
 /*
  * AGENT - screen checks (READ-ONLY: every save is blocked, real agents are never changed).
@@ -14,7 +15,7 @@ test.beforeEach(async ({ page }) => { blocked = await blockWrites(page); a = new
 
 // ======================= LIST =======================
 test.describe('Agent list', () => {
-  test('TC-AGT-01: Opens from the menu "Agent" at /agents', async ({ page }) => {
+  test('TC-AGT-01: Opens from the menu "Agent" at /agents @smoke', async ({ page }) => {
     await page.goto('/dashboard');
     await page.locator('nav, aside').first().getByRole('button', { name: 'Agent', exact: true }).first().click({ timeout: 90_000 });
     await expect(page).toHaveURL(/\/agents$/, { timeout: 60_000 });
@@ -144,7 +145,7 @@ test.describe('Agent list', () => {
 
   test('TC-AGT-17: Opening /agents while logged out goes to the login page', async ({ browser }) => {
     const page = await browser.newPage();
-    await page.goto('https://erp.nexgenpilot.com/agents');
+    await page.goto(`${BASE_URL}/agents`);
     await expect(page).toHaveURL(/login/, { timeout: 60_000 });
     await page.close();
   });

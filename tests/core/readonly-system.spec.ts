@@ -14,7 +14,7 @@ const todayAs = (opts: Intl.DateTimeFormatOptions) => new Date().toLocaleDateStr
 
 // ======================= CONFIGURATIONS =======================
 test.describe('Configurations', () => {
-  test('TC-CFG-01: Opens from menu Core > System > Configurations with Date & Time section', async ({ page }) => {
+  test('TC-CFG-01: Opens from menu Core > System > Configurations with Date & Time section @smoke', async ({ page }) => {
     await page.goto('/dashboard');
     for (const b of ['Core', 'System', 'Configurations']) await page.getByRole('button', { name: b, exact: true }).click({ timeout: 60_000 });
     await expect(page).toHaveURL(/\/system\/configurations$/);
@@ -155,7 +155,7 @@ test.describe('Users', () => {
     return dlg;
   };
 
-  test('TC-USR-01: Opens from menu Core > System > User; list shows the admin user', async ({ page }) => {
+  test('TC-USR-01: Opens from menu Core > System > User; list shows the admin user @smoke', async ({ page }) => {
     await page.goto('/dashboard');
     for (const b of ['Core', 'System', 'User']) await page.getByRole('button', { name: b, exact: true }).click({ timeout: 60_000 });
     await expect(page).toHaveURL(/\/users$/);

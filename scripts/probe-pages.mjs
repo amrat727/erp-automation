@@ -26,7 +26,7 @@ const PAGES = [
 ];
 const session = fs.readFileSync('playwright/.auth/session.json', 'utf-8');
 const browser = await chromium.launch();
-const ctx = await browser.newContext({ baseURL: 'https://erp.nexgenpilot.com' });
+const ctx = await browser.newContext({ baseURL: process.env.BASE_URL ?? 'https://erp.nexgenpilot.com' });
 await ctx.addInitScript(d => { if (!sessionStorage.getItem('token')) for (const [k, v] of Object.entries(JSON.parse(d))) sessionStorage.setItem(k, v); }, session);
 await ctx.route('**/pilottest.runasp.net/**', r => ['POST', 'PUT', 'DELETE', 'PATCH'].includes(r.request().method()) && !r.request().url().includes('negotiate') ? r.abort() : r.continue());
 const out = [];

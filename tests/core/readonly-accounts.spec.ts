@@ -26,7 +26,7 @@ test.describe('Journals', () => {
     return dlg;
   };
 
-  test('TC-JRN-01: Opens from menu Core > Accounts > Transactions > Journals', async ({ page }) => {
+  test('TC-JRN-01: Opens from menu Core > Accounts > Transactions > Journals @smoke', async ({ page }) => {
     await page.goto('/dashboard');
     for (const b of ['Core', 'Accounts', 'Transactions', 'Journals']) await page.getByRole('button', { name: b, exact: true }).click({ timeout: 60_000 });
     await expect(page).toHaveURL(/\/journals$/);

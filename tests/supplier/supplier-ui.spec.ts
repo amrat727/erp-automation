@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }) => { blocked = await blockWrites(page); s = new
 
 // ======================= LIST =======================
 test.describe('Supplier list', () => {
-  test('TC-SUP-01: Opens from the menu "Supplier" at /suppliers', async ({ page }) => {
+  test('TC-SUP-01: Opens from the menu "Supplier" at /suppliers @smoke', async ({ page }) => {
     await page.goto('/dashboard');
     await page.locator('nav, aside').first().getByRole('button', { name: 'Supplier', exact: true }).click({ timeout: 90_000 });
     await expect(page).toHaveURL(/\/suppliers$/);

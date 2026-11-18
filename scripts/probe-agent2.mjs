@@ -5,7 +5,7 @@ const DIR = process.argv[2] ?? 'agent-probe';
 fs.mkdirSync(DIR, { recursive: true });
 const session = fs.readFileSync('playwright/.auth/session.json', 'utf-8');
 const browser = await chromium.launch();
-const ctx = await browser.newContext({ baseURL: 'https://erp.nexgenpilot.com', viewport: { width: 1500, height: 950 } });
+const ctx = await browser.newContext({ baseURL: process.env.BASE_URL ?? 'https://erp.nexgenpilot.com', viewport: { width: 1500, height: 950 } });
 await ctx.addInitScript(d => { if (!sessionStorage.getItem('token')) for (const [k, v] of Object.entries(JSON.parse(d))) sessionStorage.setItem(k, v); }, session);
 const sent = [];
 await ctx.route('**/pilottest.runasp.net/**', r => { const m = r.request().method(); if (['POST','PUT','DELETE','PATCH'].includes(m) && !r.request().url().includes('negotiate')) { sent.push(`${m} ${r.request().url()}`); return r.abort(); } return r.continue(); });

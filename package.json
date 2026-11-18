@@ -4,8 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "bug-report": "node scripts/bug-report.js"
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:readonly": "playwright test ui.spec forms.spec consistency.spec readonly- special-screens",
+    "test:login": "playwright test --project=login",
+    "test:core": "playwright test --project=core",
+    "test:supplier": "playwright test --project=supplier",
+    "test:agent": "playwright test --project=agent",
+    "test:consistency": "playwright test --project=consistency",
+    "test:failed": "playwright test --last-failed",
+    "evidence": "node scripts/run-evidence.js",
+    "bug-report": "node scripts/bug-report.js",
+    "report": "playwright show-report",
+    "typecheck": "tsc -p .",
+    "clean": "node -e \"for (const d of require('fs').readdirSync('.')) if (/^test-results/.test(d) || d === 'playwright-report') require('fs').rmSync(d, { recursive: true, force: true })\""
   },
   "keywords": [],
   "author": "",
@@ -14,6 +26,7 @@
     "@playwright/test": "^1.65.1",
     "@types/node": "^18.19.130",
     "dotenv": "^16.4.5",
-    "exceljs": "^4.4.0"
+    "exceljs": "^4.4.0",
+    "typescript": "^5.6.3"
   }
 }

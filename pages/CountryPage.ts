@@ -1,6 +1,7 @@
 import { Page, Locator, expect } from '@playwright/test';
+import { API_URL } from '../env';
 
-const API = 'https://pilottest.runasp.net/core/region/countries';
+const API = `${API_URL}/core/region/countries`;
 
 /** Page Object for Core > Region > Country (/countries) */
 export class CountryPage {

@@ -6,7 +6,7 @@ import fs from 'fs';
 const q = process.argv[2] ?? 'QA Auto Supplier';
 const session = fs.readFileSync('playwright/.auth/session.json', 'utf-8');
 const browser = await chromium.launch();
-const page = await browser.newPage({ baseURL: 'https://erp.nexgenpilot.com' });
+const page = await browser.newPage({ baseURL: process.env.BASE_URL ?? 'https://erp.nexgenpilot.com' });
 await page.addInitScript(d => { if (!sessionStorage.getItem('token')) for (const [k, v] of Object.entries(JSON.parse(d))) sessionStorage.setItem(k, v); }, session);
 await page.route('**/pilottest.runasp.net/**', r => ['POST', 'PUT', 'DELETE', 'PATCH'].includes(r.request().method()) && !r.request().url().includes('negotiate') ? r.abort() : r.continue());
 await page.goto('/suppliers');

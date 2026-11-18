@@ -2,19 +2,14 @@ import { test, expect } from '../../fixtures';
 import { Page, Locator } from '@playwright/test';
 import { blockWrites } from '../../pages/MasterListPage';
 import { ContractPage, ContractsListPage } from '../../pages/ContractPage';
+import { bugShot } from '../../pages/FormHelpers';
 
 /*
  * CONTRACT BUG EVIDENCE - ONE screenshot per bug, the problem outlined in RED -> screenshots/bugs/
  * Only runs when asked:   $env:EVIDENCE='1'; npx playwright test --project=supplier contract-bug-evidence
  * SAFETY: every save is blocked (the red "Pilot can't be reached" banner only appears because of that).
  */
-async function shot(page: Page, file: string, ...targets: Locator[]) {
-  for (const t of targets) await t.first().evaluate(el => { (el as HTMLElement).style.outline = '4px solid red'; (el as HTMLElement).style.outlineOffset = '2px'; });
-  await page.waitForTimeout(500);
-  const path = `screenshots/bugs/${file}.png`;
-  await page.screenshot({ path });
-  await test.info().attach(file, { path, contentType: 'image/png' });
-}
+const shot = bugShot;   // shared helper: pages/FormHelpers.ts
 
 test.describe('Contract bug evidence', () => {
   test.skip(process.env.EVIDENCE !== '1', 'set EVIDENCE=1 to run');

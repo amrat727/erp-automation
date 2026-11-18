@@ -1,0 +1,85 @@
+# ERP regression on GitHub Actions
+#  - every push / pull request : type-check + list all tests (fast, no ERP login)
+#  - every night 02:00 IST     : read-only suites (saves blocked - nothing in the ERP changes)
+#  - "Run workflow" button     : pick any suite, including the ones that save QA data
+#
+# Needs these repository secrets (Settings > Secrets and variables > Actions):
+#   ERP_COMPANY_CODE, ERP_USERNAME, ERP_PASSWORD      (optional: BASE_URL, API_HOST)
+name: ERP regression
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '30 20 * * *'          # 20:30 UTC = 02:00 IST
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: 'Which tests'
+        type: choice
+        default: readonly
+        options: [smoke, readonly, login, core, supplier, agent, consistency, all]
+
+concurrency:
+  group: erp-regression          # one run at a time - they share the same test server and data
+  cancel-in-progress: false
+
+jobs:
+  check:
+    name: Type-check and list tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npx playwright test --list | tail -1
+
+  regression:
+    name: Regression (${{ github.event.inputs.suite || 'readonly' }})
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    needs: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    env:
+      CI: 'true'
+      ERP_COMPANY_CODE: ${{ secrets.ERP_COMPANY_CODE }}
+      ERP_USERNAME: ${{ secrets.ERP_USERNAME }}
+      ERP_PASSWORD: ${{ secrets.ERP_PASSWORD }}
+      BASE_URL: ${{ secrets.BASE_URL }}
+      API_HOST: ${{ secrets.API_HOST }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Check the login secrets exist
+        run: |
+          for v in ERP_COMPANY_CODE ERP_USERNAME ERP_PASSWORD; do
+            if [ -z "${!v}" ]; then echo "::error::Repository secret $v is missing"; exit 1; fi
+          done
+      - name: Run tests
+        run: |
+          SUITE="${{ github.event.inputs.suite || 'readonly' }}"
+          case "$SUITE" in
+            all) npm test ;;
+            *)   npm run "test:$SUITE" ;;
+          esac
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ github.run_number }}
+          path: playwright-report/
+          retention-days: 14
+      - name: Upload failure traces
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ github.run_number }}
+          path: test-results/
+          retention-days: 7

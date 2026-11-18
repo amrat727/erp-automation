@@ -18,7 +18,7 @@ test.beforeEach(async ({ page }) => {
 test.describe('Country list - UI', () => {
   test.beforeEach(async () => { await country.open(); });
 
-  test('TC-CTRY-01: Open Country via menu Core > Region > Country', async ({ page }) => {
+  test('TC-CTRY-01: Open Country via menu Core > Region > Country @smoke', async ({ page }) => {
     await country.openViaMenu();
     await expect(page).toHaveURL(/\/countries$/);
     await expect(country.heading).toBeVisible();

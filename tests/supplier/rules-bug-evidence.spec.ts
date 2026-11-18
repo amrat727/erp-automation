@@ -3,19 +3,14 @@ import { Page, Locator } from '@playwright/test';
 import { blockWrites } from '../../pages/MasterListPage';
 import { ContractPage } from '../../pages/ContractPage';
 import { ProductPage } from '../../pages/ProductPage';
+import { bugShot } from '../../pages/FormHelpers';
 
 /*
  * BUG EVIDENCE for the product owner's supplier rules (round 2) and the product screens - one screenshot per bug -> screenshots/bugs/
  * Only runs when asked:   $env:EVIDENCE='1'; npx playwright test --project=supplier rules-bug-evidence
  * SAFETY: every save is blocked. Screens with saved data show what supplier-rules2 / product-crud already saved (QA data only).
  */
-async function shot(page: Page, file: string, ...targets: Locator[]) {
-  for (const t of targets) await t.first().evaluate(el => { (el as HTMLElement).style.outline = '4px solid red'; (el as HTMLElement).style.outlineOffset = '2px'; }).catch(() => {});
-  await page.waitForTimeout(500);
-  const path = `screenshots/bugs/${file}.png`;
-  await page.screenshot({ path });
-  await test.info().attach(file, { path, contentType: 'image/png' });
-}
+const shot = bugShot;   // shared helper: pages/FormHelpers.ts
 const SUP = 18;
 
 test.describe('Rules round 2 - bug evidence', () => {

@@ -2,6 +2,7 @@ import { test, expect } from '../../fixtures';
 import { Page, Locator, Response } from '@playwright/test';
 import { blockWrites } from '../../pages/MasterListPage';
 import { AgentPage } from '../../pages/AgentPage';
+import { buttonNamed, waitForSave } from '../../pages/FormHelpers';
 
 /*
  * AGENT BUSINESS RULES - the product owner's answers in reports/Agent-Questions/Agent-Questions.xlsx (17-Nov-2026).
@@ -11,7 +12,7 @@ import { AgentPage } from '../../pages/AgentPage';
 const STAMP = process.env.RUN_STAMP!;
 const AG = '/agents/2';
 
-const vbtn = (page: Page, name: string): Locator => page.locator('main button:visible', { hasText: new RegExp(`^${name.replace(/[()&+−-]/g, '\\$&')}$`) }).first();
+const vbtn = (page: Page, name: string): Locator => buttonNamed(page, name);
 const nextWrite = (page: Page, what: RegExp, ms = 12_000) =>
   page.waitForRequest(r => ['POST', 'PUT', 'PATCH', 'DELETE'].includes(r.method()) && what.test(r.url()), { timeout: ms }).catch(() => null);
 const openTab = async (page: Page, path: string) => {
@@ -95,13 +96,7 @@ test.describe('Part B - rules the server decides (REAL saves on a QA agent)', ()
     a = new AgentPage(page);
   });
 
-  const saved = async (click: () => Promise<unknown>, what = /agent/i): Promise<Response | null> => {
-    const res = page.waitForResponse(r => ['POST', 'PUT', 'PATCH', 'DELETE'].includes(r.request().method()) && what.test(r.url()), { timeout: 20_000 }).catch(() => null);
-    await click();
-    const r = await res;
-    if (r) console.log(`SAVE ${r.request().method()} ${r.url()} -> ${r.status()}`);
-    return r;
-  };
+  const saved = (click: () => Promise<unknown>, what = /agent/i) => waitForSave(page, click, what, { timeout: 20_000 });
   const dlg = () => page.getByRole('dialog').last();
   const create = async (name: string, email: string) => {
     await a.openAdd();

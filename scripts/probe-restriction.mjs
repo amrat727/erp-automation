@@ -9,7 +9,7 @@ const out = {};
 const clean = s => s.replace(/[​]/g, '').replace(/\n{2,}/g, '\n').trim();
 const session = fs.readFileSync('playwright/.auth/session.json', 'utf-8');
 const browser = await chromium.launch();
-const ctx = await browser.newContext({ baseURL: 'https://erp.nexgenpilot.com', viewport: { width: 1400, height: 900 } });
+const ctx = await browser.newContext({ baseURL: process.env.BASE_URL ?? 'https://erp.nexgenpilot.com', viewport: { width: 1400, height: 900 } });
 await ctx.addInitScript(d => { if (!sessionStorage.getItem('token')) for (const [k, v] of Object.entries(JSON.parse(d))) sessionStorage.setItem(k, v); }, session);
 let allowOneWrite = false;
 const sent = [];

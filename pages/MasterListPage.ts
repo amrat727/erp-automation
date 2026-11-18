@@ -1,4 +1,5 @@
 import { Page, Locator, expect } from '@playwright/test';
+import { API_HOST } from '../env';
 
 /**
  * ONE page object for ALL master-data list screens (Country, State, City, ...).
@@ -118,7 +119,7 @@ export class MasterListPage {
 /** Block every save/update/delete request -> the test can NEVER change data. */
 export async function blockWrites(page: Page, allow?: RegExp): Promise<string[]> {
   const blocked: string[] = [];
-  await page.route('**/pilottest.runasp.net/**', route => {
+  await page.route(`**/${API_HOST}/**`, route => {
     const r = route.request();
     // `allow` = read-only POSTs that save nothing (e.g. the contract "rate-quote" price check)
     if (['POST', 'PUT', 'DELETE', 'PATCH'].includes(r.method()) && !/negotiate|\/auth\//.test(r.url()) && !(allow && allow.test(r.url()))) {

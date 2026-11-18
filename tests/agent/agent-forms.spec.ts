@@ -2,6 +2,7 @@ import { test, expect } from '../../fixtures';
 import { Page, Locator } from '@playwright/test';
 import { blockWrites } from '../../pages/MasterListPage';
 import { AgentPage } from '../../pages/AgentPage';
+import { buttonNamed } from '../../pages/FormHelpers';
 
 /*
  * AGENT - every button and dialog that was not yet covered by agent-ui.spec.ts.
@@ -13,7 +14,7 @@ let a: AgentPage;
 test.beforeEach(async ({ page }) => { blocked = await blockWrites(page); a = new AgentPage(page); });
 
 /** a visible button by its exact text (the app keeps hidden copies of pages) */
-const vbtn = (page: Page, name: string): Locator => page.locator('main button:visible', { hasText: new RegExp(`^${name.replace(/[()&+]/g, '\\$&')}$`) }).first();
+const vbtn = (page: Page, name: string): Locator => buttonNamed(page, name);
 const dlg = (page: Page) => page.getByRole('dialog').last();
 const go = async (page: Page, path: string) => {
   await page.goto(path);

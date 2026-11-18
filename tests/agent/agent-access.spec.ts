@@ -1,6 +1,7 @@
 import { test, expect } from '../../fixtures';
 import { Page, Locator, Response } from '@playwright/test';
 import { AgentPage } from '../../pages/AgentPage';
+import { buttonNamed, openDialog, waitForSave } from '../../pages/FormHelpers';
 
 /*
  * AGENT ACCESS + remaining ledger actions - REAL saves on a new "QA Auto Agent <STAMP> access" (always Blocked at the end).
@@ -24,8 +25,8 @@ test.describe('Agent: access settings and ledger', () => {
     a = new AgentPage(page);
   });
 
-  const vbtn = (name: string, scope?: Locator): Locator => (scope ?? page.locator('main')).locator('button:visible', { hasText: new RegExp(`^${name.replace(/[()&+]/g, '\\$&')}$`) }).first();
-  const dlg = () => page.locator('.MuiDialog-paper:visible').last();   // the dialog body (role=dialog only wraps the title here)
+  const vbtn = (name: string, scope?: Locator): Locator => buttonNamed(scope ?? page, name);
+  const dlg = () => openDialog(page);
   const ensureUrl = async () => {
     if (url) return;
     await a.open(); await a.search(NAME);
@@ -37,13 +38,7 @@ test.describe('Agent: access settings and ledger', () => {
     await ensureUrl(); await page.goto(`${url}/${t}`); await expect(page.getByRole('tab', { name: 'Overview', exact: true }).first()).toBeVisible({ timeout: 90_000 }); await page.waitForTimeout(2500); };
   /** the card of a section on the Access tab, e.g. section('Portal menus') */
   const section = (title: string) => page.locator('main :visible').getByText(title, { exact: true }).first().locator('xpath=ancestor::*[.//button[normalize-space()="Edit"]][1]');
-  const saved = async (click: () => Promise<unknown>, what = /agent/i): Promise<Response | null> => {
-    const res = page.waitForResponse(r => ['POST', 'PUT', 'PATCH', 'DELETE'].includes(r.request().method()) && what.test(r.url()), { timeout: 30_000 }).catch(() => null);
-    await click();
-    const r = await res;
-    if (r) console.log(`SAVE ${r.request().method()} ${r.url()} -> ${r.status()}`);
-    return r;
-  };
+  const saved = (click: () => Promise<unknown>, what = /agent/i) => waitForSave(page, click, what);
 
   test.afterAll(async () => {
     test.setTimeout(300_000);

@@ -1,6 +1,7 @@
 import { test, expect } from '../../fixtures';
 import { Locator, Page, Response } from '@playwright/test';
 import { MasterListPage, deactivateTestRecords } from '../../pages/MasterListPage';
+import { API_HOST } from '../../env';
 
 /*
  * END-TO-END DATA FLOW - the SAME scenarios for every master-data screen
@@ -30,7 +31,7 @@ export type Flow = {
 };
 
 const isWrite = (method: string) => (r: Response) =>
-  r.request().method() === method && r.url().includes('pilottest.runasp.net') && !r.url().includes('negotiate');
+  r.request().method() === method && r.url().includes(API_HOST) && !r.url().includes('negotiate');
 
 export function crudSuite(flows: Flow[]) {
   for (const f of flows) {

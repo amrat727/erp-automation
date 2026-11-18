@@ -19,7 +19,7 @@ test.beforeEach(async ({ page }) => {
 
 // ---------------- UI ----------------
 test.describe('UI', () => {
-  test('TC-LOGIN-01: All login page elements are visible', async ({ page }) => {
+  test('TC-LOGIN-01: All login page elements are visible @smoke', async ({ page }) => {
     await expect(page).toHaveTitle('Pilot');
     await expect(page.getByText('Company code')).toBeVisible();
     await expect(login.companyCode).toBeVisible();
