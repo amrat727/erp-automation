@@ -268,7 +268,7 @@ test.describe(`Reservation - ${R3.ref}`, () => {
   test('TC-RES-28: History shows readable values (no raw JSON, no internal ids)', async ({ page }) => {
     await tab(page, 'History').click();
     await expect(page.locator('main').getByText(/created itinerary item/).first()).toBeVisible({ timeout: 20_000 });
-    test.fail(true, 'RES-BUG-2: History shows raw JSON ("itemId":"PILOT.17.11.HB...","providerBookingId":null...) and "Reservation -9223372036854774807"');
+    test.fail(true, 'BUG-109: History shows raw JSON ("itemId":"PILOT.17.11.HB...","providerBookingId":null...) and "Reservation -9223372036854774807"');
     await expect(page.locator('main').getByText(/"itemId"|-9223372036854\d+/)).toHaveCount(0);
   });
 

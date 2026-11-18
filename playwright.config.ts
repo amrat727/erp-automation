@@ -46,6 +46,8 @@ export default defineConfig({
     { name: 'package', testDir: './tests/package', dependencies: ['setup'], use: wide },
     { name: 'quotes', testDir: './tests/quotes', dependencies: ['setup'], use: wide },
     { name: 'reservation', testDir: './tests/reservation', dependencies: ['setup'], use: wide },
+    { name: 'crm', testDir: './tests/crm', dependencies: ['setup'], use: wide },           // Enquiries, Amendment Requests, Feedback
+    { name: 'insights', testDir: './tests/insights', dependencies: ['setup'], use: wide },  // Dashboard, Reports, Playground
     // 4) cross-module: every module must Add / Edit / Deactivate and show errors the way Core does
     { name: 'consistency', testDir: './tests/consistency', dependencies: ['setup'], use: wide },
   ],
