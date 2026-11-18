@@ -12,6 +12,7 @@
     "test:supplier": "playwright test --project=supplier",
     "test:agent": "playwright test --project=agent",
     "test:consistency": "playwright test --project=consistency",
+    "test:modules": "playwright test --project=contracts --project=package --project=quotes --project=reservation --project=crm --project=insights --project=portal-cms",
     "test:failed": "playwright test --last-failed",
     "evidence": "node scripts/run-evidence.js",
     "bug-report": "node scripts/bug-report.js",
