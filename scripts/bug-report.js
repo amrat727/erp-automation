@@ -12,7 +12,7 @@ const ROOT = path.join(__dirname, '..');
 const SHOTS = path.join(ROOT, 'screenshots', 'bugs');
 const OUT_DIR = path.join(ROOT, 'reports', 'ERP-Bug-Report');   // xlsx + screenshots/ (zip this folder to share)
 const REPORTED_BY = 'QA Automation (Playwright)';
-const DATE = '16-Nov-2026';
+const DATE = '19-Nov-2026';
 const ENV = 'https://erp.nexgenpilot.com  |  company "sb" (Sandbox)  |  user sahil  |  app v1.0.2  |  Chrome';
 
 // sev: High = data wrong / lost, Medium = feature missing or misleading, Low = wording / cosmetic
@@ -275,6 +275,84 @@ const BUGS = [
   { id: "BUG-80", mod: "Supplier", screen: "Supplier list / Add supplier", type: "Validation", sev: "Medium",
     title: "Supplier names are saved with spaces before / after the name (not trimmed) and sort before \"A\"",
     steps: "1. Add supplier with the name \"   QA Auto Supplier X   \" (spaces around)\n2. Supplier list > sort by Name", expected: "The name is saved trimmed (\"QA Auto Supplier X\") and sorts under Q", actual: "Saved as \"   QA Auto Supplier X edited   \" and listed before \"Ace Travels\"; real data also has \"Amrat Testing Partner \" with a trailing space", tc: "TC-SUP-14" },
+  { id: "BUG-81", mod: "Supplier", screen: "Supplier list", type: "UI consistency", sev: "Low",
+    title: "List button says \"Add supplier\" (small s) - every other module says \"Add <Entity>\" (\"Add Country\", \"Add Agent\", \"Add Quote\")",
+    steps: "1. Open Supplier", expected: "Button \"Add Supplier\", like the Core standard", actual: "Button \"Add supplier\"", tc: "TC-CONS-Supplier-01" },
+  { id: "BUG-82", mod: "Package", screen: "Package list", type: "UI consistency", sev: "Low",
+    title: "Package list button says \"Add New\" instead of \"Add Package\"",
+    steps: "1. Open Package", expected: "Button \"Add Package\"", actual: "Button \"Add New\"", tc: "TC-CONS-Package-01" },
+  { id: "BUG-83", mod: "Enquiries", screen: "Enquiries list", type: "UI consistency", sev: "Medium",
+    title: "Enquiries list is built differently from every other list (button, search, empty message, paging)",
+    steps: "1. Open Enquiries\n2. Look at the toolbar, the search and the empty list", expected: "Same list as Core standard (Country, State ...): \"Add Enquiry\", a Search box per column, \"There are no records in Enquiry\", \"1–10 of N\" paging", actual: "Button \"New enquiry\", one search box above the table, empty text \"No open enquiries.\", no paging", tc: "TC-CONS-Enquiry-01..05" },
+  { id: "BUG-84", mod: "Contracts", screen: "Contracts list (menu Contracts)", type: "UI consistency", sev: "Medium",
+    title: "Contracts list has no \"Add Contract\", no \"Audit history\" / \"Columns\" and no column search",
+    steps: "1. Open Contracts", expected: "Toolbar \"Add Contract\", \"Audit history\", \"Columns\" and a Search box per column, like Core standard (Country, State ...)", actual: "None of them - only filters above the table", tc: "TC-CONS-Contract-01..04" },
+  { id: "BUG-85", mod: "Agent / Package", screen: "Agent list, Package list", type: "UI consistency", sev: "Medium",
+    title: "Agent and Package lists have no \"Audit history\" button (Core, Supplier, Quotes, Reservation have it)",
+    steps: "1. Open Agent\n2. Open Package", expected: "An \"Audit history\" button next to \"Columns\"", actual: "Only \"Columns\"", tc: "TC-CONS-Agent-02, TC-CONS-Package-02" },
+  { id: "BUG-86", mod: "Company", screen: "Company list", type: "UI consistency", sev: "Low",
+    title: "Company list has no column search and no paging",
+    steps: "1. Open Company", expected: "A Search box per column and \"1–N of N\" paging like the other lists", actual: "Neither", tc: "TC-CONS-Company-03..05" },
+  { id: "BUG-87", mod: "Supplier / Agent", screen: "Status filter", type: "UI consistency", sev: "Low",
+    title: "Same status written two ways: Supplier \"On hold\", Agent \"On Hold\"",
+    steps: "1. Supplier list > Status filter\n2. Agent list > Status filter", expected: "The same words in both: All / Approved / On hold / Blocked", actual: "Supplier \"On hold\", Agent \"On Hold\"", tc: "TC-CONS-STATUS-01" },
+  { id: "BUG-88", mod: "Quotes / Reservation", screen: "Active filter", type: "UI consistency", sev: "Low",
+    title: "Active filter says \"Inactive\" in Quotes and Reservation but \"Deactive\" in Core and Package",
+    steps: "1. Quotes > Active filter\n2. Countries > Active filter", expected: "One word everywhere (correct English: \"Inactive\")", actual: "Quotes / Reservation \"Inactive\", Core / Package \"Deactive\"", tc: "TC-CONS-STATUS-02" },
+  { id: "BUG-89", mod: "Supplier / Agent / Quotes / Reservation", screen: "Add forms (full page)", type: "Error-message consistency", sev: "Low",
+    title: "Full-page Add forms show an extra popup \"Please fix the highlighted fields.\" - Core forms show only the message under each field",
+    steps: "1. Add supplier / Add Agent / Add Quote / Add Reservation\n2. Save with nothing filled", expected: "Only \"<Field> is required\" under each mandatory field (Core pattern)", actual: "Field messages PLUS a popup \"Please fix the highlighted fields.\"", tc: "TC-CONS-*-03" },
+  { id: "BUG-90", mod: "Supplier / Agent / Reservation / Portal CMS", screen: "Mandatory-field messages", type: "Error-message consistency", sev: "Medium",
+    title: "Mandatory-field messages are worded differently from \"<Field> is required\"",
+    steps: "1. Save each Add form empty", expected: "\"<Field> is required\" for every mandatory field (Core: \"Name is required\")", actual: "Supplier City: \"Choose a city.\"; Agent: \"Agent Name is required\", \"Select a default currency\"; Reservation field \"Travel Dates\": \"Arrival Date is required\"; Portal CMS checkout field: \"Give the field a label.\"", tc: "TC-CONS-*-02" },
+  { id: "BUG-91", mod: "Supplier", screen: "Products > Add room", type: "Error-message consistency", sev: "Low",
+    title: "Add room lists its errors as a numbered banner (\"Some fields need attention: 1. Enter a room name. 2. Select a view.\") with different wording",
+    steps: "1. Testing season 3 > Products > Hotel > Add room\n2. Create product with nothing filled", expected: "\"Room name is required\" / \"View is required\" under the fields only", actual: "\"2 problems to fix\", numbered banner and \"Enter a room name.\" / \"Select a view.\"", tc: "TC-CONS-SupplierAddroom-02/03" },
+  { id: "BUG-92", mod: "Agent", screen: "Financials > Add currency, Add top-up", type: "Error-message consistency", sev: "Medium",
+    title: "Agent \"Add currency\" and \"Add top-up\" show only a banner - the field gets no message and is not marked red",
+    steps: "1. Agent AG-00006 > Financials > Add currency > Add (empty)\n2. Add top-up > Save (empty)", expected: "\"Currency is required\" / \"Amount is required\" under the field, field red", actual: "Only a banner \"Please select a currency.\" / \"Enter an amount greater than zero.\"", tc: "TC-CONS-AgentAddcurrency, TC-CONS-AgentAddwallettopup" },
+  { id: "BUG-93", mod: "Portal CMS", screen: "Sponsored offers, Deal cards, Login slider, Storefront", type: "Error-message consistency", sev: "Medium",
+    title: "Portal CMS forms show one banner for the first missing field (\"Give the offer a heading.\") - fields are not marked",
+    steps: "1. Portal CMS > Sponsored offers > New offer\n2. Save and publish with nothing filled", expected: "\"Heading is required\", \"Image is required\" under the fields", actual: "One banner \"Give the offer a heading.\"; Image not mentioned; no field red", tc: "TC-CONS-PortalCMSNewoffer-02/03" },
+  { id: "BUG-94", mod: "Portal CMS", screen: "Documents > New document", type: "Validation", sev: "High",
+    title: "An EMPTY document (no Name, which is mandatory) is sent to the server",
+    steps: "1. Portal CMS > Documents > New document\n2. Save and publish with nothing filled", expected: "\"Name is required\"; nothing is sent", actual: "The request is sent (POST /core/portal-content); no field message", tc: "TC-CONS-PortalCMSNewdocument-01" },
+  { id: "BUG-95", mod: "Supplier / Agent", screen: "Supplier list, Agent list", type: "Functional consistency", sev: "Medium",
+    title: "Supplier and Agent cannot be deactivated like Core records (no Active switch + \"Deactivate ...?\" popup) - only Status = Blocked inside Edit",
+    steps: "1. Open Supplier list / Agent list", expected: "An Active switch per row with the \"Deactivate supplier?\" confirmation, as in Core standard (Country, State ...)", actual: "No switch; deactivation = Edit > Status Blocked, with no confirmation", tc: "TC-CONS-DEACT-supplier, TC-CONS-DEACT-agent" },
+  { id: "BUG-96", mod: "Supplier", screen: "Products > Contract > Add contract", type: "Business rule", sev: "High",
+    title: "A contract without prices cannot be saved as Draft, although the screen says \"The contract saves as a draft\"",
+    steps: "1. Testing season 3 > Hotel > Contract > Add contract\n2. Name, BB, AED, add one season, no prices\n3. Save", expected: "Saved as Draft (product owner, S-09); prices are only needed to approve", actual: "\"1 problem to fix: Price every room in every season — 4 prices missing\"; nothing is saved", tc: "TC-R3-01" },
+  { id: "BUG-97", mod: "Supplier", screen: "Supplier status / contract approval", type: "Business rule", sev: "High",
+    title: "Contracts of an On hold supplier can be approved (9 approved on \"Testing season 3\", status On hold)",
+    steps: "1. Testing season 3 (On hold) > Hotel > Contract\n2. Submit for approval > Approve", expected: "Approval refused until the supplier is Approved (product owner, S3-01)", actual: "Approved - the list shows 9 Approved contracts", tc: "TC-R3-03" },
+  { id: "BUG-98", mod: "Supplier", screen: "Products > Promotions > Add promotion", type: "Missing feature", sev: "Medium",
+    title: "Promotion has only a \"Combinable\" switch - no choice of WHICH promotions it combines with and no cumulative / non-cumulative option",
+    steps: "1. Testing season 3 > Hotel > Promotions > Add promotion", expected: "A field to pick the promotions to combine with, and a cumulative / non-cumulative choice (product owner, S3-05)", actual: "Only a \"Combinable\" on / off switch", tc: "TC-R3-04" },
+  { id: "BUG-99", mod: "Supplier", screen: "Products > Contract > Add contract", type: "Missing feature", sev: "Medium",
+    title: "The contract has no tax fields (VAT, tourism fee, \"rates include tax\")",
+    steps: "1. Testing season 3 > Hotel > Contract > Add contract", expected: "Tax settings on the contract (product owner, S3-10)", actual: "No tax field anywhere on the contract", tc: "TC-R3-05" },
+  { id: "BUG-100", mod: "Contracts", screen: "Contracts list > supplier filter", type: "UI", sev: "Low",
+    title: "The \"All suppliers\" filter lists the same supplier several times",
+    steps: "1. Open Contracts\n2. Open the supplier filter", expected: "Each supplier once", actual: "\"QA Auto Supplier KSQMVL edited\" twice, \"QA Auto Supplier TKTLSP edited\" three times", tc: "TC-CTM-12" },
+  { id: "BUG-101", mod: "Contracts", screen: "Contracts list > Valid column", type: "UI", sev: "Low",
+    title: "The \"Valid\" column shows dates without a year (\"15 Oct – 14 Oct\") - the end looks earlier than the start",
+    steps: "1. Open Contracts\n2. Look at \"Valid\"", expected: "\"15 Oct 2026 – 14 Oct 2027\"", actual: "\"15 Oct – 14 Oct\"", tc: "TC-CTM-13" },
+  { id: "BUG-102", mod: "Contracts", screen: "Contracts list > row click", type: "Functional", sev: "Medium",
+    title: "Clicking a contract opens the supplier's \"Choose a product type\" page instead of that contract",
+    steps: "1. Open Contracts\n2. Click a contract row", expected: "That contract opens", actual: "The supplier's Products page (\"Choose a product type\") opens", tc: "TC-CTM-15" },
+  { id: "BUG-103", mod: "Contracts", screen: "Contracts list > Roll over", type: "Validation", sev: "Medium",
+    title: "Roll over accepts a price change of 250% (hint says -50 to 200) with no field error and sends it",
+    steps: "1. Contracts > select a contract > Roll over\n2. Price change 250%\n3. Continue", expected: "Field error \"between -50 and 200\"; nothing sent", actual: "No error; POST /suppliers/services/contracts/bulk with upliftPercent 250 (preview) is sent", tc: "TC-CTM-23" },
+  { id: "BUG-104", mod: "Package", screen: "Add Package (Manual)", type: "Error-message consistency", sev: "Medium",
+    title: "Add Package: only Name gets \"Name is required\" - Currency*, Cities*, Base Price* get no message and no red outline",
+    steps: "1. Package > Add New > Manual\n2. Save with nothing filled", expected: "\"<Field> is required\" under every mandatory field", actual: "Only \"Name is required\" + banner \"Please fix the highlighted fields.\"", tc: "TC-PKG-13" },
+  { id: "BUG-105", mod: "Package", screen: "Bundles > Add Bundle", type: "UI", sev: "Low",
+    title: "The \"Add Bundle\" form saves with a button called \"Save Package\"",
+    steps: "1. Package > Bundles > Add Bundle", expected: "Button \"Save Bundle\"", actual: "Button \"Save Package\"", tc: "TC-PKG-17" },
+  { id: "BUG-106", mod: "Package", screen: "Add New > AI Generated", type: "Functional", sev: "Medium",
+    title: "\"AI Generated\" only highlights the card - no AI builder opens (Manual works)",
+    steps: "1. Package > Add New\n2. Choose \"AI Generated\"", expected: "The AI package builder opens", actual: "Nothing happens apart from the card being highlighted", tc: "TC-PKG-11" },
 ];
 async function main() {
   fs.mkdirSync(path.join(OUT_DIR, 'screenshots'), { recursive: true });
@@ -385,14 +463,16 @@ async function main() {
     ['Agent business rules (agent-rules.spec.ts)', "The product owner's agent answers: status flow, client types, phone format, code filter, account manager, payment days, change default currency, currency removal, deduct beyond wallet, duplicate name", '12'],
     ['Agent end-to-end (agent-crud.spec.ts)', 'Create QA Auto Agent, list / email search, rename, addresses, add / remove currency, wallet top-up 100, deduct 20, promotional credit 25, loyalty +10 / over-deduct refused, products access, approve, duplicate email refused, block', '17'],
     ['Supplier contracts end-to-end (contract-crud.spec.ts)', 'On "Testing season 3" > Hotel: create contract with season and 4 prices, list + global list, re-open, rename and re-price, cancellation band, approve, Rate check, create allotment (Club, 5 rooms) and promotion (10%), then switch all to Active = No', '12'],
+    ['Cross-module consistency (consistency.spec.ts)', 'Every module against the Core standard: Add button, Audit history / Columns, column search, empty message, paging, status words, mandatory-field messages and banners on 14 forms, same message for the same error, deactivate switch + popup', '82'],
+    ['Supplier rules round 3 (supplier-rules3.spec.ts)', "The product owner's round-3 answers: Draft without prices, room Active field, On hold supplier approval, promotion combining, contract taxes", '5'],
     ['Bug evidence (bug-evidence.spec.ts)', 'One red-outlined screenshot per bug (this report). Run: $env:EVIDENCE=\'1\'; npx playwright test bug-evidence', '31'],
   ];
   rows.forEach((v, i) => {
     const r = cv.getRow(3 + i); r.values = v;
     r.eachCell(c => { c.border = border; c.alignment = { wrapText: true, vertical: 'top' }; c.font = i ? font : head; if (!i) c.fill = headFill; });
   });
-  cv.getCell('A22').value = 'Test data: every record created by the tests is named "QA Auto ..." and left DEACTIVATED (the ERP has no delete).';
-  cv.getCell('A22').font = { ...font, italic: true };
+  cv.getCell('A24').value = 'Test data: every record created by the tests is named "QA Auto ..." and left DEACTIVATED (the ERP has no delete).';
+  cv.getCell('A24').font = { ...font, italic: true };
 
   const out = path.join(OUT_DIR, 'ERP-Bug-Report.xlsx');
   await wb.xlsx.writeFile(out);
