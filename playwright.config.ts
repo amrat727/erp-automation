@@ -42,6 +42,9 @@ export default defineConfig({
     { name: 'core', testDir: './tests/core', dependencies: ['setup'], use: { ...devices['Desktop Chrome'] } },
     { name: 'supplier', testDir: './tests/supplier', dependencies: ['setup'], use: wide },
     { name: 'agent', testDir: './tests/agent', dependencies: ['setup'], use: wide },
+    { name: 'contracts', testDir: './tests/contracts', dependencies: ['setup'], use: wide },
+    { name: 'package', testDir: './tests/package', dependencies: ['setup'], use: wide },
+    { name: 'quotes', testDir: './tests/quotes', dependencies: ['setup'], use: wide },
     // 4) cross-module: every module must Add / Edit / Deactivate and show errors the way Core does
     { name: 'consistency', testDir: './tests/consistency', dependencies: ['setup'], use: wide },
   ],

@@ -1,0 +1,34 @@
+// Helper (not a test): READ-ONLY - Package manual form: messages after empty save (top of form), Pax min>max and negative price with a Name.
+import { chromium } from '@playwright/test';
+import fs from 'fs';
+const DIR = process.argv[2] ?? '.';
+const session = fs.readFileSync('playwright/.auth/session.json', 'utf-8');
+const browser = await chromium.launch();
+const ctx = await browser.newContext({ baseURL: process.env.BASE_URL || 'https://erp.nexgenpilot.com', viewport: { width: 1500, height: 950 } });
+await ctx.addInitScript(d => { if (!sessionStorage.getItem('token')) for (const [k, v] of Object.entries(JSON.parse(d))) sessionStorage.setItem(k, v); }, session);
+const sent = [];
+await ctx.route('**/pilottest.runasp.net/**', r => { const q = r.request(); if (['POST','PUT','DELETE','PATCH'].includes(q.method()) && !/negotiate|\/auth\//.test(q.url())) { sent.push(`${q.method()} ${q.url()} ${(q.postData() || '').slice(0, 300)}`); return r.abort(); } return r.continue(); });
+const page = await ctx.newPage();
+const clean = a => a.map(s => s.replace(/[\s\u200b]+/g, ' ').trim()).filter(Boolean);
+const manual = async () => { await page.goto('/packages/new'); await page.getByText('Manual', { exact: true }).first().click({ timeout: 90000 }); await page.getByRole('button', { name: 'Save Package' }).waitFor(); await page.waitForTimeout(1500); };
+await manual();
+await page.getByRole('button', { name: 'Save Package' }).click(); await page.waitForTimeout(2500);
+await page.locator('main').evaluate(() => window.scrollTo(0, 0)); await page.mouse.wheel(0, -5000); await page.waitForTimeout(800);
+console.log('RED texts', JSON.stringify(await page.locator('main').evaluate(m => [...m.querySelectorAll('*')].filter(e => e.children.length === 0 && e.textContent.trim() && getComputedStyle(e).color.match(/rgb\((2[0-5]\d|1[5-9]\d), ?(\d{1,2}|1[0-2]\d), ?(\d{1,2}|1[0-2]\d)\)/)).map(e => e.textContent.trim()).slice(0, 30))));
+await page.screenshot({ path: DIR + '/package-empty-top.png' });
+// Name filled, pax 8 > 2, price -100
+await manual();
+const nameIn = page.locator('main').getByText(/^Name\*?$/).first().locator('xpath=following::input[1]');
+await nameIn.fill('QA Auto Package check');
+await page.getByRole('spinbutton', { name: 'Pax Min' }).fill('8');
+await page.getByRole('spinbutton', { name: 'Pax Max' }).fill('2');
+await page.getByRole('spinbutton', { name: 'Base Price' }).fill('-100');
+const before = sent.length;
+await page.getByRole('button', { name: 'Save Package' }).click(); await page.waitForTimeout(2500);
+console.log('pax/price value', await page.getByRole('spinbutton', { name: 'Pax Min' }).inputValue(), await page.getByRole('spinbutton', { name: 'Pax Max' }).inputValue(), await page.getByRole('spinbutton', { name: 'Base Price' }).inputValue());
+console.log('RED texts 2', JSON.stringify(await page.locator('main').evaluate(m => [...m.querySelectorAll('*')].filter(e => e.children.length === 0 && e.textContent.trim() && getComputedStyle(e).color.match(/rgb\((2[0-5]\d|1[5-9]\d), ?(\d{1,2}|1[0-2]\d), ?(\d{1,2}|1[0-2]\d)\)/)).map(e => e.textContent.trim()).slice(0, 30))));
+console.log('banner', JSON.stringify(clean(await page.locator('.MuiAlert-root:visible, [role=alert]:visible').allInnerTexts())));
+console.log('sent', JSON.stringify(sent.slice(before)));
+await page.mouse.wheel(0, -5000); await page.waitForTimeout(500);
+await page.screenshot({ path: DIR + '/package-pax-price.png' });
+await browser.close();

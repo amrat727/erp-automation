@@ -1,0 +1,21 @@
+// Helper (not a test): READ-ONLY - what Roll over sends for a 250 % price change (request is blocked, body printed).
+import { chromium } from '@playwright/test';
+import fs from 'fs';
+const session = fs.readFileSync('playwright/.auth/session.json', 'utf-8');
+const browser = await chromium.launch();
+const ctx = await browser.newContext({ baseURL: process.env.BASE_URL || 'https://erp.nexgenpilot.com', viewport: { width: 1500, height: 950 } });
+await ctx.addInitScript(d => { if (!sessionStorage.getItem('token')) for (const [k, v] of Object.entries(JSON.parse(d))) sessionStorage.setItem(k, v); }, session);
+await ctx.route('**/pilottest.runasp.net/**', r => { const q = r.request(); if (['POST','PUT','DELETE','PATCH'].includes(q.method()) && !/negotiate|\/auth\//.test(q.url())) { console.log('BLOCKED', q.method(), q.url(), (q.postData() || '').slice(0, 600)); return r.abort(); } return r.continue(); });
+const page = await ctx.newPage();
+await page.goto('/contracts'); await page.locator('main tbody tr').first().waitFor({ timeout: 90000 }); await page.waitForTimeout(2000);
+await page.locator('main tbody tr:visible input[type=checkbox]').first().check();
+await page.locator('main').getByRole('button', { name: 'Roll over', exact: true }).click(); await page.waitForTimeout(2000);
+const d = page.locator('.MuiDialog-paper:visible').last();
+console.log('BUTTONS', JSON.stringify(await d.getByRole('button').allInnerTexts()));
+const pct = d.locator('input[type=number], input[inputmode=decimal], input[inputmode=numeric]').first();
+await pct.fill('250'); await pct.press('Tab'); await page.waitForTimeout(1000);
+console.log('AFTER 250', (await d.innerText()).replace(/\s+/g, ' ').slice(0, 500));
+await d.getByRole('button', { name: 'Preview' }).click(); await page.waitForTimeout(3000);
+console.log('AFTER PREVIEW', (await page.locator('.MuiDialog-paper:visible').last().innerText().catch(() => 'closed')).replace(/\s+/g, ' ').slice(0, 700));
+await page.screenshot({ path: process.argv[2] + '/rollover-250.png' });
+await browser.close();
