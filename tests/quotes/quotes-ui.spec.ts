@@ -144,7 +144,7 @@ test.describe('Quotes - Add Quote (nothing is saved)', () => {
     await page.waitForTimeout(2500);
     const offered = (await page.getByRole('option').allInnerTexts()).map(s => s.trim()).filter(s => s.startsWith('QA Auto Agent'));
     console.log('QA agents offered: ' + JSON.stringify(offered));
-    test.fail(offered.length > 0, 'QT-BUG-1: Blocked agents are offered for a new quote');
+    test.fail(offered.length > 0, 'BUG-107: Blocked agents are offered for a new quote');
     expect(offered, 'Blocked QA agents offered').toEqual([]);
   });
 
@@ -249,7 +249,7 @@ test.describe(`Quotes - ${QT.ref}`, () => {
   test('TC-QT-28: History shows readable values (no internal ids like "Quote -9223372036854774807")', async ({ page }) => {
     await tab(page, 'History').click();
     await expect(page.locator('main').getByText(/created itinerary item/).first()).toBeVisible({ timeout: 20_000 });
-    test.fail(true, 'QT-BUG-2: History "created configuration" shows "Quote -9223372036854774807" - an internal number instead of the quote');
+    test.fail(true, 'BUG-108: History "created configuration" shows "Quote -9223372036854774807" - an internal number instead of the quote');
     await expect(page.locator('main').getByText(/-?9223372036854\d+/)).toHaveCount(0);
   });
 
