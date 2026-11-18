@@ -347,6 +347,12 @@ const BUGS = [
   { id: "BUG-106", mod: "Package", screen: "Add New > AI Generated", type: "Functional", sev: "Medium",
     title: "\"AI Generated\" only highlights the card - no AI builder opens (Manual works)",
     steps: "1. Package > Add New\n2. Choose \"AI Generated\"", expected: "The AI package builder opens", actual: "Nothing happens apart from the card being highlighted", tc: "TC-PKG-11" },
+  { id: "BUG-107", mod: "Quotes", screen: "Add Quote > Agent", type: "Business rule", sev: "High",
+    title: "Add Quote offers Blocked agents in the Agent list",
+    steps: "1. Quotes > Add Quote\n2. Agent: type \"QA Auto Agent\"", expected: "Only active, approved agents are offered (a Blocked agent can do no new business)", actual: "Blocked agents AG-00011..18 (QA Auto Agent KKPVTM, LQQNNR, ...) are listed and can be picked", tc: "TC-QT-15" },
+  { id: "BUG-108", mod: "Quotes / Reservation", screen: "Quote > History, Reservation > History", type: "UI", sev: "Low",
+    title: "Quote and Reservation history show an internal number (\"Quote / Reservation -9223372036854774807\") instead of the record",
+    steps: "1. Quotes > QT-000001 > History\n2. Reservation > 000003 > History", expected: "The entry names the record (\"QT-000001\", \"000003\")", actual: "\"Quote -9223372036854774807\" and \"Reservation -9223372036854774807\" (configuration entries)", tc: "TC-QT-28" },
 ];
 async function main() {
   fs.mkdirSync(path.join(OUT_DIR, 'screenshots'), { recursive: true });
