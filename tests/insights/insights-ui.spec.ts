@@ -55,7 +55,7 @@ test.describe('Dashboard', () => {
     const blockedN = Number(t.match(/Blocked (\d+) [\d.]+%/)?.[1] ?? 0);
     const totalN = Number(t.match(/View all (\d+) agents/)?.[1] ?? 0);
     console.log({ active, blockedN, totalN });
-    test.fail(blockedN > 0 && active === totalN, 'INS-BUG-1: "19 active" counts the 11 Blocked agents as active');
+    test.fail(blockedN > 0 && active === totalN, 'BUG-111: "19 active" counts the 11 Blocked agents as active');
     expect(active, 'active should exclude Blocked agents').toBe(totalN - blockedN);
   });
 

@@ -67,7 +67,7 @@ test.describe('Enquiries', () => {
     await d.locator('input[type=email]').fill('abc');
     await d.getByRole('button', { name: 'Create enquiry' }).click();
     await page.waitForTimeout(2000);
-    test.fail(blocked.length > 0, 'ENQ-BUG-1: an enquiry with the e-mail "abc" is sent to the server (no e-mail check)');
+    test.fail(blocked.length > 0, 'BUG-110: an enquiry with the e-mail "abc" is sent to the server (no e-mail check)');
     expect(blocked, 'invalid e-mail sent').toEqual([]);
   });
 
