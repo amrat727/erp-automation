@@ -11,3 +11,6 @@ erp-automation.zip
 # office lock files
 .~lock.*#
 ~$*
+# full regression output (scripts/full-run.sh)
+full-run/
+playwright-report-fork*/

@@ -1,0 +1,24 @@
+// Helper (not a test): READ-ONLY - v1.0.2: where does Policies "Edit" lead, and does that editor reach the policies?
+import { chromium } from '@playwright/test';
+import fs from 'fs';
+const DIR = process.argv[2] ?? '.';
+const session = fs.readFileSync('playwright/.auth/session.json', 'utf-8');
+const browser = await chromium.launch();
+const ctx = await browser.newContext({ baseURL: process.env.BASE_URL || 'https://erp.nexgenpilot.com', viewport: { width: 1500, height: 950 } });
+await ctx.addInitScript(d => { if (!sessionStorage.getItem('token')) for (const [k, v] of Object.entries(JSON.parse(d))) sessionStorage.setItem(k, v); }, session);
+await ctx.route('**/pilottest.runasp.net/**', r => { const q = r.request(); if (['POST','PUT','DELETE','PATCH'].includes(q.method()) && !/negotiate|\/auth\//.test(q.url())) return r.abort(); return r.continue(); });
+const page = await ctx.newPage();
+await page.goto('/packages/1');
+await page.getByRole('tab', { name: /^Policies/ }).click({ timeout: 90000 });
+await page.waitForTimeout(1500);
+await page.getByRole('button', { name: 'Edit', exact: true }).click();
+await page.waitForTimeout(4000);
+console.log('url:', page.url());
+console.log('heading:', await page.locator('h1,h2,h3,h4,h5,h6').allInnerTexts());
+console.log('tabs:', await page.getByRole('tab').allInnerTexts());
+console.log('buttons:', (await page.locator('main button:visible').allInnerTexts()).map(s => s.trim()).filter(Boolean).join(' | '));
+const t = (await page.locator('main').innerText()).replace(/\s+/g, ' ');
+console.log('mentions policies:', /polic/i.test(t), '| inclusions:', /inclusion/i.test(t), '| tail:', t.slice(-500));
+await page.goto('/packages/1/policies/edit'); await page.waitForTimeout(4000);
+console.log('direct /policies/edit ->', page.url(), (await page.locator('main').innerText()).replace(/\s+/g, ' ').slice(0, 300));
+await browser.close();

@@ -151,7 +151,8 @@ test.describe('Reservation - Add Reservation (nothing is saved)', () => {
       // the form's dropdown (the list behind it has a "Branch" column button too)
       await page.locator('main').getByRole('combobox', { name, exact: true }).last().click();
       await page.waitForTimeout(1200);
-      const o = (await page.getByRole('option').allInnerTexts()).map(s => s.trim());
+      // "QA Auto ..." records belong to a running core test (active only until its cleanup step) - ignore them
+      const o = (await page.getByRole('option').allInnerTexts()).map(s => s.trim()).filter(s => !s.startsWith('QA Auto'));
       await page.keyboard.press('Escape');
       return o;
     };

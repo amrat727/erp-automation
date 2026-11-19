@@ -200,6 +200,9 @@ test.describe('Package module - a package', () => {
 
   test('TC-PKG-24: Policies - Edit opens the editor (Add line / Add rule / Save Policies); Cancel returns without saving', async ({ page }) => {
     await page.getByRole('tab', { name: /^Policies/ }).click();
+    // wait for the Policies panel, otherwise the Overview "Edit" (whole package) is clicked
+    await expect(page.getByRole('tab', { name: /^Policies/ })).toHaveAttribute('aria-selected', 'true');
+    await expect(visible(page.getByText('Exclusions', { exact: true }))).toBeVisible();
     await visible(page.getByRole('button', { name: 'Edit', exact: true })).click();
     await expect(page).toHaveURL(/\/policies\/edit$/);
     await expect(visible(page.getByRole('button', { name: 'Add rule' }))).toBeVisible();
