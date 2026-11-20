@@ -33,8 +33,9 @@ export class AgentPage {
     this.addButton = page.getByRole('button', { name: 'Add Agent', exact: true });
     this.creditRequestsButton = page.getByRole('button', { name: /^Credit Requests/ });
     this.columnsButton = page.getByRole('button', { name: 'Columns' });
-    this.nameSearch = page.getByRole('columnheader', { name: /^Name/ }).getByRole('textbox');
-    this.emailSearch = page.getByRole('columnheader', { name: /^Email/ }).getByRole('textbox');
+    // older layout: box inside the header; stage 20 Nov 2026: box in a filter row, placeholder 'Search name'
+    this.nameSearch = page.getByRole('columnheader', { name: /^Name/ }).getByRole('textbox').or(page.locator('main thead input[placeholder="Search name"]'));
+    this.emailSearch = page.getByRole('columnheader', { name: /^Email/ }).getByRole('textbox').or(page.locator('main thead input[placeholder="Search email"]'));
     this.countryFilter = page.getByRole('columnheader', { name: /^Country/ }).getByRole('combobox');
     this.statusFilter = page.getByRole('columnheader', { name: /Status/ }).getByRole('combobox');
     this.rows = page.locator('main tbody tr:visible');
@@ -77,15 +78,45 @@ export class AgentPage {
   }
 
   async search(name: string) {
-    await this.nameSearch.fill(name);
+    await this.reveal(/^Name/, this.nameSearch);
+    // fallback if the box still cannot be opened: biggest page, the caller filters the rows
+    if (!(await this.nameSearch.first().isVisible().catch(() => false))) {
+      await this.showAllRows();
+      return;
+    }
+    await this.nameSearch.first().fill(name);
     await expect(async () => {
       const texts = await this.rows.allInnerTexts();
       expect(texts.length === 0 || texts.every(t => t.toLowerCase().includes(name.trim().toLowerCase()))).toBe(true);
     }).toPass({ timeout: 30_000 });
   }
 
+  /**
+   * Stage (20 Nov 2026): the column filters are HIDDEN until the small icon in that column header is clicked
+   * (same change as MasterListPage.showFilters). Opening one filter can close another, so open only the one needed.
+   */
+  async reveal(header: RegExp, control: Locator) {
+    if (await control.first().isVisible().catch(() => false)) return;
+    const icon = this.page.getByRole('columnheader', { name: header }).first().locator('span[aria-hidden=true]').first();
+    if (!(await icon.count())) return;
+    await icon.click({ force: true });                     // decorative icon - only opens the filter
+    await control.first().waitFor({ state: 'visible', timeout: 5_000 }).catch(() => {});
+  }
+
+  /** Pick the largest "Rows per page" so every agent is on one page */
+  async showAllRows() {
+    const perPage = this.page.locator('main').getByRole('combobox').filter({ hasText: /^\d+$/ }).last();
+    if (await perPage.count()) {
+      await perPage.click();
+      const opts = this.page.getByRole('option');
+      await opts.last().click();
+      await this.page.waitForTimeout(2000);
+    }
+  }
+
   async filterStatus(option: 'All' | 'Approved' | 'On Hold' | 'Blocked') {
-    await this.statusFilter.click();
+    await this.reveal(/Status/, this.statusFilter);
+    await this.statusFilter.first().click();
     await this.page.getByRole('option', { name: option, exact: true }).click();
     await this.page.waitForTimeout(1500);
   }

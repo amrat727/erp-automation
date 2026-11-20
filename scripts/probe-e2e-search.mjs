@@ -1,0 +1,22 @@
+// Helper (not a test): READ-ONLY - Product Search with an Approved agent: form, search, results.
+import { open, text, buttons, SHOTS } from './probe-lib.mjs';
+const log = [];
+const { browser, page } = await open({ log });
+await page.goto('/product-search');
+await page.getByRole('heading', { name: 'Select an agent to continue' }).waitFor({ timeout: 90000 });
+const box = page.locator('main').getByRole('combobox').first();
+await box.click(); await page.waitForTimeout(2500);
+const opts = (await page.getByRole('option').allInnerTexts()).map(s => s.trim());
+console.log('agents offered:', opts.length, JSON.stringify(opts.filter(s => !s.startsWith('QA Auto')).slice(0, 15)));
+await page.getByRole('option').filter({ hasNotText: 'QA Auto' }).first().click();
+await page.waitForTimeout(800);
+await page.getByRole('button', { name: 'Continue' }).last().click();
+await page.waitForTimeout(4000);
+console.log('URL', page.url());
+console.log('TEXT', (await text(page)).slice(0, 1500));
+console.log('BUTTONS', JSON.stringify(await buttons(page)));
+console.log('TABS', JSON.stringify(await page.getByRole('tab').allInnerTexts()));
+console.log('INPUTS', JSON.stringify(await page.locator('main input:visible').evaluateAll(es => es.map(e => [e.type, e.placeholder, e.getAttribute('aria-label'), e.value]))));
+await page.screenshot({ path: SHOTS + '/e2e-search-1.png', fullPage: true });
+console.log(log.join('\n'));
+await browser.close();

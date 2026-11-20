@@ -633,5 +633,15 @@
   "issue": "SAH-182",
   "parent": "SAH-22",
   "url": "https://linear.app/sahil-chauhan/issue/SAH-182"
+ },
+ "BUG-130": {
+  "issue": "SAH-214",
+  "parent": "SAH-66",
+  "url": "https://linear.app/sahil-chauhan/issue/SAH-214"
+ },
+ "BUG-131": {
+  "issue": "SAH-215",
+  "parent": "SAH-66",
+  "url": "https://linear.app/sahil-chauhan/issue/SAH-215"
  }
 }

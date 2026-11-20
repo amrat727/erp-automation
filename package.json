@@ -18,7 +18,8 @@
     "bug-report": "node scripts/bug-report.js",
     "report": "playwright show-report",
     "typecheck": "tsc -p .",
-    "clean": "node -e \"for (const d of require('fs').readdirSync('.')) if (/^test-results/.test(d) || d === 'playwright-report') require('fs').rmSync(d, { recursive: true, force: true })\""
+    "clean": "node -e \"for (const d of require('fs').readdirSync('.')) if (/^test-results/.test(d) || d === 'playwright-report') require('fs').rmSync(d, { recursive: true, force: true })\"",
+    "test:e2e": "playwright test --project=e2e --workers=1"
   },
   "keywords": [],
   "author": "",
