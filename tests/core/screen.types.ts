@@ -27,5 +27,6 @@ export type Screen = {
     requiredMsg?: string;
     nameRequiredMsg?: string; // empty Name does not show the standard "Name is required"
     searchSpaces?: string;
+    nameMax?: string;         // Name is not limited to the standard 150 characters
   };
 };

@@ -28,10 +28,11 @@ test.describe('Feedback Questions', () => {
   test('TC-FBQ-01: Page explains the questionnaire and shows Questions / Groups counters', async ({ page }) => {
     await openPage(page, '/feedback-questions', 'Feedback Questions');
     await expect(page.getByText(/trip feedback questionnaire/)).toBeVisible();
-    await expect(page.getByText('Questions', { exact: true })).toBeVisible();
-    await expect(page.getByText('Groups', { exact: true })).toBeVisible();
+    // v1.0.2: the counters are tabs "Questions 0" / "Groups 0"
+    await expect(page.getByRole('tab', { name: /^Questions \d+$/ })).toBeVisible();
+    await expect(page.getByRole('tab', { name: /^Groups \d+$/ })).toBeVisible();
     for (const col of ['Group', 'Order', 'Question', 'Asks about', 'Answer', 'Languages', 'Answers', 'Active'])
-      await expect(page.getByRole('columnheader', { name: new RegExp(`^${col}`) })).toBeVisible();
+      await expect(page.getByRole('columnheader', { name: col, exact: true })).toBeVisible();   // exact: "Answer" vs "Answers"
   });
 
   test('TC-FBQ-02: Question form offers 4 answer types and 2 "asks about" choices', async ({ page }) => {
@@ -115,6 +116,7 @@ test.describe('Flex lists', () => {
   });
 
   test('TC-FLEX-15: Unknown Flex number (/flex/11) does not show a broken page', async ({ page }) => {
+    test.fail(true, 'BUG-126: /flex/11 opens a working "Flex 11" list although the menu has only Flex 1-10');
     await page.goto('/flex/11');
     await page.waitForTimeout(8000);
     const heading = page.getByRole('heading', { name: 'Flex 11' });
@@ -169,6 +171,7 @@ test.describe('Resource Mapping', () => {
   });
 
   test('TC-RMAP-05: The SAME pairing that already exists cannot be added twice', async ({ page }) => {
+    test.fail(true, 'BUG-125: the same Personnel -> Asset pairing that is already listed is sent again (no "already exists" check in the form)');
     const dlg = await openAdd(page);
     await dlg.getByRole('combobox').nth(0).click();
     await page.getByRole('option', { name: /Amrat Choudhary/ }).click();
@@ -305,6 +308,7 @@ test.describe('Tax Detail', () => {
   });
 
   test('TC-TXD-03: "Range To" smaller than "Range From" is rejected', async ({ page }) => {
+    test.fail(true, 'BUG-42: Tax Detail form has no checks - a range 1000 -> 10 (with empty Tax / State / Type) is sent');
     await openPage(page, '/taxdetail', 'Tax Detail');
     await page.getByRole('button', { name: 'Add Tax Detail' }).click();
     const dlg = dialogTitled(page, 'Add Tax Detail');

@@ -51,14 +51,22 @@ test.describe('Business rules - Users', () => {
   test('TC-BR-USR-03: A user cannot be picked as their OWN "Reports To"', async ({ page }) => {
     await openPage(page, '/users', 'Users');
     await page.getByRole('cell', { name: 'sahil', exact: true }).click();
-    const dlg = dialogTitled(page, /Edit User/);
-    await expect(dlg).toBeVisible({ timeout: 10_000 });
-    const fullName = await dlg.locator('input[type=text]').nth(1).inputValue();     // "Name" of the user being edited
-    await inputAfter(dlg, 'Reports To').click();
-    await page.waitForTimeout(1500);
+    // v1.0.2: full-page user record; "Reports To" is on the Security tab and unlocks with Edit
+    await expect(page.getByRole('tab', { name: 'Security' })).toBeVisible({ timeout: 30_000 });
+    const nameBox = page.getByRole('textbox', { name: 'Name' });                   // Overview tab, read-only
+    await expect(nameBox).not.toHaveValue('');
+    const fullName = await nameBox.inputValue();                                   // "Sahil Chauhan"
+    await page.getByRole('tab', { name: 'Security' }).click();
+    await page.locator('main').getByRole('button', { name: 'Edit', exact: true }).click();
+    const reportsTo = page.locator('main').getByRole('combobox', { name: 'Reports To' })
+      .or(inputAfter(page.locator('main'), 'Reports To')).first();
+    await expect(reportsTo).toBeEnabled();
+    await reportsTo.click();
+    await expect(page.getByRole('option').first()).toBeVisible();
     await expect(page.getByRole('option', { name: fullName, exact: true }),
       `"${fullName}" is offered as their own manager`).toHaveCount(0);
     await page.keyboard.press('Escape');
+    await page.locator('main').getByRole('button', { name: 'Cancel', exact: true }).click();   // never save
     expect(blocked).toEqual([]);
   });
 });
@@ -66,14 +74,23 @@ test.describe('Business rules - Users', () => {
 // ======================= EXCHANGE RATE =======================
 test.describe('Business rules - Exchange Rates', () => {
   test('TC-BR-XR-01: Every rate has its REVERSE (same type and date, rate = 1 / rate)', async ({ page }) => {
+    test.fail(true, 'BUG-127: EUR -> INR (100) and USD -> INR (88) of 01 Oct 2026 have no automatic reverse rate');
     await openPage(page, '/exchangerates', 'Exchange Rates');
     const rows = page.locator('tbody tr');
     await expect(rows.first()).toBeVisible();
     const list = [] as { type: string; from: string; to: string; rate: number; date: string }[];
-    for (let i = 0; i < await rows.count(); i++) {
-      const c = (await rows.nth(i).locator('td').allInnerTexts()).map(t => t.trim());
-      const rate = Number(c[3].match(/= ([\d.,]+)/)?.[1].replace(/,/g, ''));
-      list.push({ type: c[0], from: c[1], to: c[2], rate, date: c[4] });
+    const next = page.getByRole('button', { name: 'Go to next page' });
+    for (let pageNo = 1; pageNo <= 20; pageNo++) {                    // read EVERY page (10 rows per page)
+      await page.waitForLoadState('networkidle');
+      for (let i = 0; i < await rows.count(); i++) {
+        const c = (await rows.nth(i).locator('td').allInnerTexts()).map(t => t.trim());
+        const rate = Number(c[3].match(/= ([\d.,]+)/)?.[1].replace(/,/g, ''));
+        list.push({ type: c[0], from: c[1], to: c[2], rate, date: c[4] });
+      }
+      if (!(await next.isEnabled())) break;
+      const first = await rows.first().innerText();
+      await next.click();
+      await expect(rows.first()).not.toHaveText(first);
     }
     const missing = list.filter(r => !list.some(x => x.type === r.type && x.date === r.date && x.from === r.to && x.to === r.from
       && Math.abs(x.rate * r.rate - 1) < 0.01));
@@ -115,6 +132,7 @@ const IN_USE: [string, string, string, string][] = [
 ];
 for (const [path, heading, record, usedBy] of IN_USE) {
   test(`TC-BR-INUSE: Deactivating "${record}" warns it is already in use (${usedBy})`, async ({ page }) => {
+    test.fail(true, 'BUG-116: the deactivate popup gives no "already in use" warning (product owner rule, 13 Nov)');
     await openPage(page, path, new RegExp(heading));
     const row = page.locator('tbody tr').filter({ hasText: record }).first();
     await expect(row).toBeVisible({ timeout: 30_000 });

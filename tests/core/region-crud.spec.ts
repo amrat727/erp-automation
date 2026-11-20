@@ -1,8 +1,8 @@
 import { crudSuite, STAMP } from './master-crud';
 
 /* CORE > REGION - end-to-end data flow (the shared scenarios live in master-crud.ts) */
-let codeNo = 0;
-const nextCode = () => `Q${STAMP.slice(1)}${'ABCDEFGHIJ'[codeNo++ % 10]}`;
+// City Code is unique and (v1.0.2) at most 5 characters: "Q" + 4 random letters
+const nextCode = () => 'Q' + Array.from({ length: 4 }, () => String.fromCharCode(65 + Math.floor(Math.random() * 26))).join('');
 crudSuite([
   { entity: 'State', plural: 'States', path: '/states',
     fillRequired: async (p, dlg) => { await p.pick(dlg, 'Country', 'India'); } },

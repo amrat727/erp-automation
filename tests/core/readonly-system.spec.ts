@@ -36,9 +36,10 @@ test.describe('Configurations', () => {
     await box.click();
     const options = page.getByRole('option');
     await expect(options.first()).toBeVisible();
-    const other = (await options.allInnerTexts()).find(o => !o.includes('DD MMM YYYY'));
-    test.skip(!other, 'only one date format offered');
-    await options.filter({ hasText: other! }).first().click();
+    const texts = await options.allInnerTexts();                   // v1.0.2: "DD MMMM YYYY\n19 November 2026"
+    const i = texts.findIndex(o => o.split('\n')[0].trim() !== 'DD MMM YYYY');
+    test.skip(i < 0, 'only one date format offered');
+    await options.nth(i).click();
     await expect(page.getByText(/^Today shows as/)).not.toHaveText(before);
     await page.getByRole('button', { name: 'Discard' }).click();
     await expect(box).toHaveValue('DD MMM YYYY');
@@ -107,7 +108,7 @@ test.describe('Data Retention', () => {
   test('TC-RET-01: Shows a rule for Reservations, Enquiries and Feedback with its status and Edit', async ({ page }) => {
     await openPage(page, '/system/data-retention', 'Data Retention');
     for (const area of ['Reservations', 'Enquiries', 'Feedback'])
-      await expect(page.getByRole('checkbox', { name: `${area} retention` })).toBeAttached();
+      await expect(page.getByRole('switch', { name: `${area} retention` })).toBeAttached();
     await expect(page.getByRole('button', { name: 'Edit' })).toHaveCount(3);
     await expect(page.getByText(/Not set up — nothing is removed\.|remove|delete|after/i).first()).toBeVisible();
   });
@@ -132,8 +133,9 @@ test.describe('Data Retention', () => {
   });
 
   test('TC-RET-04: Retention switch does not silently save without asking', async ({ page }) => {
+    test.fail(true, 'BUG-128: since v1.0.2 switching a retention rule on/off sends the save at once - no confirmation (rule deletes personal data)');
     await openPage(page, '/system/data-retention', 'Data Retention');
-    const sw = page.getByRole('checkbox', { name: 'Reservations retention' });
+    const sw = page.getByRole('switch', { name: 'Reservations retention' });
     const before = await sw.isChecked();
     await sw.click({ force: true });                     // all writes are blocked anyway
     await page.waitForTimeout(1500);
@@ -141,7 +143,7 @@ test.describe('Data Retention', () => {
     if (await confirm.isVisible()) await confirm.getByRole('button', { name: /Cancel|No|Close/ }).first().click();
     else expect(blocked, 'retention ON/OFF was saved WITHOUT a confirmation').toEqual([]);
     await page.reload();
-    await expect(page.getByRole('checkbox', { name: 'Reservations retention' })).toBeChecked({ checked: before, timeout: 60_000 });
+    await expect(page.getByRole('switch', { name: 'Reservations retention' })).toBeChecked({ checked: before, timeout: 60_000 });
   });
 });
 
@@ -175,7 +177,7 @@ test.describe('Users', () => {
     const dlg = await openAdd(page);
     await dlg.getByRole('button', { name: 'Save' }).click();
     for (const f of ['Username', 'Password', 'Name', 'Email', 'Department', 'Reports To', 'Restriction Group'])
-      await expect(dlg.getByText(`${f} is required`), f).toBeVisible();
+      await expect(dlg.getByText(`${f} is required`, { exact: true }), f).toBeVisible();
     expect(blocked).toEqual([]);
   });
 
@@ -196,27 +198,30 @@ test.describe('Users', () => {
     expect(blocked, 'a user with email "abc" was sent').toEqual([]);
   });
 
-  test('TC-USR-06: Clicking the admin row opens Edit with the user data; Cancel keeps it', async ({ page }) => {
+  test('TC-USR-06: Clicking the admin row opens the user record with the user data (read-only until Edit)', async ({ page }) => {
     await openPage(page, '/users', 'Users');
     await page.getByRole('cell', { name: 'sahil', exact: true }).click();
-    const dlg = dialogTitled(page, /Edit User/);
-    await expect(dlg).toBeVisible({ timeout: 10_000 });
-    await expect(dlg.locator('input[type=text]').first()).toHaveValue('sahil');
-    await dlg.getByRole('button', { name: 'Cancel' }).click();
-    await expect(dlg).toBeHidden();
+    // v1.0.2: a full-page user record (tabs Overview / Security / History, read-only until "Edit")
+    await expect(page.getByRole('heading', { name: 'Sahil Chauhan' }).first()).toBeVisible({ timeout: 30_000 });
+    for (const tab of ['Overview', 'Security', 'History']) await expect(page.getByRole('tab', { name: tab })).toBeVisible();
+    await expect(page.getByRole('textbox', { name: 'Name' })).toHaveValue('Sahil Chauhan');
+    await expect(page.getByRole('textbox', { name: 'Name' })).toBeDisabled();
+    await expect(page.getByRole('button', { name: 'Edit' })).toBeVisible();
     expect(blocked).toEqual([]);
   });
 
   test('TC-USR-07: The logged-in admin cannot deactivate THEMSELF', async ({ page }) => {
     await openPage(page, '/users', 'Users');
     const sw = page.getByRole('row').filter({ hasText: 'sahil' }).locator('input[type=checkbox]');
+    test.fail(true, 'BUG-124: since v1.0.2 the logged-in admin gets the normal "Deactivate user?" popup for their OWN account');
     await expect(sw).toBeChecked();
     if (await sw.isDisabled()) return;                  // rule enforced by a locked switch
     await sw.click();
     const popup = page.locator('.swal2-popup');         // otherwise a warning must stop it
     await expect(popup).toBeVisible();
-    await expect(popup).toContainText(/yourself|own account|cannot/i);
-    await popup.getByRole('button', { name: /Cancel|OK/ }).first().click();
+    const text = await popup.innerText();
+    await popup.getByRole('button', { name: /Cancel|OK/ }).first().click();   // never confirm - cancel first, then judge
+    expect(text).toMatch(/yourself|own account|cannot/i);
   });
 
   test('TC-USR-08: Search by username finds the user; no match hides it', async ({ page }) => {

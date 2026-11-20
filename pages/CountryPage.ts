@@ -12,6 +12,8 @@ export class CountryPage {
   readonly auditButton: Locator;
   readonly columnsButton: Locator;
   readonly nameSearch: Locator;
+  readonly nameHeader: Locator;
+  readonly activeHeader: Locator;
   readonly activeFilter: Locator;
   readonly rows: Locator;
   readonly emptyMessage: Locator;
@@ -36,8 +38,15 @@ export class CountryPage {
     this.addButton = page.getByRole('button', { name: 'Add Country' });
     this.auditButton = page.getByRole('button', { name: 'Audit history' });
     this.columnsButton = page.getByRole('button', { name: 'Columns' });
-    this.nameSearch = page.getByRole('textbox', { name: 'Search' }); // column search (not the global one)
-    this.activeFilter = page.getByRole('columnheader', { name: /Active/ }).getByRole('combobox');
+    // Columns found by content that is ALWAYS in the DOM (stage 20 Nov: the header names change while a filter is open,
+    // e.g. "Name" -> "Sort by Name", and the Active header has no name while its list is open). Older layout as fallback.
+    this.nameHeader = page.locator('thead th:has(input[placeholder="Search name"])')
+      .or(page.getByRole('columnheader', { name: /^Name/ })).first();
+    this.activeHeader = page.locator('thead th:has([aria-label="Clear Active filter"])')
+      .or(page.getByRole('columnheader', { name: /Active/ })).first();
+    this.nameSearch = this.nameHeader.getByRole('textbox')
+      .or(page.locator('main thead input[placeholder="Search name"]')).first();
+    this.activeFilter = this.activeHeader.getByRole('combobox').first();
     this.rows = page.locator('tbody tr').filter({ has: page.locator('input[type=checkbox]') });
     this.emptyMessage = page.getByText('There are no records in Country');
     this.rangeText = page.getByText(/^\d+–\d+ of \d+$/);
@@ -61,7 +70,20 @@ export class CountryPage {
     await this.page.goto('/countries');
     await expect(this.heading).toBeVisible({ timeout: 60_000 });
     await expect(this.rows.first()).toBeVisible({ timeout: 60_000 });
+    await this.showFilters();
   }
+
+  /** column filters are hidden until the header icon is clicked (stage, 20 Nov 2026) - same as MasterListPage */
+  async showFilters(which: 'name' | 'active' = 'name') {
+    // only ONE column filter is open at a time (opening "Active" closes the Name box) -> open the one needed
+    const [header, control] = which === 'name' ? [this.nameHeader, this.nameSearch] : [this.activeHeader, this.activeFilter];
+    if (await control.first().isVisible().catch(() => false)) return;
+    const icon = header.locator('span[aria-hidden=true]').first();
+    if (!(await icon.count())) return;                   // screen without that column / older layout
+    await icon.click({ force: true });                   // decorative icon (aria-hidden) - it only opens the filter
+    await control.first().waitFor({ state: 'visible', timeout: 5_000 }).catch(() => {});
+  }
+
 
   async openViaMenu() {
     await this.page.goto('/dashboard');
@@ -69,6 +91,8 @@ export class CountryPage {
     await this.page.getByRole('button', { name: 'Region', exact: true }).click();
     await this.page.getByRole('button', { name: 'Country', exact: true }).click();
     await expect(this.heading).toBeVisible({ timeout: 60_000 });
+    await expect(this.rows.first()).toBeVisible({ timeout: 60_000 });
+    await this.showFilters();
   }
 
   // ---------- table helpers ----------
@@ -88,7 +112,7 @@ export class CountryPage {
     await Promise.all([
       this.page.waitForResponse(r => r.url().startsWith(API + '?') && r.request().method() === 'GET' &&
         (text ? r.url().includes(`Filters%5Bname%5D=${encoded}`) || r.url().includes(`Filters%5Bname%5D=${encodeURIComponent(text)}`) : !r.url().includes('Filters'))),
-      this.nameSearch.fill(text),
+      this.showFilters().then(() => this.nameSearch.fill(text)),
     ]);
     // wait for the table to re-draw: every row must contain the search text (or the empty message)
     if (text) {
@@ -100,8 +124,16 @@ export class CountryPage {
     }
   }
 
-  async filterActive(option: 'All' | 'Active' | 'Deactive') {
+  /** open the Active dropdown list (stage 20 Nov: revealing the filter may already open the list) */
+  async openActiveFilter() {
+    await this.showFilters('active');
+    if (await this.page.getByRole('listbox').isVisible().catch(() => false)) return;
     await this.activeFilter.click();
+    await this.page.getByRole('listbox').waitFor({ timeout: 10_000 });
+  }
+
+  async filterActive(option: 'All' | 'Active' | 'Deactive') {
+    await this.openActiveFilter();
     await Promise.all([
       this.page.waitForResponse(r => r.url().startsWith(API + '?')),
       this.page.getByRole('option', { name: option, exact: true }).click(),

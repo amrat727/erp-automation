@@ -2,6 +2,7 @@ import { test, expect } from '../../fixtures';
 import { Locator, Page, Response } from '@playwright/test';
 import { MasterListPage, deactivateTestRecords } from '../../pages/MasterListPage';
 import { API_HOST } from '../../env';
+import { V102_FLOW } from './v102.known';
 
 /*
  * END-TO-END DATA FLOW - the SAME scenarios for every master-data screen
@@ -34,7 +35,8 @@ const isWrite = (method: string) => (r: Response) =>
   r.request().method() === method && r.url().includes(API_HOST) && !r.url().includes('negotiate');
 
 export function crudSuite(flows: Flow[]) {
-  for (const f of flows) {
+  for (const flow of flows) {
+    const f: Flow = { ...flow, known: { ...V102_FLOW[flow.entity], ...flow.known } };
     test.describe(`${f.entity}: end-to-end data flow`, () => {
       const name = `QA Auto ${f.entity} ${STAMP}`;
       const edited = `${name} edited`;
@@ -62,13 +64,30 @@ export function crudSuite(flows: Flow[]) {
         return { res, dlg };
       }
 
+      /**
+       * A duplicate of `edited` was wrongly saved (bug) -> rename ONE of the two identical rows (both are this run's
+       * records) so `edited` is unique again and the deactivate / audit steps still test the real flow.
+       */
+      async function renameDuplicate(page: Page, n: number) {
+        await expect(p.dialog(`Add ${f.entity}`)).toBeHidden({ timeout: 10_000 }).catch(() => page.keyboard.press('Escape'));
+        await p.search(edited);
+        await expect(async () => expect(await p.row(edited).count()).toBeGreaterThan(1)).toPass({ timeout: 15_000 }).catch(() => {});
+        if ((await p.row(edited).count()) < 2) return;
+        await p.row(edited).last().locator(`td:nth-child(${f.nameCol ?? 1})`).click();
+        const dlg = p.dialog(`Edit ${f.entity}`);
+        await p.field(dlg, 'Name').fill(`${name} Duplicate ${String.fromCharCode(64 + n)}`);  // letters only (digits get stripped)
+        await Promise.all([page.waitForResponse(isWrite('PUT')), dlg.getByRole('button', { name: 'Save' }).click()]);
+        await expect(dlg).toBeHidden();
+      }
+
       // ---------------- happy path ----------------
       test(`${step(1)}: Add a new ${f.entity} -> success message, shown as Active`, async ({ page }) => {
         knownBug(1);
         test.info().annotations.push({ type: 'test data', description: name });
         const { res, dlg } = await addRecord(page, name);
         expect(res.status(), await res.text()).toBe(201);
-        await expect(page.getByText(new RegExp(`^${f.entity} created successfully`, 'i')).first()).toBeVisible();
+        // soft: a wrong message is reported, the record checks below still run
+        await expect.soft(page.getByText(new RegExp(`^${f.entity} created successfully`, 'i')).first()).toBeVisible();
         await expect(dlg).toBeHidden();
         await p.search(name);
         await expect(p.row(name)).toBeVisible();
@@ -78,6 +97,7 @@ export function crudSuite(flows: Flow[]) {
       test(`${step(2)}: Edit shows the saved values`, async () => {
         knownBug(2);
         await p.search(name);
+        await expect(p.row(name), 'needs the record from step 1').toBeVisible();   // fail fast, not a 2-minute click timeout
         await nameCell(p, name).click();
         const dlg = p.dialog(`Edit ${f.entity}`);
         await expect(dlg).toBeVisible();
@@ -88,6 +108,7 @@ export function crudSuite(flows: Flow[]) {
       test(`${step(3)}: Rename it -> success message and new name in the list`, async ({ page }) => {
         knownBug(3);
         await p.search(name);
+        await expect(p.row(name), 'needs the record from step 1').toBeVisible();
         await nameCell(p, name).click();
         const dlg = p.dialog(`Edit ${f.entity}`);
         await p.field(dlg, 'Name').fill(edited);
@@ -111,7 +132,8 @@ export function crudSuite(flows: Flow[]) {
         test(`${step(n)}: Adding ${label} is rejected with a clear message`, async ({ page }) => {
           knownBug(n);
           const { res, dlg } = await addRecord(page, typed);
-          expect(res.ok(), `duplicate was SAVED (status ${res.status()}) - the last step deactivates it`).toBe(false);
+          if (res.ok()) await renameDuplicate(page, n);
+          expect(res.ok(), `duplicate was SAVED (status ${res.status()}) - renamed to "${name} Duplicate ${n}", the last step deactivates it`).toBe(false);
           await expect(page.getByText(/already exists|duplicate/i).first()).toBeVisible();
           await expect(dlg).toBeVisible();                  // user can correct the name
         });
@@ -121,7 +143,7 @@ export function crudSuite(flows: Flow[]) {
         knownBug(7);
         const twice = `${name} Twice`;
         const posts: string[] = [];
-        page.on('request', r => { if (r.method() === 'POST' && r.url().includes('pilottest') && !r.url().includes('negotiate')) posts.push(r.url()); });
+        page.on('request', r => { if (r.method() === 'POST' && r.url().includes(API_HOST) && !r.url().includes('negotiate')) posts.push(r.url()); });
         await p.addButton.click();
         const dlg = p.dialog(`Add ${f.entity}`);
         await p.field(dlg, 'Name').fill(twice);
@@ -153,6 +175,7 @@ export function crudSuite(flows: Flow[]) {
           page.waitForResponse(isWrite('PUT')),
           dlg.getByRole('button', { name: 'Save' }).click(),
         ]);
+        if (res.ok()) await renameDuplicate(page, 9);   // bug: now two records named `edited` -> keep ours unique
         expect(res.ok(), `rename to an existing name was SAVED (status ${res.status()})`).toBe(false);
         await expect(page.getByText(/already exists|duplicate/i).first()).toBeVisible();
       });

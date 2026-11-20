@@ -34,7 +34,9 @@ test.describe('Country list - UI', () => {
     await expect(country.auditButton).toBeVisible();
     await expect(country.columnsButton).toBeVisible();
     await expect(country.nameSearch).toBeVisible();
+    await country.showFilters('active');   // only one column filter is open at a time
     await expect(country.activeFilter).toBeVisible();
+    await country.showFilters('active');   // only one column filter is open at a time
     await expect(country.activeFilter).toHaveText('All'); // default filter
     await expect(country.page.getByText('Rows per page:')).toBeVisible();
     await expect(country.rangeText).toBeVisible();
@@ -46,7 +48,8 @@ test.describe('Country list - UI', () => {
     for (let i = 0; i < count; i++) {
       const row = country.rows.nth(i);
       await expect(row.locator('td').first()).not.toBeEmpty();
-      await expect(row.locator('input[type=checkbox]')).toHaveAttribute('aria-label', 'Active');
+      const sw = row.locator('input[type=checkbox]');                   // label follows the state (v1.0.2: "Inactive" when off)
+      await expect(sw).toHaveAttribute('aria-label', (await sw.isChecked()) ? 'Active' : 'Inactive');
       await expect(row.getByRole('button')).toBeVisible();
     }
   });
@@ -78,7 +81,7 @@ test.describe('Country list - UI', () => {
   });
 
   test('TC-CTRY-08: Active filter has 3 options (All / Active / not-active)', async ({ page }) => {
-    await country.activeFilter.click();
+    await country.openActiveFilter();
     await expect(page.getByRole('option')).toHaveCount(3);
     await expect(page.getByRole('option').nth(0)).toHaveText('All');
     await expect(page.getByRole('option').nth(1)).toHaveText('Active');
@@ -87,7 +90,7 @@ test.describe('Country list - UI', () => {
 
   test('TC-CTRY-30: Filter option wording is correct English ("Inactive")', async ({ page }) => {
     test.fail(true, 'BUG: filter option says "Deactive" (not a word) - should be "Inactive"');
-    await country.activeFilter.click();
+    await country.openActiveFilter();
     await expect(page.getByRole('option').nth(2)).toHaveText('Inactive', { timeout: 5_000 });
   });
 

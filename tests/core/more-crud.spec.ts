@@ -18,7 +18,26 @@ crudSuite([
   { entity: 'Status', plural: 'Status', path: '/status', subModule: 'Application' },
   // ---- Resource
   { entity: 'Resource Type', plural: 'Resource Types', path: '/resourcetypes', subModule: 'Resource' },
-  { entity: 'Asset', plural: 'Assets', path: '/resources/assets', subModule: 'Resource' },
+  { entity: 'Asset', plural: 'Assets', path: '/resources/assets', subModule: 'Resource',
+    // v1.0.2: Asset Type* is required; the only type, "Vehicle", adds Category, Make, Model, Registration No / Date,
+    // Passenger Capacity and Insurance Valid Till (all required)
+    fillRequired: async (p, dlg, page) => {
+      const pick = async (label: string) => { await dlg.getByRole('combobox', { name: label }).click(); await page.getByRole('option').first().click(); };
+      // MUI date field "DD MMM YYYY": type each part (day, month number, year)
+      const date = async (label: string, d: string, m: string, y: string) => {
+        const box = dlg.getByText(new RegExp(`^${label}\\s*\\*?$`)).first().locator('xpath=following::input[1]');
+        await box.click();
+        for (const part of [d, m, y]) await box.pressSequentially(part, { delay: 30 });
+      };
+      await pick('Asset Type');
+      await pick('Category');
+      await dlg.getByRole('textbox', { name: 'Make' }).fill('QA');
+      await dlg.getByRole('textbox', { name: 'Model' }).fill('Auto');
+      await dlg.getByRole('textbox', { name: 'Registration No' }).fill(`QA ${Date.now().toString(36).toUpperCase()}`);
+      await date('Registration Date', '01', '01', '2026');
+      await dlg.getByRole('spinbutton', { name: 'Passenger Capacity' }).fill('4');
+      await date('Insurance Valid Till', '31', '12', '2027');
+    } },
   // ---- Organization
   { entity: 'Branch', plural: 'Branches', path: '/organization/branches', subModule: 'Organization',
     usedBy: { entity: 'Account', plural: 'Chart of Accounts', path: '/chartofaccounts', field: 'Branch', activeExample: 'Delhi Branch' } },

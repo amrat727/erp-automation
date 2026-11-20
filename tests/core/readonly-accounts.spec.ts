@@ -50,11 +50,12 @@ test.describe('Journals', () => {
   });
 
   test('TC-JRN-04: Posting an empty journal is blocked with messages, nothing is sent', async ({ page }) => {
+    test.fail(true, 'BUG-121: since v1.0.2 "Post journal" is just disabled - no message says which fields are missing (Core: "<Field> is required")');
     const dlg = await open(page);
-    await dlg.getByRole('button', { name: 'Post journal' }).click();
-    await expect(dlg).toBeVisible();
-    await expect(dlg.getByText(/required|enter|choose|select/i).first()).toBeVisible();
+    // v1.0.2: the button stays disabled until the journal is valid
+    await expect(dlg.getByRole('button', { name: 'Post journal' })).toBeDisabled();
     expect(blocked, 'empty journal was sent to the server').toEqual([]);
+    await expect(dlg.getByText(/required|enter|choose|select/i).first()).toBeVisible({ timeout: 5_000 });
   });
 
   test('TC-JRN-05: "Add line" adds an account line', async ({ page }) => {
@@ -77,9 +78,8 @@ test.describe('Journals', () => {
     const nums = dlg.locator('input[type=number]');
     await nums.nth(0).fill('100');
     await nums.nth(3).fill('40');
-    await dlg.getByRole('button', { name: 'Post journal' }).click();
-    await page.waitForTimeout(1500);
-    await expect(dlg).toBeVisible();
+    await expect(dlg.getByText('Out of balance by 60.00')).toBeVisible();
+    await expect(dlg.getByRole('button', { name: 'Post journal' })).toBeDisabled();   // v1.0.2: disabled while unbalanced
     expect(blocked, 'an UNBALANCED journal was sent to the server').toEqual([]);
   });
 
@@ -135,11 +135,11 @@ test.describe('Recurring Journals', () => {
   });
 
   test('TC-RJ-03: Saving an empty recurring journal is blocked, nothing is sent', async ({ page }) => {
+    test.fail(true, 'BUG-121: since v1.0.2 "Save" is just disabled - no message says which fields are missing (Core: "<Field> is required")');
     const dlg = await open(page);
-    await dlg.getByRole('button', { name: 'Save' }).click();
-    await expect(dlg).toBeVisible();
-    await expect(dlg.getByText(/required|enter|choose|select/i).first()).toBeVisible();
+    await expect(dlg.getByRole('button', { name: 'Save' })).toBeDisabled();             // v1.0.2: disabled until valid
     expect(blocked).toEqual([]);
+    await expect(dlg.getByText(/required|enter|choose|select/i).first()).toBeVisible({ timeout: 5_000 });
   });
 
   test('TC-RJ-04: "Posts on day" offers days of the month (1 ... 28 or more)', async ({ page }) => {
@@ -157,9 +157,8 @@ test.describe('Recurring Journals', () => {
     const nums = dlg.locator('input[type=number]');
     await nums.nth(0).fill('100');
     await nums.nth(3).fill('40');
-    await dlg.getByRole('button', { name: 'Save' }).click();
-    await page.waitForTimeout(1500);
-    await expect(dlg).toBeVisible();
+    await expect(dlg.getByText('Out of balance by 60.00')).toBeVisible();
+    await expect(dlg.getByRole('button', { name: 'Save' })).toBeDisabled();             // v1.0.2: disabled while unbalanced
     expect(blocked, 'an UNBALANCED recurring journal was sent').toEqual([]);
   });
 
@@ -218,22 +217,26 @@ test.describe('Agent Invoices', () => {
 
   test('TC-AINV-02: "Download Excel" gives an .xlsx file', async ({ page }) => {
     await openPage(page, '/agentinvoices', 'Agent Invoices');
-    const [download] = await Promise.all([page.waitForEvent('download', { timeout: 30_000 }), page.getByRole('button', { name: 'Download Excel' }).click()]);
+    const btn = page.getByRole('button', { name: 'Download Excel' });
+    if (await page.getByText(/^There are no records/).isVisible().catch(() => false)) {
+      await expect(btn, 'nothing to export: v1.0.2 disables the button').toBeDisabled();
+      return;
+    }
+    const [download] = await Promise.all([page.waitForEvent('download', { timeout: 30_000 }), btn.click()]);
     expect(download.suggestedFilename()).toMatch(/\.xlsx$/i);
   });
 
   test('TC-AINV-03: Invoice form has Agent*, Currency*, Invoice date*, Due date, lines, totals, Notes', async ({ page }) => {
     const dlg = await open(page);
     for (const t of ['Agent', 'Currency', 'Invoice date', 'Due date', 'Description', 'Net', 'Tax', 'Tax amount', 'Revenue account', 'Notes'])
-      await expect(dlg.getByText(new RegExp(`^${t}\s*\*?$`)).first(), t).toBeVisible();
+      await expect(dlg.getByText(new RegExp(`^${t}\\s*\\*?$`)).first(), t).toBeVisible();
     await expect(dlg.getByText('Tax 0.00 · Total 0.00')).toBeVisible();
     await expect(dlg.getByRole('button', { name: 'Post invoice' })).toBeVisible();
   });
 
   test('TC-AINV-04: Posting an empty invoice is blocked ("Choose the agent."), nothing is sent', async ({ page }) => {
     const dlg = await open(page);
-    await dlg.getByRole('button', { name: 'Post invoice' }).click();
-    await expect(dlg).toBeVisible();
+    await expect(dlg.getByRole('button', { name: 'Post invoice' })).toBeDisabled();       // v1.0.2: disabled until valid
     await expect(dlg.getByText('Choose the agent.')).toBeVisible();
     expect(blocked).toEqual([]);
   });
@@ -241,7 +244,7 @@ test.describe('Agent Invoices', () => {
   test('TC-AINV-05: Total follows the Net amount of the lines', async ({ page }) => {
     const dlg = await open(page);
     await dlg.locator('input[type=number]').first().fill('250');
-    await expect(dlg.getByText(/Total 250\.00/)).toBeVisible();
+    await expect(dlg.getByText(/Total\s+250\.00/)).toBeVisible();
   });
 
   test('TC-AINV-06: Line description limited to 300, Notes to 1000 characters', async ({ page }) => {
@@ -256,11 +259,11 @@ test.describe('Agent Invoices', () => {
 
   test('TC-AINV-07: Negative Net amount is not accepted', async ({ page }) => {
     const dlg = await open(page);
+    test.fail(true, 'BUG-122: since v1.0.2 a negative Net amount is accepted - "Total -100.00", no message');
     await dlg.locator('input[type=number]').first().fill('-100');
-    await dlg.getByRole('button', { name: 'Post invoice' }).click();
     await page.waitForTimeout(1500);
     expect(blocked, 'an invoice with a NEGATIVE amount was sent').toEqual([]);
-    await expect(dlg.getByText(/Total -100/)).toHaveCount(0);
+    await expect(dlg.getByText(/Total\s+-100/)).toHaveCount(0);           // v1.0.2 text has two spaces: "Total  -100.00"
   });
 
   test('TC-AINV-08: Cancel closes without sending', async ({ page }) => {
@@ -284,21 +287,20 @@ test.describe('Supplier Invoices', () => {
   test('TC-SINV-01: List has columns, filters and Excel buttons', async ({ page }) => {
     await openPage(page, '/supplierinvoices', 'Supplier Invoices');
     for (const col of ['Number', 'Type', 'Date', 'Due', 'Supplier', 'Supplier ref', 'Reservation', 'Total', 'Status'])
-      await expect(page.getByRole('columnheader', { name: new RegExp(`^${col}`) })).toBeVisible();
+      await expect(page.getByRole('columnheader', { name: new RegExp(`^${col}`) }).first()).toBeVisible();
     await expect(page.getByRole('button', { name: 'Download Excel' })).toBeVisible();
   });
 
   test('TC-SINV-02: Form has Supplier*, Supplier\'s invoice no.*, Currency*, Invoice date*, lines with Cost account', async ({ page }) => {
     const dlg = await open(page);
     for (const t of ['Supplier', "Supplier's invoice no.", 'Currency', 'Invoice date', 'Due date', 'Net', 'Tax', 'Cost account', 'Notes'])
-      await expect(dlg.getByText(new RegExp(`^${t.replace('.', '\.')}\s*\*?$`)).first(), t).toBeVisible();
+      await expect(dlg.getByText(new RegExp(`^${t.replace('.', '\\.')}\\s*\\*?$`)).first(), t).toBeVisible();
     await expect(dlg.getByText('Tax 0.00 · Total 0.00')).toBeVisible();
   });
 
   test('TC-SINV-03: Posting an empty invoice is blocked ("Choose the supplier."), nothing is sent', async ({ page }) => {
     const dlg = await open(page);
-    await dlg.getByRole('button', { name: 'Post invoice' }).click();
-    await expect(dlg).toBeVisible();
+    await expect(dlg.getByRole('button', { name: 'Post invoice' })).toBeDisabled();       // v1.0.2: disabled until valid
     await expect(dlg.getByText('Choose the supplier.')).toBeVisible();
     expect(blocked).toEqual([]);
   });
@@ -313,12 +315,17 @@ test.describe('Supplier Invoices', () => {
   test('TC-SINV-05: Total follows the Net amount of the lines', async ({ page }) => {
     const dlg = await open(page);
     await dlg.locator('input[type=number]').first().fill('75.5');
-    await expect(dlg.getByText(/Total 75\.50/)).toBeVisible();
+    await expect(dlg.getByText(/Total\s+75\.50/)).toBeVisible();
   });
 
   test('TC-SINV-06: "Download Excel" gives an .xlsx file', async ({ page }) => {
     await openPage(page, '/supplierinvoices', 'Supplier Invoices');
-    const [download] = await Promise.all([page.waitForEvent('download', { timeout: 30_000 }), page.getByRole('button', { name: 'Download Excel' }).click()]);
+    const btn = page.getByRole('button', { name: 'Download Excel' });
+    if (await page.getByText(/^There are no records/).isVisible().catch(() => false)) {
+      await expect(btn, 'nothing to export: v1.0.2 disables the button').toBeDisabled();
+      return;
+    }
+    const [download] = await Promise.all([page.waitForEvent('download', { timeout: 30_000 }), btn.click()]);
     expect(download.suggestedFilename()).toMatch(/\.xlsx$/i);
   });
 });
@@ -353,6 +360,7 @@ test.describe('Financial Periods', () => {
   });
 
   test('TC-FP-03: "Close year" is not available while the year has NO periods', async ({ page }) => {
+    test.fail(true, 'BUG-123: since v1.0.2 "Close year" is enabled for a year with no periods ("No periods for 2026 yet")');
     await openPage(page, '/financialperiods', 'Financial Periods');
     const year = String(new Date().getFullYear());
     test.skip(!(await page.getByText(`No periods for ${year} yet`).isVisible()), 'year already has periods');

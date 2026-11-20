@@ -2,7 +2,7 @@ import { test, expect } from '../../fixtures';
 import { Page, Locator } from '@playwright/test';
 import { MasterListPage, blockWrites } from '../../pages/MasterListPage';
 import { LoginPage } from '../../pages/LoginPage';
-import { bugShot } from '../../pages/FormHelpers';
+import { bugShot, openPage, dialogTitled } from '../../pages/FormHelpers';
 
 /*
  * BUG EVIDENCE - takes ONE screenshot per bug, with the problem outlined in RED.
@@ -12,6 +12,17 @@ import { bugShot } from '../../pages/FormHelpers';
  */
 
 const shot = bugShot;   // shared helper: pages/FormHelpers.ts
+
+/** open a list, click the ACTIVE switch of `name` and return the page with its popup open (always Cancel it) */
+const popupOf = async (page: Page, entity: string, plural: string, path: string, name: string) => {
+  const p = new MasterListPage(page, entity, plural);
+  await p.open(path);
+  await p.search(name);
+  await expect(p.toggle(name)).toBeChecked();         // only ever click an ACTIVE switch, then Cancel
+  await p.clickToggle(name);
+  await expect(p.popup).toBeVisible();
+  return p;
+};
 
 test.describe('Bug evidence', () => {
   test.skip(process.env.EVIDENCE !== '1', 'set EVIDENCE=1 to run');
@@ -57,14 +68,14 @@ test.describe('Bug evidence', () => {
     test('BUG-04 Active filter option "Deactive" (grammar)', async ({ page }) => {
       const p = new MasterListPage(page, 'Country', 'Countries');
       await p.open('/countries');
-      await p.activeFilter.click();
+      await p.openActiveFilter();
       await shot(page, 'BUG-04-filter-deactive-grammar', page.getByRole('option', { name: 'Deactive' }));
     });
 
     test('BUG-05 Province filter says "Inactive" (others say "Deactive")', async ({ page }) => {
       const p = new MasterListPage(page, 'Province', 'Provinces');
       await p.open('/provinces');
-      await p.activeFilter.click();
+      await p.openActiveFilter();
       await shot(page, 'BUG-05-province-filter-inactive', page.getByRole('option', { name: 'Inactive' }));
     });
 
@@ -286,15 +297,6 @@ test.describe('Bug evidence - Core part 2 (writes blocked)', () => {
   let blocked: string[];
   test.beforeEach(async ({ page }) => { blocked = await blockWrites(page); });
 
-  const popupOf = async (page: Page, entity: string, plural: string, path: string, name: string) => {
-    const p = new MasterListPage(page, entity, plural);
-    await p.open(path);
-    await p.search(name);
-    await expect(p.toggle(name)).toBeChecked();         // only ever click an ACTIVE switch, then Cancel
-    await p.clickToggle(name);
-    await expect(p.popup).toBeVisible();
-    return p;
-  };
 
   test('BUG-30 Department popup says "mark the BRANCH as deactive"', async ({ page }) => {
     const p = await popupOf(page, 'Department', 'Departments', '/organization/departments', 'Reservations');
@@ -379,7 +381,7 @@ test.describe('Bug evidence - Core part 2 (writes blocked)', () => {
   test('BUG-38 Chart of Accounts filter says "Inactive" (Branch etc. say "Deactive")', async ({ page }) => {
     const p = new MasterListPage(page, 'Account', 'Chart of Accounts');
     await p.open('/chartofaccounts');
-    await p.activeFilter.click();
+    await p.openActiveFilter();
     await shot(page, 'BUG-38-accounts-filter-inactive-vs-deactive', page.getByRole('option', { name: 'Inactive' }));
   });
 
@@ -417,5 +419,107 @@ test.describe('Bug evidence - Core part 2 (writes blocked)', () => {
     await dlg.getByRole('button', { name: 'Save' }).click();
     await expect.poll(() => blocked.length, { timeout: 10_000 }).toBeGreaterThan(0);
     await shot(page, 'BUG-42-tax-detail-empty-form-sent', dlg);
+  });
+});
+
+// ---------------- stage build v1.0.2 regressions (BUG-112..117) - writes blocked ----------------
+test.describe('Bug evidence - v1.0.2', () => {
+  test.skip(process.env.EVIDENCE !== '1', 'set EVIDENCE=1 to run');
+  test.beforeEach(async ({ page }) => { await blockWrites(page); });
+
+  const addRole = async (page: Page) => {
+    const p = new MasterListPage(page, 'Role', 'Role');
+    await p.open('/contacttype');
+    await p.addButton.click();
+    const dlg = p.dialog('Add Role');
+    return { p, dlg, name: p.field(dlg, 'Name') };
+  };
+
+  test('BUG-112 Name stops at 100 characters (150 agreed)', async ({ page }) => {
+    const { name } = await addRole(page);
+    await name.fill('A'.repeat(150));
+    expect((await name.inputValue()).length).toBe(100);
+    await shot(page, 'BUG-112-name-limit-100-not-150', name);
+  });
+
+  test('BUG-113 Name removes digits and & ( )', async ({ page }) => {
+    const { name } = await addRole(page);
+    await name.pressSequentially('Zone 2 North-1 & Co (Test)');
+    await expect(name).toHaveValue('Zone  North-  Co Test');
+    await shot(page, 'BUG-113-name-strips-digits-and-specials', name);
+  });
+
+  test('BUG-114 Empty search names the wrong screen ("Contact Type")', async ({ page }) => {
+    const p = new MasterListPage(page, 'Role', 'Role');
+    await p.open('/contacttype');
+    await p.nameSearch.fill('zzzqqq');
+    const msg = page.getByText('There are no records in Contact Type');
+    await expect(msg).toBeVisible({ timeout: 15_000 });
+    await shot(page, 'BUG-114-empty-search-says-contact-type', msg, p.heading);
+  });
+
+  test('BUG-115 Currency row opens no Edit', async ({ page }) => {
+    const p = new MasterListPage(page, 'Currency', 'Currencies');
+    await p.open('/currency');
+    await p.search('US Dollar');
+    await p.row('US Dollar').locator('td').first().click();
+    await page.waitForTimeout(2000);
+    await expect(page.getByRole('dialog')).toHaveCount(0);
+    await shot(page, 'BUG-115-currency-row-opens-no-edit', p.row('US Dollar'));
+  });
+
+  test('BUG-116 Deactivating a record in use gives no "in use" warning', async ({ page }) => {
+    const p = await popupOf(page, 'Resource Type', 'Resource Types', '/resourcetypes', 'Driver');
+    await expect(p.popupText).not.toHaveText(/in use|used by|linked|assigned/i);
+    await shot(page, 'BUG-116-in-use-record-no-warning', p.popup);
+    await p.popupCancel.click();
+  });
+
+  test('BUG-117 Asset: empty Asset Type gives only a banner "Please select a asset type."', async ({ page }) => {
+    const p = new MasterListPage(page, 'Asset', 'Assets');
+    await p.open('/resources/assets');
+    await p.addButton.click();
+    const dlg = p.dialog('Add Asset');
+    await p.field(dlg, 'Name').fill('QA Auto Evidence');
+    await dlg.getByRole('button', { name: 'Save' }).click();
+    const banner = dlg.getByText('Please select a asset type.');
+    await expect(banner).toBeVisible();
+    await shot(page, 'BUG-117-asset-type-banner-only', banner, dlg.getByText(/^Asset Type\s*\*?$/).first().locator('xpath=..'));
+  });
+  test('BUG-121 Journal: Post is disabled with no message', async ({ page }) => {
+    await openPage(page, '/journals', 'Journals');
+    await page.getByRole('button', { name: 'New journal voucher' }).click();
+    const dlg = dialogTitled(page, 'New journal voucher');
+    const post = dlg.getByRole('button', { name: 'Post journal' });
+    await expect(post).toBeDisabled();
+    await shot(page, 'BUG-121-journal-post-disabled-no-message', post);
+  });
+
+  test('BUG-122 Agent invoice: negative Net gives Total -100.00', async ({ page }) => {
+    await openPage(page, '/agentinvoices', 'Agent Invoices');
+    await page.getByRole('button', { name: 'Raise invoice' }).click();
+    const dlg = dialogTitled(page, 'Raise agent invoice');
+    const net = dlg.locator('input[type=number]').first();
+    await net.fill('-100');
+    const total = dlg.getByText(/Total\s+-100\.00/);
+    await expect(total).toBeVisible();
+    await shot(page, 'BUG-122-agent-invoice-negative-total', net, total);
+  });
+
+  test('BUG-123 Close year enabled with no periods', async ({ page }) => {
+    await openPage(page, '/financialperiods', 'Financial Periods');
+    const year = String(new Date().getFullYear());
+    const none = page.getByText(`No periods for ${year} yet`);
+    await expect(none).toBeVisible();
+    const close = page.getByRole('button', { name: 'Close year' });
+    await expect(close).toBeEnabled();
+    await shot(page, 'BUG-123-close-year-enabled-without-periods', close, none);
+  });
+
+  test('BUG-126 /flex/11 opens a Flex 11 list', async ({ page }) => {
+    await page.goto('/flex/11');
+    const h = page.getByRole('heading', { name: 'Flex 11' }).first();
+    await expect(h).toBeVisible({ timeout: 60_000 });
+    await shot(page, 'BUG-126-flex-11-opens', h);
   });
 });
