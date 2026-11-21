@@ -1,0 +1,612 @@
+[
+ {
+  "run": "core-ui1",
+  "tc": "TC-ACC-Account-01",
+  "bugs": [],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('button', { name: 'Account', exact: true }) / Expected: visible / Timeout: 3000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-ACC-Account-05",
+  "bugs": [
+   "BUG-38"
+  ],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator: getByRole('option') / Timeout: 20000ms / - Expected  - 1",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-ACC-Account-06",
+  "bugs": [
+   "BUG-114"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByText('There are no records in Account') / Expected: visible / Timeout: 10000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-ACC-Account-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 100",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-ACC-AccountGroup-05",
+  "bugs": [
+   "BUG-38"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('heading', { name: /^Account Group(\\s|$)/ }) / Expected: visible / Timeout: 60000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-ACC-AccountGroup-10",
+  "bugs": [
+   "BUG-31"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('heading', { name: /^Account Group(\\s|$)/ }) / Expected: visible / Timeout: 60000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-ACC-AccountGroup-18",
+  "bugs": [],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('heading', { name: /^Account Group(\\s|$)/ }) / Expected: visible / Timeout: 60000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-ACC-AccountGroup-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('heading', { name: /^Account Group(\\s|$)/ }) / Expected: visible / Timeout: 60000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-ACC-Tax-05",
+  "bugs": [
+   "BUG-38"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('heading', { name: /^Tax(\\s|$)/ }) / Expected: visible / Timeout: 60000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-ACC-Tax-10",
+  "bugs": [
+   "BUG-32"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('heading', { name: /^Tax(\\s|$)/ }) / Expected: visible / Timeout: 60000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-APP-Currency-11",
+  "bugs": [
+   "BUG-115"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('dialog').filter({ hasText: 'Edit Currency' }) / Expected: visible / Timeout: 5000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-APP-Currency-21",
+  "bugs": [
+   "BUG-115"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('dialog').filter({ hasText: 'Edit Currency' }) / Expected: visible / Timeout: 5000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-APP-Role-06",
+  "bugs": [
+   "BUG-114"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('heading', { name: /^Role(\\s|$)/ }) / Expected: visible / Timeout: 60000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-APP-Role-16",
+  "bugs": [
+   "BUG-113"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('heading', { name: /^Role(\\s|$)/ }) / Expected: visible / Timeout: 60000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-APP-Role-14",
+  "bugs": [],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('heading', { name: /^Role(\\s|$)/ }) / Expected: visible / Timeout: 60000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui1",
+  "tc": "TC-APP-Role-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('heading', { name: /^Role(\\s|$)/ }) / Expected: visible / Timeout: 60000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-ProductType-13",
+  "bugs": [
+   "BUG-18"
+  ],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator:  locator('.swal2-popup').locator('.swal2-html-container') / Expected: \"This will mark the product type as deactive.\" / Received: \"This will mark the product type as ina",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-ProductType-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 100",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-ProductClass-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 100",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-RoomType-13",
+  "bugs": [
+   "BUG-20"
+  ],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator:  locator('.swal2-popup').locator('.swal2-html-container') / Expected: \"This will mark the room type as deactive.\" / Received: \"This will mark the room type as inactive.",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-RoomType-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 300",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-ViewType-13",
+  "bugs": [
+   "BUG-19"
+  ],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator:  locator('.swal2-popup').locator('.swal2-html-container') / Expected: \"This will mark the view type as deactive.\" / Received: \"This will mark the view type as inactive.",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-ViewType-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 100",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-RoomCategory-13",
+  "bugs": [],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator:  locator('.swal2-popup').locator('.swal2-html-container') / Expected: \"This will mark the room category as deactive.\" / Received: \"This will mark the room category as i",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-RoomCategory-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 100",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-Supplement-13",
+  "bugs": [
+   "BUG-18"
+  ],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator:  locator('.swal2-popup').locator('.swal2-html-container') / Expected: \"This will mark the supplement as deactive.\" / Received: \"This will mark the supplement as inactiv",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-Supplement-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 100",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-Allotment-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 100",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-Addon-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 100",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-PRD-Amenity-13",
+  "bugs": [],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator:  locator('.swal2-popup').locator('.swal2-html-container') / Expected: \"This will mark the amenity as deactive.\" / Received: \"This will mark the amenity as inactive.\"",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Country-11",
+  "bugs": [
+   "BUG-17"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('dialog').filter({ hasText: 'Edit Country' }) / Expected: visible / Timeout: 5000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Country-21",
+  "bugs": [],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('dialog').filter({ hasText: 'Edit Country' }) / Expected: visible / Timeout: 5000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-State-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 100",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-City-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 100",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Market-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 100",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-DeskLocation-05",
+  "bugs": [],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator: getByRole('option') / Timeout: 20000ms / - Expected  - 1",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-DeskLocation-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 100",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Landmark-13",
+  "bugs": [
+   "BUG-07"
+  ],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator:  locator('.swal2-popup').locator('.swal2-html-container') / Expected: \"This will mark the landmark as deactive.\" / Received: \"This will mark the landmark as inactive.\"",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Province-05",
+  "bugs": [
+   "BUG-05"
+  ],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator: getByRole('option') / Timeout: 20000ms / - Expected  - 1",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Province-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 100",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Airport-02",
+  "bugs": [
+   "BUG-13"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('button', { name: 'Add Airport', exact: true }) / Expected: visible / Timeout: 5000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Airport-06",
+  "bugs": [],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByText('There are no records in Airport') / Expected: visible / Timeout: 10000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Airport-09",
+  "bugs": [],
+  "err": "TimeoutError: locator.click: Timeout 5000ms exceeded. / Call log: /   - waiting for getByRole('button', { name: 'Add Airport', exact: true })",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Airport-10",
+  "bugs": [],
+  "err": "TimeoutError: locator.click: Timeout 5000ms exceeded. / Call log: /   - waiting for getByRole('button', { name: 'Add Airport', exact: true })",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Airport-16",
+  "bugs": [
+   "BUG-09"
+  ],
+  "err": "TimeoutError: locator.click: Timeout 5000ms exceeded. / Call log: /   - waiting for getByRole('button', { name: 'Add Airport', exact: true })",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Airport-11",
+  "bugs": [],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('dialog').filter({ hasText: 'Edit Airport' }) / Expected: visible / Timeout: 5000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Airport-13",
+  "bugs": [],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator:  locator('.swal2-popup').locator('.swal2-html-container') / Expected: \"This will mark the airport as deactive.\" / Received: \"This will mark the airport as inactive.\"",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Airport-18",
+  "bugs": [],
+  "err": "TimeoutError: locator.click: Timeout 5000ms exceeded. / Call log: /   - waiting for getByRole('button', { name: 'Add Airport', exact: true })",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Airport-19",
+  "bugs": [],
+  "err": "TimeoutError: locator.click: Timeout 5000ms exceeded. / Call log: /   - waiting for getByRole('button', { name: 'Add Airport', exact: true })",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Airport-20",
+  "bugs": [],
+  "err": "TimeoutError: locator.click: Timeout 5000ms exceeded. / Call log: /   - waiting for getByRole('button', { name: 'Add Airport', exact: true })",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RGN-Airport-21",
+  "bugs": [],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('dialog').filter({ hasText: 'Edit Airport' }) / Expected: visible / Timeout: 5000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RES-ResourceType-01",
+  "bugs": [],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('button', { name: 'Resource Type', exact: true }) / Expected: visible / Timeout: 3000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RES-ResourceType-13",
+  "bugs": [
+   "BUG-40"
+  ],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator:  locator('.swal2-popup').locator('.swal2-html-container') / Expected: \"This will mark the resource type as deactive.\" / Received: \"This will mark the resource type as i",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RES-ResourceType-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 300",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RES-Personnel-06",
+  "bugs": [
+   "BUG-114"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByText('There are no records in Personnel') / Expected: visible / Timeout: 10000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RES-Personnel-13",
+  "bugs": [
+   "BUG-40"
+  ],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator:  locator('.swal2-popup').locator('.swal2-html-container') / Expected: \"This will mark the personnel as deactive.\" / Received: \"This will mark the personnel as inactive.",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RES-Personnel-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 300",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RES-Asset-01",
+  "bugs": [],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByRole('button', { name: 'Asset', exact: true }) / Expected: visible / Timeout: 3000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RES-Asset-06",
+  "bugs": [
+   "BUG-114"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: getByText('There are no records in Asset') / Expected: visible / Timeout: 10000ms",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RES-Asset-13",
+  "bugs": [
+   "BUG-40"
+  ],
+  "err": "Error: expect(locator).toHaveText(expected) failed / Locator:  locator('.swal2-popup').locator('.swal2-html-container') / Expected: \"This will mark the asset as deactive.\" / Received: \"This will mark the asset as inactive.\"",
+  "shot": ""
+ },
+ {
+  "run": "core-ui2",
+  "tc": "TC-RES-Asset-19",
+  "bugs": [
+   "BUG-112"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 150 / Received: 300",
+  "shot": ""
+ },
+ {
+  "run": "supplier",
+  "tc": "TC-REST-04",
+  "bugs": [
+   "BUG-79"
+  ],
+  "err": "Error: the .txt file is shown as uploaded / expect(locator).toHaveCount(expected) failed / Locator:  getByText('qa-auto.txt') / Expected: 0",
+  "shot": ""
+ },
+ {
+  "run": "supplier",
+  "tc": "TC-RULE-11",
+  "bugs": [
+   "BUG-54"
+  ],
+  "err": "Error: message about the priority / expect(locator).toBeVisible() failed / Locator: getByText(/priority/i).filter({ hasText: /already|same|another|used/i }).first() / Expected: visible",
+  "shot": ""
+ },
+ {
+  "run": "supplier",
+  "tc": "TC-RULE-22",
+  "bugs": [],
+  "err": "Error: expect(locator).toContainText(expected) failed / Locator: locator('main table:visible').last().locator('tbody tr:visible').filter({ hasText: 'QA Auto Contract PKVVKP USD' }) / Expected substring: \"Provisional\" / Timeout: 20",
+  "shot": ""
+ },
+ {
+  "run": "supplier",
+  "tc": "TC-R2-23",
+  "bugs": [
+   "BUG-65"
+  ],
+  "err": "Error: first contract failed / expect(received).toBe(expected) // Object.is equality / Expected: true / Received: undefined",
+  "shot": ""
+ },
+ {
+  "run": "supplier",
+  "tc": "TC-R3-01",
+  "bugs": [
+   "BUG-96"
+  ],
+  "err": "Error: the Draft is sent to the server / expect(received).toBeGreaterThan(expected) / Expected: > 0 / Received:   0",
+  "shot": ""
+ },
+ {
+  "run": "supplier",
+  "tc": "TC-R3-03",
+  "bugs": [
+   "BUG-97"
+  ],
+  "err": "Error: expect(received).toBe(expected) // Object.is equality / Expected: 0 / Received: 13",
+  "shot": ""
+ },
+ {
+  "run": "supplier",
+  "tc": "TC-R3-04",
+  "bugs": [
+   "BUG-98"
+  ],
+  "err": "Error: cumulative / non-cumulative option / expect(locator).toBeVisible() failed / Locator: locator('main').getByText(/cumulative/i).first() / Expected: visible",
+  "shot": ""
+ },
+ {
+  "run": "supplier",
+  "tc": "TC-R3-05",
+  "bugs": [
+   "BUG-99"
+  ],
+  "err": "Error: expect(locator).toBeVisible() failed / Locator: locator('main').getByText(/\\btax(es)?\\b|\\bVAT\\b/i).first() / Expected: visible / Timeout: 5000ms",
+  "shot": ""
+ },
+ {
+  "run": "supplier",
+  "tc": "TC-SS-09",
+  "bugs": [
+   "BUG-132"
+  ],
+  "err": "Error: early bird = 15% of the sell price / expect(received).toBe(expected) // Object.is equality / Expected: 351 / Received: 350.98",
+  "shot": ""
+ },
+ {
+  "run": "supplier",
+  "tc": "TC-SUP-14",
+  "bugs": [
+   "BUG-80"
+  ],
+  "err": "Error: names with spaces around them / expect(received).toEqual(expected) // deep equality / - Expected  - 1 / + Received  + 4",
+  "shot": ""
+ },
+ {
+  "run": "supplier",
+  "tc": "TC-SUP-54",
+  "bugs": [
+   "BUG-46"
+  ],
+  "err": "Error: locator.click: Error: strict mode violation: getByRole('button', { name: 'Add bank account' }) resolved to 2 elements: /     1) <button tabindex=\"0\" type=\"button\" class=\"MuiButtonBase-root MuiButton-root MuiButton-outlined ",
+  "shot": ""
+ }
+]

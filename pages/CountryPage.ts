@@ -78,9 +78,11 @@ export class CountryPage {
     // only ONE column filter is open at a time (opening "Active" closes the Name box) -> open the one needed
     const [header, control] = which === 'name' ? [this.nameHeader, this.nameSearch] : [this.activeHeader, this.activeFilter];
     if (await control.first().isVisible().catch(() => false)) return;
-    const icon = header.locator('span[aria-hidden=true]').first();
-    if (!(await icon.count())) return;                   // screen without that column / older layout
-    await icon.click({ force: true });                   // decorative icon (aria-hidden) - it only opens the filter
+    if (!(await header.locator('span[aria-hidden=true]').count())) return;   // screen without that column / older layout
+    // stage 21 Nov: clicking the column TITLE opens its filter (the small icon only toggles it, so it can close it again)
+    await header.click({ position: { x: 30, y: 15 }, force: true });
+    if (await control.first().waitFor({ state: 'visible', timeout: 3_000 }).then(() => true).catch(() => false)) return;
+    await header.locator('span[aria-hidden=true]').first().click({ force: true });
     await control.first().waitFor({ state: 'visible', timeout: 5_000 }).catch(() => {});
   }
 

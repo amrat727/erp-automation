@@ -1,0 +1,116 @@
+[
+ {
+  "bug": "BUG-09",
+  "file": "screenshots/revalidation/BUG-09-fixed.png",
+  "observed": "Add State: typed \"Zone 2 North-1 & Co (Test), Ltd./A\", Name shows \"Zone 2 North-1 & Co (Test), Ltd./A\"",
+  "ok": true
+ },
+ {
+  "bug": "BUG-22",
+  "file": "screenshots/revalidation/BUG-22-fixed.png",
+  "observed": "Add Product Type: typed \"Zone 2 North-1 & Co (Test), Ltd./A\", Name shows \"Zone 2 North-1 & Co (Test), Ltd./A\"",
+  "ok": true
+ },
+ {
+  "bug": "BUG-113",
+  "file": "screenshots/revalidation/BUG-113-fixed.png",
+  "observed": "Add Branch: typed \"Zone 2 North-1 & Co (Test), Ltd./A\", Name shows \"Zone 2 North-1 & Co (Test), Ltd./A\"",
+  "ok": true
+ },
+ {
+  "bug": "BUG-11",
+  "file": "screenshots/revalidation/BUG-11-fixed.png",
+  "observed": "Add State, empty Save: messages [Name is required | Country is required]; requests sent: 0",
+  "ok": true
+ },
+ {
+  "bug": "BUG-23",
+  "file": "screenshots/revalidation/BUG-23-fixed.png",
+  "observed": "Add Product Type, empty Save: messages [Name is required | Product is required]; requests sent: 0",
+  "ok": true
+ },
+ {
+  "bug": "BUG-24",
+  "file": "screenshots/revalidation/BUG-24-fixed.png",
+  "observed": "Add Supplement, empty Save: messages [Name is required | Product Type is required | Sequence is required]; requests sent: 0",
+  "ok": true
+ },
+ {
+  "bug": "BUG-41",
+  "file": "screenshots/revalidation/BUG-41-fixed.png",
+  "observed": "Add Personnel, empty Save: messages [Name is required | Personnel Type is required]; requests sent: 0",
+  "ok": true
+ },
+ {
+  "bug": "BUG-31",
+  "file": "screenshots/revalidation/BUG-31-fixed.png",
+  "observed": "Add Language, empty Save: messages [Name is required]; requests sent: 0",
+  "ok": true
+ },
+ {
+  "bug": "BUG-32",
+  "file": "screenshots/revalidation/BUG-32-fixed.png",
+  "observed": "Add Tax, empty Save: messages [Name is required]; requests sent: 0",
+  "ok": true
+ },
+ {
+  "bug": "BUG-31b",
+  "file": "screenshots/revalidation/BUG-31b-fixed.png",
+  "observed": "Add Account Group, empty Save: \"Name is required\" shown: true; requests sent: 0",
+  "ok": true
+ },
+ {
+  "bug": "BUG-33",
+  "file": "screenshots/revalidation/BUG-33-fixed.png",
+  "observed": "Add Tax: typed 160 \"x\", Name keeps 150",
+  "ok": true
+ },
+ {
+  "bug": "BUG-12",
+  "file": "screenshots/revalidation/BUG-12-fixed.png",
+  "observed": "Desk Location: Audit history true, Name search true, Active filter true, empty search \"There are no records in Desk Location\"",
+  "ok": true
+ },
+ {
+  "bug": "BUG-30",
+  "file": "screenshots/revalidation/BUG-30-fixed.png",
+  "observed": "Department deactivate popup: \"! Deactivate department? This will mark the department as inactive. Yes, deactivate Cancel\" (cancelled)",
+  "ok": true
+ },
+ {
+  "bug": "BUG-36",
+  "file": "screenshots/revalidation/BUG-36-fixed.png",
+  "observed": "/contacttype opens /roles with heading \"Roles\"",
+  "ok": true
+ },
+ {
+  "bug": "BUG-21",
+  "file": "screenshots/revalidation/BUG-21-fixed.png",
+  "observed": "Product menu items (singular): Product Type, Product Class, Room Type, View Type, Room Category, Supplement, Allotment, Addon, Excursion Setup, Amenity",
+  "ok": true
+ },
+ {
+  "bug": "BUG-26",
+  "file": "screenshots/revalidation/BUG-26-fixed.png",
+  "observed": "Product Type record saved by the 21 Nov run: \"QA Auto Product Type SKMNPN Edge & Co (Test)\" (typed with spaces around)",
+  "ok": true
+ },
+ {
+  "bug": "BUG-42",
+  "file": "screenshots/revalidation/BUG-42-fixed.png",
+  "observed": "Add Tax Detail, empty Tax/State/Type and range 1000 -> 10: messages [Tax is required | Type is required | From Date is required | Value is required]; requests sent: 0",
+  "ok": true
+ },
+ {
+  "bug": "BUG-35",
+  "file": "screenshots/revalidation/BUG-35-fixed.png",
+  "observed": "Restriction Groups: \"Audit history\" button visible: true",
+  "ok": true
+ },
+ {
+  "bug": "BUG-37",
+  "file": "screenshots/revalidation/BUG-37-fixed.png",
+  "observed": "Flex menu items: Flex 1, Flex 2, Flex 3, Flex 4, Flex 5, Flex 6, Flex 7, Flex 8, Flex 9, Flex 10; Flex 1 page heading \"Flex 1\"",
+  "ok": true
+ }
+]

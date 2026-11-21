@@ -65,11 +65,11 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
         await expect(page.getByText(/^Page \d+ of \d+$/)).toBeVisible(); // "Page 1 of 1"
       });
 
-      test(`${id(5)}: Active filter options are All / Active / Deactive`, async ({ page }) => {
+      test(`${id(5)}: Active filter options are All / Active / Inactive`, async ({ page }) => {
         known(s.differs?.filterOptions);
         await p.open(s.path);
         await p.openActiveFilter();
-        await expect(page.getByRole('option')).toHaveText(['All', 'Active', 'Deactive']);
+        await expect(page.getByRole('option')).toHaveText(['All', 'Active', 'Inactive']);   // "Deactive" before the 21 Nov 2026 build (BUG-04 fix)
       });
 
       test(`${id(6)}: Search with no match shows "There are no records in ${s.entity}"`, async ({ page }) => {
@@ -175,6 +175,20 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
         await expect(p.popupTitle).toHaveText(`Deactivate ${s.entity.toLowerCase()}?`, { timeout: 5_000 });
       });
 
+      test(`${id(31)}: Popup buttons use the same capitals as every other button ("Yes, Deactivate" / "Cancel")`, async () => {
+        test.skip(!s.sample, `${s.entity} has no records yet`);
+        await p.open(s.path);
+        await p.search(s.sample!);
+        test.skip(!(await p.toggle(s.sample!).isChecked()), `sample "${s.sample}" is switched off`);
+        await p.clickToggle(s.sample!);
+        await expect(p.popupConfirm).toBeVisible();
+        const label = (await p.popupConfirm.innerText()).trim();
+        test.fail(label === 'Yes, deactivate', 'BUG-135: the confirm button says "Yes, deactivate" (small d) - buttons are Title Case ("Add Currency", "Add Role")');
+        expect(label, 'exact confirm label').toBe('Yes, Deactivate');
+        expect((await p.popupCancel.innerText()).trim()).toBe('Cancel');
+        await p.popupCancel.click();
+      });
+
       test(`${id(13)}: Popup message follows the standard sentence`, async () => {
         known(s.differs?.popupText);
         test.skip(!s.sample, `${s.entity} has no records yet`);
@@ -182,12 +196,12 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
         await p.search(s.sample!);
         test.skip(!(await p.toggle(s.sample!).isChecked()), `sample "${s.sample}" is switched off`);
         await p.clickToggle(s.sample!);
-        await expect(p.popupText).toHaveText(`This will mark the ${s.entity.toLowerCase()} as deactive.`, { timeout: 5_000 });
+        await expect(p.popupText).toHaveText(`This will mark the ${s.entity.toLowerCase()} as inactive.`, { timeout: 5_000 });   // "deactive" before the 21 Nov 2026 build (BUG-03 fix)
       });
 
       test(`${id(14)}: Popup grammar is correct ("inactive", not "deactive")`, async () => {
         test.skip(!s.sample || !!s.differs?.popupText, 'covered by the message test');
-        test.fail(true, 'BUG: "deactive" is not a word - should be "inactive"');
+        // BUG-03 ("deactive") fixed on the stage build of 21 Nov 2026
         await p.open(s.path);
         await p.search(s.sample!);
         test.skip(!(await p.toggle(s.sample!).isChecked()), `sample "${s.sample}" is switched off`);
@@ -311,8 +325,8 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
       test(`${id(26)}: Clicking "Name" sorts A->Z, clicking again sorts Z->A`, async ({ page }) => {
         await p.open(s.path);
         test.skip((await p.rows.count()) < 2, 'needs at least 2 records');
-        // stage 20 Nov: with the Name filter open the sort button is "Sort by Name" (older layout: the header button "Name")
-        const header = p.nameHeader.getByRole('button', { name: /^(Sort by )?Name$/ }).filter({ visible: true }).first();
+        // stage 21 Nov: sorting is the small "Sort by Name" icon - the column title itself is covered by the hidden filter box
+        const header = await p.nameSort();
         const sorted = (list: string[], dir: 1 | -1) => [...list].sort((a, b) => dir * a.localeCompare(b, 'en', { sensitivity: 'base' }));
         // QA records saved with spaces around the name (BUG-113, untrimmed since v1.0.2) sort by the hidden spaces -
         // they are checked by the data-flow step 08, so only the real records are compared here

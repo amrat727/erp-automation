@@ -25,17 +25,17 @@ export const V102: Record<string, NonNullable<Screen['differs']>> = {
   // Accounts > Configuration
   'Account': { nameMax: NAME_100, emptyMessage: EMPTY('Chart Of Accounts') },
   'Account Group': { nameMax: NAME_NO_LIMIT },
-  'Tax': { nameMax: NAME_100 },
+  // 'Tax': fixed 21 Nov 2026 - Name takes 150 characters (BUG-33)
   'Exchange Type': { nameMax: NAME_100, stripsDigits: STRIPS },
   // Application
   'Currency': { noEdit: 'BUG-115: since v1.0.2 clicking a Currency row opens nothing (no "Edit Currency" - Symbol can no longer be changed)' },
-  'Role': { nameMax: NAME_100, stripsDigits: STRIPS, emptyMessage: EMPTY('Contact Type') },
+  'Role': { nameMax: NAME_100, emptyMessage: EMPTY('Contact Type') },
   'Language': { nameMax: NAME_NO_LIMIT },
   'Theme': { emptyMessage: EMPTY('Property Theme') },
-  'Status': { nameMax: NAME_100, stripsDigits: STRIPS },
+  'Status': { nameMax: NAME_100 },
   // Organization
-  'Branch': { nameMax: NAME_100, stripsDigits: STRIPS },
-  'Department': { nameMax: NAME_100, stripsDigits: STRIPS },
+  'Branch': { nameMax: NAME_100 },
+  'Department': { nameMax: NAME_100 },
   // Product
   'Product Type': { nameMax: NAME_100 },
   'Product Class': { nameMax: NAME_100 },
@@ -54,17 +54,16 @@ const CREATED = (e: string) => `BUG-119: since v1.0.2 the message is "${e} creat
 const CITY_OFFERED = 'BUG-129: since v1.0.2 a DEACTIVATED City is still offered in the Landmark City dropdown';
 const PROVINCE_DUP = 'BUG-120: since v1.0.2 Province and City accept DUPLICATE names (same name, other letter case, spaces around, rename to an existing name)';
 const TAX_400 = 'BUG-118: since v1.0.2 Add Tax with only Name fails - 400 "appliedId could not be converted", banner "Request failed"; no Tax can be created';
+const ASSET_DUP = 'BUG-148: stage 21 Nov 2026 - Asset saves DUPLICATE names (same name, other letter case, spaces around) with 201';
 export const V102_FLOW: Record<string, Record<number, string>> = {
-  'State': { 6: DUP_SPACES, 8: SPECIALS },
-  'Market': { 6: DUP_SPACES, 8: SPECIALS },
-  'Landmark': { 8: SPECIALS },
-  'City': { 4: PROVINCE_DUP, 5: PROVINCE_DUP, 6: PROVINCE_DUP, 8: SPECIALS, 9: PROVINCE_DUP, 12: CITY_OFFERED },
-  'Province': { 4: PROVINCE_DUP, 5: PROVINCE_DUP, 6: PROVINCE_DUP, 8: SPECIALS, 9: PROVINCE_DUP },
+  // 'State': fixed 21 Nov 2026 - duplicates blocked in the browser, trimmed, & ( ) kept
+  'Market': { 6: DUP_SPACES },
+  'City': { 4: PROVINCE_DUP, 5: PROVINCE_DUP, 6: PROVINCE_DUP, 9: PROVINCE_DUP, 12: CITY_OFFERED },
+  'Province': { 4: PROVINCE_DUP, 5: PROVINCE_DUP, 6: PROVINCE_DUP, 9: PROVINCE_DUP },
   'Resource Type': { 6: DUP_SPACES },
-  'Role': { 8: SPECIALS },
-  'Status': { 8: SPECIALS },
-  'Branch': { 1: CREATED('Branch'), 8: SPECIALS },
-  'Department': { 1: CREATED('Department'), 8: SPECIALS },
+  'Asset': Object.fromEntries([4, 5, 6].map(n => [n, ASSET_DUP])),
+  'Branch': { 1: CREATED('Branch') },
+  'Department': { 1: CREATED('Department') },
   'Tax': Object.fromEntries([1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 13, 14].map(n => [n, TAX_400])),
   'Exchange Type': { 8: SPECIALS },
 };

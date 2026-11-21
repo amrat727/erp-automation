@@ -32,7 +32,7 @@ for (const [entity, plural, path, nameCol] of SCREENS) {
     await p.filterActive('Active');
     await p.search('QA Auto');
     // waits until the filtered list is shown; fails if an active test record really is left
-    await expect(async () => expect((await p.names()).filter(n => n.startsWith('QA Auto')), 'active test records left').toEqual([])).toPass({ timeout: 30_000 });
+    await expect(async () => expect((await p.names()).filter(n => n.trim().toLowerCase().startsWith('qa auto')), 'active test records left').toEqual([])).toPass({ timeout: 30_000 });
     console.log(`${plural}: ${done} deactivated`);
   });
 }

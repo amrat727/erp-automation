@@ -1,0 +1,4891 @@
+{
+ "when": "2026-11-21T12:08:54.762Z",
+ "screens": 86,
+ "texts": 5513,
+ "unique": 1513,
+ "findings": [
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Search products",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "New reservation",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "New quote",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "3 agents are on hold, waiting for approval.",
+   "style": "lower",
+   "screens": [
+    "/dashboard"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "3 reservations in the last 30 days.",
+   "style": "lower",
+   "screens": [
+    "/dashboard"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Sahil Chauhan booked the most — 2 reservations in 12 months.",
+   "style": "Mixed",
+   "screens": [
+    "/dashboard"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Hotels are 100% of the services booked this year.",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "United Arab Emirates is your biggest market — 100% of reservations.",
+   "style": "Mixed",
+   "screens": [
+    "/dashboard"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "100% of quotes from the last 90 days turned into bookings.",
+   "style": "lower",
+   "screens": [
+    "/dashboard"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "View all",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Arriving today",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)"
+   ],
+   "count": 11
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Arriving in 7 days",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)"
+   ],
+   "count": 11
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Travelling now",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)"
+   ],
+   "count": 11
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Amendment requests",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)"
+   ],
+   "count": 11
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Audit history",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/suppliers",
+    "/suppliers (add-form)",
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)"
+   ],
+   "count": 70
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Room wise",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)",
+    "/reservations/new",
+    "/reservations/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Pax wise",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)",
+    "/reservations/new",
+    "/reservations/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Add room",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)",
+    "/reservations/new",
+    "/reservations/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Build now",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)",
+    "/reservations/new",
+    "/reservations/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "From a quote",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)",
+    "/reservations/new",
+    "/reservations/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "From a package",
+   "style": "Sentence",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)",
+    "/reservations/new",
+    "/reservations/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Add supplier",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers",
+    "/suppliers (add-form)",
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts",
+    "/suppliers/10/contacts (add-form)"
+   ],
+   "count": 10
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Create supplier",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers (add-form)",
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts (add-form)",
+    "/suppliers/10/financials (add-form)"
+   ],
+   "count": 6
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Basic details",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers (add-form)",
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts (add-form)",
+    "/suppliers/10/financials (add-form)",
+    "/agents (add-form)"
+   ],
+   "count": 14
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "On hold",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers (add-form)",
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts (add-form)",
+    "/suppliers/10/financials (add-form)",
+    "/agents (add-form)",
+    "/agents (add-form-empty-save)"
+   ],
+   "count": 13
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Services offered",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers (add-form)",
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts (add-form)",
+    "/suppliers/10/financials (add-form)"
+   ],
+   "count": 7
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Private transfer",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers (add-form)",
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts (add-form)",
+    "/suppliers/10/financials (add-form)"
+   ],
+   "count": 7
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Shared transfer",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers (add-form)",
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts (add-form)",
+    "/suppliers/10/financials (add-form)"
+   ],
+   "count": 7
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Close all",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts (add-form)",
+    "/suppliers/10/financials (add-form)",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)",
+    "/agents/2/financials (add-form)",
+    "/agents/2/access (add-form)"
+   ],
+   "count": 13
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Facilities and guest policies",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Inclusions & exclusions",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Documents 0 of 4 uploaded",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Supplier portal No login",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Contacts Add contact",
+   "style": "Mixed",
+   "screens": [
+    "/suppliers/10/contacts",
+    "/suppliers/10/contacts (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Add contact",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers/10/contacts",
+    "/suppliers/10/contacts (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Primary address Edit",
+   "style": "Mixed",
+   "screens": [
+    "/suppliers/10/contacts",
+    "/suppliers/10/contacts (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Correspondence address",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers/10/contacts",
+    "/suppliers/10/contacts (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Currencies and payment Add currency",
+   "style": "Mixed",
+   "screens": [
+    "/suppliers/10/financials",
+    "/suppliers/10/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Add currency",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers/10/financials",
+    "/suppliers/10/financials (add-form)",
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 4
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Tax and documents",
+   "style": "Sentence",
+   "screens": [
+    "/suppliers/10/financials",
+    "/suppliers/10/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Create agent",
+   "style": "Sentence",
+   "screens": [
+    "/agents (add-form)",
+    "/agents (add-form-empty-save)",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)",
+    "/agents/2/financials (add-form)",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 7
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Status & markets",
+   "style": "Sentence",
+   "screens": [
+    "/agents (add-form)",
+    "/agents (add-form-empty-save)",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)",
+    "/agents/2/financials (add-form)",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 7
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Financial and portal settings",
+   "style": "Sentence",
+   "screens": [
+    "/agents (add-form)",
+    "/agents (add-form-empty-save)",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)",
+    "/agents/2/financials (add-form)",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 7
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Edit agent",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/overview",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)",
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)",
+    "/agents/2/access",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 8
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "On-behalf activity",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/overview",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)",
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)",
+    "/agents/2/access",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 8
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Agent details",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/overview",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Plan & tier 8 of 8 features",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/overview",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Currencies Add currency",
+   "style": "Mixed",
+   "screens": [
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Ledger Currency Account Add top-up More",
+   "style": "Mixed",
+   "screens": [
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Add top-up",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Credit requests All requests",
+   "style": "Mixed",
+   "screens": [
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "All requests",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Loyalty points 0 pts · off Adjust",
+   "style": "Mixed",
+   "screens": [
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Portal menus 0 of 16 on Edit",
+   "style": "Mixed",
+   "screens": [
+    "/agents/2/access",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Portal users 1 user",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/access",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Portal access",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/access",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Portal login",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/access",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Credit line",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/access",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Company settings",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/access",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Login on behalf",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/access",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Cancel & change",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/access",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Yes, unpublish",
+   "style": "Sentence",
+   "screens": [
+    "/packages (deactivate-popup)",
+    "/packages/new (deactivate-popup)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Quoted today",
+   "style": "Sentence",
+   "screens": [
+    "/quotes",
+    "/quotes (add-form)",
+    "/quotes (add-form-empty-save)",
+    "/quotes/1",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)",
+    "/quotes/new",
+    "/quotes/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Last 7 days",
+   "style": "Sentence",
+   "screens": [
+    "/quotes",
+    "/quotes (add-form)",
+    "/quotes (add-form-empty-save)",
+    "/quotes/1",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)",
+    "/quotes/new",
+    "/quotes/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Last 30 days",
+   "style": "Sentence",
+   "screens": [
+    "/quotes",
+    "/quotes (add-form)",
+    "/quotes (add-form-empty-save)",
+    "/quotes/1",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)",
+    "/quotes/new",
+    "/quotes/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Follow-up due",
+   "style": "Sentence",
+   "screens": [
+    "/quotes",
+    "/quotes (add-form)",
+    "/quotes (add-form-empty-save)",
+    "/quotes/1",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)",
+    "/quotes/new",
+    "/quotes/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Yes, deactivate",
+   "style": "Sentence",
+   "screens": [
+    "/quotes (deactivate-popup)",
+    "/quotes/1 (deactivate-popup)",
+    "/quotes/new (deactivate-popup)",
+    "/reservations (deactivate-popup)",
+    "/reservations/3 (deactivate-popup)",
+    "/reservations/new (deactivate-popup)",
+    "/currency (deactivate-popup)",
+    "/languages (deactivate-popup)"
+   ],
+   "count": 34
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Send to customer",
+   "style": "Sentence",
+   "screens": [
+    "/quotes/1",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Travel 20–Nov 24, 2026 4 nights",
+   "style": "Sentence",
+   "screens": [
+    "/quotes/1",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Services 2 services Converted to 000002",
+   "style": "Mixed",
+   "screens": [
+    "/quotes/1",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Margin AED 453.17 13.5% of sell",
+   "style": "Sentence",
+   "screens": [
+    "/quotes/1",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Data retention",
+   "style": "Sentence",
+   "screens": [
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Stay 1–Nov 23, 2026 22 nights",
+   "style": "Sentence",
+   "screens": [
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Travellers Sahil Chauhan + 1 All 2 named",
+   "style": "Mixed",
+   "screens": [
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Services 2 services All settled",
+   "style": "Mixed",
+   "screens": [
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Margin AED 0.00 0.0% of sell",
+   "style": "Sentence",
+   "screens": [
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "AED 672.00 due from the agent",
+   "style": "lower",
+   "screens": [
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "New enquiry",
+   "style": "Sentence",
+   "screens": [
+    "/enquiries"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "In progress 0",
+   "style": "Sentence",
+   "screens": [
+    "/enquiries"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Create enquiry",
+   "style": "Sentence",
+   "screens": [
+    "/enquiries (add-form)",
+    "/enquiries (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Build a report",
+   "style": "Sentence",
+   "screens": [
+    "/reports"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "New report",
+   "style": "Sentence",
+   "screens": [
+    "/playground"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Bookings per month this year",
+   "style": "Sentence",
+   "screens": [
+    "/playground",
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Top 10 agents by bookings",
+   "style": "Sentence",
+   "screens": [
+    "/playground",
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Suppliers by status",
+   "style": "Sentence",
+   "screens": [
+    "/playground",
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Agent wallet top-ups last 30 days",
+   "style": "Sentence",
+   "screens": [
+    "/playground",
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Shared with me (0)",
+   "style": "Sentence",
+   "screens": [
+    "/playground"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Bookings over time How many reservations arrive each month? Bookings · Line",
+   "style": "Mixed",
+   "screens": [
+    "/playground"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Top agents Which agents send you the most bookings? Bookings · Bar",
+   "style": "Mixed",
+   "screens": [
+    "/playground"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Booking status mix What share of reservations is confirmed? Bookings · Pie",
+   "style": "Mixed",
+   "screens": [
+    "/playground"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Quote pipeline How many quotes do you make each month? Quotes · Area",
+   "style": "Mixed",
+   "screens": [
+    "/playground"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Supplier health How many suppliers are active vs on hold? Suppliers · Bar",
+   "style": "Mixed",
+   "screens": [
+    "/playground"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Agent wallet flow Where is agent money moving? Agent wallet · Bar",
+   "style": "Mixed",
+   "screens": [
+    "/playground"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Agent × status matrix Bookings per agent, split by status, with totals. Bookings · Matrix",
+   "style": "Mixed",
+   "screens": [
+    "/playground"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Headline numbers Total bookings and how many agents made them. Bookings · KPI card",
+   "style": "Mixed",
+   "screens": [
+    "/playground"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Show all 13",
+   "style": "Sentence",
+   "screens": [
+    "/playground"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Save report",
+   "style": "Sentence",
+   "screens": [
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Bookings Every reservation — dates, agent, status. e.g. bookings per month, top agents",
+   "style": "Mixed",
+   "screens": [
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Quotes Quotes you've prepared for agents. e.g. quotes this month, quotes by agent",
+   "style": "Mixed",
+   "screens": [
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Agents Your agents, their markets and segments. e.g. agents by country, active vs on hold",
+   "style": "Mixed",
+   "screens": [
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Suppliers Hotels and partners you buy from. e.g. suppliers by status, star rating mix",
+   "style": "Mixed",
+   "screens": [
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Booked services Hotels, transfers and activities inside bookings. e.g. services per supplier, most booked products",
+   "style": "Mixed",
+   "screens": [
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Booking payments Payments and transactions on bookings. e.g. payments per month, by payment mode",
+   "style": "Mixed",
+   "screens": [
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Agent wallet Money moving in and out of agent wallets. e.g. top-ups vs spend, balance by agent",
+   "style": "Mixed",
+   "screens": [
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Packages Holiday packages you sell. e.g. packages by city, newest packages",
+   "style": "Mixed",
+   "screens": [
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Exchange rates Currency rates over time. e.g. rate trend, latest rates",
+   "style": "Mixed",
+   "screens": [
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Tax & settings",
+   "style": "Sentence",
+   "screens": [
+    "/companies/2"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Report logos",
+   "style": "Sentence",
+   "screens": [
+    "/companies/2"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "SPONSORED · Emirates Flash net fares to Dubai +3 more take turns",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Hotels Atlantis The Palm $185 / night",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Activities Desert safari with BBQ dinner $65 / person",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Flights London winter sale $612",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Transfers Dubai airport transfers $28 / way",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Flash net fares to Dubai ends in 3 days — extend it or line up the next.",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Dubai flash fares ends in 3 days — extend it or line up the next.",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Sponsored offers 4 live",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Deal cards 10 live",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Login slider Company › Portal photos",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Listing layout 2 customised",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Package options 3 customised",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Documents Portal default",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Checkout fields 10 customised",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Storefront Storefront defaults",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Email templates Built-in emails",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Why book & trust 0",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/storefront"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Add a slide",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/storefront"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Save draft",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/storefront (add-form)",
+    "/portal-cms/storefront (add-form-empty-save)",
+    "/portal-cms/offers (add-form)",
+    "/portal-cms/offers (add-form-empty-save)",
+    "/portal-cms/deals (add-form)",
+    "/portal-cms/deals (add-form-empty-save)",
+    "/portal-cms/slider (add-form)",
+    "/portal-cms/slider (add-form-empty-save)"
+   ],
+   "count": 10
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Save and publish",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/storefront (add-form)",
+    "/portal-cms/storefront (add-form-empty-save)",
+    "/portal-cms/offers (add-form)",
+    "/portal-cms/offers (add-form-empty-save)",
+    "/portal-cms/deals (add-form)",
+    "/portal-cms/deals (add-form-empty-save)",
+    "/portal-cms/slider (add-form)",
+    "/portal-cms/slider (add-form-empty-save)"
+   ],
+   "count": 10
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Reset to default",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/listing",
+    "/portal-cms/packages"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Give an agent their own layout",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/listing"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Dubai Delight — 5N/6D 3 of 7 changeable by agents",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/packages"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Maldives Escape — 4N/5D 1 of 5 changeable by agents",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/packages"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Swiss Alpine Explorer — 7N/8D 2 of 6 changeable by agents",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/packages"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "New offer",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/offers"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live #1 in rotation Emirates · Flights Flash net fares to Dubai Ends in 3 days Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/offers"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live #2 in rotation Jumeirah · Hotels Stay 4, pay 3 in Dubai 30 Oct 2026 – 09 Dec 2026 Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/offers"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live #3 in rotation Island Hideaways · Packages Maldives water villas, 22% more margin 30 Oct 2026 – 09 Dec 2026 Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/offers"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live #4 in rotation EuroRail Partners · Rail Europe by rail this winter 30 Oct 2026 – 08 Jan 2027 Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/offers"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "New sponsored offer",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/offers"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Search flights",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/offers (add-form)",
+    "/portal-cms/offers (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Home page · 4",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Search screens · 10",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "New deal card",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live Home · #1 Hotels · Home page + search Atlantis The Palm From $185 / night Until 29 Dec 2026 Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live Home · #2 Activities · Home page + search Desert safari with BBQ dinner From $65 / person No end date Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live Home · #3 Flights · Home page + search London winter sale From $612 Until 09 Dec 2026 Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live Home · #4 Transfers · Home page + search Dubai airport transfers From $28 / way No end date Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live Order 5 Flights · Search screen Dubai flash fares From $178 Ends in 3 days Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live Order 6 Hotels · Search screen Maldives overwater villas From $390 / night Until 09 Dec 2026 Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live Order 7 Activities · Search screen Burj Khalifa, At the Top From $42 / person No end date Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live Order 8 Visa · Search screen UAE visa in 24 hours From $135 / person No end date Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live Order 9 Packages · Search screen Dubai delight 5N/6D From $1,110 No end date Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Live Order 10 Self Drive · Search screen Dubai SUV week From $85 / day No end date Every agent",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Add a photo",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/slider"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Headers & footers",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/documents"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Portal itinerary & quote view",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/documents"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "New document",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/documents"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Start from built-in",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/documents (add-form)",
+    "/portal-cms/documents (add-form-empty-save)",
+    "/portal-cms/emails"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Add block",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/documents (add-form)",
+    "/portal-cms/documents (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Insert field",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/documents (add-form)",
+    "/portal-cms/documents (add-form-empty-save)",
+    "/portal-cms/emails"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Header & footer Shared by every email: your logo, name and contact details. Portal default",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Booking confirmed When a booking is confirmed — to the agent at checkout, and to the customer by the scheduler's booking confirmation rule. Built-in",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Booking update Checkout news other than a confirmation: partly booked, failed, payment didn't go through, refunds. Built-in",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Booking cancelled When a booking is cancelled. Built-in",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Payment reminder Before the balance of a booking is due (scheduler). Built-in",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Payment link A payment link sent to the customer for a booking or quotation. Built-in",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Quotation sent When the agent sends a quotation to the customer. Built-in",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Quotation follow-up A reminder some days after a quotation was sent and not yet answered (scheduler). Built-in",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Welcome — new agent When a new agency account is created (scheduler). Built-in",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Welcome — new agency user When an agency adds a new user to its portal account (scheduler). Built-in",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Welcome — new customer When a customer signs up on the storefront (scheduler). Built-in",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Birthday wishes On a traveller's or agency user's birthday (scheduler). Built-in",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Reply to an enquiry When the back office replies to an enquiry from the Enquiries inbox. Built-in",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Documents When staff (Reservation › Documents) or an agent (the booking's Documents) email a booking's documents — they go as PDF attachments. Built-in",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Lead contact 12 fields · 2 hidden",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Flight 13 fields · 1 hidden",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Hotel 8 fields",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Activity 8 fields",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Transfer 13 fields",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Visa 17 fields",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Cruise 11 fields",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Rail 9 fields",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Self drive 14 fields",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Package 10 fields",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Reset to defaults",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "All travellers",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Lead only",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Add field",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Hindi missing",
+   "style": "Sentence",
+   "screens": [
+    "/feedback-questions (add-form)",
+    "/feedback-questions (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Select all",
+   "style": "Sentence",
+   "screens": [
+    "/status (add-form)",
+    "/status (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Upload images",
+   "style": "Sentence",
+   "screens": [
+    "/cities (add-form)",
+    "/cities (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Upload image",
+   "style": "Sentence",
+   "screens": [
+    "/addons (add-form)",
+    "/addons (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "New journal voucher",
+   "style": "Sentence",
+   "screens": [
+    "/journals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Add line",
+   "style": "Sentence",
+   "screens": [
+    "/journals (add-form)",
+    "/journals (add-form-empty-save)",
+    "/recurringjournals (add-form)",
+    "/recurringjournals (add-form-empty-save)"
+   ],
+   "count": 4
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Post journal",
+   "style": "Sentence",
+   "screens": [
+    "/journals (add-form)",
+    "/journals (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Post due now",
+   "style": "Sentence",
+   "screens": [
+    "/recurringjournals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "New recurring journal",
+   "style": "Sentence",
+   "screens": [
+    "/recurringjournals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Revalue currencies",
+   "style": "Sentence",
+   "screens": [
+    "/financialperiods",
+    "/financialperiods (add-form)",
+    "/financialperiods (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Close year",
+   "style": "Sentence",
+   "screens": [
+    "/financialperiods",
+    "/financialperiods (add-form)",
+    "/financialperiods (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "To invoice 8",
+   "style": "Sentence",
+   "screens": [
+    "/agentinvoices"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Raise invoice",
+   "style": "Sentence",
+   "screens": [
+    "/agentinvoices"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Enter supplier invoice",
+   "style": "Sentence",
+   "screens": [
+    "/supplierinvoices"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Save changes",
+   "style": "Sentence",
+   "screens": [
+    "/system/configurations"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Add article",
+   "style": "Sentence",
+   "screens": [
+    "/system/help",
+    "/system/help (add-form)",
+    "/system/help (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "To review",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Getting started 1",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Finding your way around",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Product search 0",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "How accounting works in Pilot",
+   "style": "Mixed",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Setting up accounting",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Agent invoices and credit notes",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Supplier invoices and debit notes",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Receipts, refunds and supplier payments",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Journals and journal vouchers",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Trial balance, profit and loss, balance sheet and ledgers",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Agent and supplier balances, ageing and statements",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Month-end and year-end close",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Bank reconciliation",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Recurring journals",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Users and access 1",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Restriction groups: who can see and do what",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "System settings 2",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "How Help Center works",
+   "style": "Mixed",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Company-wide configurations",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Add section",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (button: buttons must be Title Case (agreed standard))",
+   "text": "Report outdated",
+   "style": "Sentence",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "info: button capitalisation tally",
+   "text": "{\"Sentence\":564,\"lower\":6,\"Mixed\":97,\"Title\":175}",
+   "screens": [],
+   "count": 0
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Good evening, Sahil",
+   "style": "Mixed",
+   "screens": [
+    "/dashboard"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Reservation",
+   "style": "Title",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)",
+    "/reservations/new",
+    "/reservations/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Product Search",
+   "style": "Title",
+   "screens": [
+    "/product-search"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Location Dubai, United Arab Emirates",
+   "style": "Title",
+   "screens": [
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Contacts Add contact",
+   "style": "Mixed",
+   "screens": [
+    "/suppliers/10/contacts",
+    "/suppliers/10/contacts (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Primary address Edit",
+   "style": "Mixed",
+   "screens": [
+    "/suppliers/10/contacts",
+    "/suppliers/10/contacts (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Currencies and payment Add currency",
+   "style": "Mixed",
+   "screens": [
+    "/suppliers/10/financials",
+    "/suppliers/10/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Gulf Horizons Travel LLC",
+   "style": "Title",
+   "screens": [
+    "/agents/2/overview",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)",
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)",
+    "/agents/2/access",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 8
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Currencies Add currency",
+   "style": "Mixed",
+   "screens": [
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Ledger Currency Account Add top-up More",
+   "style": "Mixed",
+   "screens": [
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Credit requests All requests",
+   "style": "Mixed",
+   "screens": [
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Loyalty points 0 pts · off Adjust",
+   "style": "Mixed",
+   "screens": [
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Products 8 of 9 on Edit",
+   "style": "Title",
+   "screens": [
+    "/agents/2/access",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Portal menus 0 of 16 on Edit",
+   "style": "Mixed",
+   "screens": [
+    "/agents/2/access",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Create a Package",
+   "style": "Title",
+   "screens": [
+    "/packages (add-form)",
+    "/packages (add-form-empty-save)",
+    "/packages/new",
+    "/packages/new (add-form)",
+    "/packages/new (add-form-empty-save)"
+   ],
+   "count": 5
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Quote",
+   "style": "Title",
+   "screens": [
+    "/quotes (add-form)",
+    "/quotes (add-form-empty-save)",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)",
+    "/quotes/new",
+    "/quotes/new (add-form)",
+    "/quotes/new (add-form-empty-save)"
+   ],
+   "count": 7
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Amendment Requests",
+   "style": "Title",
+   "screens": [
+    "/amendments"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Portal CMS · Sandbox",
+   "style": "Title",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Storefront · Sandbox",
+   "style": "Title",
+   "screens": [
+    "/portal-cms/storefront"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "New slide New · draft until published",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/storefront (add-form)",
+    "/portal-cms/storefront (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Listing layout · Sandbox",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/listing"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Self Drive",
+   "style": "Title",
+   "screens": [
+    "/portal-cms/listing"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Package options · Sandbox",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/packages"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Dubai Delight — 5N/6D",
+   "style": "Title",
+   "screens": [
+    "/portal-cms/packages"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Sponsored offers · Sandbox",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/offers"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "New sponsored offer New · draft until published",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/offers (add-form)",
+    "/portal-cms/offers (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Under the Flights search tabs",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/offers (add-form)",
+    "/portal-cms/offers (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Deal cards · Sandbox",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/deals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "New deal card New · draft until published",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/deals (add-form)",
+    "/portal-cms/deals (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "In the Flights search's featured deals",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/deals (add-form)",
+    "/portal-cms/deals (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Login slider · Sandbox",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/slider"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "New login photo New · draft until published",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/slider (add-form)",
+    "/portal-cms/slider (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Documents · Sandbox",
+   "style": "Title",
+   "screens": [
+    "/portal-cms/documents"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Itinerary Itinerary",
+   "style": "Title",
+   "screens": [
+    "/portal-cms/documents (add-form)",
+    "/portal-cms/documents (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Email templates · Sandbox",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/emails"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Checkout fields · Sandbox",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/checkout"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add a checkout field Flight checkout",
+   "style": "Mixed",
+   "screens": [
+    "/portal-cms/checkout (add-form)",
+    "/portal-cms/checkout (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Currency",
+   "style": "Title",
+   "screens": [
+    "/currency (add-form)",
+    "/currency (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Role",
+   "style": "Title",
+   "screens": [
+    "/contacttype (add-form)",
+    "/contacttype (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Language",
+   "style": "Title",
+   "screens": [
+    "/languages (add-form)",
+    "/languages (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Theme",
+   "style": "Title",
+   "screens": [
+    "/themes (add-form)",
+    "/themes (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Feedback Questions",
+   "style": "Title",
+   "screens": [
+    "/feedback-questions"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Question",
+   "style": "Title",
+   "screens": [
+    "/feedback-questions (add-form)",
+    "/feedback-questions (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Status",
+   "style": "Title",
+   "screens": [
+    "/status (add-form)",
+    "/status (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Country",
+   "style": "Title",
+   "screens": [
+    "/countries (add-form)",
+    "/countries (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add State",
+   "style": "Title",
+   "screens": [
+    "/states (add-form)",
+    "/states (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add City",
+   "style": "Title",
+   "screens": [
+    "/cities (add-form)",
+    "/cities (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Market",
+   "style": "Title",
+   "screens": [
+    "/markets (add-form)",
+    "/markets (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Desk Locations",
+   "style": "Title",
+   "screens": [
+    "/desk-locations"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Desk Location",
+   "style": "Title",
+   "screens": [
+    "/desk-locations (add-form)",
+    "/desk-locations (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Landmark",
+   "style": "Title",
+   "screens": [
+    "/landmarks (add-form)",
+    "/landmarks (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Province",
+   "style": "Title",
+   "screens": [
+    "/provinces (add-form)",
+    "/provinces (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Product Types",
+   "style": "Title",
+   "screens": [
+    "/producttype"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Product Type",
+   "style": "Title",
+   "screens": [
+    "/producttype (add-form)",
+    "/producttype (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Product Classes",
+   "style": "Title",
+   "screens": [
+    "/productclass"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Product Class",
+   "style": "Title",
+   "screens": [
+    "/productclass (add-form)",
+    "/productclass (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Room Types",
+   "style": "Title",
+   "screens": [
+    "/roomtypes"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Room Type",
+   "style": "Title",
+   "screens": [
+    "/roomtypes (add-form)",
+    "/roomtypes (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Room Categories",
+   "style": "Title",
+   "screens": [
+    "/roomcategories"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Room Category",
+   "style": "Title",
+   "screens": [
+    "/roomcategories (add-form)",
+    "/roomcategories (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "View Types",
+   "style": "Title",
+   "screens": [
+    "/viewtypes"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add View Type",
+   "style": "Title",
+   "screens": [
+    "/viewtypes (add-form)",
+    "/viewtypes (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Amenity",
+   "style": "Title",
+   "screens": [
+    "/amenities (add-form)",
+    "/amenities (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Supplement",
+   "style": "Title",
+   "screens": [
+    "/supplements (add-form)",
+    "/supplements (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Allotment",
+   "style": "Title",
+   "screens": [
+    "/allotments (add-form)",
+    "/allotments (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Addon",
+   "style": "Title",
+   "screens": [
+    "/addons (add-form)",
+    "/addons (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Branch",
+   "style": "Title",
+   "screens": [
+    "/organization/branches (add-form)",
+    "/organization/branches (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Department",
+   "style": "Title",
+   "screens": [
+    "/organization/departments (add-form)",
+    "/organization/departments (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Restriction Groups",
+   "style": "Title",
+   "screens": [
+    "/restrictions"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Restriction Group",
+   "style": "Title",
+   "screens": [
+    "/restrictions (add-form)",
+    "/restrictions (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add User",
+   "style": "Title",
+   "screens": [
+    "/users (add-form)",
+    "/users (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Resource Types",
+   "style": "Title",
+   "screens": [
+    "/resourcetypes"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Resource Type",
+   "style": "Title",
+   "screens": [
+    "/resourcetypes (add-form)",
+    "/resourcetypes (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Personnel",
+   "style": "Title",
+   "screens": [
+    "/resources/personnel (add-form)",
+    "/resources/personnel (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Asset",
+   "style": "Title",
+   "screens": [
+    "/resources/assets (add-form)",
+    "/resources/assets (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Resource Mapping",
+   "style": "Title",
+   "screens": [
+    "/resourcemapping"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Resource Mapping",
+   "style": "Title",
+   "screens": [
+    "/resourcemapping (add-form)",
+    "/resourcemapping (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Chart of Accounts",
+   "style": "Title",
+   "screens": [
+    "/chartofaccounts"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Account",
+   "style": "Title",
+   "screens": [
+    "/chartofaccounts (add-form)",
+    "/chartofaccounts (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Account Groups",
+   "style": "Title",
+   "screens": [
+    "/accountgroup"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Account Group",
+   "style": "Title",
+   "screens": [
+    "/accountgroup (add-form)",
+    "/accountgroup (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Tax",
+   "style": "Title",
+   "screens": [
+    "/tax (add-form)",
+    "/tax (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Tax Detail",
+   "style": "Title",
+   "screens": [
+    "/taxdetail"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Tax Detail",
+   "style": "Title",
+   "screens": [
+    "/taxdetail (add-form)",
+    "/taxdetail (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Exchange Types",
+   "style": "Title",
+   "screens": [
+    "/exchangetypes"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Exchange Type",
+   "style": "Title",
+   "screens": [
+    "/exchangetypes (add-form)",
+    "/exchangetypes (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Exchange Rates",
+   "style": "Title",
+   "screens": [
+    "/exchangerates"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Exchange Rate",
+   "style": "Title",
+   "screens": [
+    "/exchangerates (add-form)",
+    "/exchangerates (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Recurring Journals",
+   "style": "Title",
+   "screens": [
+    "/recurringjournals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Financial Periods",
+   "style": "Title",
+   "screens": [
+    "/financialperiods",
+    "/financialperiods (add-form)",
+    "/financialperiods (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Agent Invoices",
+   "style": "Title",
+   "screens": [
+    "/agentinvoices"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Supplier Invoices",
+   "style": "Title",
+   "screens": [
+    "/supplierinvoices"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Bank Reconciliation",
+   "style": "Title",
+   "screens": [
+    "/bankreconciliation"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Accounting Settings",
+   "style": "Title",
+   "screens": [
+    "/accountingsettings"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Add Flex",
+   "style": "Title",
+   "screens": [
+    "/flex/1 (add-form)",
+    "/flex/1 (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Data Retention",
+   "style": "Title",
+   "screens": [
+    "/system/data-retention"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (heading: most of the app uses Sentence case)",
+   "text": "Help Center",
+   "style": "Title",
+   "screens": [
+    "/system/help"
+   ],
+   "count": 1
+  },
+  {
+   "type": "info: heading capitalisation tally",
+   "text": "{\"Mixed\":39,\"Sentence\":167,\"Title\":142}",
+   "screens": [],
+   "count": 0
+  },
+  {
+   "type": "capitals (tab: most of the app uses Sentence case)",
+   "text": "Accounting Due",
+   "style": "Title",
+   "screens": [
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (tab: most of the app uses Sentence case)",
+   "text": "Payment Settings",
+   "style": "Title",
+   "screens": [
+    "/companies/2"
+   ],
+   "count": 1
+  },
+  {
+   "type": "info: tab capitalisation tally",
+   "text": "{\"Sentence\":16,\"Title\":4}",
+   "screens": [],
+   "count": 0
+  },
+  {
+   "type": "capitals (column: most of the app uses Title case)",
+   "text": "Credit available",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (column: most of the app uses Title case)",
+   "text": "Supplier credit",
+   "style": "Sentence",
+   "screens": [
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (column: most of the app uses Title case)",
+   "text": "Next follow-up",
+   "style": "Sentence",
+   "screens": [
+    "/quotes",
+    "/quotes (add-form)",
+    "/quotes (add-form-empty-save)",
+    "/quotes/1",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)",
+    "/quotes/new",
+    "/quotes/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (column: most of the app uses Title case)",
+   "text": "Header / footer",
+   "style": "Sentence",
+   "screens": [
+    "/portal-cms/documents"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (column: most of the app uses Title case)",
+   "text": "Asks about",
+   "style": "Sentence",
+   "screens": [
+    "/feedback-questions"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (column: most of the app uses Title case)",
+   "text": "Partner hotels",
+   "style": "Sentence",
+   "screens": [
+    "/desk-locations"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (column: most of the app uses Title case)",
+   "text": "Roll bed",
+   "style": "Sentence",
+   "screens": [
+    "/roomtypes"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (column: most of the app uses Title case)",
+   "text": "Ad chk",
+   "style": "Sentence",
+   "screens": [
+    "/roomtypes"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (column: most of the app uses Title case)",
+   "text": "Next run",
+   "style": "Sentence",
+   "screens": [
+    "/recurringjournals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (column: most of the app uses Title case)",
+   "text": "Last posted",
+   "style": "Sentence",
+   "screens": [
+    "/recurringjournals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (column: most of the app uses Title case)",
+   "text": "General ledger",
+   "style": "Sentence",
+   "screens": [
+    "/financialperiods",
+    "/financialperiods (add-form)",
+    "/financialperiods (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "capitals (column: most of the app uses Title case)",
+   "text": "Supplier ref",
+   "style": "Sentence",
+   "screens": [
+    "/supplierinvoices"
+   ],
+   "count": 1
+  },
+  {
+   "type": "info: column capitalisation tally",
+   "text": "{\"Sentence\":24,\"Title\":37}",
+   "screens": [],
+   "count": 0
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Travel Dates *",
+   "style": "Title",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)",
+    "/reservations/new",
+    "/reservations/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Reservation Name",
+   "style": "Title",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)",
+    "/reservations/new",
+    "/reservations/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Booking Type",
+   "style": "Title",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)",
+    "/reservations/new",
+    "/reservations/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Exchange Type *",
+   "style": "Title",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/quotes (add-form)",
+    "/quotes (add-form-empty-save)",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)",
+    "/quotes/new",
+    "/quotes/new (add-form)"
+   ],
+   "count": 18
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Client Reference",
+   "style": "Title",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)",
+    "/reservations/new",
+    "/reservations/new (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Contact Person Name",
+   "style": "Title",
+   "screens": [
+    "/quotes (add-form)",
+    "/quotes (add-form-empty-save)",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)",
+    "/quotes/new",
+    "/quotes/new (add-form)",
+    "/quotes/new (add-form-empty-save)"
+   ],
+   "count": 7
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Street Locality",
+   "style": "Title",
+   "screens": [
+    "/companies/2"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Time Zone",
+   "style": "Title",
+   "screens": [
+    "/companies/2"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "No of License",
+   "style": "Title",
+   "screens": [
+    "/companies/2"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Report Logo 1",
+   "style": "Title",
+   "screens": [
+    "/companies/2"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Report Logo 2",
+   "style": "Title",
+   "screens": [
+    "/companies/2"
+   ],
+   "count": 1
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Question in English*",
+   "style": "Title",
+   "screens": [
+    "/feedback-questions (add-form)",
+    "/feedback-questions (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Product Type*",
+   "style": "Title",
+   "screens": [
+    "/productclass (add-form)",
+    "/productclass (add-form-empty-save)",
+    "/supplements (add-form)",
+    "/supplements (add-form-empty-save)",
+    "/addons (add-form)",
+    "/addons (add-form-empty-save)"
+   ],
+   "count": 6
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Reports To*",
+   "style": "Title",
+   "screens": [
+    "/users (add-form)",
+    "/users (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Restriction Group*",
+   "style": "Title",
+   "screens": [
+    "/users (add-form)",
+    "/users (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Resource Class*",
+   "style": "Title",
+   "screens": [
+    "/resourcetypes (add-form)",
+    "/resourcetypes (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Personnel Type*",
+   "style": "Title",
+   "screens": [
+    "/resources/personnel (add-form)",
+    "/resources/personnel (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Asset Type*",
+   "style": "Title",
+   "screens": [
+    "/resources/assets (add-form)",
+    "/resources/assets (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Source Resource (Personnel)*",
+   "style": "Title",
+   "screens": [
+    "/resourcemapping (add-form)",
+    "/resourcemapping (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Target Resource (Asset)*",
+   "style": "Title",
+   "screens": [
+    "/resourcemapping (add-form)",
+    "/resourcemapping (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Group Class*",
+   "style": "Title",
+   "screens": [
+    "/accountgroup (add-form)",
+    "/accountgroup (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Group Priority",
+   "style": "Title",
+   "screens": [
+    "/accountgroup (add-form)",
+    "/accountgroup (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Tax-In Account",
+   "style": "Title",
+   "screens": [
+    "/tax (add-form)",
+    "/tax (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Tax-Out Account",
+   "style": "Title",
+   "screens": [
+    "/tax (add-form)",
+    "/tax (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Tax Sequence",
+   "style": "Title",
+   "screens": [
+    "/tax (add-form)",
+    "/tax (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "Service Type",
+   "style": "Title",
+   "screens": [
+    "/taxdetail (add-form)",
+    "/taxdetail (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "From Currency *",
+   "style": "Title",
+   "screens": [
+    "/exchangerates (add-form)",
+    "/exchangerates (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "capitals (label: most of the app uses Sentence case)",
+   "text": "To Currency *",
+   "style": "Title",
+   "screens": [
+    "/exchangerates (add-form)",
+    "/exchangerates (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "info: label capitalisation tally",
+   "text": "{\"Title\":104,\"Sentence\":259}",
+   "screens": [],
+   "count": 0
+  },
+  {
+   "type": "info: popup-title capitalisation tally",
+   "text": "{\"Sentence\":36}",
+   "screens": [],
+   "count": 0
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Amendment requests  |  Amendment Requests",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)"
+   ],
+   "count": 12
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Name  |  Name *  |  Name*",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/suppliers",
+    "/suppliers (add-form)",
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)"
+   ],
+   "count": 154
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Agent  |  Agent *  |  Agent*",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/quotes",
+    "/quotes (add-form)",
+    "/quotes (add-form-empty-save)",
+    "/quotes/1",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)"
+   ],
+   "count": 26
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Type  |  Type*",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/packages",
+    "/packages (add-form)",
+    "/packages (add-form-empty-save)",
+    "/packages/new",
+    "/packages/new (add-form)",
+    "/packages/new (add-form-empty-save)"
+   ],
+   "count": 28
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Country  |  Country *  |  Country*",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/agents",
+    "/agents (add-form)",
+    "/agents (add-form-empty-save)",
+    "/agents/2/overview",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)"
+   ],
+   "count": 38
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Currency  |  Currency *  |  Currency*",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)",
+    "/quotes",
+    "/quotes (add-form)",
+    "/quotes (add-form-empty-save)",
+    "/quotes/1"
+   ],
+   "count": 40
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Branch  |  Branch*",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)"
+   ],
+   "count": 21
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Group  |  Group*",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/reservations (add-form)",
+    "/reservations (add-form-empty-save)",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)",
+    "/reservations/new",
+    "/reservations/new (add-form)"
+   ],
+   "count": 15
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Department  |  Department*",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/suppliers (add-form)",
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts (add-form)",
+    "/suppliers/10/contacts (add-form-empty-save)"
+   ],
+   "count": 22
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Exchange Type *  |  Exchange Type  |  Exchange type *  |  Exchange type  |  Exchange type*",
+   "screens": [
+    "/dashboard (add-form)",
+    "/dashboard (add-form-empty-save)",
+    "/quotes (add-form)",
+    "/quotes (add-form-empty-save)",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)",
+    "/quotes/new",
+    "/quotes/new (add-form)"
+   ],
+   "count": 27
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Code  |  Code*",
+   "screens": [
+    "/suppliers",
+    "/suppliers (add-form)",
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts",
+    "/suppliers/10/contacts (add-form)"
+   ],
+   "count": 29
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "City  |  City *  |  City*",
+   "screens": [
+    "/suppliers",
+    "/suppliers (add-form)",
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts",
+    "/suppliers/10/contacts (add-form)"
+   ],
+   "count": 21
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Default currency *  |  Default currency*",
+   "screens": [
+    "/suppliers (add-form)",
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts (add-form)",
+    "/suppliers/10/financials (add-form)",
+    "/agents (add-form)",
+    "/agents (add-form-empty-save)"
+   ],
+   "count": 13
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Name is required  |  Name is required.",
+   "screens": [
+    "/suppliers (add-form-empty-save)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/quotes (add-form-empty-save)",
+    "/quotes/1 (add-form-empty-save)",
+    "/quotes/new (add-form-empty-save)",
+    "/currency (add-form-empty-save)",
+    "/contacttype (add-form-empty-save)",
+    "/languages (add-form-empty-save)"
+   ],
+   "count": 37
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Email  |  Email*",
+   "screens": [
+    "/suppliers/10/overview",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts",
+    "/suppliers/10/contacts (add-form)",
+    "/enquiries (add-form)",
+    "/enquiries (add-form-empty-save)",
+    "/companies/2"
+   ],
+   "count": 24
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Phone  |  Phone#",
+   "screens": [
+    "/suppliers/10/overview",
+    "/suppliers/10/overview (add-form)",
+    "/suppliers/10/overview (add-form-empty-save)",
+    "/suppliers/10/contacts",
+    "/suppliers/10/contacts (add-form)",
+    "/suppliers/10/contacts (add-form-empty-save)",
+    "/enquiries (add-form)",
+    "/enquiries (add-form-empty-save)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Role *  |  Role",
+   "screens": [
+    "/suppliers/10/contacts (add-form-empty-save)",
+    "/users"
+   ],
+   "count": 2
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Add currency  |  Add Currency",
+   "screens": [
+    "/suppliers/10/financials",
+    "/suppliers/10/financials (add-form)",
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)",
+    "/suppliers/10/financials (add-form-empty-save)",
+    "/currency",
+    "/currency (add-form)",
+    "/currency (add-form-empty-save)"
+   ],
+   "count": 8
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "PAN  |  PAN#",
+   "screens": [
+    "/suppliers/10/financials",
+    "/suppliers/10/financials (add-form)",
+    "/companies/2"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "TAN  |  TAN#",
+   "screens": [
+    "/suppliers/10/financials",
+    "/suppliers/10/financials (add-form)",
+    "/companies/2"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Credit Requests  |  Credit requests",
+   "screens": [
+    "/agents",
+    "/agents (add-form)",
+    "/agents (add-form-empty-save)",
+    "/agents/2/overview",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)",
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 11
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Add Agent  |  Add agent",
+   "screens": [
+    "/agents",
+    "/agents (add-form)",
+    "/agents (add-form-empty-save)",
+    "/agents/2/overview",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)",
+    "/agents/2/financials",
+    "/agents/2/financials (add-form)"
+   ],
+   "count": 11
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Agent name*  |  Agent name",
+   "screens": [
+    "/agents (add-form)",
+    "/agents (add-form-empty-save)",
+    "/agents/2/overview",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)",
+    "/agents/2/financials (add-form)",
+    "/agents/2/access (add-form)",
+    "/agents/2/access (add-form-empty-save)"
+   ],
+   "count": 8
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Amount*  |  Amount",
+   "screens": [
+    "/agents/2/financials (add-form-empty-save)",
+    "/recurringjournals"
+   ],
+   "count": 2
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Source  |  Source*",
+   "screens": [
+    "/quotes",
+    "/quotes (add-form)",
+    "/quotes (add-form-empty-save)",
+    "/quotes/1",
+    "/quotes/1 (add-form)",
+    "/quotes/1 (add-form-empty-save)",
+    "/quotes/new",
+    "/quotes/new (add-form)"
+   ],
+   "count": 13
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Data retention  |  Data Retention",
+   "screens": [
+    "/reservations/3",
+    "/reservations/3 (add-form)",
+    "/reservations/3 (add-form-empty-save)",
+    "/system/data-retention"
+   ],
+   "count": 4
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "All 0  |  All (0)",
+   "screens": [
+    "/enquiries",
+    "/playground"
+   ],
+   "count": 2
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Subject  |  Subject*",
+   "screens": [
+    "/enquiries (add-form)",
+    "/enquiries (add-form-empty-save)",
+    "/portal-cms/emails"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Description  |  Description*",
+   "screens": [
+    "/companies/2",
+    "/landmarks (add-form)",
+    "/landmarks (add-form-empty-save)",
+    "/producttype (add-form)",
+    "/producttype (add-form-empty-save)",
+    "/productclass (add-form)",
+    "/productclass (add-form-empty-save)",
+    "/resourcetypes (add-form)"
+   ],
+   "count": 19
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Product  |  Product*",
+   "screens": [
+    "/portal-cms/offers (add-form)",
+    "/portal-cms/offers (add-form-empty-save)",
+    "/portal-cms/deals (add-form)",
+    "/portal-cms/deals (add-form-empty-save)",
+    "/producttype",
+    "/producttype (add-form)",
+    "/producttype (add-form-empty-save)"
+   ],
+   "count": 7
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Image*  |  Image",
+   "screens": [
+    "/portal-cms/offers (add-form)",
+    "/portal-cms/offers (add-form-empty-save)",
+    "/portal-cms/deals (add-form)",
+    "/portal-cms/deals (add-form-empty-save)",
+    "/portal-cms/slider (add-form)",
+    "/portal-cms/slider (add-form-empty-save)",
+    "/addons"
+   ],
+   "count": 7
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Title*  |  Title *",
+   "screens": [
+    "/portal-cms/deals (add-form)",
+    "/portal-cms/deals (add-form-empty-save)",
+    "/system/help (add-form)",
+    "/system/help (add-form-empty-save)",
+    "/portal-cms/checkout"
+   ],
+   "count": 5
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Label  |  Label*",
+   "screens": [
+    "/portal-cms/checkout",
+    "/portal-cms/checkout (add-form)",
+    "/portal-cms/checkout (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Asks about  |  Asks about*",
+   "screens": [
+    "/feedback-questions",
+    "/feedback-questions (add-form)",
+    "/feedback-questions (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Answer  |  Answer*",
+   "screens": [
+    "/feedback-questions",
+    "/feedback-questions (add-form)",
+    "/feedback-questions (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Applies To  |  Applies to",
+   "screens": [
+    "/status",
+    "/status (add-form)",
+    "/status (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Countries  |  Countries*",
+   "screens": [
+    "/countries",
+    "/markets",
+    "/markets (add-form)",
+    "/markets (add-form-empty-save)"
+   ],
+   "count": 4
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Cities  |  Cities*",
+   "screens": [
+    "/cities",
+    "/provinces (add-form)",
+    "/provinces (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Partner hotels  |  Partner hotels *",
+   "screens": [
+    "/desk-locations",
+    "/desk-locations (add-form)",
+    "/desk-locations (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Product Type  |  Product Type*",
+   "screens": [
+    "/productclass",
+    "/supplements",
+    "/addons",
+    "/productclass (add-form)",
+    "/productclass (add-form-empty-save)",
+    "/supplements (add-form)",
+    "/supplements (add-form-empty-save)",
+    "/addons (add-form)"
+   ],
+   "count": 9
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Sequence  |  Sequence*",
+   "screens": [
+    "/supplements",
+    "/supplements (add-form)",
+    "/supplements (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Username  |  Username*",
+   "screens": [
+    "/users",
+    "/users (add-form)",
+    "/users (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Resource Class  |  Resource Class*",
+   "screens": [
+    "/resourcetypes",
+    "/resourcetypes (add-form)",
+    "/resourcetypes (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Classification  |  Classification*",
+   "screens": [
+    "/chartofaccounts",
+    "/chartofaccounts (add-form)",
+    "/chartofaccounts (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Bank Account  |  Bank account*",
+   "screens": [
+    "/chartofaccounts",
+    "/bankreconciliation"
+   ],
+   "count": 2
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Group Class  |  Group Class*",
+   "screens": [
+    "/accountgroup",
+    "/accountgroup (add-form)",
+    "/accountgroup (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Tax  |  Tax*",
+   "screens": [
+    "/taxdetail",
+    "/taxdetail (add-form)",
+    "/taxdetail (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Value  |  Value*",
+   "screens": [
+    "/taxdetail",
+    "/taxdetail (add-form)",
+    "/taxdetail (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Rate  |  Rate*",
+   "screens": [
+    "/exchangerates",
+    "/exchangerates (add-form)",
+    "/exchangerates (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Narration  |  Narration*",
+   "screens": [
+    "/journals",
+    "/recurringjournals",
+    "/journals (add-form)",
+    "/journals (add-form-empty-save)",
+    "/recurringjournals (add-form)",
+    "/recurringjournals (add-form-empty-save)"
+   ],
+   "count": 6
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Recurring Journals  |  Recurring journals",
+   "screens": [
+    "/recurringjournals",
+    "/system/help"
+   ],
+   "count": 2
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Bank Reconciliation  |  Bank reconciliation",
+   "screens": [
+    "/bankreconciliation",
+    "/system/help"
+   ],
+   "count": 2
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Base currency*  |  Base currency",
+   "screens": [
+    "/accountingsettings"
+   ],
+   "count": 1
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Default exchange type*  |  Default exchange type",
+   "screens": [
+    "/accountingsettings"
+   ],
+   "count": 1
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Receivable control account*  |  Receivable control account",
+   "screens": [
+    "/accountingsettings"
+   ],
+   "count": 1
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Payable control account*  |  Payable control account",
+   "screens": [
+    "/accountingsettings"
+   ],
+   "count": 1
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Default revenue account*  |  Default revenue account",
+   "screens": [
+    "/accountingsettings"
+   ],
+   "count": 1
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Default cost account*  |  Default cost account",
+   "screens": [
+    "/accountingsettings"
+   ],
+   "count": 1
+  },
+  {
+   "type": "same text written in different ways",
+   "text": "Module  |  Module*",
+   "screens": [
+    "/flex/1",
+    "/flex/1 (add-form)",
+    "/flex/1 (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "wording: repeated word",
+   "text": "[button] Quotes Quotes you've prepared for agents. e.g. quotes this month, quotes by agent",
+   "screens": [
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "wording: repeated word",
+   "text": "[button] Booking payments Payments and transactions on bookings. e.g. payments per month, by payment mode",
+   "screens": [
+    "/playground (add-form)",
+    "/playground (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "wording: repeated word",
+   "text": "[button] Storefront Storefront defaults",
+   "screens": [
+    "/portal-cms/overview"
+   ],
+   "count": 1
+  },
+  {
+   "type": "wording: repeated word",
+   "text": "[heading] Itinerary Itinerary",
+   "screens": [
+    "/portal-cms/documents (add-form)",
+    "/portal-cms/documents (add-form-empty-save)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This supplier has no default currency. Add one — every supplier needs a default currency.",
+   "screens": [
+    "/suppliers/10/financials",
+    "/suppliers/10/financials (add-form)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "No agent plans yet — create them in Plans & Subscription › Agent plans. No tiers yet — create them in Agent Tiers.",
+   "screens": [
+    "/agents/2/overview",
+    "/agents/2/overview (add-form)",
+    "/agents/2/overview (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "Agents won't find Dubai Delights 4N/5D in the portal until it's published again.",
+   "screens": [
+    "/packages (deactivate-popup)",
+    "/packages/new (deactivate-popup)"
+   ],
+   "count": 2
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark it as inactive.",
+   "screens": [
+    "/quotes (deactivate-popup)",
+    "/quotes/1 (deactivate-popup)",
+    "/quotes/new (deactivate-popup)",
+    "/reservations (deactivate-popup)",
+    "/reservations/3 (deactivate-popup)",
+    "/reservations/new (deactivate-popup)"
+   ],
+   "count": 6
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "Pilot can't be reached right now. Try again in a moment.",
+   "screens": [
+    "/enquiries (add-form-empty-save)",
+    "/portal-cms/documents (add-form)",
+    "/portal-cms/documents (add-form-empty-save)",
+    "/portal-cms/emails"
+   ],
+   "count": 4
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "No feedback yet.",
+   "screens": [
+    "/feedback"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "Give the field a label.",
+   "screens": [
+    "/portal-cms/checkout (add-form-empty-save)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the currency as inactive.",
+   "screens": [
+    "/currency (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the language as inactive.",
+   "screens": [
+    "/languages (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the theme as inactive.",
+   "screens": [
+    "/themes (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "No questions yet — the feedback forms ask for stars and a comment only. Add the first question.",
+   "screens": [
+    "/feedback-questions"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "Write the question in English — it's what the form falls back to.",
+   "screens": [
+    "/feedback-questions (add-form-empty-save)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the status as inactive.",
+   "screens": [
+    "/status (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the country as inactive.",
+   "screens": [
+    "/countries (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the state as inactive.",
+   "screens": [
+    "/states (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the city as inactive.",
+   "screens": [
+    "/cities (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the market as inactive.",
+   "screens": [
+    "/markets (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the landmark as inactive.",
+   "screens": [
+    "/landmarks (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the province as inactive.",
+   "screens": [
+    "/provinces (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the airport as inactive.",
+   "screens": [
+    "/airports (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the product type as inactive.",
+   "screens": [
+    "/producttype (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the product class as inactive.",
+   "screens": [
+    "/productclass (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the room type as inactive.",
+   "screens": [
+    "/roomtypes (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the room category as inactive.",
+   "screens": [
+    "/roomcategories (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the view type as inactive.",
+   "screens": [
+    "/viewtypes (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the amenity as inactive.",
+   "screens": [
+    "/amenities (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the supplement as inactive.",
+   "screens": [
+    "/supplements (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the branch as inactive.",
+   "screens": [
+    "/organization/branches (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the department as inactive.",
+   "screens": [
+    "/organization/departments (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the restriction group as inactive.",
+   "screens": [
+    "/restrictions (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the user as inactive.",
+   "screens": [
+    "/users (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "Name is required.",
+   "screens": [
+    "/resourcetypes (add-form-empty-save)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the resource type as inactive.",
+   "screens": [
+    "/resourcetypes (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the personnel as inactive.",
+   "screens": [
+    "/resources/personnel (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the asset as inactive.",
+   "screens": [
+    "/resources/assets (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "Select both a source resource and a target resource.",
+   "screens": [
+    "/resourcemapping (add-form-empty-save)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the mapping as inactive.",
+   "screens": [
+    "/resourcemapping (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "This will mark the exchange type as inactive.",
+   "screens": [
+    "/exchangetypes (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "Quotes will stop converting with this rate.",
+   "screens": [
+    "/exchangerates (deactivate-popup)"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "No recurring journals yet. Add rent, subscriptions or depreciation once and they post every month.",
+   "screens": [
+    "/recurringjournals"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "No periods for 2026 yet. Create the year to start posting in it.",
+   "screens": [
+    "/financialperiods",
+    "/financialperiods (add-form)",
+    "/financialperiods (add-form-empty-save)"
+   ],
+   "count": 3
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "Accounting isn't set up yet. Create the accounts under Chart of Accounts and the year under Financial Periods, then fill this in.",
+   "screens": [
+    "/accountingsettings"
+   ],
+   "count": 1
+  },
+  {
+   "type": "end punctuation (most messages have no a full stop)",
+   "text": "No personal data has been removed yet.",
+   "screens": [
+    "/system/data-retention"
+   ],
+   "count": 1
+  }
+ ]
+}

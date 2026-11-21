@@ -431,6 +431,23 @@ const BUGS = [
 ];
 // bugs confirmed FIXED on stage (re-test passed + screenshot) -> status column; the bug stays listed
 const FIXED = {
+  'BUG-35': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-37': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-42': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-09': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-11': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-12': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-21': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-22': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-23': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-24': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-26': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-30': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-31': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-32': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-33': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-36': 'Fixed 21-Nov (verified, core rerun)',
+  'BUG-41': 'Fixed 21-Nov (verified, core rerun)',
   'BUG-44': 'Fixed 21-Nov (verified)',
   'BUG-45': 'Fixed 21-Nov (verified)',
   'BUG-47': 'Fixed 21-Nov (verified)',

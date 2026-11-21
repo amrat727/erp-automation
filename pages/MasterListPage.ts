@@ -35,7 +35,8 @@ export class MasterListPage {
     this.page = page;
     this.entity = entity;
     // regex: some headings carry an info icon after the text ("Room Types (i)")
-    this.heading = page.getByRole('heading', { name: new RegExp(`^${plural}(\\s|$)`) });
+    // stage build of 21 Nov 2026: the singular headings became plural ("Role" -> "Roles", "Tax" -> "Taxes", "Account Group" -> "Account Groups", BUG-36 fix)
+    this.heading = page.getByRole('heading', { name: new RegExp(`^${plural}(s|es)?(\\s|$)`) });
     this.addButton = page.getByRole('button', { name: opts.addLabel ?? `Add ${entity}`, exact: true });
     this.auditButton = page.getByRole('button', { name: 'Audit history' });
     this.columnsButton = page.getByRole('button', { name: 'Columns' });
@@ -75,9 +76,11 @@ export class MasterListPage {
     // only ONE column filter is open at a time (opening "Active" closes the Name box) -> open the one needed
     const [header, control] = which === 'name' ? [this.nameHeader, this.nameSearch] : [this.activeHeader, this.activeFilter];
     if (await control.first().isVisible().catch(() => false)) return;
-    const icon = header.locator('span[aria-hidden=true]').first();
-    if (!(await icon.count())) return;                   // screen without that column / older layout
-    await icon.click({ force: true });                   // decorative icon (aria-hidden) - it only opens the filter
+    if (!(await header.locator('span[aria-hidden=true]').count())) return;   // screen without that column / older layout
+    // stage 21 Nov: clicking the column TITLE opens its filter (the small icon only toggles it, so it can close it again)
+    await header.click({ position: { x: 30, y: 15 }, force: true });
+    if (await control.first().waitFor({ state: 'visible', timeout: 3_000 }).then(() => true).catch(() => false)) return;
+    await header.locator('span[aria-hidden=true]').first().click({ force: true });
     await control.first().waitFor({ state: 'visible', timeout: 5_000 }).catch(() => {});
   }
 
@@ -116,10 +119,25 @@ export class MasterListPage {
   }
   /** open the Active dropdown list (stage 20 Nov: revealing the filter may already open the list) */
   async openActiveFilter() {
-    await this.showFilters('active');
-    if (await this.page.getByRole('listbox').isVisible().catch(() => false)) return;
-    await this.activeFilter.click();
-    await this.page.getByRole('listbox').waitFor({ timeout: 10_000 });
+    // stage 21 Nov: the hidden filter box lies OVER the column title, so a normal click can land on the wrong layer -
+    // reveal the filter, then click the dropdown (force: the invisible layer may still report itself on top), retry
+    const listbox = this.page.getByRole('listbox');
+    await expect(async () => {
+      if (await listbox.isVisible().catch(() => false)) return;
+      // after a value is picked the filter shows as a chip "Active: Active — change filter" -> click it to change the value
+      const chip = this.activeHeader.getByRole('button', { name: /change filter/ }).first();
+      if (await chip.isVisible().catch(() => false)) await chip.click();
+      if (await listbox.isVisible().catch(() => false)) return;
+      await this.showFilters('active');
+      await this.activeFilter.click({ force: true, timeout: 5_000 });
+      await listbox.waitFor({ timeout: 3_000 });
+    }).toPass({ timeout: 45_000 });
+  }
+
+  /** the sort control of the Name column: stage 21 Nov = icon button "Sort by Name" (older layout: the header label "Name") */
+  async nameSort(): Promise<Locator> {
+    const icon = this.nameHeader.getByRole('button', { name: 'Sort by Name', exact: true });
+    return (await icon.count()) ? icon.first() : this.nameHeader.getByRole('button', { name: 'Name', exact: true }).first();
   }
 
   async filterActive(option: 'All' | 'Active' | 'Deactive') {
@@ -175,7 +193,8 @@ export async function blockWrites(page: Page, allow?: RegExp): Promise<string[]>
  * through the normal deactivate popup (which only appears for an ACTIVE switch).
  */
 export async function deactivateTestRecords(p: MasterListPage, tag = 'QA Auto'): Promise<number> {
-  const isOurs = (n: string) => n.startsWith('QA Auto') && n.includes(tag);
+  // case-insensitive: duplicate checks save "QA AUTO ..." (other letter case) when a screen wrongly accepts it
+  const isOurs = (n: string) => n.trim().toLowerCase().startsWith('qa auto') && n.toLowerCase().includes(tag.toLowerCase());
   let done = 0;
   for (let guard = 0; guard < 50; guard++) {
     await p.filterActive('Active');

@@ -89,7 +89,7 @@ test.describe('Country list - UI', () => {
   });
 
   test('TC-CTRY-30: Filter option wording is correct English ("Inactive")', async ({ page }) => {
-    test.fail(true, 'BUG: filter option says "Deactive" (not a word) - should be "Inactive"');
+    // BUG-04 fixed 21 Nov 2026: the option is "Inactive"
     await country.openActiveFilter();
     await expect(page.getByRole('option').nth(2)).toHaveText('Inactive', { timeout: 5_000 });
   });

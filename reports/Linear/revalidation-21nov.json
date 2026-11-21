@@ -1,0 +1,233 @@
+[
+ {
+  "action": "reopen",
+  "bug": "BUG-112",
+  "issue": "SAH-155",
+  "tc": "TC-PRD-ProductType-19",
+  "evidence": "Name still stops at 100 characters (Product Type, State, City, Market, Province, Desk Location, Supplement, Allotment, Addon, View Type, Room Category, Product Class); Room Type / Resource Type / Personnel / Asset still take 300 (no limit)",
+  "shot": "screenshots/revalidation/BUG-112-still.png",
+  "exists": true,
+  "observed": "typed 150 \"x\", Name keeps length: 100",
+  "size": 433428
+ },
+ {
+  "action": "reopen",
+  "bug": "BUG-114",
+  "issue": "SAH-159",
+  "tc": "TC-RES-Personnel-06",
+  "evidence": "Empty search still names the wrong screen (Personnel, Asset, Chart of Accounts)",
+  "shot": "screenshots/revalidation/BUG-114-still.png",
+  "exists": true,
+  "observed": "There are no records in Resource",
+  "size": 585726
+ },
+ {
+  "action": "reopen",
+  "bug": "BUG-115",
+  "issue": "SAH-160",
+  "tc": "TC-APP-Currency-11",
+  "evidence": "Clicking a Currency row still opens no \"Edit Currency\"",
+  "shot": "screenshots/revalidation/BUG-115-still.png",
+  "exists": true,
+  "observed": "clicked \"US Dollar\": no \"Edit Currency\" dialog after 2 s",
+  "size": 595696
+ },
+ {
+  "action": "reopen",
+  "bug": "BUG-17",
+  "issue": "SAH-192",
+  "tc": "TC-RGN-Country-11",
+  "evidence": "Clicking a Country row still opens no \"Edit Country\"",
+  "shot": "screenshots/revalidation/BUG-17-still.png",
+  "exists": true,
+  "observed": "clicked \"India\": no \"Edit Country\" dialog after 2 s",
+  "size": 593368
+ },
+ {
+  "action": "reopen",
+  "bug": "BUG-13",
+  "issue": "SAH-185",
+  "tc": "TC-RGN-Airport-02",
+  "evidence": "Airport still has no \"Add Airport\" button and no Edit",
+  "shot": "screenshots/revalidation/BUG-13-still.png",
+  "exists": true,
+  "observed": "toolbar buttons: Columns; \"Add Airport\" buttons: 0",
+  "size": 525306
+ },
+ {
+  "action": "done",
+  "bug": "BUG-79",
+  "issue": "SAH-127",
+  "tc": "TC-REST-04",
+  "evidence": "A .txt file is now refused: \"qa-auto.txt can't be uploaded. Only PDF or image (JPG, PNG, WEBP) files are allowed.\"",
+  "shot": "screenshots/revalidation/BUG-79-fixed.png",
+  "exists": true,
+  "observed": "qa-auto.txt REFUSED - slot \"Fire safety certificate Upload No file uploaded qa-auto.txt can't be uploaded. Only PDF or image (JPG, PNG, WEBP) files are allowed.\"; message: qa-auto.txt can't be uploaded. Only PDF or image (JPG, PNG, WEBP) files are allowed.",
+  "size": 499114
+ },
+ {
+  "action": "reopen",
+  "bug": "BUG-80",
+  "issue": "SAH-130",
+  "tc": "TC-SUP-14",
+  "evidence": "Supplier names are still saved with spaces before / after the name",
+  "shot": "screenshots/revalidation/BUG-80-still.png",
+  "exists": true,
+  "observed": "4 of 38 rows (rows per page 38) not trimmed: \"   QA Auto Supplier TKTLSP edited   \", \"   QA Auto Supplier TNLRLK edited   \", \"   QA Auto Supplier SMPSLP edited   \", \"Amrat Testing Partner \"",
+  "size": 401348
+ },
+ {
+  "action": "reopen",
+  "bug": "BUG-96",
+  "issue": "SAH-110",
+  "tc": "TC-R3-01",
+  "evidence": "A contract with a season but no prices still cannot be saved as Draft (nothing is sent)",
+  "shot": "screenshots/revalidation/BUG-96-still.png",
+  "exists": true,
+  "observed": "Save refused: \"1 problem to fix\" -> Fix this to save 1 Price every room in every season — 34 prices missing: Club · Single in QA Season; Club · Double in QA Season; Family · Single in QA Season and 31 more.; draft hint on screen: \"No room has a price yet. The contract saves as a draft, but every room needs a price in every season\"; save request sent (blocked): false",
+  "size": 546184
+ },
+ {
+  "action": "reopen",
+  "bug": "BUG-97",
+  "issue": "SAH-113",
+  "tc": "TC-R3-03",
+  "evidence": "The On hold supplier \"Testing season 3\" still has 13 Approved contracts",
+  "shot": "screenshots/revalidation/BUG-97-still.png",
+  "exists": true,
+  "observed": "supplier badge \"On hold\"; 13 contract rows \"Approved\": QA Auto Contract PKVVKP edited QA-PKVVKP · AED · All markets, QA Auto Contract RSSRML edited QA-RSSRML · AED · All markets, QA Auto Contract TNLRLK edited QA-TNLRLK · AED · All markets, QA Auto Contract QMQQPM edited QA-QMQQPM · AED · All markets, QA Auto Contract NLNRVV edited QA-NLNRVV · AED · All markets, QA Auto Contract RLMLNT edited QA-RLMLNT · AED · All markets, QA Auto Contract TSPQTR edited QA-TSPQTR · AED · All markets, QA Auto Contract SMPSLP USD USD · All markets, QA Auto Contract RSSRML USD USD · All markets, QA Auto Contract TKTLSP USD USD · All markets, QA Auto Contract VMPNTK USD USD · All markets, QA Auto Contract SSMNRL USD USD · All markets, QA Auto Contract NKMTTK USD USD · All markets",
+  "size": 454938
+ },
+ {
+  "action": "reopen",
+  "bug": "BUG-98",
+  "issue": "SAH-116",
+  "tc": "TC-R3-04",
+  "evidence": "Promotion still has no cumulative / non-cumulative choice and no \"combine with\" list",
+  "shot": "screenshots/revalidation/BUG-98-still.png",
+  "exists": true,
+  "observed": "\"Combinable No\"; cumulative / combine-with options found: 0",
+  "size": 564073
+ },
+ {
+  "action": "reopen",
+  "bug": "BUG-99",
+  "issue": "SAH-119",
+  "tc": "TC-R3-05",
+  "evidence": "The contract still has no tax fields (VAT / tourism fee / rates include tax)",
+  "shot": "screenshots/revalidation/BUG-99-still.png",
+  "exists": true,
+  "observed": "Contract details fields: \"Contract details Contract name * Active Yes Code Rate for Base plan * Markets Currency * Priority Valid from * Valid to * Sell from * Sell to * Book before\"; any tax / VAT field on the page: false",
+  "size": 554398
+ },
+ {
+  "action": "reopen",
+  "bug": "BUG-132",
+  "issue": "SAH-216",
+  "tc": "TC-SS-09",
+  "evidence": "Single room early bird is still \"Save AED 350.98\" instead of 351.00",
+  "shot": "screenshots/revalidation/BUG-132-still.png",
+  "exists": true,
+  "observed": "copied 20 Nov capture: single-room early bird 350.98 instead of 351.00 (Marina Bay Hotel, 19-22 Jan 2027)",
+  "size": 452366
+ },
+ {
+  "action": "done",
+  "bug": "BUG-18",
+  "issue": "SAH-194",
+  "tc": "TC-PRD-ProductType-13",
+  "evidence": "Popup now says \"This will mark the product type as inactive.\" (standard sentence, no \"deactive\")",
+  "shot": "screenshots/revalidation/BUG-18-fixed.png",
+  "exists": true,
+  "observed": "row \"Hotel Hotels Accommodation\": [Deactivate product type?] This will mark the product type as inactive.",
+  "size": 434585
+ },
+ {
+  "action": "done",
+  "bug": "BUG-19",
+  "issue": "SAH-196",
+  "tc": "TC-PRD-ViewType-13",
+  "evidence": "Popup now says \"This will mark the view type as inactive.\" (standard sentence)",
+  "shot": "screenshots/revalidation/BUG-19-fixed.png",
+  "exists": true,
+  "observed": "row \"Park Facing\": [Deactivate view type?] This will mark the view type as inactive.",
+  "size": 437816
+ },
+ {
+  "action": "done",
+  "bug": "BUG-20",
+  "issue": "SAH-198",
+  "tc": "TC-PRD-RoomType-13",
+  "evidence": "Room Type popup now says \"This will mark the room type as inactive.\" (standard sentence)",
+  "shot": "screenshots/revalidation/BUG-20-fixed.png",
+  "exists": true,
+  "observed": "row \"Bunk — 2 0 0 2 — — —\": [Deactivate room type?] This will mark the room type as inactive.",
+  "size": 415213
+ },
+ {
+  "action": "done",
+  "bug": "BUG-07",
+  "issue": "SAH-169",
+  "tc": "TC-RGN-Landmark-13",
+  "evidence": "Landmark popup now says \"This will mark the landmark as inactive.\"",
+  "shot": "screenshots/revalidation/BUG-07-fixed.png",
+  "exists": true,
+  "observed": "row \"DXB Terminal 1 Dubai - -\": [Deactivate landmark?] This will mark the landmark as inactive.",
+  "size": 426344
+ },
+ {
+  "action": "done",
+  "bug": "BUG-08",
+  "issue": "SAH-171",
+  "tc": "TC-RGN-Airport-13",
+  "evidence": "Airport popup now uses the standard text \"This will mark the airport as inactive.\"",
+  "shot": "screenshots/revalidation/BUG-08-fixed.png",
+  "exists": true,
+  "observed": "row \"9 de Maio - Teixeira de Freitas Airport Teixeira de Freitas \": [Deactivate airport?] This will mark the airport as inactive.",
+  "size": 429361
+ },
+ {
+  "action": "done",
+  "bug": "BUG-40",
+  "issue": "SAH-202",
+  "tc": "TC-RES-Personnel-13",
+  "evidence": "Resource popups now say \"This will mark the personnel / asset / resource type as inactive.\"",
+  "shot": "screenshots/revalidation/BUG-40-fixed.png",
+  "exists": true,
+  "observed": "row \"Amrat Choudhary Driver\": [Deactivate personnel?] This will mark the personnel as inactive.",
+  "size": 484725
+ },
+ {
+  "action": "done",
+  "bug": "BUG-05",
+  "issue": "SAH-164",
+  "tc": "TC-RGN-Province-05",
+  "evidence": "Active filter now offers All / Active / Inactive - same as every other screen",
+  "shot": "screenshots/revalidation/BUG-05-fixed.png",
+  "exists": true,
+  "observed": "/provinces Active filter options: All / Active / Inactive",
+  "size": 531506
+ },
+ {
+  "action": "done",
+  "bug": "BUG-38",
+  "issue": "SAH-197",
+  "tc": "TC-RGN-DeskLocation-05",
+  "evidence": "Active filter now says \"Inactive\" everywhere (Province, Desk Location, Chart of Accounts...)",
+  "shot": "screenshots/revalidation/BUG-38-fixed.png",
+  "exists": true,
+  "observed": "/desk-locations: Active filter options All / Active / Inactive",
+  "size": 590299
+ },
+ {
+  "action": "done",
+  "bug": "BUG-04",
+  "issue": "SAH-162",
+  "tc": "TC-ACC-Account-05",
+  "evidence": "Active filter option is now \"Inactive\" (was \"Deactive\")",
+  "shot": "screenshots/revalidation/BUG-04-fixed.png",
+  "exists": true,
+  "observed": "/currency Active filter options: All / Active / Inactive",
+  "size": 570625
+ }
+]

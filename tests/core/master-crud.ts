@@ -53,14 +53,25 @@ export function crudSuite(flows: Flow[]) {
 
       /** open Add, type a name, fill the other required fields, press Save; returns the server answer */
       async function addRecord(page: Page, typed: string) {
+        // a duplicate step leaves its Add dialog open (the user can correct the name) -> close it before the next Add
+        const open = p.dialog(`Add ${f.entity}`);
+        if (await open.isVisible().catch(() => false)) {
+          await open.getByRole('button', { name: 'Cancel' }).click().catch(() => page.keyboard.press('Escape'));
+          await expect(open).toBeHidden({ timeout: 10_000 }).catch(() => {});
+        }
         await p.addButton.click();
         const dlg = p.dialog(`Add ${f.entity}`);
         await p.field(dlg, 'Name').fill(typed);
         if (f.fillRequired) await f.fillRequired(p, dlg, page);
-        const [res] = await Promise.all([
-          page.waitForResponse(isWrite('POST')),
-          dlg.getByRole('button', { name: 'Save' }).click(),
-        ]);
+        // stage 21 Nov 2026: some screens (State) block a duplicate IN THE BROWSER ("This state already exists in this
+        // country.") and send nothing -> res is null then
+        const blocked = dlg.getByText(/already exists|duplicate/i).first();
+        const save = dlg.getByRole('button', { name: 'Save' });
+        await page.waitForTimeout(800);                     // the duplicate check runs while typing
+        if (await blocked.isVisible().catch(() => false) && !(await save.isEnabled().catch(() => true))) return { res: null, dlg };   // Save disabled
+        const answer = page.waitForResponse(isWrite('POST'), { timeout: 60_000 }).catch(() => null);
+        await save.click();
+        const res = await Promise.race([answer, blocked.waitFor({ timeout: 60_000 }).then(() => null, () => null)]);
         return { res, dlg };
       }
 
@@ -85,7 +96,8 @@ export function crudSuite(flows: Flow[]) {
         knownBug(1);
         test.info().annotations.push({ type: 'test data', description: name });
         const { res, dlg } = await addRecord(page, name);
-        expect(res.status(), await res.text()).toBe(201);
+        expect(res, "nothing was sent - the form blocked the save").not.toBeNull();
+        expect(res!.status(), await res!.text()).toBe(201);
         // soft: a wrong message is reported, the record checks below still run
         await expect.soft(page.getByText(new RegExp(`^${f.entity} created successfully`, 'i')).first()).toBeVisible();
         await expect(dlg).toBeHidden();
@@ -132,8 +144,8 @@ export function crudSuite(flows: Flow[]) {
         test(`${step(n)}: Adding ${label} is rejected with a clear message`, async ({ page }) => {
           knownBug(n);
           const { res, dlg } = await addRecord(page, typed);
-          if (res.ok()) await renameDuplicate(page, n);
-          expect(res.ok(), `duplicate was SAVED (status ${res.status()}) - renamed to "${name} Duplicate ${n}", the last step deactivates it`).toBe(false);
+          if (res?.ok()) await renameDuplicate(page, n);
+          expect(res?.ok() ?? false, `duplicate was SAVED (status ${res?.status()}) - renamed to "${name} Duplicate ${n}", the last step deactivates it`).toBe(false);
           await expect(page.getByText(/already exists|duplicate/i).first()).toBeVisible();
           await expect(dlg).toBeVisible();                  // user can correct the name
         });
@@ -158,7 +170,8 @@ export function crudSuite(flows: Flow[]) {
       test(`${step(8)}: Spaces around the name are trimmed; special characters & ( ) are kept`, async ({ page }) => {
         knownBug(8);
         const { res } = await addRecord(page, `   ${edge}   `);
-        expect(res.status(), await res.text()).toBe(201);
+        expect(res, "nothing was sent - the form blocked the save").not.toBeNull();
+        expect(res!.status(), await res!.text()).toBe(201);
         await p.search(`${name} Edge`);
         expect(await p.names()).toContain(edge);
       });

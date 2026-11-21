@@ -72,10 +72,11 @@ test.describe('Feedback Questions', () => {
 
 // ======================= FLEX 1-10 =======================
 test.describe('Flex lists', () => {
-  test('TC-FLEX-01: Menu Core > Application > Flex expands into Flex1 ... Flex10', async ({ page }) => {
+  test('TC-FLEX-01: Menu Core > Application > Flex expands into Flex 1 ... Flex 10', async ({ page }) => {
     await page.goto('/dashboard');
     for (const b of ['Core', 'Application', 'Flex']) await page.getByRole('button', { name: b, exact: true }).click({ timeout: 60_000 });
-    for (let i = 1; i <= 10; i++) await expect(page.getByRole('button', { name: `Flex${i}`, exact: true })).toBeVisible();
+    // stage 21 Nov 2026: "Flex 1" with a space (was "Flex1", BUG-37 fixed)
+    for (let i = 1; i <= 10; i++) await expect(page.getByRole('button', { name: `Flex ${i}`, exact: true })).toBeVisible();
   });
 
   for (let i = 1; i <= 10; i++) {
@@ -88,10 +89,12 @@ test.describe('Flex lists', () => {
     });
   }
 
-  test('TC-FLEX-12: Menu text "Flex1" differs from page heading "Flex 1"', async ({ page }) => {
-    test.fail(true, 'INCONSISTENT: menu says "Flex1" (no space), page heading says "Flex 1"');
-    await openPage(page, '/flex/1', /^Flex/);
-    await expect(page.getByRole('heading', { name: 'Flex1', exact: true })).toBeVisible({ timeout: 5_000 });
+  test('TC-FLEX-12: Menu text "Flex 1" matches the page heading "Flex 1"', async ({ page }) => {
+    // BUG-37 fixed 21 Nov 2026 - menu and heading are both "Flex 1"
+    await page.goto('/dashboard');
+    for (const b of ['Core', 'Application', 'Flex']) await page.getByRole('button', { name: b, exact: true }).click({ timeout: 60_000 });
+    await page.getByRole('button', { name: 'Flex 1', exact: true }).click();
+    await expect(page.getByRole('heading', { name: 'Flex 1', exact: true })).toBeVisible({ timeout: 60_000 });
   });
 
   test('TC-FLEX-13: Add Flex with empty form is blocked, nothing is sent', async ({ page }) => {
@@ -298,7 +301,7 @@ test.describe('Tax Detail', () => {
   });
 
   test('TC-TXD-02: Empty Save is checked in the browser (not sent to the server)', async ({ page }) => {
-    test.fail(true, 'BUG: empty Tax Detail form is SENT to the server - no required-field check in the browser');
+    // BUG-42 fixed 21 Nov 2026: required fields are checked in the browser
     await openPage(page, '/taxdetail', 'Tax Detail');
     await page.getByRole('button', { name: 'Add Tax Detail' }).click();
     const dlg = dialogTitled(page, 'Add Tax Detail');
@@ -308,7 +311,7 @@ test.describe('Tax Detail', () => {
   });
 
   test('TC-TXD-03: "Range To" smaller than "Range From" is rejected', async ({ page }) => {
-    test.fail(true, 'BUG-42: Tax Detail form has no checks - a range 1000 -> 10 (with empty Tax / State / Type) is sent');
+    // BUG-42 fixed 21 Nov 2026: nothing is sent
     await openPage(page, '/taxdetail', 'Tax Detail');
     await page.getByRole('button', { name: 'Add Tax Detail' }).click();
     const dlg = dialogTitled(page, 'Add Tax Detail');
@@ -333,7 +336,7 @@ test.describe('Restriction Groups', () => {
   });
 
   test('TC-RG-02: Has an "Audit history" button like other screens (access rights must be traceable)', async ({ page }) => {
-    test.fail(true, 'INCONSISTENT: Restriction Groups has no "Audit history" - every other list screen has it');
+    // BUG-35 fixed 21 Nov 2026: Audit history is there
     await openPage(page, '/restrictions', 'Restriction Groups');
     await expect(page.getByRole('button', { name: 'Audit history' })).toBeVisible({ timeout: 5_000 });
   });
