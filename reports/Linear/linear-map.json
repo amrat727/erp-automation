@@ -723,5 +723,10 @@
   "issue": "SAH-231",
   "parent": "SAH-78",
   "url": "https://linear.app/sahil-chauhan/issue/SAH-231"
+ },
+ "BUG-149": {
+  "issue": "SAH-232",
+  "parent": "SAH-71",
+  "url": "https://linear.app/sahil-chauhan/issue/SAH-232"
  }
 }

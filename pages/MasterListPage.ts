@@ -192,9 +192,10 @@ export async function blockWrites(page: Page, allow?: RegExp): Promise<string[]>
  * SAFE: filter = Active + search -> only active test records are listed; each one goes
  * through the normal deactivate popup (which only appears for an ACTIVE switch).
  */
-export async function deactivateTestRecords(p: MasterListPage, tag = 'QA Auto'): Promise<number> {
+export async function deactivateTestRecords(p: MasterListPage, tag = 'QA Auto', stuck: string[] = []): Promise<number> {
   // case-insensitive: duplicate checks save "QA AUTO ..." (other letter case) when a screen wrongly accepts it
-  const isOurs = (n: string) => n.trim().toLowerCase().startsWith('qa auto') && n.toLowerCase().includes(tag.toLowerCase());
+  // `stuck`: records the server refuses to deactivate (BUG-149: 400 "Duplicate value", no message) - skipped, reported
+  const isOurs = (n: string) => n.trim().toLowerCase().startsWith('qa auto') && n.toLowerCase().includes(tag.toLowerCase()) && !stuck.includes(n);
   let done = 0;
   for (let guard = 0; guard < 50; guard++) {
     await p.filterActive('Active');
@@ -204,15 +205,16 @@ export async function deactivateTestRecords(p: MasterListPage, tag = 'QA Auto'):
       const states = await p.rows.locator('input[type=checkbox]').evaluateAll(els => els.map(e => (e as HTMLInputElement).checked));
       expect(states.every(Boolean)).toBe(true);
     }).toPass({ timeout: 30_000 });
-    const i = (await p.names()).findIndex(isOurs);
+    const names = await p.names();
+    const i = names.findIndex(isOurs);
     if (i < 0) break;
     const sw = p.rows.nth(i).locator('input[type=checkbox]');
     await expect(sw).toBeChecked();                      // must be ON
     await sw.click();                                    // no force: must really hit this row's switch
     await expect(p.popupConfirm).toBeVisible();          // deactivate popup = it was active
     await p.popupConfirm.click();
-    await expect(p.page.getByText(new RegExp(`${p.entity} deactivated`, 'i')).first()).toBeVisible();
-    done++;
+    const ok = await p.page.getByText(new RegExp(`${p.entity} deactivated`, 'i')).first().waitFor({ timeout: 20_000 }).then(() => true, () => false);
+    if (ok) done++; else stuck.push(names[i]);
     await p.page.reload();                               // fresh list for the next round
     await expect(p.heading).toBeVisible({ timeout: 60_000 });
   }
