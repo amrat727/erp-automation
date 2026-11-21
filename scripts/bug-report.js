@@ -425,7 +425,33 @@ const BUGS = [
   { id: "BUG-132", mod: "Supplier / Product Search", screen: "Product Search > hotel price (early-bird promotion)", type: "Calculation", sev: "Low",
     title: "Early-bird saving on single rooms is 2 fils off (350.98 instead of 351.00)",
     steps: "1. Contract with an early-bird promotion (Testing season 3)\n2. Product Search: single room, stay inside the promotion\n3. Compare the saving with contract price x discount", expected: "Saving = 351.00 (rounded once, at the end)", actual: "Saving = 350.98 (rounded per night / per step)", tc: "tests/supplier/supplier-sales.spec.ts" },
+  { id: "BUG-134", mod: "Supplier - Contract", screen: "Products > Hotel > Contract > Add contract", type: "Date / time zone", sev: "Low",
+    title: "New contract dates default to the UTC date - between 00:00 and 04:00 UAE time Valid from / Sell from is yesterday",
+    steps: "1. After midnight in Dubai (seen 01:01 on 21 Nov 2026 Dubai = 21:01 on 20 Nov UTC)\n2. Testing season 3 > Products > Hotel > Contract > Add contract\n3. Read Valid from / Sell from", expected: "21 Nov 2026 (the company / user day)", actual: "20 Nov 2026 (the UTC date)", tc: "TC-CON-10" },
 ];
+// bugs confirmed FIXED on stage (re-test passed + screenshot) -> status column; the bug stays listed
+const FIXED = {
+  'BUG-44': 'Fixed 21-Nov (verified)',
+  'BUG-45': 'Fixed 21-Nov (verified)',
+  'BUG-47': 'Fixed 21-Nov (verified)',
+  'BUG-48': 'Fixed 21-Nov (verified)',
+  'BUG-49': 'Fixed 21-Nov (verified)',
+  'BUG-50': 'Fixed 21-Nov (verified)',
+  'BUG-51': 'Fixed 21-Nov (verified)',
+  'BUG-52': 'Fixed 21-Nov (verified)',
+  'BUG-53': 'Fixed 21-Nov (verified)',
+  'BUG-56': 'Fixed 21-Nov (verified)',
+  'BUG-57': 'Fixed 21-Nov (verified)',
+  'BUG-58': 'Fixed 21-Nov (verified)',
+  'BUG-59': 'Fixed 21-Nov (verified)',
+  'BUG-61': 'Fixed 21-Nov (verified)',
+  'BUG-62': 'Fixed 21-Nov (verified)',
+  'BUG-64': 'Fixed 21-Nov (verified)',
+  'BUG-66': 'Fixed 21-Nov (verified)',
+  'BUG-68': 'Fixed 21-Nov (verified)',
+  'BUG-78': 'Fixed 21-Nov (verified)',
+};
+
 async function main() {
   fs.mkdirSync(path.join(OUT_DIR, 'screenshots'), { recursive: true });
   const shots = fs.readdirSync(SHOTS).filter(f => f.endsWith('.png'));
@@ -461,7 +487,7 @@ async function main() {
   BUGS.forEach((b, i) => {
     const r = ws.getRow(5 + i);
     const file = shots.find(f => f.startsWith(b.id + '-'));
-    r.values = [b.id, b.title, b.mod, b.screen, b.type, b.sev, b.steps, b.expected, b.actual, b.tc, 'Open', file ? '' : `No screenshot: ${b.noShot ?? 'not captured'}`, file ?? '-'];
+    r.values = [b.id, b.title, b.mod, b.screen, b.type, b.sev, b.steps, b.expected, b.actual, b.tc, FIXED[b.id] ?? 'Open', file ? '' : `No screenshot: ${b.noShot ?? 'not captured'}`, file ?? '-'];
     r.eachCell({ includeEmpty: true }, (c, col) => {
       c.font = font; c.border = border;
       c.alignment = { vertical: 'top', wrapText: true, horizontal: [1, 5, 6, 11].includes(col) ? 'center' : 'left' };

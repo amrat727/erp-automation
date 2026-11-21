@@ -131,11 +131,18 @@ export class ContractPage {
 
   async setPrice(roomAndOccupancy: string, season: string, value: string) {
     // like a user: click, select the old price, type the new one (fill() appends to a formatted price)
+    // the sheet re-renders while it is being filled; under load the first key can be lost ("450" -> "50.00"), so check and retry
     const p = this.price(roomAndOccupancy, season);
-    await p.click();
-    await p.press('Control+A');
-    await p.pressSequentially(value, { delay: 30 });
-    await p.press('Tab');
+    const want = Number(value.replace(/,/g, ''));
+    for (let i = 0; i < 3; i++) {
+      await p.click();
+      await this.page.waitForTimeout(150);
+      await p.press('Control+A');
+      await p.pressSequentially(value, { delay: 40 });
+      await p.press('Tab');
+      if (Number((await p.inputValue()).replace(/,/g, '')) === want) return;
+    }
+    await expect(p, `price ${roomAndOccupancy} / ${season}`).toHaveValue(new RegExp(`^${want.toLocaleString('en-US')}(\\.00)?$|^${want}(\\.00)?$`));
   }
 }
 

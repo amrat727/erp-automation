@@ -1,4 +1,5 @@
 import { test, expect } from '../../fixtures';
+import { columnFilter } from '../../pages/SupplierPage';
 import { Page, Locator } from '@playwright/test';
 import { blockWrites } from '../../pages/MasterListPage';
 import { ContractPage } from '../../pages/ContractPage';
@@ -21,7 +22,7 @@ test.describe('Rules round 2 - bug evidence', () => {
 
   test('BUG-56 Blocked supplier still offers "On Hold"', async ({ page }) => {
     await page.goto('/suppliers');
-    await page.getByRole('columnheader', { name: /^Name/ }).getByRole('textbox').fill('QA Auto Supplier');
+    await (await columnFilter(page, /^Name/)).fill('QA Auto Supplier');
     const row = page.locator('main tbody tr:visible', { hasText: 'Blocked' }).first();
     await expect(row).toBeVisible({ timeout: 90_000 });
     await row.locator('td').first().click();

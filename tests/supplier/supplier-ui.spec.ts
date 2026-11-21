@@ -1,6 +1,6 @@
 import { test, expect } from '../../fixtures';
 import { blockWrites } from '../../pages/MasterListPage';
-import { SupplierPage } from '../../pages/SupplierPage';
+import { SupplierPage, columnFilter } from '../../pages/SupplierPage';
 
 /*
  * SUPPLIER - screen checks (READ-ONLY: every save is blocked, real suppliers are never changed).
@@ -25,16 +25,18 @@ test.describe('Supplier list', () => {
     for (const b of [s.addButton, s.auditButton, s.columnsButton]) await expect(b).toBeVisible();
   });
 
-  test('TC-SUP-03: Table has Name and Code search and a Status filter', async () => {
+  test('TC-SUP-03: Table has Name and Code search and a Status filter', async ({ page }) => {
     await s.open();
-    await expect(s.nameSearch).toBeVisible();
-    await expect(s.codeSearch).toBeVisible();
-    await expect(s.statusFilter).toHaveText('All');
+    // stage 20 Nov 2026: each filter opens from the icon in its column header (one at a time)
+    await expect(await columnFilter(page, /^Name/)).toBeVisible();
+    await expect(await columnFilter(page, /^Code/)).toBeVisible();
+    await expect(await columnFilter(page, /Status/, 'combobox')).toHaveText('All');
   });
 
   test('TC-SUP-04: Status filter offers All / Approved / On hold / Blocked', async ({ page }) => {
     await s.open();
-    await s.statusFilter.click();
+    const f = await columnFilter(page, /Status/, 'combobox');
+    if (!(await page.getByRole('listbox').last().isVisible().catch(() => false))) await f.click();
     await expect(page.getByRole('option')).toHaveText(['All', 'Approved', 'On hold', 'Blocked']);
   });
 
@@ -43,7 +45,7 @@ test.describe('Supplier list', () => {
       await s.open();
       await s.filterStatus(st);
       await expect(s.rows.first()).toBeVisible();
-      expect(new Set(await s.statuses())).toEqual(new Set([st]));
+      await expect(async () => expect(new Set(await s.statuses())).toEqual(new Set([st]))).toPass({ timeout: 20_000 });
     });
   }
 
@@ -54,23 +56,23 @@ test.describe('Supplier list', () => {
     await expect(s.rows.first()).toContainText('Marina Bay Hotel');
   });
 
-  test('TC-SUP-07: Search by code "SUP-002" finds Marina Bay Hotel', async () => {
+  test('TC-SUP-07: Search by code "SUP-002" finds Marina Bay Hotel', async ({ page }) => {
     await s.open();
-    await s.codeSearch.fill('SUP-002');
+    await (await columnFilter(page, /^Code/)).fill('SUP-002');
     await expect(s.rows).toHaveCount(1, { timeout: 30_000 });
     await expect(s.rows.first()).toContainText('Marina Bay Hotel');
   });
 
-  test('TC-SUP-08: Search with no match shows "There are no records in Supplier"', async () => {
+  test('TC-SUP-08: Search with no match shows "There are no records in Supplier"', async ({ page }) => {
     await s.open();
-    await s.nameSearch.fill('zzqqxx no such supplier');
+    await (await columnFilter(page, /^Name/)).fill('zzqqxx no such supplier');
     await expect(s.emptyMessage).toBeVisible({ timeout: 30_000 });
   });
 
-  test('TC-SUP-09: Search ignores spaces before/after the text', async () => {
-    test.fail(true, 'BUG: searching "  Marina Bay Hotel  " (spaces around) finds nothing - the search does not trim');
+  test('TC-SUP-09: Search ignores spaces before/after the text', async ({ page }) => {
+    // BUG-47 fixed on the stage build of 21 Nov 2026 (was: 'BUG: searching "  Marina Bay Hotel  " (spaces around) finds nothing - the search does not trim')
     await s.open();
-    await s.nameSearch.fill('  Marina Bay Hotel  ');
+    await (await columnFilter(page, /^Name/)).fill('  Marina Bay Hotel  ');
     await expect(s.rows.filter({ hasText: 'Marina Bay Hotel' })).toHaveCount(1, { timeout: 30_000 });
   });
 
@@ -84,12 +86,20 @@ test.describe('Supplier list', () => {
     await page.getByRole('button', { name: /next page/i }).click();
     await expect(s.rangeText).toHaveText(`11–${Math.min(20, total)} of ${total}`);
     await expect(s.rows).toHaveCount(Math.min(10, total - 10));
-    await expect(s.rows.first()).not.toContainText(first[0]);
-    expect((await s.names()).some(n => first.includes(n)), 'page 2 repeats page 1').toBe(false);
+    // several QA suppliers share a name - compare the unique codes
+    const codes = async () => (await s.rows.locator('td:nth-child(2)').allInnerTexts()).map(x => x.trim());
+    await page.getByRole('button', { name: /previous page/i }).click();
+    const firstCodes = await codes();
+    await page.getByRole('button', { name: /next page/i }).click();
+    await expect(s.rangeText).toHaveText(`11–${Math.min(20, total)} of ${total}`);
+    expect((await codes()).some(cd => firstCodes.includes(cd)), 'page 2 repeats page 1').toBe(false);
   });
 
   test('TC-SUP-11: Every supplier code is unique', async ({ page }) => {
     await s.open();
+    // biggest page first: other tests add suppliers while this one pages through, which shifts the pages
+    const perPage = page.locator('main').getByRole('combobox').filter({ hasText: /^\d+$/ }).last();
+    if (await perPage.count()) { await perPage.click(); await page.getByRole('option').last().click(); await page.waitForTimeout(2500); }
     const codes: string[] = [];
     for (;;) {
       codes.push(...(await s.rows.locator('td:nth-child(2)').allInnerTexts()).map(c => c.trim()));
@@ -106,7 +116,8 @@ test.describe('Supplier list', () => {
     // names saved with spaces around them (BUG-80) sort first: leave them out of the order check
     const rawNames = async () => (await page.locator('main tbody tr:visible td:first-child').evaluateAll(els => els.map(e => e.textContent ?? ''))).filter(n => n === n.trim());
     await s.open();
-    const header = page.getByRole('columnheader', { name: /^Name/ }).locator('span, div').filter({ hasText: /^Name$/ }).first();
+    // the sort control is its own button ("Sort by Name" on the stage build of 20 Nov 2026)
+    const header = page.locator('main thead th').first().getByRole('button', { name: 'Name', exact: true });
     const cmp = (a: string, b: string) => a.localeCompare(b, undefined, { sensitivity: 'base' });
     // retried: a parallel test may rename a supplier while the list is being sorted
     await expect(async () => {
@@ -157,7 +168,10 @@ test.describe('Add supplier form', () => {
   test('TC-SUP-22: Status buttons Approved / On hold / Blocked - a new supplier starts "On hold"', async () => {
     await s.openAdd();
     for (const b of ['Approved', 'On hold', 'Blocked'] as const) await expect(s.statusButton(b)).toBeVisible();
-    await expect(s.statusButton('On hold')).toHaveAttribute('aria-pressed', 'true');
+    // the selected status is shown only by its colour (no aria-pressed on the stage build of 21 Nov 2026)
+    const bg = (n: 'Approved' | 'On hold' | 'Blocked') => s.statusButton(n).evaluate(e => getComputedStyle(e).backgroundColor);
+    expect(await bg('On hold'), 'On hold is the selected one').not.toBe('rgba(0, 0, 0, 0)');
+    for (const n of ['Approved', 'Blocked'] as const) expect(await bg(n), n + ' not selected').toBe('rgba(0, 0, 0, 0)');
   });
 
   test('TC-SUP-23: Empty "Create supplier" shows the required messages and sends nothing', async () => {
@@ -166,12 +180,12 @@ test.describe('Add supplier form', () => {
     await expect(s.fixFieldsToast).toBeVisible();
     await expect(s.text('Name is required')).toBeVisible();
     await expect(s.text('Default currency is required')).toBeVisible();
-    await expect(s.text('Choose a city.')).toBeVisible();
+    await expect(s.text('City is required')).toBeVisible();   // was "Choose a city." (BUG-44, fixed on the 21 Nov build)
     expect(blocked).toEqual([]);
   });
 
   test('TC-SUP-24: Empty City message follows the standard "City is required"', async () => {
-    test.fail(true, 'INCONSISTENT: City says "Choose a city." while Name / Default currency say "... is required"');
+    // BUG-44 fixed on the stage build of 21 Nov 2026
     await s.openAdd();
     await s.createButton.click();
     await expect(s.text('City is required')).toBeVisible({ timeout: 5_000 });
@@ -280,11 +294,11 @@ test.describe('Existing supplier', () => {
     await s.open();
     await s.openSupplier('Marina Bay Hotel');
     await page.getByRole('button', { name: 'Edit', exact: true }).first().click();
-    for (const b of ['Approved', 'On Hold', 'Blocked'] as const) await expect(s.statusButton(b)).toBeVisible();
+    for (const b of ['Approved', 'On hold', 'Blocked'] as const) await expect(s.statusButton(b)).toBeVisible();   // "On Hold" before BUG-45 was fixed
   });
 
   test('TC-SUP-44: Status is spelled the same in the list and on the supplier ("On hold")', async ({ page }) => {
-    test.fail(true, 'INCONSISTENT: list/filter say "On hold", the supplier page says "On Hold"');
+    // BUG-45 fixed on the stage build of 21 Nov 2026
     await s.open();
     await s.openSupplier('Testing season 3');
     await page.getByRole('button', { name: 'Edit', exact: true }).first().click();
@@ -329,6 +343,7 @@ test.describe('Existing supplier', () => {
     const d = s.dialog('Add contact');
     await d.getByPlaceholder('Full name').fill('QA Auto Contact');
     await d.getByPlaceholder('Reservations, Sales, Accounts…').click();
+    if (!(await page.getByRole('option').first().waitFor({ timeout: 8_000 }).then(() => true).catch(() => false))) test.skip(true, 'DATA: no active Contact Type (role) in Core - reactivate one (question pending with the product owner)');
     await page.getByRole('option').first().click();
     await d.getByPlaceholder('name@company.com').fill('abc');
     await d.getByRole('button', { name: 'Save' }).click();
@@ -371,7 +386,7 @@ test.describe('Existing supplier', () => {
     await s.open();
     await s.openSupplier('Testing season 3');
     await s.tab('Financials').click();
-    await page.getByRole('button', { name: 'Add bank account' }).click();
+    await page.getByRole('button', { name: 'Add bank account' }).first().click();   // header and empty-state button
     const d = page.getByRole('dialog').last();
     await d.getByRole('button', { name: 'Save' }).click();
     for (const m of ['Account holder is required', 'Bank is required', 'Enter an account number or IBAN']) await expect(d.getByText(m)).toBeVisible();
@@ -382,7 +397,7 @@ test.describe('Existing supplier', () => {
     await s.open();
     await s.openSupplier('Testing season 3');
     await s.tab('Financials').click();
-    await page.getByRole('button', { name: 'Add bank account' }).click();
+    await page.getByRole('button', { name: 'Add bank account' }).first().click();   // header and empty-state button
     const d = page.getByRole('dialog').last();
     await expect(d.getByPlaceholder('Name on the account')).toHaveAttribute('maxlength', '200');
     await expect(d.getByPlaceholder('Bank name')).toHaveAttribute('maxlength', '200');
@@ -395,7 +410,7 @@ test.describe('Existing supplier', () => {
     await s.open();
     await s.openSupplier('Testing season 3');
     await s.tab('Financials').click();
-    await page.getByRole('button', { name: 'Add bank account' }).click();
+    await page.getByRole('button', { name: 'Add bank account' }).first().click();   // header and empty-state button
     const d = page.getByRole('dialog').last();
     await d.getByPlaceholder('Name on the account').fill('QA Auto Holder');
     await d.getByPlaceholder('Bank name').fill('QA Auto Bank');

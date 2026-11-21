@@ -1,4 +1,5 @@
 ﻿import { test, expect } from '../../fixtures';
+import { columnFilter } from '../../pages/SupplierPage';
 import { Page, Response } from '@playwright/test';
 import { ContractPage } from '../../pages/ContractPage';
 
@@ -55,7 +56,7 @@ test.describe('Supplier business rules', () => {
   const openBlocked = async (tab = 'overview') => {
     if (!blockedUrl) {
       await page.goto('/suppliers');
-      await page.getByRole('columnheader', { name: /^Name/ }).getByRole('textbox').fill('QA Auto Supplier');
+      await (await columnFilter(page, /^Name/)).fill('QA Auto Supplier');
       const row = page.locator('main tbody tr:visible', { hasText: 'Blocked' }).first();
       await expect(row).toBeVisible({ timeout: 90_000 });
       await row.locator('td').first().click();
@@ -70,7 +71,7 @@ test.describe('Supplier business rules', () => {
 
   // ---------------- Q-01 ----------------
   test('TC-RULE-01: Blocked supplier - its details cannot be edited and saved', async () => {
-    test.fail(true, 'BUG: a Blocked supplier can still be edited - the server saves it (PUT /suppliers/<id> -> 204)');
+    // BUG-51 fixed on the stage build of 21 Nov 2026 (was: 'BUG: a Blocked supplier can still be edited - the server saves it (PUT /suppliers/<id> -> 204)')
     await openBlocked();
     const edit = page.getByRole('button', { name: 'Edit', exact: true }).first();
     if (!(await edit.isVisible()) || await edit.isDisabled()) return;            // expected: no editing at all
@@ -78,6 +79,7 @@ test.describe('Supplier business rules', () => {
     const name = page.locator('main input:visible').filter({ hasNot: page.locator('[placeholder="Search"]') }).nth(3);
     const nameInput = page.getByPlaceholder(/supplier name/i).first();
     const field = (await nameInput.count()) ? nameInput : name;
+    if (await field.isDisabled()) return;                                         // 21 Nov build: the fields of a Blocked supplier are locked
     const old = await field.inputValue();
     await field.fill(`${old} x`);
     const w = nextWrite(/suppliers\/\d+$/);
@@ -97,7 +99,7 @@ test.describe('Supplier business rules', () => {
   });
 
   test('TC-RULE-02: Blocked supplier - a new contact cannot be added', async () => {
-    test.fail(true, 'BUG: a contact can still be added to a Blocked supplier (POST .../contacts -> 201)');
+    // BUG-52 fixed on the stage build of 21 Nov 2026 (was: 'BUG: a contact can still be added to a Blocked supplier (POST .../contacts -> 201)')
     await openBlocked('contacts');
     const add = page.getByRole('button', { name: /Add contact$/ }).last();
     if (!(await add.isVisible()) || await add.isDisabled()) return;
@@ -112,7 +114,7 @@ test.describe('Supplier business rules', () => {
   });
 
   test('TC-RULE-03: Blocked supplier - a new currency cannot be added', async () => {
-    test.fail(true, 'BUG: a currency can still be added to a Blocked supplier (POST .../currencies -> 204)');
+    // BUG-53 fixed on the stage build of 21 Nov 2026 (was: 'BUG: a currency can still be added to a Blocked supplier (POST .../currencies -> 204)')
     await openBlocked('financials');
     const add = page.getByRole('button', { name: /Add currency$/ }).last();
     if (!(await add.isVisible()) || await add.isDisabled()) return;

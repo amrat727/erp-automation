@@ -1,4 +1,5 @@
 import { test, expect } from '../../fixtures';
+import { columnFilter } from '../../pages/SupplierPage';
 import { Page, Locator } from '@playwright/test';
 import { blockWrites } from '../../pages/MasterListPage';
 import { ContractPage, ContractsListPage } from '../../pages/ContractPage';
@@ -45,7 +46,7 @@ test.describe('Contract bug evidence', () => {
   // ----- business rules confirmed by the product owner (supplier-rules.spec.ts) - screenshots of the saved results -----
   const openBlockedSupplier = async (page: Page, tab: string) => {
     await page.goto('/suppliers');
-    await page.getByRole('columnheader', { name: /^Name/ }).getByRole('textbox').fill('QA Auto Supplier');
+    await (await columnFilter(page, /^Name/)).fill('QA Auto Supplier');
     const row = page.locator('main tbody tr:visible', { hasText: 'Blocked' }).first();
     await expect(row).toBeVisible({ timeout: 90_000 });
     await row.locator('td').first().click();

@@ -1,6 +1,7 @@
 ﻿import { test, expect } from '../../fixtures';
 import { blockWrites } from '../../pages/MasterListPage';
 import { ContractPage, ContractsListPage } from '../../pages/ContractPage';
+import { columnFilter } from '../../pages/SupplierPage';
 
 /*
  * SUPPLIER -> PRODUCTS -> CONTRACT / ALLOTMENT / PROMOTIONS / RATE CHECK  +  the global Contracts list.
@@ -41,7 +42,7 @@ test.describe('Supplier product: Contract list', () => {
 
   test('TC-CON-03: Contract search - a match keeps the row, no match shows "No records match these filters."', async ({ page }) => {
     await c.openProduct(FULL, 'Hotel', 'Contract');
-    const search = c.table.locator('input[placeholder="Search"]:not(.MuiSelect-nativeInput)').first();
+    const search = await columnFilter(c.page, /^Contract/);   // stage 20 Nov 2026: the column search opens from the header icon
     await search.fill('MBH');
     await expect(c.rows.filter({ hasText: MBH })).toBeVisible();
     await search.fill('zzz-no-such-contract');
@@ -77,16 +78,22 @@ test.describe('Supplier product: Add contract (nothing is saved)', () => {
     await expect(c.notSaved).toBeVisible();
     await expect(c.page.locator('main :text("Active") ~ * input[type=checkbox], main input[type=checkbox]:visible').first()).toBeChecked();
     await expect(c.page.locator('main input[value="Both"]:visible')).toBeVisible();
-    const today = new Date();
-    const end = new Date(today); end.setFullYear(end.getFullYear() + 1); end.setDate(end.getDate() - 1);
-    expect(await c.dateValues()).toEqual([fmt(today), fmt(end), fmt(today), fmt(end)]);
+    // "today" must be the company's day (Dubai). The app uses the UTC date, which is still yesterday between 00:00 and 04:00 UAE time (BUG-134)
+    const inZone = (tz: string) => new Date(new Date().toLocaleString('en-US', { timeZone: tz }));
+    const today = inZone('Asia/Dubai');
+    const plusYear = (d: Date) => { const e = new Date(d); e.setFullYear(e.getFullYear() + 1); e.setDate(e.getDate() - 1); return e; };
+    const end = plusYear(today);
+    const shown = await c.dateValues();
+    const utc = inZone('UTC');
+    test.fail(fmt(utc) !== fmt(today) && shown[0] === fmt(utc), 'BUG-134: new contract dates default to the UTC date (yesterday in Dubai before 04:00)');
+    expect(shown).toEqual([fmt(today), fmt(end), fmt(today), fmt(end)]);
     await expect(c.page.getByText('Choose the base plan to open rates, supplements and the other sections.')).toBeVisible();
   });
 
-  test('TC-CON-11: Empty Save shows "2 problems to fix" (Contract name, Base plan) and sends nothing', async ({ page }) => {
+  test('TC-CON-11: Empty Save shows "3 problems to fix" (Contract name, Currency, Base plan) and sends nothing', async ({ page }) => {
     await c.openAddContract(EMPTY, 'Hotel');
     await c.saveButton.click();
-    await expect(c.problems).toHaveText('2 problems to fix');
+    await expect(c.problems).toHaveText('3 problems to fix');   // Currency joined the list when BUG-48 was fixed (21 Nov build)
     await page.waitForTimeout(1500);
     expect(blocked).toEqual([]);
   });
@@ -121,7 +128,7 @@ test.describe('Supplier product: Add contract (nothing is saved)', () => {
   });
 
   test('TC-CON-16: Currency is required - a contract without a currency is NOT sent', async ({ page }) => {
-    test.fail(true, 'BUG: Currency has a * but an empty Currency is not checked - the contract is sent to the server without a currency');
+    // BUG-48 fixed on the stage build of 21 Nov 2026 (was: 'BUG: Currency has a * but an empty Currency is not checked - the contract is sent to the server without a currency')
     await c.openAddContract(EMPTY, 'Hotel');
     await c.name.fill('QA Auto Contract no currency');
     await c.pick(c.basePlan, 'Bed and breakfast');
@@ -161,7 +168,7 @@ test.describe('Supplier product: Add contract (nothing is saved)', () => {
   });
 
   test('TC-CON-20: Priority below 0 is not accepted', async ({ page }) => {
-    test.fail(true, 'BUG: the Priority field has min 0, but a priority of -5 is sent to the server');
+    // BUG-49 fixed on the stage build of 21 Nov 2026 (was: 'BUG: the Priority field has min 0, but a priority of -5 is sent to the server')
     await c.openAddContract(EMPTY, 'Hotel');
     await c.name.fill('QA Auto Contract priority');
     await c.pick(c.basePlan, 'Bed and breakfast');
@@ -258,6 +265,10 @@ test.describe('Supplier product: Allotment, Promotions, Rate check', () => {
   test('TC-CON-41: Add allotment form - details, inventory blocks, release; empty Save sends nothing', async ({ page }) => {
     await c.openProduct(EMPTY, 'Hotel', 'Allotment');
     await expect(c.emptyMessage.or(c.rows.first())).toBeVisible();
+    if (await c.button('Add allotment').isDisabled()) {   // 21 Nov build: allotments need an active contract first (BUG-66 fix)
+      await expect(page.getByText(/no active contract yet. Add a contract first/)).toBeVisible();
+      await c.openProduct(FULL, 'Hotel', 'Allotment');   // Marina Bay Hotel has an active contract
+    }
     await c.button('Add allotment').click();
     for (const s of ['Allotment details', 'Allotment name', 'Valid from', 'Valid to', 'Inventory by date', 'Release', 'Notes'])
       await expect(page.locator(`main :text-is("${s}"):visible`).first(), s).toBeVisible({ timeout: 30_000 });
@@ -344,7 +355,7 @@ test.describe('Contracts list (menu "Contracts")', () => {
   });
 
   test('TC-CON-65: "Valid" shows the year, so a one-year contract does not look like it ends before it starts', async () => {
-    test.fail(true, 'BUG: "Valid" shows "15 Oct – 14 Oct" for 15 Oct 2026 - 14 Oct 2027 (no year), so it reads as ending before it starts');
+    // BUG-50 fixed on the stage build of 21 Nov 2026 (was: 'BUG: "Valid" shows "15 Oct – 14 Oct" for 15 Oct 2026 - 14 Oct 2027 (no year), so it reads as ending before it starts')
     const valid = await l.column(5);
     expect(valid.length).toBeGreaterThan(0);
     expect(valid.filter(v => !/20\d\d|\b[A-Z][a-z]{2} \d{2}\b/.test(v)), 'rows whose "Valid" has no year').toEqual([]);

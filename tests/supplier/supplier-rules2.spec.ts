@@ -1,4 +1,5 @@
 import { test, expect } from '../../fixtures';
+import { columnFilter } from '../../pages/SupplierPage';
 import { Page, Response } from '@playwright/test';
 import { blockWrites } from '../../pages/MasterListPage';
 import { ContractPage } from '../../pages/ContractPage';
@@ -24,7 +25,7 @@ test.describe('Part A - supplier screens (nothing is saved)', () => {
 
   const openBlockedSupplier = async (page: Page) => {
     await page.goto('/suppliers');
-    await page.getByRole('columnheader', { name: /^Name/ }).getByRole('textbox').fill('QA Auto Supplier');
+    await (await columnFilter(page, /^Name/)).fill('QA Auto Supplier');
     const row = page.locator('main tbody tr:visible', { hasText: 'Blocked' }).first();
     await expect(row).toBeVisible({ timeout: 90_000 });
     await row.locator('td').first().click();
@@ -32,7 +33,7 @@ test.describe('Part A - supplier screens (nothing is saved)', () => {
   };
 
   test('TC-R2-01: A Blocked supplier cannot be moved back to "On hold" (only to Approved)', async ({ page }) => {
-    test.fail(true, 'BUG: a Blocked supplier still offers "On Hold" in Edit');
+    // BUG-56 fixed on the stage build of 21 Nov 2026 (was: 'BUG: a Blocked supplier still offers "On Hold" in Edit')
     await openBlockedSupplier(page);
     await page.getByRole('button', { name: 'Edit', exact: true }).first().click();
     const onHold = page.getByRole('button', { name: 'On Hold', exact: true });
@@ -40,7 +41,7 @@ test.describe('Part A - supplier screens (nothing is saved)', () => {
   });
 
   test('TC-R2-02: The city of a supplier cannot be changed after it is created', async ({ page }) => {
-    test.fail(true, 'BUG: in Edit mode the supplier City ("Search cities") is still editable - the city must be fixed after creation');
+    // BUG-57 fixed on the stage build of 21 Nov 2026 (was: 'BUG: in Edit mode the supplier City ("Search cities") is still editable - the city must be fixed after creation')
     await page.goto(`/suppliers/${SUP}/overview`);
     await page.getByRole('button', { name: 'Edit', exact: true }).first().click();
     const city = page.getByPlaceholder('Search cities').first();       // in the (collapsed) Location section
@@ -49,7 +50,7 @@ test.describe('Part A - supplier screens (nothing is saved)', () => {
   });
 
   test('TC-R2-03: Payment due above 365 days is not accepted', async ({ page }) => {
-    test.fail(true, 'BUG: a payment due of 366 days is sent (allowed range is 0-365)');
+    // BUG-58 fixed on the stage build of 21 Nov 2026 (was: 'BUG: a payment due of 366 days is sent (allowed range is 0-365)')
     await page.goto(`/suppliers/${SUP}/financials`);
     await page.getByRole('button', { name: /Add currency$/ }).last().click();
     const d = page.getByRole('dialog').last();
@@ -62,7 +63,7 @@ test.describe('Part A - supplier screens (nothing is saved)', () => {
   });
 
   test('TC-R2-04: An invalid IBAN ("123") is not accepted', async ({ page }) => {
-    test.fail(true, 'BUG: an IBAN of "123" is sent - IBAN is not validated');
+    // BUG-59 fixed on the stage build of 21 Nov 2026 (was: 'BUG: an IBAN of "123" is sent - IBAN is not validated')
     await page.goto(`/suppliers/${SUP}/financials`);
     await page.getByRole('button', { name: 'Add bank account' }).first().click();
     const d = page.getByRole('dialog').last();
@@ -82,6 +83,7 @@ test.describe('Part A - supplier screens (nothing is saved)', () => {
     const d = page.getByRole('dialog').last();
     await d.getByPlaceholder('Full name').fill(`QA Auto Contact ${STAMP} no email`);
     await d.getByPlaceholder('Reservations, Sales, Accounts…').click();
+    if (!(await page.getByRole('option').first().waitFor({ timeout: 8_000 }).then(() => true).catch(() => false))) test.skip(true, 'DATA: no active Contact Type (role) in Core - reactivate one (question pending with the product owner)');
     await page.getByRole('option').first().click();
     const w = nextWrite(page, /contacts/);
     await d.getByRole('button', { name: 'Save' }).click();
@@ -89,7 +91,7 @@ test.describe('Part A - supplier screens (nothing is saved)', () => {
   });
 
   test('TC-R2-06: The supplier list can be searched by city', async ({ page }) => {
-    test.fail(true, 'ENHANCEMENT: the supplier list has no City column / city search (product owner asked for it)');
+    // BUG-61 fixed on the stage build of 21 Nov 2026 (was: 'ENHANCEMENT: the supplier list has no City column / city search (product owner asked for it)')
     await page.goto('/suppliers');
     await expect(page.getByRole('columnheader', { name: /^City/ })).toBeVisible({ timeout: 60_000 });
   });
@@ -114,7 +116,7 @@ test.describe('Part A - contract screens (nothing is saved)', () => {
   });
 
   test('TC-R2-10: "Sell to" after "Valid to" is not accepted', async ({ page }) => {
-    test.fail(true, 'BUG: a contract whose Sell to is after Valid to is sent');
+    // BUG-62 fixed on the stage build of 21 Nov 2026 (was: 'BUG: a contract whose Sell to is after Valid to is sent')
     const end = (await c.dateValues())[1];
     const after = new Date(end); after.setDate(after.getDate() + 20);
     await c.setDate(3, after.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).replace('Sept', 'Sep'));
@@ -124,7 +126,7 @@ test.describe('Part A - contract screens (nothing is saved)', () => {
   });
 
   test('TC-R2-11: No "add an allotment first / on request" warning on a new contract (contract comes first)', async ({ page }) => {
-    test.fail(true, 'BUG (product owner): the contract shows "No allotment holds <room> ... bookings go on request" - the contract is always created before the allotment');
+    // BUG-63 fixed on the stage build of 21 Nov 2026 (was: 'BUG (product owner): the contract shows "No allotment holds <room> ... bookings go on request" - the contract is always created before the allotment')
     await c.addSeason('QA Season');
     await c.setPrice('Club Single', 'QA Season', '300');
     await page.waitForTimeout(1500);
@@ -150,7 +152,7 @@ test.describe('Part A - contract screens (nothing is saved)', () => {
   });
 
   test('TC-R2-14: A cancellation charge above 100% is not accepted', async ({ page }) => {
-    test.fail(true, 'BUG: a cancellation charge of 150% is sent (max is 100%)');
+    // BUG-64 fixed on the stage build of 21 Nov 2026 (was: 'BUG: a cancellation charge of 150% is sent (max is 100%)')
     await c.button('Add cancellation policy').click();
     const value = page.locator('main input[type=number]:visible').last();
     await value.click(); await value.press('Control+A'); await value.pressSequentially('150'); await value.press('Tab');
@@ -248,8 +250,12 @@ test.describe('Part B - rules the server decides (REAL saves on QA data)', () =>
   });
 
   test('TC-R2-30: An allotment is NOT accepted for a product without a contract (Excursion has none)', async () => {
-    test.fail(true, 'BUG: an allotment is saved for a product (Excursion) that has no contract');
     await c.openProduct(SUP, 'Excursion', 'Allotment');
+    // stage build of 21 Nov 2026 (BUG-66 fixed): no active contract -> Add allotment is disabled with an explanation
+    if (await c.button('Add allotment').isDisabled()) {
+      await expect(page.getByText(/no active contract yet. Add a contract first/)).toBeVisible();
+      return;
+    }
     await c.button('Add allotment').click();
     await page.getByPlaceholder('Enter an allotment name').fill(`QA Auto Allotment ${STAMP} no contract`);
     const unit = page.getByPlaceholder('Choose a unit');
@@ -263,7 +269,7 @@ test.describe('Part B - rules the server decides (REAL saves on QA data)', () =>
   });
 
   test('TC-R2-31: A promotion discount above 99% is NOT accepted', async () => {
-    test.fail(true, 'BUG: a promotion with a 100% discount is saved (max 99%)');
+    // BUG-67 (100% saved) - the 21 Nov build stops the save; the check below confirms it is the discount that is refused
     await c.openProduct(SUP, 'Hotel', 'Promotions');
     await c.button('Add promotion').click();
     await page.getByPlaceholder('Promotion name').fill(`QA Auto Promotion ${STAMP} 100pct`);
@@ -272,7 +278,17 @@ test.describe('Part B - rules the server decides (REAL saves on QA data)', () =>
     await pct.click(); await pct.press('Control+A'); await pct.pressSequentially('100'); await pct.press('Tab');
     const res = page.waitForResponse(r => r.request().method() === 'POST' && /promotion/i.test(r.url()), { timeout: 20_000 }).catch(() => null);
     await c.saveButton.click();
-    expect(refused(await res), 'a 100% promotion was saved').toBe(true);
+    const r = await res;
+    // 21 Nov build: the save is stopped by the form - make sure it is the DISCOUNT that is refused, not some other field
+    let why = '';
+    if (r === null && await c.problems.isVisible().catch(() => false)) {
+      await c.problems.click().catch(() => {});
+      await page.waitForTimeout(800);
+      why = (await page.locator('.MuiPopover-paper:visible, .MuiTooltip-popper:visible').last().innerText().catch(() => '')).replace(/\s+/g, ' ');
+      console.log('promotion problems: ' + why);
+    }
+    expect(refused(r), 'a 100% promotion was saved').toBe(true);
+    if (why) expect(why, 'the problem named is the discount limit').toMatch(/discount|99|percent|%/i);
   });
 
   test('TC-R2-32: A promotion can only apply to approved, active contracts (no draft / inactive in the list)', async () => {
@@ -282,10 +298,18 @@ test.describe('Part B - rules the server decides (REAL saves on QA data)', () =>
     await page.waitForTimeout(2000);
     const offered = (await page.getByRole('option').allInnerTexts()).map(s => s.replace(/\s+/g, ' '));
     console.log('promotion can apply to: ' + offered.join(' | '));
+    const shot = await page.screenshot();                        // evidence of the open list (kept only if it is wrong)
     await page.keyboard.press('Escape');
     await c.openProduct(SUP, 'Hotel', 'Contract');
     const notApprovedOrInactive = await c.rows.filter({ hasNot: page.getByRole('switch', { checked: true }) }).or(c.rows.filter({ hasText: 'Draft' })).locator('td:first-child p').allInnerTexts();
     const wrong = offered.filter(o => notApprovedOrInactive.some(n => o.includes(n.trim())));
+    if (wrong.length) {
+      const fs = await import('fs');
+      fs.mkdirSync('screenshots/bugs', { recursive: true });
+      fs.writeFileSync('screenshots/bugs/BUG-133-1-promotion-offers-draft-contracts.png', shot);
+      await page.screenshot({ path: 'screenshots/bugs/BUG-133-2-those-contracts-are-draft.png' });
+      console.log('draft / inactive offered: ' + wrong.join(' | '));
+    }
     expect(wrong, 'draft / inactive contracts offered for a promotion').toEqual([]);
   });
 });

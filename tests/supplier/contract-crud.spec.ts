@@ -102,10 +102,11 @@ test.describe('Supplier contract: end-to-end data flow', () => {
     const l = new ContractsListPage(page);
     await l.open();
     await l.search.fill(CODE);
-    await expect(l.rows).toHaveCount(1, { timeout: 30_000 });
-    await expect(l.rows.first()).toContainText(NAME);
-    await expect(l.rows.first()).toContainText('Testing season 3');
-    await expect(l.rows.first()).toContainText('Draft');
+    // the code search also matches other contracts of this run (e.g. QA-<STAMP>-ACT): keep the row with exactly this name
+    const row = l.rows.filter({ has: page.getByText(NAME, { exact: true }) });
+    await expect(row).toHaveCount(1, { timeout: 30_000 });
+    await expect(row).toContainText('Testing season 3');
+    await expect(row).toContainText('Draft');
   });
 
   test('TC-CONC-04: Re-opened, the contract shows every saved value', async () => {

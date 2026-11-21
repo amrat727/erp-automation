@@ -27,10 +27,10 @@ test.describe('Part A - excursion / transfer contract screens and promotion deta
       await expect(page.getByText('No rates yet. Add the first pax band.')).toBeVisible();
     });
 
-    test(`TC-EXC-02: ${product} contract - empty Save shows "1 problem to fix" and sends nothing`, async ({ page }) => {
+    test(`TC-EXC-02: ${product} contract - empty Save shows "2 problems to fix" (name, currency) and sends nothing`, async ({ page }) => {
       await c.openAddContract(SUP, product);
       await c.saveButton.click();
-      await expect(c.problems).toHaveText('1 problem to fix');
+      await expect(c.problems).toHaveText('2 problems to fix');   // Currency is required since the 21 Nov build (BUG-48 fix)
       await page.waitForTimeout(1500);
       expect(blocked).toEqual([]);
     });
@@ -46,6 +46,11 @@ test.describe('Part A - excursion / transfer contract screens and promotion deta
 
     test(`TC-EXC-04: ${product} allotment form - same form as hotel (name, type, unit, dates, blocks, release)`, async ({ page }) => {
       await c.openProduct(SUP, product, 'Allotment');
+      // 21 Nov build: allotments need an active contract first (BUG-66 fix); the QA supplier's contracts are switched off after each run
+      if (await c.button('Add allotment').isDisabled()) {
+        await expect(page.getByText(/no active contract yet. Add a contract first/)).toBeVisible();
+        return;
+      }
       await c.button('Add allotment').click();
       for (const s of ['Allotment details', 'Inventory by date', 'Release'])
         await expect(page.locator(`main :text-is("${s}"):visible`).first(), s).toBeVisible();

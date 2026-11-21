@@ -1,0 +1,116 @@
+[
+  {
+    "tc": "TC-PRDC-05",
+    "bug": "BUG-68",
+    "verdict": "FIXED",
+    "evidence": "Room name field red with \"This supplier already has a room named 'QA Auto Room PKVVKP edited' for Hotel. Give this one a different name.\" and \"1 problem to fix\" next to Create product."
+  },
+  {
+    "tc": "TC-CON-16",
+    "bug": "BUG-48",
+    "verdict": "FIXED",
+    "evidence": "Currency field outlined red (\"Choose a currency\" still empty) and the bar shows \"1 problem to fix\"; contract stayed \"New contract, not saved yet.\""
+  },
+  {
+    "tc": "TC-CON-20",
+    "bug": "BUG-49",
+    "verdict": "FIXED",
+    "evidence": "Priority field holding \"-5\" outlined red, bar shows \"1 problem to fix\", contract \"not saved yet\" (all other fields valid, so -5 is the problem)."
+  },
+  {
+    "tc": "TC-CON-65",
+    "bug": "BUG-50",
+    "verdict": "FIXED",
+    "evidence": "Contracts list Valid column now shows years: \"15 Oct 2026 - 14 Oct 2027\", \"24 Oct 2026 - 23 Oct 2027\", etc."
+  },
+  {
+    "tc": "TC-REST-02",
+    "bug": "BUG-78",
+    "verdict": "FIXED",
+    "evidence": "Final screenshot shows only the Overview top, but the trace snapshot contains the message \"qa-auto-6mb.pdf is 6.0 MB. Files must be 5 MB or smaller.\" (slot hint also says \"up to 5 MB\")."
+  },
+  {
+    "tc": "TC-RULE-02",
+    "bug": "BUG-52",
+    "verdict": "FIXED",
+    "evidence": "Blocked supplier Contacts tab has no Add contact button and shows \"This supplier is blocked, so its contacts and addresses can't be added or changed. Approve it on the Overview tab first.\""
+  },
+  {
+    "tc": "TC-R2-01",
+    "bug": "BUG-56",
+    "verdict": "FIXED",
+    "evidence": "Blocked supplier in Edit offers only \"Approved\" and \"Blocked\" (no On hold in any spelling), banner: \"the only change allowed is setting its status to Approved.\""
+  },
+  {
+    "tc": "TC-R2-02",
+    "bug": "BUG-57",
+    "verdict": "FIXED",
+    "evidence": "In Edit mode (Cancel/Save visible) the trace shows the City input as <input disabled name=\"cityId\" value=\"Abu Dhabi\" placeholder=\"Search cities\" class=\"...Mui-disabled...\">; isDisabled returned true. Location section is collapsed in the screenshot."
+  },
+  {
+    "tc": "TC-RULE-03",
+    "bug": "BUG-53",
+    "verdict": "FIXED",
+    "evidence": "Blocked supplier Financials tab has no Add currency button and shows \"This supplier is blocked, so its currencies and bank accounts can't be added or changed. Approve it on the Overview tab first.\""
+  },
+  {
+    "tc": "TC-R2-03",
+    "bug": "BUG-58",
+    "verdict": "FIXED",
+    "evidence": "Add currency dialog: Days \"366\" outlined red with \"Enter a number of days from 0 to 365\"."
+  },
+  {
+    "tc": "TC-R2-04",
+    "bug": "BUG-59",
+    "verdict": "FIXED",
+    "evidence": "Bank accounts dialog: IBAN \"123\" outlined red with \"Enter a valid IBAN (country code, 2 check digits, 15-34 characters) or an 11-character IFSC\"."
+  },
+  {
+    "tc": "TC-R2-06",
+    "bug": "BUG-61",
+    "verdict": "FIXED",
+    "evidence": "Supplier list now has a \"City\" column (values \"Dubai\"); trace shows its header filter \"Search city\" / \"City: - change filter\". The test only checked the header, it did not type a city."
+  },
+  {
+    "tc": "TC-R2-10",
+    "bug": "BUG-62",
+    "verdict": "FIXED",
+    "evidence": "Sell to \"09 Dec 2027\" (Valid to 19 Nov 2027) outlined red, \"1 problem to fix\"; trace contains \"The sale end date is after the validity end date.\""
+  },
+  {
+    "tc": "TC-R2-11",
+    "bug": "BUG-63",
+    "verdict": "FIXED",
+    "evidence": "No \"No allotment holds\" text anywhere. Caveat: in this test the price did not stick (cell \"0.00\", warning \"No room has a price yet.\"), but TC-CON-21 in the same run priced Club Single 50.00 and showed only \"3 prices are missing: ...\" with no allotment warning, where the old build showed both."
+  },
+  {
+    "tc": "TC-R2-14",
+    "bug": "BUG-64",
+    "verdict": "FIXED",
+    "evidence": "Cancellation row with Value \"150 %\" marked red: \"Row 1: A percentage charge cannot exceed 100%.\" and \"1 problem to fix\"; log \"cancellation sent: []\"."
+  },
+  {
+    "tc": "TC-SUP-09",
+    "bug": "BUG-47",
+    "verdict": "FIXED",
+    "evidence": "Name filter holding \"Marina Bay Hotel \" (spaces around) lists exactly one row \"Marina Bay Hotel  SUP-002  Dubai  Approved\", range \"1-1 of 1\"."
+  },
+  {
+    "tc": "TC-R2-31",
+    "bug": "BUG-67",
+    "verdict": "NOT PROVEN",
+    "evidence": "Nothing was saved (no promotion POST within 20 s) because the bar shows \"1 problem to fix\", but the Discount row with Value \"100 %\" is not marked red and the trace has no 99%/limit message, so the problem may be another field. The test filled the form the same way as when it used to save."
+  },
+  {
+    "tc": "TC-SUP-24",
+    "bug": "BUG-44",
+    "verdict": "FIXED",
+    "evidence": "Empty Create supplier shows \"City is required\" under City, next to \"Name is required\" and \"Default currency is required\" (TC-SUP-23 in the same run failed because \"Choose a city.\" is gone)."
+  },
+  {
+    "tc": "TC-SUP-44",
+    "bug": "BUG-45",
+    "verdict": "FIXED",
+    "evidence": "Edit status buttons read \"Approved / On hold / Blocked\" and the header badge says \"On hold\", matching the list (TC-SUP-43 failed in the same run because \"On Hold\" no longer exists)."
+  }
+]

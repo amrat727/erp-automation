@@ -1,6 +1,27 @@
 import { Locator, Page, expect } from '@playwright/test';
 
 /**
+ * The list's column filter (search box or dropdown) of the column `header`, opened if needed.
+ * Stage 20 Nov 2026: column filters are HIDDEN until the small icon in the header is clicked, they then show in a
+ * filter row under the header, and only ONE is open at a time - so open it right before using it.
+ * On the older layout the control sits inside the header and is returned directly.
+ */
+export async function columnFilter(page: Page, header: RegExp, kind: 'textbox' | 'combobox' = 'textbox'): Promise<Locator> {
+  // while another filter is open the headers are renamed ("Name" -> "Sort by Name"), so allow that prefix
+  const named = new RegExp(`^(Sort by )?${header.source.replace(/^\^/, '')}`, header.flags);
+  const th = page.getByRole('columnheader', { name: named }).first();
+  const inside = th.getByRole(kind);
+  if (await inside.first().isVisible().catch(() => false)) return inside.first();
+  await th.locator('span[aria-hidden=true]').first().click({ force: true });   // decorative icon - only opens the filter
+  // a dropdown filter may open its option list at once; MUI then hides the page (aria-hidden), so return the list
+  const list = page.getByRole('listbox').last();
+  if (kind === 'combobox' && await list.isVisible().catch(() => false)) return list;
+  const open = page.locator('main thead').getByRole(kind).locator('visible=true').first();
+  await open.waitFor({ state: 'visible', timeout: 10_000 });
+  return open;
+}
+
+/**
  * Page Object for Supplier (menu: Supplier -> /suppliers).
  *
  * IMPORTANT: this app keeps every opened page in hidden in-app tabs
@@ -90,7 +111,7 @@ export class SupplierPage {
   }
 
   async search(name: string) {
-    await this.nameSearch.fill(name);
+    await (await columnFilter(this.page, /^Name/)).fill(name);
     await expect(async () => {
       const texts = await this.rows.allInnerTexts();
       expect(texts.length === 0 || texts.every(t => t.toLowerCase().includes(name.trim().toLowerCase()))).toBe(true);
@@ -98,14 +119,18 @@ export class SupplierPage {
   }
 
   async filterStatus(option: 'All' | 'Approved' | 'On hold' | 'Blocked') {
-    await this.statusFilter.click();
+    const f = await columnFilter(this.page, /Status/, 'combobox');
+    if (!(await this.page.getByRole('listbox').last().isVisible().catch(() => false))) await f.click();
     await this.page.getByRole('option', { name: option, exact: true }).click();
     await this.page.waitForTimeout(1500);
   }
 
   /** Status cell of each visible row */
   async statuses(): Promise<string[]> {
-    return (await this.rows.locator('td:nth-child(3)').allInnerTexts()).map(s => s.trim());
+    // the Status column moved when "City" was added (stage 21 Nov 2026) - find it by its header
+    const heads = (await this.page.locator('main thead tr').first().locator('th').allInnerTexts()).map(h => h.trim());
+    const col = heads.findIndex(h => /Status|Approved|On hold|Blocked|^All$/.test(h)) + 1 || 3;
+    return (await this.rows.locator(`td:nth-child(${col})`).allInnerTexts()).map(s => s.trim());
   }
 
   async names(): Promise<string[]> {

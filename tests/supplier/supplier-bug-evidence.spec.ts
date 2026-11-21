@@ -1,7 +1,7 @@
 import { test, expect } from '../../fixtures';
 import { Page, Locator } from '@playwright/test';
 import { blockWrites } from '../../pages/MasterListPage';
-import { SupplierPage } from '../../pages/SupplierPage';
+import { SupplierPage, columnFilter } from '../../pages/SupplierPage';
 import { bugShot } from '../../pages/FormHelpers';
 
 /*
@@ -93,8 +93,9 @@ test.describe('Supplier bug evidence', () => {
     await blockWrites(page);
     const s = new SupplierPage(page);
     await s.open();
-    await s.nameSearch.fill('  Marina Bay Hotel  ');
+    const box = await columnFilter(page, /^Name/);
+    await box.fill('  Marina Bay Hotel  ');
     await expect(s.emptyMessage).toBeVisible({ timeout: 30_000 });
-    await shot(page, 'BUG-47-supplier-search-spaces-not-trimmed', s.emptyMessage, s.nameSearch);
+    await shot(page, 'BUG-47-supplier-search-spaces-not-trimmed', s.emptyMessage, box);
   });
 });

@@ -83,7 +83,7 @@ test.describe('Supplier products: end-to-end', () => {
   });
 
   test('TC-PRDC-05: A second room with the SAME name is refused', async () => {
-    test.fail(true, 'BUG (to confirm with the product owner): a second room with exactly the same name is saved on the same hotel');
+    // BUG-68 fixed on the stage build of 21 Nov 2026 (was: 'BUG (to confirm with the product owner): a second room with exactly the same name is saved on the same hotel')
     await p.open(SUP, 'Hotel');
     await p.addButton('Add room').click();
     await p.roomName.fill(`${ROOM} edited`);

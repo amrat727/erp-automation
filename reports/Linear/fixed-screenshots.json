@@ -1,0 +1,116 @@
+[
+ {
+  "issue": "SAH-93",
+  "bug": "BUG-44",
+  "file": "screenshots/fixed/BUG-44-fixed.png",
+  "size": 557761
+ },
+ {
+  "issue": "SAH-98",
+  "bug": "BUG-45",
+  "file": "screenshots/fixed/BUG-45-fixed.png",
+  "size": 570406
+ },
+ {
+  "issue": "SAH-104",
+  "bug": "BUG-47",
+  "file": "screenshots/fixed/BUG-47-fixed.png",
+  "size": 607953
+ },
+ {
+  "issue": "SAH-106",
+  "bug": "BUG-48",
+  "file": "screenshots/fixed/BUG-48-fixed.png",
+  "size": 558243
+ },
+ {
+  "issue": "SAH-109",
+  "bug": "BUG-49",
+  "file": "screenshots/fixed/BUG-49-fixed.png",
+  "size": 558399
+ },
+ {
+  "issue": "SAH-112",
+  "bug": "BUG-50",
+  "file": "screenshots/fixed/BUG-50-fixed.png",
+  "size": 660011
+ },
+ {
+  "issue": "SAH-114",
+  "bug": "BUG-51",
+  "file": "screenshots/fixed/BUG-51-fixed.png",
+  "size": 550728
+ },
+ {
+  "issue": "SAH-117",
+  "bug": "BUG-52",
+  "file": "screenshots/fixed/BUG-52-fixed.png",
+  "size": 529825
+ },
+ {
+  "issue": "SAH-120",
+  "bug": "BUG-53",
+  "file": "screenshots/fixed/BUG-53-fixed.png",
+  "size": 611911
+ },
+ {
+  "issue": "SAH-129",
+  "bug": "BUG-56",
+  "file": "screenshots/fixed/BUG-56-fixed.png",
+  "size": 550382
+ },
+ {
+  "issue": "SAH-132",
+  "bug": "BUG-57",
+  "file": "screenshots/fixed/BUG-57-fixed-city-locked-in-edit.png",
+  "size": 538266
+ },
+ {
+  "issue": "SAH-135",
+  "bug": "BUG-58",
+  "file": "screenshots/fixed/BUG-58-fixed.png",
+  "size": 432186
+ },
+ {
+  "issue": "SAH-138",
+  "bug": "BUG-59",
+  "file": "screenshots/fixed/BUG-59-fixed.png",
+  "size": 418991
+ },
+ {
+  "issue": "SAH-144",
+  "bug": "BUG-61",
+  "file": "screenshots/fixed/BUG-61-fixed.png",
+  "size": 530428
+ },
+ {
+  "issue": "SAH-146",
+  "bug": "BUG-62",
+  "file": "screenshots/fixed/BUG-62-fixed.png",
+  "size": 559080
+ },
+ {
+  "issue": "SAH-153",
+  "bug": "BUG-64",
+  "file": "screenshots/fixed/BUG-64-fixed.png",
+  "size": 504453
+ },
+ {
+  "issue": "SAH-89",
+  "bug": "BUG-66",
+  "file": "screenshots/fixed/BUG-66-fixed-allotment-needs-contract.png",
+  "size": 457223
+ },
+ {
+  "issue": "SAH-94",
+  "bug": "BUG-68",
+  "file": "screenshots/fixed/BUG-68-fixed.png",
+  "size": 560713
+ },
+ {
+  "issue": "SAH-125",
+  "bug": "BUG-78",
+  "file": "screenshots/fixed/BUG-78-fixed-6mb-file-refused.png",
+  "size": 493580
+ }
+]
