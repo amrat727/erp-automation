@@ -1,0 +1,3300 @@
+[
+ {
+  "id": "BUG-01",
+  "summary": "BUG-01: Spaces around Company code / Username are not trimmed",
+  "epic": "Login & Access",
+  "epicKey": "KAN-4",
+  "component": "Login – Session",
+  "label": "login-session",
+  "labels": [
+   "automation",
+   "login-session",
+   "bug"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-87",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-01-login-spaces-not-trimmed.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Login  |  **Screen:** Login  |  **Type:** Bug  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Open /login\n2. Enter \"  sb  \" and \"  sahil  \" (spaces before/after) + correct password\n3. Click Sign in\n\n### Actual result\n\"Invalid credentials\" - login fails\n\n### Expected result\nSpaces are ignored and the user is logged in\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-LOGIN-31  |  **Bug report ID:** BUG-01  |  previously Linear SAH-87"
+ },
+ {
+  "id": "BUG-02",
+  "summary": "BUG-02: Logged-in user opening /login sees the login form",
+  "epic": "Login & Access",
+  "epicKey": "KAN-4",
+  "component": "Login – Session",
+  "label": "login-session",
+  "labels": [
+   "automation",
+   "login-session",
+   "bug"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-156",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-02-login-page-while-logged-in.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Login  |  **Screen:** Login  |  **Type:** Bug  |  **Severity:** Low\n\n### Steps to reproduce\n1. Log in\n2. Open https://erp.nexgenpilot.com/login\n\n### Actual result\nLogin form is shown again\n\n### Expected result\nUser is redirected to the dashboard\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-LOGIN-35  |  **Bug report ID:** BUG-02  |  previously Linear SAH-156"
+ },
+ {
+  "id": "BUG-03",
+  "summary": "BUG-03: Deactivate popup says \"deactive\" (not an English word)",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "grammar"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-157",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-03-country-popup-deactive-grammar.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Region  |  **Screen:** Country, State, City, Market, Landmark  |  **Type:** Grammar  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Region > Countries\n2. Click the Active switch of India\n3. Read the popup (then Cancel)\n\n### Actual result\n\"This will mark the country as deactive.\"\n\n### Expected result\n\"This will mark the country as inactive.\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RGN-*-14, TC-CTRY-29  |  **Bug report ID:** BUG-03  |  previously Linear SAH-157\n\n✅ **Fixed 21-Nov (verified, core rerun: popups say \"as inactive\")** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-04",
+  "summary": "BUG-04: Active filter option is \"Deactive\"",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "grammar"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-162",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-04-filter-deactive-grammar.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-04-fixed.png"
+  ],
+  "description": "**Module:** Core > Region / Product  |  **Screen:** All list screens except Province  |  **Type:** Grammar  |  **Severity:** Low\n\n### Steps to reproduce\n1. Open any list screen (e.g. Countries)\n2. Open the Active filter in the table header\n\n### Actual result\nOptions: All / Active / Deactive\n\n### Expected result\nOptions: All / Active / Inactive\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CTRY-30  |  **Bug report ID:** BUG-04  |  previously Linear SAH-162\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-05",
+  "summary": "BUG-05: Province filter says \"Inactive\" while all other screens say \"Deactive\"",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-164",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-05-province-filter-inactive.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-05-fixed.png"
+  ],
+  "description": "**Module:** Core > Region  |  **Screen:** Province  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Region > Province\n2. Open the Active filter\n\n### Actual result\nProvince: \"Inactive\", others: \"Deactive\"\n\n### Expected result\nSame wording on every screen\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RGN-Province-05  |  **Bug report ID:** BUG-05  |  previously Linear SAH-164\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-06",
+  "summary": "BUG-06: Popup title \"Deactivate Province?\" uses a capital P",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-166",
+  "duplicateOf": null,
+  "screenshots": [],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Region  |  **Screen:** Province  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Region > Province\n2. Click the switch of an active province\n\n### Actual result\n\"Deactivate Province?\"\n\n### Expected result\n\"Deactivate province?\" (like \"Deactivate state?\")\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RGN-Province-12  |  **Bug report ID:** BUG-06  |  previously Linear SAH-166"
+ },
+ {
+  "id": "BUG-07",
+  "summary": "BUG-07: Landmark popup text differs (\"mark it as deactive\")",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-169",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-07-landmark-popup-text.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-07-fixed.png"
+  ],
+  "description": "**Module:** Core > Region  |  **Screen:** Landmark  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Region > Landmark\n2. Click the switch of \"DXB Terminal 1\"\n\n### Actual result\n\"This will mark it as deactive.\"\n\n### Expected result\n\"This will mark the landmark as inactive.\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RGN-Landmark-13  |  **Bug report ID:** BUG-07  |  previously Linear SAH-169\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-08",
+  "summary": "BUG-08: Airport popup title uses the airport CODE and completely different text",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-171",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-08-airport-popup-different.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-08-fixed.png"
+  ],
+  "description": "**Module:** Core > Region  |  **Screen:** Airport  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Region > Airport\n2. Click the switch of \"Aalborg Airport\"\n\n### Actual result\n\"Deactivate AAL?\" + \"It stops appearing in this company's Origin/Destination pickers...\"\n\n### Expected result\n\"Deactivate airport?\" + standard sentence\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RGN-Airport-12/13  |  **Bug report ID:** BUG-08  |  previously Linear SAH-171\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-09",
+  "summary": "BUG-09: Name field silently removes digits",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "bug"
+  ],
+  "priority": "High",
+  "status": "Complete",
+  "linear": "SAH-173",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-09-name-digits-removed-typed-Zone-2-North-1.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-09-fixed.png"
+  ],
+  "description": "**Module:** Core > Region  |  **Screen:** State, City, Market, Landmark, Province  |  **Type:** Bug  |  **Severity:** High\n\n### Steps to reproduce\n1. Core > Region > State > Add State\n2. Type \"Zone 2 North-1\" in Name\n\n### Actual result\nField shows \"Zone  North-\" - digits removed with no message\n\n### Expected result\nName keeps \"Zone 2 North-1\" (Desk Location keeps digits)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RGN-*-16  |  **Bug report ID:** BUG-09  |  previously Linear SAH-173\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-10",
+  "summary": "BUG-10: Countries is required but has no * on the label",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "ux"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-177",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-10-market-countries-required-no-asterisk.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Region  |  **Screen:** Market  |  **Type:** UX  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Region > Market > Add Market\n2. Enter only Name, click Save\n\n### Actual result\nSave is refused because Countries is empty, but the label has no *\n\n### Expected result\nRequired fields are marked with *\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-MARKET-01  |  **Bug report ID:** BUG-10  |  previously Linear SAH-177"
+ },
+ {
+  "id": "BUG-11",
+  "summary": "BUG-11: Missing Country shown only as a banner - the field is not marked red like Name",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "ux"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-178",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-11-country-error-banner-field-not-red.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-11-fixed.png"
+  ],
+  "description": "**Module:** Core > Region  |  **Screen:** State (also City, Landmark, Province)  |  **Type:** UX  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Region > State > Add State\n2. Enter Name only, click Save\n\n### Actual result\nBanner \"Please select a country.\" at the top; field not highlighted\n\n### Expected result\nCountry field turns red with \"Country is required\" under it\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RGN-State-17  |  **Bug report ID:** BUG-11  |  previously Linear SAH-178\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-12",
+  "summary": "BUG-12: Desk Location has no Audit history and no Active filter",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "inconsistency"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-183",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-12-desk-location-missing-audit-and-filter.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-12-fixed.png"
+  ],
+  "description": "**Module:** Core > Region  |  **Screen:** Desk Location  |  **Type:** Inconsistency  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Region > Desk Location\n\n### Actual result\nBoth are missing; empty message is also different (\"No desk locations yet.\")\n\n### Expected result\nSame toolbar/table as other screens (Audit history, Active filter)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RGN-DeskLocation-03/05/06  |  **Bug report ID:** BUG-12  |  previously Linear SAH-183\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-13",
+  "summary": "BUG-13: Airport has no \"Add Airport\" button (and no Edit)",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "inconsistency",
+   "reopened"
+  ],
+  "priority": "Medium",
+  "status": "Reopened",
+  "linear": "SAH-185",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-13-airport-no-add-button.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Region  |  **Screen:** Airport  |  **Type:** Inconsistency  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Region > Airport\n\n### Actual result\nNo Add button; clicking a row does nothing\n\n### Expected result\nAdd button like every other screen (or confirm it is intentional)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RGN-Airport-02/11  |  **Bug report ID:** BUG-13  |  previously Linear SAH-185\n\n🔁 **Reopened 21 Nov 2026** - reported as fixed but still reproduced on the stage build of 21 Nov 2026."
+ },
+ {
+  "id": "BUG-14",
+  "summary": "BUG-14: Add Country list still offers countries that are already added",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "bug"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-187",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-14-add-country-lists-existing-India.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Region  |  **Screen:** Country  |  **Type:** Bug  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Region > Country > Add Country\n2. Type \"India\" (already exists)\n\n### Actual result\n\"India\" is offered; saving gives only a generic error\n\n### Expected result\nAlready-added countries are not offered\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CTRY-24  |  **Bug report ID:** BUG-14  |  previously Linear SAH-187"
+ },
+ {
+  "id": "BUG-15",
+  "summary": "BUG-15: Airport data contains \"[Duplicate] Giebelstadt Army Air Field\"",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "data"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-188",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-15-airport-duplicate-data.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Region  |  **Screen:** Airport  |  **Type:** Data  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Region > Airport\n2. Search \"Giebelstadt\"\n\n### Actual result\nA record literally named \"[Duplicate] ...\"\n\n### Expected result\nClean master data\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** -  |  **Bug report ID:** BUG-15  |  previously Linear SAH-188"
+ },
+ {
+  "id": "BUG-16",
+  "summary": "BUG-16: Audit history shows \"sahil\" on old entries and \"Sahil Chauhan\" on new ones",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-190",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-16-audit-mixed-user-names.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Region  |  **Screen:** Audit history (State, City, Market)  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Region > State > Audit history\n2. Scroll to entries before 11 Nov\n\n### Actual result\nOld: \"sahil\", new: \"Sahil Chauhan\"\n\n### Expected result\nThe same user is always shown the same way\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-*-14  |  **Bug report ID:** BUG-16  |  previously Linear SAH-190"
+ },
+ {
+  "id": "BUG-17",
+  "summary": "BUG-17: Country has no Edit - clicking a row does nothing",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "inconsistency",
+   "reopened"
+  ],
+  "priority": "Medium",
+  "status": "Reopened",
+  "linear": "SAH-192",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-17-country-no-edit-after-row-click.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Region  |  **Screen:** Country  |  **Type:** Inconsistency  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Region > Country\n2. Click on \"India\"\n\n### Actual result\nNothing happens\n\n### Expected result\n\"Edit Country\" opens (as on State, City...)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RGN-Country-11  |  **Bug report ID:** BUG-17  |  previously Linear SAH-192\n\n🔁 **Reopened 21 Nov 2026** - reported as fixed but still reproduced on the stage build of 21 Nov 2026."
+ },
+ {
+  "id": "BUG-18",
+  "summary": "BUG-18: Popup says \"This will mark it as deactive.\" (non-standard + grammar)",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Product",
+  "label": "core-product",
+  "labels": [
+   "automation",
+   "core-product",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-194",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-18-product-type-popup-mark-it-deactive.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-18-fixed.png"
+  ],
+  "description": "**Module:** Core > Product  |  **Screen:** Product Type, Supplement  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Product > Product Type\n2. Click the switch of \"Hotel\" (then Cancel)\n\n### Actual result\n\"This will mark it as deactive.\"\n\n### Expected result\n\"This will mark the product type as inactive.\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PRD-ProductType-13, TC-PRD-Supplement-13  |  **Bug report ID:** BUG-18  |  previously Linear SAH-194\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-19",
+  "summary": "BUG-19: Popup uses a different sentence (\"It stops appearing in pickers...\")",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Product",
+  "label": "core-product",
+  "labels": [
+   "automation",
+   "core-product",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-196",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-19-view-type-popup-different-sentence.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-19-fixed.png"
+  ],
+  "description": "**Module:** Core > Product  |  **Screen:** View Type, Room Category, Amenity  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Product > View Type\n2. Click the switch of \"Park Facing\"\n\n### Actual result\n\"It stops appearing in pickers. Records already using it are unaffected.\"\n\n### Expected result\nOne standard sentence on every screen\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PRD-ViewType-13 / RoomCategory-13 / Amenity-13  |  **Bug report ID:** BUG-19  |  previously Linear SAH-196\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-20",
+  "summary": "BUG-20: Room Type popup uses yet another sentence",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Product",
+  "label": "core-product",
+  "labels": [
+   "automation",
+   "core-product",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-198",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-20-room-type-popup-different-sentence.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-20-fixed.png"
+  ],
+  "description": "**Module:** Core > Product  |  **Screen:** Room Type  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Product > Room Type\n2. Click the switch of \"Bunk\"\n\n### Actual result\n\"It stops being offered for new product rooms. Products that already use it keep it.\"\n\n### Expected result\nOne standard sentence on every screen\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PRD-RoomType-13  |  **Bug report ID:** BUG-20  |  previously Linear SAH-198\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-21",
+  "summary": "BUG-21: Menu items are partly plural, partly singular",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Product",
+  "label": "core-product",
+  "labels": [
+   "automation",
+   "core-product",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-200",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-21-product-menu-plural-vs-singular.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-21-fixed.png"
+  ],
+  "description": "**Module:** Core > Product  |  **Screen:** Menu  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Open the menu Core > Product\n\n### Actual result\n\"Supplements\", \"Allotments\", \"Addons\", \"Amenities\" vs \"Product Type\", \"Room Type\"...\n\n### Expected result\nSame style for all items\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PRD-*-01  |  **Bug report ID:** BUG-21  |  previously Linear SAH-200\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-22",
+  "summary": "BUG-22: Name field silently removes digits",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Product",
+  "label": "core-product",
+  "labels": [
+   "automation",
+   "core-product",
+   "bug"
+  ],
+  "priority": "High",
+  "status": "Complete",
+  "linear": "SAH-201",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-22-product-type-digits-removed-typed-Zone-2-North-1.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-22-fixed.png"
+  ],
+  "description": "**Module:** Core > Product  |  **Screen:** Product Type, Product Class, Supplement, Allotment, Addon  |  **Type:** Bug  |  **Severity:** High\n\n### Steps to reproduce\n1. Core > Product > Product Type > Add Product Type\n2. Type \"Zone 2 North-1\" in Name\n\n### Actual result\nField shows \"Zone  North-\"\n\n### Expected result\nName keeps \"Zone 2 North-1\" (View Type, Room Type, Amenity keep digits)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PRD-*-16  |  **Bug report ID:** BUG-22  |  previously Linear SAH-201\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-23",
+  "summary": "BUG-23: Required \"Product\" shows no error message when empty",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Product",
+  "label": "core-product",
+  "labels": [
+   "automation",
+   "core-product",
+   "ux"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-203",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-23-product-type-product-required-no-message.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-23-fixed.png"
+  ],
+  "description": "**Module:** Core > Product  |  **Screen:** Product Type (also Product Class, Addon)  |  **Type:** UX  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Product > Product Type > Add Product Type\n2. Click Save with an empty form\n\n### Actual result\nOnly Name shows an error; Product* shows nothing\n\n### Expected result\n\"Product is required\" under the field (like \"Name is required\")\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PRD-ProductType-17  |  **Bug report ID:** BUG-23  |  previously Linear SAH-203\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-24",
+  "summary": "BUG-24: Product Type gets no error while Sequence does (same form)",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Product",
+  "label": "core-product",
+  "labels": [
+   "automation",
+   "core-product",
+   "inconsistency"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-205",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-24-supplement-product-type-no-message.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-24-fixed.png"
+  ],
+  "description": "**Module:** Core > Product  |  **Screen:** Supplement  |  **Type:** Inconsistency  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Product > Supplements > Add Supplement\n2. Click Save with an empty form\n\n### Actual result\nName and Sequence show errors; Product Type* shows nothing\n\n### Expected result\nAll 3 required fields show \"... is required\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PRD-Supplement-17  |  **Bug report ID:** BUG-24  |  previously Linear SAH-205\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-25",
+  "summary": "BUG-25: Duplicate name is accepted when typed with spaces around it",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Product",
+  "label": "core-product",
+  "labels": [
+   "automation",
+   "core-product",
+   "bug"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-207",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-25-duplicate-name-with-spaces-saved.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Product  |  **Screen:** Product Type, Product Class, Supplement, Allotment, Addon  |  **Type:** Bug  |  **Severity:** High\n\n### Steps to reproduce\n1. Add a Product Type \"ABC\"\n2. Add another Product Type \"   ABC   \" (spaces before/after)\n\n### Actual result\nSaved (201) - two identical names in the list\n\n### Expected result\nRejected: name already exists\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PRODUCTTYPE-06 (and the other 4 screens)  |  **Bug report ID:** BUG-25  |  previously Linear SAH-207"
+ },
+ {
+  "id": "BUG-26",
+  "summary": "BUG-26: Name is saved with the spaces around it, and & ( ) are silently removed",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Product",
+  "label": "core-product",
+  "labels": [
+   "automation",
+   "core-product",
+   "bug"
+  ],
+  "priority": "High",
+  "status": "Complete",
+  "linear": "SAH-208",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-26-special-characters-removed-typed-Edge-and-Co-(Test).png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-26-fixed.png"
+  ],
+  "description": "**Module:** Core > Product  |  **Screen:** Product Type, Product Class, Supplement, Allotment, Addon  |  **Type:** Bug  |  **Severity:** High\n\n### Steps to reproduce\n1. Add a Product Type named \"   Edge & Co (Test)   \"\n2. Open it again (Edit)\n\n### Actual result\nSaved as \"   Edge  Co Test   \" - spaces kept, & ( ) removed\n\n### Expected result\nSaved as \"Edge & Co (Test)\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PRODUCTTYPE-08 (and the other 4 screens)  |  **Bug report ID:** BUG-26  |  previously Linear SAH-208\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-27",
+  "summary": "BUG-27: Search with spaces before/after the text finds nothing",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "bug"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-209",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-27-search-with-spaces-finds-nothing.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Region / Product  |  **Screen:** List screens (seen on Amenities)  |  **Type:** Bug  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Product > Amenities\n2. Type \"  Air Conditioning  \" in the Name search\n\n### Actual result\n\"There are no records in Amenity\"\n\n### Expected result\n\"Air Conditioning\" is found\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-*-23  |  **Bug report ID:** BUG-27  |  previously Linear SAH-209"
+ },
+ {
+  "id": "BUG-28",
+  "summary": "BUG-28: Re-activating a record has no confirmation popup (deactivating has one)",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ux"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-210",
+  "duplicateOf": null,
+  "screenshots": [],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Region  |  **Screen:** Country (all switch screens)  |  **Type:** UX  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Click the switch of a deactivated record\n\n### Actual result\nRecord is activated immediately - easy to do by mistake\n\n### Expected result\nA confirmation like \"Activate country?\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CTRY-27  |  **Bug report ID:** BUG-28  |  previously Linear SAH-210"
+ },
+ {
+  "id": "BUG-29",
+  "summary": "BUG-29: Form labels are not linked to their inputs",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "accessibility"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-211",
+  "duplicateOf": null,
+  "screenshots": [],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Region / Product  |  **Screen:** All Add/Edit forms  |  **Type:** Accessibility  |  **Severity:** Low\n\n### Steps to reproduce\n1. Open any Add dialog\n2. Inspect the Name label/input (DevTools)\n\n### Actual result\nLabel text is not connected to the input\n\n### Expected result\n<label for=\"...\"> linked to the input (screen readers announce it)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** (found while automating)  |  **Bug report ID:** BUG-29  |  previously Linear SAH-211"
+ },
+ {
+  "id": "BUG-30",
+  "summary": "BUG-30: Department deactivate popup talks about the BRANCH",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Organization",
+  "label": "core-organization",
+  "labels": [
+   "automation",
+   "core-organization",
+   "bug"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-212",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-30-department-popup-says-branch.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-30-fixed.png"
+  ],
+  "description": "**Module:** Core > Organization  |  **Screen:** Department  |  **Type:** Bug  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Organization > Department\n2. Click the switch of \"Reservations\" (then Cancel)\n\n### Actual result\n\"This will mark the branch as deactive.\"\n\n### Expected result\n\"This will mark the department as inactive.\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-ORG-Department-13  |  **Bug report ID:** BUG-30  |  previously Linear SAH-212\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-31",
+  "summary": "BUG-31: Empty form is sent to the server - no \"Name is required\" check in the screen",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Application",
+  "label": "core-application",
+  "labels": [
+   "automation",
+   "core-application",
+   "bug"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-213",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-31-account-group-empty-form-sent-to-server.png",
+   "screenshots/bugs/BUG-31-language-empty-form-sent-to-server.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-31-fixed.png",
+   "screenshots/revalidation/BUG-31b-fixed.png"
+  ],
+  "description": "**Module:** Core > Application / Accounts  |  **Screen:** Language, Account Group  |  **Type:** Bug  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Application > Language > Add Language\n2. Click Save without typing anything\n\n### Actual result\nThe empty form is sent to the server (no message under Name)\n\n### Expected result\n\"Name is required\" is shown and nothing is sent\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-APP-Language-10, TC-ACC-AccountGroup-10  |  **Bug report ID:** BUG-31  |  previously Linear SAH-213\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-32",
+  "summary": "BUG-32: Empty Name message is \"Enter a name.\" (all other screens: \"Name is required\")",
+  "epic": "Accounts",
+  "epicKey": "KAN-7",
+  "component": "Accounts – Configuration",
+  "label": "accounts-configuration",
+  "labels": [
+   "automation",
+   "accounts-configuration",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-184",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-32-tax-name-message-different.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-32-fixed.png"
+  ],
+  "description": "**Module:** Core > Accounts  |  **Screen:** Tax  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Accounts > Configuration > Tax > Add Tax\n2. Click Save with an empty form\n\n### Actual result\n\"Enter a name.\"\n\n### Expected result\n\"Name is required\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-ACC-Tax-10  |  **Bug report ID:** BUG-32  |  previously Linear SAH-184\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-33",
+  "summary": "BUG-33: Tax Name allows fewer than 150 characters (150 everywhere else)",
+  "epic": "Accounts",
+  "epicKey": "KAN-7",
+  "component": "Accounts – Configuration",
+  "label": "accounts-configuration",
+  "labels": [
+   "automation",
+   "accounts-configuration",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-186",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-33-tax-name-limit-100-not-150.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-33-fixed.png"
+  ],
+  "description": "**Module:** Core > Accounts  |  **Screen:** Tax  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Accounts > Configuration > Tax > Add Tax\n2. Type 150 characters in Name\n\n### Actual result\nThe field stops at 100 (see screenshot file name)\n\n### Expected result\nAll 150 characters are kept (same limit as other screens - confirmed by product owner)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-ACC-Tax-19  |  **Bug report ID:** BUG-33  |  previously Linear SAH-186\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-34",
+  "summary": "BUG-34: No user can be created: Restriction Group is required but the list is empty",
+  "epic": "System",
+  "epicKey": "KAN-8",
+  "component": "System – Users & Access",
+  "label": "system-users-and-access",
+  "labels": [
+   "automation",
+   "system-users-and-access",
+   "bug"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-189",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-34-add-user-restriction-group-required-but-empty.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > System  |  **Screen:** User  |  **Type:** Bug  |  **Severity:** High\n\n### Steps to reproduce\n1. Core > System > User > Add User\n2. Click Save\n3. Open the Restriction Group dropdown\n\n### Actual result\n\"Restriction Group is required\" and the dropdown has nothing to pick\n\n### Expected result\nA user can be created (Help Center: a user without a group gets the company's full limit) - or groups exist to pick\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-USR-03, TC-RG-04  |  **Bug report ID:** BUG-34  |  previously Linear SAH-189"
+ },
+ {
+  "id": "BUG-35",
+  "summary": "BUG-35: Restriction Groups has no \"Audit history\" (access rights changes are not traceable)",
+  "epic": "System",
+  "epicKey": "KAN-8",
+  "component": "System – Users & Access",
+  "label": "system-users-and-access",
+  "labels": [
+   "automation",
+   "system-users-and-access",
+   "inconsistency"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-191",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-35-restriction-groups-no-audit-history.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-35-fixed.png"
+  ],
+  "description": "**Module:** Core > System  |  **Screen:** Restriction Group  |  **Type:** Inconsistency  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > System > Restriction Group\n\n### Actual result\nOnly \"Columns\" - no Audit history\n\n### Expected result\n\"Audit history\" button like every other list screen\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RG-02  |  **Bug report ID:** BUG-35  |  previously Linear SAH-191\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-36",
+  "summary": "BUG-36: Role screen: singular heading and URL /contacttype",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Application",
+  "label": "core-application",
+  "labels": [
+   "automation",
+   "core-application",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-193",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-36-role-heading-singular-url-contacttype.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-36-fixed.png"
+  ],
+  "description": "**Module:** Core > Application  |  **Screen:** Role  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Application > Role\n2. Look at the heading and the address bar\n\n### Actual result\nHeading \"Role\", URL /contacttype (same singular heading on Language, Status, Account Group, Tax)\n\n### Expected result\nHeading \"Roles\" and URL /roles (like /currency -> \"Currencies\")\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-APP-Role-01  |  **Bug report ID:** BUG-36  |  previously Linear SAH-193\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-37",
+  "summary": "BUG-37: Menu says \"Flex1\" but the page heading says \"Flex 1\"",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Application",
+  "label": "core-application",
+  "labels": [
+   "automation",
+   "core-application",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-195",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-37-flex-menu-vs-heading.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-37-fixed.png"
+  ],
+  "description": "**Module:** Core > Application  |  **Screen:** Flex 1-10  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Application > Flex > Flex1\n\n### Actual result\nMenu \"Flex1\", heading \"Flex 1\" (all 10 items)\n\n### Expected result\nSame name in menu and heading\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-FLEX-12  |  **Bug report ID:** BUG-37  |  previously Linear SAH-195\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-38",
+  "summary": "BUG-38: Active filter says \"Inactive\" while Branch, Department, Exchange Rate... say \"Deactive\"",
+  "epic": "Accounts",
+  "epicKey": "KAN-7",
+  "component": "Accounts – Configuration",
+  "label": "accounts-configuration",
+  "labels": [
+   "automation",
+   "accounts-configuration",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-197",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-38-accounts-filter-inactive-vs-deactive.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-38-fixed.png"
+  ],
+  "description": "**Module:** Core > Accounts  |  **Screen:** Chart of Accounts, Account Group, Tax, Tax Detail  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Accounts > Configuration > Chart of Accounts\n2. Open the Active filter\n\n### Actual result\n\"Inactive\" here, \"Deactive\" on other screens\n\n### Expected result\nSame word on every screen (preferably \"Inactive\")\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-ACC-*-05  |  **Bug report ID:** BUG-38  |  previously Linear SAH-197\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-39",
+  "summary": "BUG-39: Refund Payouts shows no list and no empty message",
+  "epic": "Accounts",
+  "epicKey": "KAN-7",
+  "component": "Accounts – Configuration",
+  "label": "accounts-configuration",
+  "labels": [
+   "automation",
+   "accounts-configuration",
+   "bug"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-199",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-39-refund-payouts-no-list-or-empty-message.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Accounts  |  **Screen:** Refund Payouts  |  **Type:** Bug  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Accounts > Transactions > Refund Payouts\n2. Wait 15 seconds\n\n### Actual result\nOnly the heading and the Show filter (\"To pay out / in progress\") - no table and no \"nothing to pay out\" message, so the user cannot tell if it is empty or still loading. Takes 15s+ to show even this.\n\n### Expected result\nA table of refund payouts, or a clear message such as \"There are no refunds to pay out\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-REF-01  |  **Bug report ID:** BUG-39  |  previously Linear SAH-199"
+ },
+ {
+  "id": "BUG-40",
+  "summary": "BUG-40: Popup says \"This will mark it as deactive.\" (non-standard + grammar)",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Resource",
+  "label": "core-resource",
+  "labels": [
+   "automation",
+   "core-resource",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-202",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-40-resource-popup-mark-it-deactive.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-40-fixed.png"
+  ],
+  "description": "**Module:** Core > Resource  |  **Screen:** Resource Type, Personnel, Asset  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Resource > Resource Types\n2. Click the switch of \"Driver\" (then Cancel)\n\n### Actual result\n\"This will mark it as deactive.\"\n\n### Expected result\n\"This will mark the resource type as inactive.\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RES-*-13  |  **Bug report ID:** BUG-40  |  previously Linear SAH-202\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-41",
+  "summary": "BUG-41: Required \"Personnel Type\" shows no error message when empty",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Resource",
+  "label": "core-resource",
+  "labels": [
+   "automation",
+   "core-resource",
+   "ux"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-204",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-41-personnel-type-required-no-message.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-41-fixed.png"
+  ],
+  "description": "**Module:** Core > Resource  |  **Screen:** Personnel  |  **Type:** UX  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Resource > Personnel > Add Personnel\n2. Click Save with an empty form\n\n### Actual result\nOnly Name shows an error\n\n### Expected result\n\"Personnel Type is required\" (like \"Name is required\")\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RES-Personnel-17  |  **Bug report ID:** BUG-41  |  previously Linear SAH-204\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-42",
+  "summary": "BUG-42: Empty Tax Detail form is sent to the server",
+  "epic": "Accounts",
+  "epicKey": "KAN-7",
+  "component": "Accounts – Configuration",
+  "label": "accounts-configuration",
+  "labels": [
+   "automation",
+   "accounts-configuration",
+   "bug"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-206",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-42-tax-detail-empty-form-sent.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-42-fixed.png"
+  ],
+  "description": "**Module:** Core > Accounts  |  **Screen:** Tax Detail  |  **Type:** Bug  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Accounts > Configuration > Tax Detail > Add Tax Detail\n2. Click Save with an empty form\n\n### Actual result\nThe empty form is sent to the server\n\n### Expected result\nRequired fields are checked in the screen first\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-TXD-02  |  **Bug report ID:** BUG-42  |  previously Linear SAH-206\n\n✅ **Fixed 21-Nov (verified, core rerun)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-43",
+  "summary": "BUG-43: A second supplier with the same name is saved (duplicate names allowed)",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – List & Overview",
+  "label": "supplier-list-and-overview",
+  "labels": [
+   "automation",
+   "supplier-list-and-overview",
+   "bug"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-88",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-43-supplier-duplicate-name-saved.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier  |  **Screen:** Add supplier  |  **Type:** Bug  |  **Severity:** High\n\n### Steps to reproduce\n1. Supplier > Add supplier\n2. Name \"QA Auto Supplier X\", city Dubai, currency AED > Create supplier\n3. Repeat step 2 with exactly the same name (also tried: same name in CAPITALS, and with spaces around it)\n\n### Actual result\nBoth are saved with different codes (DXB-008 and DXB-009) - the list shows two suppliers with the same name\n\n### Expected result\nSecond save is refused with a \"supplier already exists\" message\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-SUPC-12 (x3)  |  **Bug report ID:** BUG-43  |  previously Linear SAH-88"
+ },
+ {
+  "id": "BUG-44",
+  "summary": "BUG-44: Empty City says \"Choose a city.\" while the other fields say \"... is required\"",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – List & Overview",
+  "label": "supplier-list-and-overview",
+  "labels": [
+   "automation",
+   "supplier-list-and-overview",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-93",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-44-supplier-city-message-wording.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-44-fixed.png"
+  ],
+  "description": "**Module:** Supplier  |  **Screen:** Add supplier  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Supplier > Add supplier\n2. Click Create supplier with an empty form\n\n### Actual result\n\"Choose a city.\"\n\n### Expected result\n\"City is required\" (like \"Name is required\", \"Default currency is required\")\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-SUP-24  |  **Bug report ID:** BUG-44  |  previously Linear SAH-93\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-45",
+  "summary": "BUG-45: Status is spelled \"On hold\" in the list but \"On Hold\" on the supplier page",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – List & Overview",
+  "label": "supplier-list-and-overview",
+  "labels": [
+   "automation",
+   "supplier-list-and-overview",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-98",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-45-supplier-on-hold-spelling.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-45-fixed.png"
+  ],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier list / Overview  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Supplier > open \"Testing season 3\"\n2. Click Edit and read the status buttons; compare with the list and the status badge\n\n### Actual result\nList, filter and badge: \"On hold\"; status button in edit mode: \"On Hold\"\n\n### Expected result\nSame spelling everywhere (\"On hold\")\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-SUP-44  |  **Bug report ID:** BUG-45  |  previously Linear SAH-98\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-46",
+  "summary": "BUG-46: SWIFT code of 3 characters is sent to the server (no 8 or 11 characters check)",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Financials",
+  "label": "supplier-financials",
+  "labels": [
+   "automation",
+   "supplier-financials",
+   "bug"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-101",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-46-supplier-swift-3-characters-sent.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier  |  **Screen:** Financials > Bank account  |  **Type:** Bug  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Supplier > \"Testing season 3\" > Financials > Add bank account\n2. Holder \"QA Auto Holder\", bank \"QA Auto Bank\", IBAN AE070331234567890123456, SWIFT \"ABC\"\n3. Click Save\n\n### Actual result\nThe save request is sent with \"ABC\" and no message appears (the red banner in the screenshot is only because the test blocks the save)\n\n### Expected result\nThe screen refuses it: SWIFT must be 8 or 11 characters (the field hint says \"8 or 11 characters\")\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-SUP-54  |  **Bug report ID:** BUG-46  |  previously Linear SAH-101"
+ },
+ {
+  "id": "BUG-47",
+  "summary": "BUG-47: Name search does not ignore spaces before/after the text",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – List & Overview",
+  "label": "supplier-list-and-overview",
+  "labels": [
+   "automation",
+   "supplier-list-and-overview",
+   "bug"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-104",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-47-supplier-search-spaces-not-trimmed.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-47-fixed.png"
+  ],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier list  |  **Type:** Bug  |  **Severity:** Low\n\n### Steps to reproduce\n1. Supplier list\n2. Type \"  Marina Bay Hotel  \" (spaces around) in the Name search\n\n### Actual result\n\"There are no records in Supplier\"\n\n### Expected result\nMarina Bay Hotel is found (spaces ignored, like the other list screens)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-SUP-09  |  **Bug report ID:** BUG-47  |  previously Linear SAH-104\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-48",
+  "summary": "BUG-48: A contract is saved without the required Currency",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "bug"
+  ],
+  "priority": "High",
+  "status": "Complete",
+  "linear": "SAH-106",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-48-contract-saved-without-currency.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-48-fixed.png"
+  ],
+  "description": "**Module:** Supplier - Contract  |  **Screen:** Products > Hotel > Contract > Add contract  |  **Type:** Bug  |  **Severity:** High\n\n### Steps to reproduce\n1. Supplier \"Testing season 3\" > Products > Hotel > Contract > Add contract\n2. Contract name \"QA Auto Contract no currency\", Base plan \"Bed and breakfast\", leave Currency empty\n3. Click Save\n\n### Actual result\nNo problem is shown and the contract is sent to the server without a currency (request has no currencyId). The red banner is only because the test blocks the save\n\n### Expected result\nCurrency (marked *) is flagged: \"1 problem to fix\", nothing is sent\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CON-16  |  **Bug report ID:** BUG-48  |  previously Linear SAH-106\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-49",
+  "summary": "BUG-49: A negative Priority (-5) is accepted",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "bug"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-109",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-49-contract-negative-priority-accepted.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-49-fixed.png"
+  ],
+  "description": "**Module:** Supplier - Contract  |  **Screen:** Products > Hotel > Contract > Add contract  |  **Type:** Bug  |  **Severity:** Low\n\n### Steps to reproduce\n1. Add contract as in BUG-48, choose Currency AED\n2. Priority: -5\n3. Click Save\n\n### Actual result\nThe contract is sent with \"priority\": -5\n\n### Expected result\nRefused: the Priority field has a minimum of 0\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CON-20  |  **Bug report ID:** BUG-49  |  previously Linear SAH-109\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-50",
+  "summary": "BUG-50: \"Valid\" column has no year - a one-year contract looks like it ends before it starts",
+  "epic": "Contracts",
+  "epicKey": "KAN-11",
+  "component": "Contracts – List",
+  "label": "contracts-list",
+  "labels": [
+   "automation",
+   "contracts-list",
+   "usability"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-112",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-50-contracts-list-valid-without-year.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-50-fixed.png"
+  ],
+  "description": "**Module:** Supplier - Contract  |  **Screen:** Contracts list (menu Contracts)  |  **Type:** Usability  |  **Severity:** Low\n\n### Steps to reproduce\n1. Menu Contracts\n2. Read the Valid column of \"Connaught Demo 2026-27 BAR\"\n\n### Actual result\n\"15 Oct – 14 Oct\" (same for every contract)\n\n### Expected result\n\"15 Oct 2026 – 14 Oct 2027\" (as on the supplier's Contract tab)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CON-65  |  **Bug report ID:** BUG-50  |  previously Linear SAH-112\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-51",
+  "summary": "BUG-51: A Blocked supplier can still be edited and saved",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – List & Overview",
+  "label": "supplier-list-and-overview",
+  "labels": [
+   "automation",
+   "supplier-list-and-overview",
+   "business-rule"
+  ],
+  "priority": "High",
+  "status": "Complete",
+  "linear": "SAH-114",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-51-blocked-supplier-can-be-edited.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-51-fixed.png"
+  ],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier > Overview (Blocked)  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. Open a supplier with status Blocked (e.g. \"QA Auto Supplier RNMKVV evidence\", DXB-009)\n2. Click Edit, change the name, click Save\n\n### Actual result\nThe change is saved (PUT /suppliers/27 -> 204)\n\n### Expected result\nBlocked = deactivated: no detail can be saved (Edit not offered, or the save is refused)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RULE-01  |  **Bug report ID:** BUG-51  |  previously Linear SAH-114\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-52",
+  "summary": "BUG-52: A contact can be added to a Blocked supplier",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contacts",
+  "label": "supplier-contacts",
+  "labels": [
+   "automation",
+   "supplier-contacts",
+   "business-rule"
+  ],
+  "priority": "High",
+  "status": "Complete",
+  "linear": "SAH-117",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-52-contact-added-to-blocked-supplier.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-52-fixed.png"
+  ],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier > Contacts (Blocked)  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. Blocked supplier > Contacts > Add contact\n2. Name \"QA Auto Contact ... blocked\", role Admin > Save\n\n### Actual result\nThe contact is saved (201) and shown as Primary\n\n### Expected result\nRefused - no new detail on a blocked supplier\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RULE-02  |  **Bug report ID:** BUG-52  |  previously Linear SAH-117\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-53",
+  "summary": "BUG-53: A currency can be added to a Blocked supplier",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Financials",
+  "label": "supplier-financials",
+  "labels": [
+   "automation",
+   "supplier-financials",
+   "business-rule"
+  ],
+  "priority": "High",
+  "status": "Complete",
+  "linear": "SAH-120",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-53-currency-can-be-added-to-blocked-supplier.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-53-fixed.png"
+  ],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier > Financials (Blocked)  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. Blocked supplier > Financials > Add currency\n2. Currency USD > Save\n\n### Actual result\nUSD is saved (204). The test removed it again\n\n### Expected result\nRefused - no new detail on a blocked supplier\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RULE-03  |  **Bug report ID:** BUG-53  |  previously Linear SAH-120\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-54",
+  "summary": "BUG-54: Two contracts with the same priority are both saved",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "business-rule"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-123",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-54-contract-same-priority-saved.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier - Contract  |  **Screen:** Products > Hotel > Contract  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. Testing season 3 > Hotel > Add contract: BB, AED, priority 71, default dates, 1 season with prices > Save\n2. Add a second contract with the same dates and priority 71 > Save\n\n### Actual result\nBoth are saved (\"QA Auto Contract SSMNRL prio A\" and \"prio B\", both priority 71)\n\n### Expected result\nThe second contract is refused: the same priority is not allowed\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RULE-11  |  **Bug report ID:** BUG-54  |  previously Linear SAH-123"
+ },
+ {
+  "id": "BUG-55",
+  "summary": "BUG-55: Removing a currency that a contract uses leaves the contract Approved (should become Provisional)",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "business-rule"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-126",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-55-contract-stays-approved-after-currency-removed.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier - Contract  |  **Screen:** Financials > Remove currency / Contract list  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. Testing season 3 > Financials > Add currency USD\n2. Hotel > Add contract in USD > Save > Approve\n3. Financials > Remove USD > popup \"USD is used by contracts\" > Remove anyway\n4. Open the contract list\n\n### Actual result\nThe popup appears (correct) but the contract stays \"Approved\" and active\n\n### Expected result\nThe USD contract moves to Provisional, so no booking can be made on it\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RULE-21/22  |  **Bug report ID:** BUG-55  |  previously Linear SAH-126"
+ },
+ {
+  "id": "BUG-56",
+  "summary": "BUG-56: A Blocked supplier can be moved back to \"On hold\"",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – List & Overview",
+  "label": "supplier-list-and-overview",
+  "labels": [
+   "automation",
+   "supplier-list-and-overview",
+   "business-rule"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-129",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-56-blocked-supplier-offers-on-hold.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-56-fixed.png"
+  ],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier > Overview (Blocked) > Edit  |  **Type:** Business rule  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Open a Blocked supplier (e.g. \"QA Auto Supplier RNMKVV evidence\")\n2. Click Edit and look at the status buttons\n\n### Actual result\n\"On Hold\" is offered and selectable\n\n### Expected result\nBlocked can only go to Approved (On hold is only for new suppliers)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R2-01  |  **Bug report ID:** BUG-56  |  previously Linear SAH-129\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-57",
+  "summary": "BUG-57: The supplier City can be changed after the supplier is created",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – List & Overview",
+  "label": "supplier-list-and-overview",
+  "labels": [
+   "automation",
+   "supplier-list-and-overview",
+   "business-rule"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-132",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-57-supplier-city-editable.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-57-fixed-city-locked-in-edit.png"
+  ],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier > Overview > Edit > Location  |  **Type:** Business rule  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Testing season 3 > Edit\n2. Open Location\n\n### Actual result\nCity \"Abu Dhabi\" is an editable drop-down\n\n### Expected result\nCity is fixed after creation (read-only)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R2-02  |  **Bug report ID:** BUG-57  |  previously Linear SAH-132\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-58",
+  "summary": "BUG-58: Payment due of 366 days is accepted (allowed 0-365)",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Financials",
+  "label": "supplier-financials",
+  "labels": [
+   "automation",
+   "supplier-financials",
+   "validation"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-135",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-58-payment-due-366-days-sent.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-58-fixed.png"
+  ],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier > Financials > Add currency  |  **Type:** Validation  |  **Severity:** Low\n\n### Steps to reproduce\n1. Testing season 3 > Financials > Add currency USD\n2. Payment due days 366 > Save\n\n### Actual result\nThe currency is sent with 366 days (red banner only because the test blocks the save)\n\n### Expected result\nRefused: payment days must be 0-365\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R2-03  |  **Bug report ID:** BUG-58  |  previously Linear SAH-135\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-59",
+  "summary": "BUG-59: IBAN is not validated (\"123\" is accepted)",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Financials",
+  "label": "supplier-financials",
+  "labels": [
+   "automation",
+   "supplier-financials",
+   "validation"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-138",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-59-iban-not-validated.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-59-fixed.png"
+  ],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier > Financials > Add bank account  |  **Type:** Validation  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Financials > Add bank account\n2. Holder, bank, IBAN \"123\", SWIFT \"ABCDAEAD\" > Save\n\n### Actual result\nThe bank account is sent with IBAN \"123\"\n\n### Expected result\nIBAN checked (country format, length, check digits)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R2-04  |  **Bug report ID:** BUG-59  |  previously Linear SAH-138\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-60",
+  "summary": "BUG-60: A contact without email is accepted (email must be mandatory)",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contacts",
+  "label": "supplier-contacts",
+  "labels": [
+   "automation",
+   "supplier-contacts",
+   "validation"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-141",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-60-contact-without-email-sent.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier > Contacts > Add contact  |  **Type:** Validation  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Contacts > Add contact\n2. Name and role only, no email > Save\n\n### Actual result\nThe contact is sent without an email\n\n### Expected result\n\"Email is required\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R2-05  |  **Bug report ID:** BUG-60  |  previously Linear SAH-141"
+ },
+ {
+  "id": "BUG-61",
+  "summary": "BUG-61: Supplier list cannot be searched by city",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – List & Overview",
+  "label": "supplier-list-and-overview",
+  "labels": [
+   "automation",
+   "supplier-list-and-overview",
+   "enhancement"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-144",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-61-supplier-list-no-city-search.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-61-fixed.png"
+  ],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier list  |  **Type:** Enhancement  |  **Severity:** Low\n\n### Steps to reproduce\n1. Supplier list\n2. Look for a City column / search\n\n### Actual result\nOnly Name, Code and Status\n\n### Expected result\nA City column with search (product owner request)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R2-06  |  **Bug report ID:** BUG-61  |  previously Linear SAH-144\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-62",
+  "summary": "BUG-62: \"Sell to\" after \"Valid to\" is accepted",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "business-rule"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-146",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-62-contract-sell-to-after-valid-to.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-62-fixed.png"
+  ],
+  "description": "**Module:** Supplier - Contract  |  **Screen:** Products > Hotel > Contract > Add contract  |  **Type:** Business rule  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Add contract (BB, AED)\n2. Sell to = Valid to + 20 days > Save\n\n### Actual result\nThe contract is sent\n\n### Expected result\nRefused: Sell to must be on or before Valid to\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R2-10  |  **Bug report ID:** BUG-62  |  previously Linear SAH-146\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-63",
+  "summary": "BUG-63: Contract warns \"No allotment holds <room> ... bookings go on request\" (the contract always comes before the allotment)",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "business-rule"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-149",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-63-contract-allotment-first-warning.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier - Contract  |  **Screen:** Products > Hotel > Contract (Rates)  |  **Type:** Business rule  |  **Severity:** Low\n\n### Steps to reproduce\n1. Add contract, base plan BB, add a season, enter one price\n\n### Actual result\nOrange warning \"No allotment holds Club for these contract dates ... Add it to an allotment\"\n\n### Expected result\nNo allotment warning on the contract\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R2-11  |  **Bug report ID:** BUG-63  |  previously Linear SAH-149"
+ },
+ {
+  "id": "BUG-64",
+  "summary": "BUG-64: A cancellation charge of 150% is accepted (max 100%)",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "validation"
+  ],
+  "priority": "High",
+  "status": "Complete",
+  "linear": "SAH-153",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-64-cancellation-150-percent.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-64-fixed.png"
+  ],
+  "description": "**Module:** Supplier - Contract  |  **Screen:** Contract > Cancellation policy  |  **Type:** Validation  |  **Severity:** High\n\n### Steps to reproduce\n1. Add contract > Add cancellation policy\n2. Charge 150 (%) > Save\n\n### Actual result\nSent with \"chargeValue\":150\n\n### Expected result\nRefused: a percentage charge cannot exceed 100%\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R2-14  |  **Bug report ID:** BUG-64  |  previously Linear SAH-153\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-65",
+  "summary": "BUG-65: Two contracts with the same name are saved",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "business-rule"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-154",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-65-contract-same-name-saved.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier - Contract  |  **Screen:** Products > Hotel > Contract  |  **Type:** Business rule  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Save contract \"QA Auto Contract <tag> same name\"\n2. Save a second contract with the same name\n\n### Actual result\nBoth are saved\n\n### Expected result\nSecond one refused: contract names are unique\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R2-23  |  **Bug report ID:** BUG-65  |  previously Linear SAH-154"
+ },
+ {
+  "id": "BUG-66",
+  "summary": "BUG-66: An allotment is saved for a product that has no contract",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Excursions",
+  "label": "supplier-excursions",
+  "labels": [
+   "automation",
+   "supplier-excursions",
+   "business-rule"
+  ],
+  "priority": "High",
+  "status": "Complete",
+  "linear": "SAH-89",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-66-allotment-without-contract-saved.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-66-fixed-allotment-needs-contract.png"
+  ],
+  "description": "**Module:** Supplier - Allotment  |  **Screen:** Products > Excursion > Allotment  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. Testing season 3 > Excursion (no contract) > Allotment > Add allotment\n2. Name, unit, one block of 3 > Save\n\n### Actual result\nThe allotment is saved\n\n### Expected result\nRefused: no allotment without a contract\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R2-30  |  **Bug report ID:** BUG-66  |  previously Linear SAH-89\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-67",
+  "summary": "BUG-67: A promotion with a 100% discount is saved (max 99%)",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "validation"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-91",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-67-promotion-100-percent-saved.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier - Promotion  |  **Screen:** Products > Hotel > Promotions  |  **Type:** Validation  |  **Severity:** High\n\n### Steps to reproduce\n1. Add promotion, currency AED\n2. Discount 100 % > Save\n\n### Actual result\nThe promotion is saved\n\n### Expected result\nRefused: maximum discount is 99%\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R2-31  |  **Bug report ID:** BUG-67  |  previously Linear SAH-91"
+ },
+ {
+  "id": "BUG-68",
+  "summary": "BUG-68: Two rooms with the same name are saved on the same hotel",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Hotel Products",
+  "label": "supplier-hotel-products",
+  "labels": [
+   "automation",
+   "supplier-hotel-products",
+   "business-rule"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-94",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-68-room-same-name-saved.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-68-fixed.png"
+  ],
+  "description": "**Module:** Supplier - Product  |  **Screen:** Products > Hotel > Add room  |  **Type:** Business rule  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Create room \"QA Auto Room <tag>\" and rename it \"... edited\"\n2. Add another room with exactly that name > Create product\n\n### Actual result\nBoth rooms are saved and shown side by side\n\n### Expected result\nRefused: room names are unique per hotel (to be confirmed)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PRDC-05  |  **Bug report ID:** BUG-68  |  previously Linear SAH-94\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-69",
+  "summary": "BUG-69: A negative credit limit (-500) is accepted when creating an agent",
+  "epic": "Agent (B2B)",
+  "epicKey": "KAN-10",
+  "component": "Agent – Financials & Credit",
+  "label": "agent-financials-and-credit",
+  "labels": [
+   "automation",
+   "agent-financials-and-credit",
+   "validation"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-96",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-69-agent-negative-credit-limit-sent.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Agent  |  **Screen:** Agent > Add Agent  |  **Type:** Validation  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Agent > Add Agent\n2. Name, email, exchange type, country, currency USD\n3. Allow credit on, Credit limit -500 > Create agent\n\n### Actual result\nThe agent is sent with credit limit -500 (red banner only because the test blocks the save)\n\n### Expected result\nRefused: the credit limit cannot be negative\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-AGF-06  |  **Bug report ID:** BUG-69  |  previously Linear SAH-96"
+ },
+ {
+  "id": "BUG-70",
+  "summary": "BUG-70: An Approved agent can be moved back to \"On Hold\"",
+  "epic": "Agent (B2B)",
+  "epicKey": "KAN-10",
+  "component": "Agent – List & Overview",
+  "label": "agent-list-and-overview",
+  "labels": [
+   "automation",
+   "agent-list-and-overview",
+   "business-rule"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-99",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-70-approved-agent-offers-on-hold.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Agent  |  **Screen:** Agent > Overview > Edit  |  **Type:** Business rule  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Open AG-00002 (Approved) > Edit\n2. Open the Status list\n\n### Actual result\n\"On Hold\" is offered\n\n### Expected result\nOnce an agent leaves On Hold it can only be Approved or Blocked\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-AR-01  |  **Bug report ID:** BUG-70  |  previously Linear SAH-99"
+ },
+ {
+  "id": "BUG-71",
+  "summary": "BUG-71: Client type General / Concierge / Desk exists (only B2B / B2C wanted)",
+  "epic": "Agent (B2B)",
+  "epicKey": "KAN-10",
+  "component": "Agent – List & Overview",
+  "label": "agent-list-and-overview",
+  "labels": [
+   "automation",
+   "agent-list-and-overview",
+   "business-rule"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-103",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-71-agent-client-type-general-concierge-desk.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Agent  |  **Screen:** Agent > Add Agent  |  **Type:** Business rule  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Agent > Add Agent\n2. Look at \"Client type\"\n\n### Actual result\nClient type General / Concierge / Desk is shown and saved\n\n### Expected result\nOnly the account types B2B / B2C\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-AR-02  |  **Bug report ID:** BUG-71  |  previously Linear SAH-103"
+ },
+ {
+  "id": "BUG-72",
+  "summary": "BUG-72: The address phone number is not checked (\"abc!!\" is accepted)",
+  "epic": "Agent (B2B)",
+  "epicKey": "KAN-10",
+  "component": "Agent – List & Overview",
+  "label": "agent-list-and-overview",
+  "labels": [
+   "automation",
+   "agent-list-and-overview",
+   "validation"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-105",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-72-agent-phone-format-not-checked.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Agent  |  **Screen:** Agent > Addresses  |  **Type:** Validation  |  **Severity:** Low\n\n### Steps to reproduce\n1. AG-00002 > Addresses > Edit\n2. Phone \"abc!!\" > Save\n\n### Actual result\nThe address is sent with phone \"abc!!\" (red banner only because the test blocks the save)\n\n### Expected result\nRefused: a standard phone format (e.g. +971 4 555 0900)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-AR-03  |  **Bug report ID:** BUG-72  |  previously Linear SAH-105"
+ },
+ {
+  "id": "BUG-73",
+  "summary": "BUG-73: The agent list cannot be filtered by Code",
+  "epic": "Agent (B2B)",
+  "epicKey": "KAN-10",
+  "component": "Agent – List & Overview",
+  "label": "agent-list-and-overview",
+  "labels": [
+   "automation",
+   "agent-list-and-overview",
+   "enhancement"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-108",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-73-agent-list-no-code-filter.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Agent  |  **Screen:** Agent list  |  **Type:** Enhancement  |  **Severity:** Low\n\n### Steps to reproduce\n1. Agent list\n2. Look at the Code column\n\n### Actual result\nCode can only be sorted\n\n### Expected result\nA search / filter on Code (like Name and Email)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-AR-04  |  **Bug report ID:** BUG-73  |  previously Linear SAH-108"
+ },
+ {
+  "id": "BUG-74",
+  "summary": "BUG-74: Account manager is not required - the Add form has no Account manager field",
+  "epic": "Agent (B2B)",
+  "epicKey": "KAN-10",
+  "component": "Agent – List & Overview",
+  "label": "agent-list-and-overview",
+  "labels": [
+   "automation",
+   "agent-list-and-overview",
+   "business-rule"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-111",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-74-agent-no-account-manager-on-add.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Agent  |  **Screen:** Agent > Add Agent  |  **Type:** Business rule  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Agent > Add Agent\n2. Look for Account manager\n\n### Actual result\nNo Account manager field; agents are created without one (it can only be set later in Edit)\n\n### Expected result\nAccount manager is a required field\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-AR-05  |  **Bug report ID:** BUG-74  |  previously Linear SAH-111"
+ },
+ {
+  "id": "BUG-75",
+  "summary": "BUG-75: Agent currency payment days of 366 are accepted (allowed 0-365)",
+  "epic": "Agent (B2B)",
+  "epicKey": "KAN-10",
+  "component": "Agent – Financials & Credit",
+  "label": "agent-financials-and-credit",
+  "labels": [
+   "automation",
+   "agent-financials-and-credit",
+   "validation"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-115",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-75-agent-currency-366-days-sent.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Agent  |  **Screen:** Agent > Financials > Add currency  |  **Type:** Validation  |  **Severity:** Low\n\n### Steps to reproduce\n1. AG-00002 > Financials > Add currency\n2. Any currency, Days 366 > Add\n\n### Actual result\nThe currency is sent with 366 days\n\n### Expected result\nRefused: 0-365 days (same as supplier)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-AR-06  |  **Bug report ID:** BUG-75  |  previously Linear SAH-115"
+ },
+ {
+  "id": "BUG-76",
+  "summary": "BUG-76: An agent currency can be removed (currencies must never be removed)",
+  "epic": "Agent (B2B)",
+  "epicKey": "KAN-10",
+  "component": "Agent – Financials & Credit",
+  "label": "agent-financials-and-credit",
+  "labels": [
+   "automation",
+   "agent-financials-and-credit",
+   "business-rule"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-118",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-76-agent-currency-removed.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Agent  |  **Screen:** Agent > Financials > More for <currency>  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. QA agent with AED + USD, USD made default\n2. More for AED > Remove currency\n\n### Actual result\nAED is deleted (DELETE .../currencies/161 -> 204); only USD remains\n\n### Expected result\nRemove currency not offered / refused\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-AR-12  |  **Bug report ID:** BUG-76  |  previously Linear SAH-118"
+ },
+ {
+  "id": "BUG-77",
+  "summary": "BUG-77: A second agent with the same name is refused (duplicate names must be allowed)",
+  "epic": "Agent (B2B)",
+  "epicKey": "KAN-10",
+  "component": "Agent – List & Overview",
+  "label": "agent-list-and-overview",
+  "labels": [
+   "automation",
+   "agent-list-and-overview",
+   "business-rule"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-121",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-77-agent-duplicate-name-refused.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Agent  |  **Screen:** Agent > Add Agent  |  **Type:** Business rule  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Agent > Add Agent\n2. Name of an existing agent (\"QA Auto Agent RTKKMV edited\"), new email > Create agent\n\n### Actual result\n400 \"An agent named 'QA Auto Agent RTKKMV edited' already exists.\" (DUPLICATE_AgentName)\n\n### Expected result\nSaved: only the code must be unique\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-AR-14  |  **Bug report ID:** BUG-77  |  previously Linear SAH-121"
+ },
+ {
+  "id": "BUG-78",
+  "summary": "BUG-78: A document above 5 MB gets no message (max 5 MB with a prompt)",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – List & Overview",
+  "label": "supplier-list-and-overview",
+  "labels": [
+   "automation",
+   "supplier-list-and-overview",
+   "validation"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-125",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-78-document-over-5mb-no-message.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/fixed/BUG-78-fixed-6mb-file-refused.png"
+  ],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier > Overview > Edit > Documents  |  **Type:** Validation  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Testing season 3 > Edit\n2. Fire safety certificate > Upload a 6 MB PDF\n\n### Actual result\nNo message at all\n\n### Expected result\nA message that the file must be smaller than 5 MB; the file is not taken\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-REST-02  |  **Bug report ID:** BUG-78  |  previously Linear SAH-125\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-79",
+  "summary": "BUG-79: A document slot takes a .txt file (only PDF / images allowed)",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – List & Overview",
+  "label": "supplier-list-and-overview",
+  "labels": [
+   "automation",
+   "supplier-list-and-overview",
+   "validation"
+  ],
+  "priority": "Medium",
+  "status": "Complete",
+  "linear": "SAH-127",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-79-document-txt-accepted.png"
+  ],
+  "fixScreenshots": [
+   "screenshots/revalidation/BUG-79-fixed.png"
+  ],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier > Overview > Edit > Documents  |  **Type:** Validation  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Testing season 3 > Edit\n2. Fire safety certificate > choose a .txt file\n\n### Actual result\n\"qa-auto.txt\" is shown as the uploaded document\n\n### Expected result\nRefused: only PDF or image files\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-REST-04  |  **Bug report ID:** BUG-79  |  previously Linear SAH-127\n\n✅ **Fixed 21-Nov (verified)** on the stage build of 21 Nov 2026 - fix screenshot attached."
+ },
+ {
+  "id": "BUG-80",
+  "summary": "BUG-80: Supplier names are saved with spaces before / after the name (not trimmed) and sort before \"A\"",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – List & Overview",
+  "label": "supplier-list-and-overview",
+  "labels": [
+   "automation",
+   "supplier-list-and-overview",
+   "validation",
+   "reopened"
+  ],
+  "priority": "Medium",
+  "status": "Reopened",
+  "linear": "SAH-130",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-80-supplier-names-not-trimmed.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier list / Add supplier  |  **Type:** Validation  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Add supplier with the name \"   QA Auto Supplier X   \" (spaces around)\n2. Supplier list > sort by Name\n\n### Actual result\nSaved as \"   QA Auto Supplier X edited   \" and listed before \"Ace Travels\"; real data also has \"Amrat Testing Partner \" with a trailing space\n\n### Expected result\nThe name is saved trimmed (\"QA Auto Supplier X\") and sorts under Q\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-SUP-14  |  **Bug report ID:** BUG-80  |  previously Linear SAH-130\n\n🔁 **Reopened 21 Nov 2026** - reported as fixed but still reproduced on the stage build of 21 Nov 2026."
+ },
+ {
+  "id": "BUG-81",
+  "summary": "BUG-81: List button says \"Add supplier\" (small s) - every other module says \"Add <Entity>\" (\"Add Country\", \"Add Agent\", \"Add Quote\")",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – List & Overview",
+  "label": "supplier-list-and-overview",
+  "labels": [
+   "automation",
+   "supplier-list-and-overview",
+   "ui-consistency"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-133",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-81-add-supplier-lowercase.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier list  |  **Type:** UI consistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Open Supplier\n\n### Actual result\nButton \"Add supplier\"\n\n### Expected result\nButton \"Add Supplier\", like the Core standard\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-Supplier-01  |  **Bug report ID:** BUG-81  |  previously Linear SAH-133"
+ },
+ {
+  "id": "BUG-82",
+  "summary": "BUG-82: Package list button says \"Add New\" instead of \"Add Package\"",
+  "epic": "Package",
+  "epicKey": "KAN-12",
+  "component": "Package – Builder",
+  "label": "package-builder",
+  "labels": [
+   "automation",
+   "package-builder",
+   "ui-consistency"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-136",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-82-package-add-new.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Package  |  **Screen:** Package list  |  **Type:** UI consistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Open Package\n\n### Actual result\nButton \"Add New\"\n\n### Expected result\nButton \"Add Package\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-Package-01  |  **Bug report ID:** BUG-82  |  previously Linear SAH-136"
+ },
+ {
+  "id": "BUG-83",
+  "summary": "BUG-83: Enquiries list is built differently from every other list (button, search, empty message, paging)",
+  "epic": "CRM",
+  "epicKey": "KAN-15",
+  "component": "CRM – Enquiries",
+  "label": "crm-enquiries",
+  "labels": [
+   "automation",
+   "crm-enquiries",
+   "ui-consistency"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-139",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-83-enquiries-list-different.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Enquiries  |  **Screen:** Enquiries list  |  **Type:** UI consistency  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Open Enquiries\n2. Look at the toolbar, the search and the empty list\n\n### Actual result\nButton \"New enquiry\", one search box above the table, empty text \"No open enquiries.\", no paging\n\n### Expected result\nSame list as Core standard (Country, State ...): \"Add Enquiry\", a Search box per column, \"There are no records in Enquiry\", \"1–10 of N\" paging\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-Enquiry-01..05  |  **Bug report ID:** BUG-83  |  previously Linear SAH-139"
+ },
+ {
+  "id": "BUG-84",
+  "summary": "BUG-84: Contracts list has no \"Add Contract\", no \"Audit history\" / \"Columns\" and no column search",
+  "epic": "Contracts",
+  "epicKey": "KAN-11",
+  "component": "Contracts – List",
+  "label": "contracts-list",
+  "labels": [
+   "automation",
+   "contracts-list",
+   "ui-consistency"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-142",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-84-contracts-list-no-add-audit.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Contracts  |  **Screen:** Contracts list (menu Contracts)  |  **Type:** UI consistency  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Open Contracts\n\n### Actual result\nNone of them - only filters above the table\n\n### Expected result\nToolbar \"Add Contract\", \"Audit history\", \"Columns\" and a Search box per column, like Core standard (Country, State ...)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-Contract-01..04  |  **Bug report ID:** BUG-84  |  previously Linear SAH-142"
+ },
+ {
+  "id": "BUG-85",
+  "summary": "BUG-85: Agent and Package lists have no \"Audit history\" button (Core, Supplier, Quotes, Reservation have it)",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-consistency"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-145",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-85-agent-package-no-audit-history.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Agent / Package  |  **Screen:** Agent list, Package list  |  **Type:** UI consistency  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Open Agent\n2. Open Package\n\n### Actual result\nOnly \"Columns\"\n\n### Expected result\nAn \"Audit history\" button next to \"Columns\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-Agent-02, TC-CONS-Package-02  |  **Bug report ID:** BUG-85  |  previously Linear SAH-145"
+ },
+ {
+  "id": "BUG-86",
+  "summary": "BUG-86: Company list has no column search and no paging",
+  "epic": "Company",
+  "epicKey": "KAN-5",
+  "component": "Company – Profile",
+  "label": "company-profile",
+  "labels": [
+   "automation",
+   "company-profile",
+   "ui-consistency"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-148",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-86-company-list-no-search-paging.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Company  |  **Screen:** Company list  |  **Type:** UI consistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Open Company\n\n### Actual result\nNeither\n\n### Expected result\nA Search box per column and \"1–N of N\" paging like the other lists\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-Company-03..05  |  **Bug report ID:** BUG-86  |  previously Linear SAH-148"
+ },
+ {
+  "id": "BUG-87",
+  "summary": "BUG-87: Same status written two ways: Supplier \"On hold\", Agent \"On Hold\"",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-consistency"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-150",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-87-on-hold-vs-on-Hold.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier / Agent  |  **Screen:** Status filter  |  **Type:** UI consistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Supplier list > Status filter\n2. Agent list > Status filter\n\n### Actual result\nSupplier \"On hold\", Agent \"On Hold\"\n\n### Expected result\nThe same words in both: All / Approved / On hold / Blocked\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-STATUS-01  |  **Bug report ID:** BUG-87  |  previously Linear SAH-150"
+ },
+ {
+  "id": "BUG-88",
+  "summary": "BUG-88: Active filter says \"Inactive\" in Quotes and Reservation but \"Deactive\" in Core and Package",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-consistency"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-152",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-88-inactive-vs-deactive.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Quotes / Reservation  |  **Screen:** Active filter  |  **Type:** UI consistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Quotes > Active filter\n2. Countries > Active filter\n\n### Actual result\nQuotes / Reservation \"Inactive\", Core / Package \"Deactive\"\n\n### Expected result\nOne word everywhere (correct English: \"Inactive\")\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-STATUS-02  |  **Bug report ID:** BUG-88  |  previously Linear SAH-152"
+ },
+ {
+  "id": "BUG-89",
+  "summary": "BUG-89: Full-page Add forms show an extra popup \"Please fix the highlighted fields.\" - Core forms show only the message under each field",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "error-message-consistency"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-90",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-89-extra-fix-highlighted-fields-popup.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier / Agent / Quotes / Reservation  |  **Screen:** Add forms (full page)  |  **Type:** Error-message consistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Add supplier / Add Agent / Add Quote / Add Reservation\n2. Save with nothing filled\n\n### Actual result\nField messages PLUS a popup \"Please fix the highlighted fields.\"\n\n### Expected result\nOnly \"<Field> is required\" under each mandatory field (Core pattern)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-*-03  |  **Bug report ID:** BUG-89  |  previously Linear SAH-90"
+ },
+ {
+  "id": "BUG-90",
+  "summary": "BUG-90: Mandatory-field messages are worded differently from \"<Field> is required\"",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "error-message-consistency"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-92",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-90-mandatory-messages-worded-differently.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier / Agent / Reservation / Portal CMS  |  **Screen:** Mandatory-field messages  |  **Type:** Error-message consistency  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Save each Add form empty\n\n### Actual result\nSupplier City: \"Choose a city.\"; Agent: \"Agent Name is required\", \"Select a default currency\"; Reservation field \"Travel Dates\": \"Arrival Date is required\"; Portal CMS checkout field: \"Give the field a label.\"\n\n### Expected result\n\"<Field> is required\" for every mandatory field (Core: \"Name is required\")\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-*-02  |  **Bug report ID:** BUG-90  |  previously Linear SAH-92"
+ },
+ {
+  "id": "BUG-91",
+  "summary": "BUG-91: Add room lists its errors as a numbered banner (\"Some fields need attention: 1. Enter a room name. 2. Select a view.\") with different wording",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Hotel Products",
+  "label": "supplier-hotel-products",
+  "labels": [
+   "automation",
+   "supplier-hotel-products",
+   "error-message-consistency"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-95",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-91-room-wording-numbered-banner.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier  |  **Screen:** Products > Add room  |  **Type:** Error-message consistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Testing season 3 > Products > Hotel > Add room\n2. Create product with nothing filled\n\n### Actual result\n\"2 problems to fix\", numbered banner and \"Enter a room name.\" / \"Select a view.\"\n\n### Expected result\n\"Room name is required\" / \"View is required\" under the fields only\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-SupplierAddroom-02/03  |  **Bug report ID:** BUG-91  |  previously Linear SAH-95"
+ },
+ {
+  "id": "BUG-92",
+  "summary": "BUG-92: Agent \"Add currency\" and \"Add top-up\" show only a banner - the field gets no message and is not marked red",
+  "epic": "Agent (B2B)",
+  "epicKey": "KAN-10",
+  "component": "Agent – Financials & Credit",
+  "label": "agent-financials-and-credit",
+  "labels": [
+   "automation",
+   "agent-financials-and-credit",
+   "error-message-consistency"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-97",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-92-agent-currency-banner-only.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Agent  |  **Screen:** Financials > Add currency, Add top-up  |  **Type:** Error-message consistency  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Agent AG-00006 > Financials > Add currency > Add (empty)\n2. Add top-up > Save (empty)\n\n### Actual result\nOnly a banner \"Please select a currency.\" / \"Enter an amount greater than zero.\"\n\n### Expected result\n\"Currency is required\" / \"Amount is required\" under the field, field red\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-AgentAddcurrency, TC-CONS-AgentAddwallettopup  |  **Bug report ID:** BUG-92  |  previously Linear SAH-97"
+ },
+ {
+  "id": "BUG-93",
+  "summary": "BUG-93: Portal CMS forms show one banner for the first missing field (\"Give the offer a heading.\") - fields are not marked",
+  "epic": "Portal CMS",
+  "epicKey": "KAN-17",
+  "component": "Portal CMS – Storefront & Content",
+  "label": "portal-cms-storefront-and-content",
+  "labels": [
+   "automation",
+   "portal-cms-storefront-and-content",
+   "error-message-consistency"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-100",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-93-portal-cms-banner-errors.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Portal CMS  |  **Screen:** Sponsored offers, Deal cards, Login slider, Storefront  |  **Type:** Error-message consistency  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Portal CMS > Sponsored offers > New offer\n2. Save and publish with nothing filled\n\n### Actual result\nOne banner \"Give the offer a heading.\"; Image not mentioned; no field red\n\n### Expected result\n\"Heading is required\", \"Image is required\" under the fields\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-PortalCMSNewoffer-02/03  |  **Bug report ID:** BUG-93  |  previously Linear SAH-100"
+ },
+ {
+  "id": "BUG-94",
+  "summary": "BUG-94: An EMPTY document (no Name, which is mandatory) is sent to the server",
+  "epic": "Portal CMS",
+  "epicKey": "KAN-17",
+  "component": "Portal CMS – Emails & Documents",
+  "label": "portal-cms-emails-and-documents",
+  "labels": [
+   "automation",
+   "portal-cms-emails-and-documents",
+   "validation"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-102",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-94-empty-document-sent.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Portal CMS  |  **Screen:** Documents > New document  |  **Type:** Validation  |  **Severity:** High\n\n### Steps to reproduce\n1. Portal CMS > Documents > New document\n2. Save and publish with nothing filled\n\n### Actual result\nThe request is sent (POST /core/portal-content); no field message\n\n### Expected result\n\"Name is required\"; nothing is sent\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-PortalCMSNewdocument-01  |  **Bug report ID:** BUG-94  |  previously Linear SAH-102"
+ },
+ {
+  "id": "BUG-95",
+  "summary": "BUG-95: Supplier and Agent cannot be deactivated like Core records (no Active switch + \"Deactivate ...?\" popup) - only Status = Blocked inside Edit",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "functional-consistency"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-107",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-95-supplier-agent-no-active-switch.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier / Agent  |  **Screen:** Supplier list, Agent list  |  **Type:** Functional consistency  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Open Supplier list / Agent list\n\n### Actual result\nNo switch; deactivation = Edit > Status Blocked, with no confirmation\n\n### Expected result\nAn Active switch per row with the \"Deactivate supplier?\" confirmation, as in Core standard (Country, State ...)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CONS-DEACT-supplier, TC-CONS-DEACT-agent  |  **Bug report ID:** BUG-95  |  previously Linear SAH-107"
+ },
+ {
+  "id": "BUG-96",
+  "summary": "BUG-96: A contract without prices cannot be saved as Draft, although the screen says \"The contract saves as a draft\"",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "business-rule",
+   "reopened"
+  ],
+  "priority": "High",
+  "status": "Reopened",
+  "linear": "SAH-110",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-96-contract-draft-without-prices-refused.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier  |  **Screen:** Products > Contract > Add contract  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. Testing season 3 > Hotel > Contract > Add contract\n2. Name, BB, AED, add one season, no prices\n3. Save\n\n### Actual result\n\"1 problem to fix: Price every room in every season — 4 prices missing\"; nothing is saved\n\n### Expected result\nSaved as Draft (product owner, S-09); prices are only needed to approve\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R3-01  |  **Bug report ID:** BUG-96  |  previously Linear SAH-110\n\n🔁 **Reopened 21 Nov 2026** - reported as fixed but still reproduced on the stage build of 21 Nov 2026."
+ },
+ {
+  "id": "BUG-97",
+  "summary": "BUG-97: Contracts of an On hold supplier can be approved (9 approved on \"Testing season 3\", status On hold)",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "business-rule",
+   "reopened"
+  ],
+  "priority": "High",
+  "status": "Reopened",
+  "linear": "SAH-113",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-97-on-hold-supplier-has-approved-contracts.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier status / contract approval  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. Testing season 3 (On hold) > Hotel > Contract\n2. Submit for approval > Approve\n\n### Actual result\nApproved - the list shows 9 Approved contracts\n\n### Expected result\nApproval refused until the supplier is Approved (product owner, S3-01)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R3-03  |  **Bug report ID:** BUG-97  |  previously Linear SAH-113\n\n🔁 **Reopened 21 Nov 2026** - reported as fixed but still reproduced on the stage build of 21 Nov 2026."
+ },
+ {
+  "id": "BUG-98",
+  "summary": "BUG-98: Promotion has only a \"Combinable\" switch - no choice of WHICH promotions it combines with and no cumulative / non-cumulative option",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "missing-feature",
+   "reopened"
+  ],
+  "priority": "Medium",
+  "status": "Reopened",
+  "linear": "SAH-116",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-98-promotion-no-combine-options.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier  |  **Screen:** Products > Promotions > Add promotion  |  **Type:** Missing feature  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Testing season 3 > Hotel > Promotions > Add promotion\n\n### Actual result\nOnly a \"Combinable\" on / off switch\n\n### Expected result\nA field to pick the promotions to combine with, and a cumulative / non-cumulative choice (product owner, S3-05)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R3-04  |  **Bug report ID:** BUG-98  |  previously Linear SAH-116\n\n🔁 **Reopened 21 Nov 2026** - reported as fixed but still reproduced on the stage build of 21 Nov 2026."
+ },
+ {
+  "id": "BUG-99",
+  "summary": "BUG-99: The contract has no tax fields (VAT, tourism fee, \"rates include tax\")",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "missing-feature",
+   "reopened"
+  ],
+  "priority": "Medium",
+  "status": "Reopened",
+  "linear": "SAH-119",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-99-contract-has-no-tax-fields.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier  |  **Screen:** Products > Contract > Add contract  |  **Type:** Missing feature  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Testing season 3 > Hotel > Contract > Add contract\n\n### Actual result\nNo tax field anywhere on the contract\n\n### Expected result\nTax settings on the contract (product owner, S3-10)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-R3-05  |  **Bug report ID:** BUG-99  |  previously Linear SAH-119\n\n🔁 **Reopened 21 Nov 2026** - reported as fixed but still reproduced on the stage build of 21 Nov 2026."
+ },
+ {
+  "id": "BUG-101",
+  "summary": "BUG-101: The \"Valid\" column shows dates without a year (\"15 Oct – 14 Oct\") - the end looks earlier than the start",
+  "epic": "Contracts",
+  "epicKey": "KAN-11",
+  "component": "Contracts – List",
+  "label": "contracts-list",
+  "labels": [
+   "automation",
+   "contracts-list",
+   "ui",
+   "duplicate"
+  ],
+  "priority": "Low",
+  "status": "Complete",
+  "linear": "SAH-122",
+  "duplicateOf": "BUG-50",
+  "screenshots": [
+   "screenshots/bugs/BUG-101-contracts-valid-without-year.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Contracts  |  **Screen:** Contracts list > Valid column  |  **Type:** UI  |  **Severity:** Low\n\n### Steps to reproduce\n1. Open Contracts\n2. Look at \"Valid\"\n\n### Actual result\n\"15 Oct – 14 Oct\"\n\n### Expected result\n\"15 Oct 2026 – 14 Oct 2027\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CTM-13  |  **Bug report ID:** BUG-101  |  previously Linear SAH-122\n\n**Duplicate of BUG-50** (closed as duplicate)."
+ },
+ {
+  "id": "BUG-102",
+  "summary": "BUG-102: Clicking a contract opens the supplier's \"Choose a product type\" page instead of that contract",
+  "epic": "Contracts",
+  "epicKey": "KAN-11",
+  "component": "Contracts – List",
+  "label": "contracts-list",
+  "labels": [
+   "automation",
+   "contracts-list",
+   "functional"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-124",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-102-contract-row-opens-supplier-page.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Contracts  |  **Screen:** Contracts list > row click  |  **Type:** Functional  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Open Contracts\n2. Click a contract row\n\n### Actual result\nThe supplier's Products page (\"Choose a product type\") opens\n\n### Expected result\nThat contract opens\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CTM-15  |  **Bug report ID:** BUG-102  |  previously Linear SAH-124"
+ },
+ {
+  "id": "BUG-104",
+  "summary": "BUG-104: Add Package: only Name gets \"Name is required\" - Currency*, Cities*, Base Price* get no message and no red outline",
+  "epic": "Package",
+  "epicKey": "KAN-12",
+  "component": "Package – Builder",
+  "label": "package-builder",
+  "labels": [
+   "automation",
+   "package-builder",
+   "error-message-consistency"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-128",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-104-add-package-only-name-message.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Package  |  **Screen:** Add Package (Manual)  |  **Type:** Error-message consistency  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Package > Add New > Manual\n2. Save with nothing filled\n\n### Actual result\nOnly \"Name is required\" + banner \"Please fix the highlighted fields.\"\n\n### Expected result\n\"<Field> is required\" under every mandatory field\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PKG-13  |  **Bug report ID:** BUG-104  |  previously Linear SAH-128"
+ },
+ {
+  "id": "BUG-105",
+  "summary": "BUG-105: The \"Add Bundle\" form saves with a button called \"Save Package\"",
+  "epic": "Package",
+  "epicKey": "KAN-12",
+  "component": "Package – Builder",
+  "label": "package-builder",
+  "labels": [
+   "automation",
+   "package-builder",
+   "ui"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-131",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-105-add-bundle-button-save-package.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Package  |  **Screen:** Bundles > Add Bundle  |  **Type:** UI  |  **Severity:** Low\n\n### Steps to reproduce\n1. Package > Bundles > Add Bundle\n\n### Actual result\nButton \"Save Package\"\n\n### Expected result\nButton \"Save Bundle\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PKG-17  |  **Bug report ID:** BUG-105  |  previously Linear SAH-131"
+ },
+ {
+  "id": "BUG-106",
+  "summary": "BUG-106: \"AI Generated\" only highlights the card - no AI builder opens (Manual works)",
+  "epic": "Package",
+  "epicKey": "KAN-12",
+  "component": "Package – Builder",
+  "label": "package-builder",
+  "labels": [
+   "automation",
+   "package-builder",
+   "functional"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-134",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-106-package-ai-generated-does-nothing.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Package  |  **Screen:** Add New > AI Generated  |  **Type:** Functional  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Package > Add New\n2. Choose \"AI Generated\"\n\n### Actual result\nNothing happens apart from the card being highlighted\n\n### Expected result\nThe AI package builder opens\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PKG-11  |  **Bug report ID:** BUG-106  |  previously Linear SAH-134"
+ },
+ {
+  "id": "BUG-107",
+  "summary": "BUG-107: Add Quote, Add Reservation and Product Search offer Blocked agents in the Agent list",
+  "epic": "Reservation",
+  "epicKey": "KAN-14",
+  "component": "Reservation – Booking",
+  "label": "reservation-booking",
+  "labels": [
+   "automation",
+   "reservation-booking",
+   "business-rule"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-137",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-107-add-quote-offers-blocked-agents.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Quotes / Reservation / Product Search  |  **Screen:** Add Quote > Agent, Add Reservation > Agent, Product Search > Select an agent  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. Quotes > Add Quote (or Reservation > Add Reservation, or Product Search > Select an agent)\n2. Agent: type \"QA Auto Agent\"\n\n### Actual result\nBlocked agents AG-00011..18 (QA Auto Agent KKPVTM, LQQNNR, ...) are listed and can be picked\n\n### Expected result\nOnly active, approved agents are offered (a Blocked agent can do no new business)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-QT-15, TC-RES-13, TC-PS-02  |  **Bug report ID:** BUG-107  |  previously Linear SAH-137"
+ },
+ {
+  "id": "BUG-108",
+  "summary": "BUG-108: Quote and Reservation history show an internal number (\"Quote / Reservation -9223372036854774807\") instead of the record",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-140",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-108-quote-history-internal-number.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Quotes / Reservation  |  **Screen:** Quote > History, Reservation > History  |  **Type:** UI  |  **Severity:** Low\n\n### Steps to reproduce\n1. Quotes > QT-000001 > History\n2. Reservation > 000003 > History\n\n### Actual result\n\"Quote -9223372036854774807\" and \"Reservation -9223372036854774807\" (configuration entries)\n\n### Expected result\nThe entry names the record (\"QT-000001\", \"000003\")\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-QT-28  |  **Bug report ID:** BUG-108  |  previously Linear SAH-140"
+ },
+ {
+  "id": "BUG-109",
+  "summary": "BUG-109: Reservation history shows raw JSON as the changed value instead of readable fields",
+  "epic": "Reservation",
+  "epicKey": "KAN-14",
+  "component": "Reservation – Booking",
+  "label": "reservation-booking",
+  "labels": [
+   "automation",
+   "reservation-booking",
+   "ui"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-143",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-109-reservation-history-raw-json.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Reservation  |  **Screen:** Reservation > History  |  **Type:** UI  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Reservation > 000003 > History\n\n### Actual result\nRaw data: \"hotel\",\"itemId\":\"PILOT.17.11.HB.20261101.2.2.-\",\"provider\":\"Contracted\",\"status\":\"Booked\",\"reference\":\"PH261025-ZLABF9\",\"providerBookingId\":null,...\n\n### Expected result\nReadable changes (e.g. \"Status: Booked, Reference PH261025-ZLABF9\")\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RES-28  |  **Bug report ID:** BUG-109  |  previously Linear SAH-143"
+ },
+ {
+  "id": "BUG-110",
+  "summary": "BUG-110: New enquiry accepts the e-mail \"abc\" and sends it to the server (no e-mail check)",
+  "epic": "CRM",
+  "epicKey": "KAN-15",
+  "component": "CRM – Enquiries",
+  "label": "crm-enquiries",
+  "labels": [
+   "automation",
+   "crm-enquiries",
+   "validation"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-147",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-110-enquiry-email-abc-accepted.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Enquiries  |  **Screen:** Enquiries > New enquiry  |  **Type:** Validation  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Enquiries > New enquiry\n2. Email: abc\n3. Create enquiry\n\n### Actual result\nNo message; POST /crm/enquiries is sent with customerEmail \"abc\"\n\n### Expected result\n\"Enter a valid email address\" (as in Supplier contact / Agent); nothing sent\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-ENQ-06  |  **Bug report ID:** BUG-110  |  previously Linear SAH-147"
+ },
+ {
+  "id": "BUG-111",
+  "summary": "BUG-111: Agent network counts Blocked and On hold agents as \"active\" (\"19 active\" while 11 are Blocked)",
+  "epic": "Insights",
+  "epicKey": "KAN-16",
+  "component": "Insights – Dashboard",
+  "label": "insights-dashboard",
+  "labels": [
+   "automation",
+   "insights-dashboard",
+   "data"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-151",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-111-dashboard-blocked-agents-counted-active.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Dashboard  |  **Screen:** Dashboard > Agent network  |  **Type:** Data  |  **Severity:** Low\n\n### Steps to reproduce\n1. Dashboard > Agent network card\n\n### Actual result\n\"19 active · 18 B2B, 1 B2C\"\n\n### Expected result\n\"7 active\" (only Approved agents), matching Approved 7 / On hold 1 / Blocked 11 on the same card\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-DSH-05  |  **Bug report ID:** BUG-111  |  previously Linear SAH-151"
+ },
+ {
+  "id": "BUG-112",
+  "summary": "BUG-112: Name stops at 100 characters on 19 screens, although 150 was confirmed; 6 screens have no limit at all (new in stage build v1.0.2)",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "regression",
+   "reopened"
+  ],
+  "priority": "Medium",
+  "status": "Reopened",
+  "linear": "SAH-155",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-112-name-limit-100-not-150.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core (Accounts / Application / Organization / Product)  |  **Screen:** Add dialogs > Name  |  **Type:** Regression  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Application > Role > Add Role\n2. Type 150 characters in Name\n\n### Actual result\nStops at 100: State, City, Market, Desk Location, Province, Role, Status, Tax, Exchange Type, Account, Branch, Department, Product Type, Product Class, View Type, Room Category, Supplement, Allotment, Addon. Keeps 150: Theme, Amenity. No limit (300 kept): Account Group, Language, Room Type, Resource Type, Personnel, Asset\n\n### Expected result\nAll 150 characters kept, the same limit on every screen (product owner; was BUG-33 for Tax only)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-*-19  |  **Bug report ID:** BUG-112  |  previously Linear SAH-155\n\n🔁 **Reopened 21 Nov 2026** - reported as fixed but still reproduced on the stage build of 21 Nov 2026."
+ },
+ {
+  "id": "BUG-113",
+  "summary": "BUG-113: Names are no longer trimmed and lose digits and & ( ) on more screens - duplicates get saved and the list sorts wrongly (new in stage build v1.0.2)",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "regression"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-158",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-113-name-strips-digits-and-specials.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core (Region / Application / Organization / Accounts / Resource)  |  **Screen:** Add / Edit > Name  |  **Type:** Regression  |  **Severity:** High\n\n### Steps to reproduce\n1. Core > Region > State > Add State\n2. Name \"   QA Auto State X edited   \" (same as an existing State, spaces around) > Save\n3. Add Role, type \"Zone 2 North-1 & Co (Test)\"\n\n### Actual result\nDuplicate with spaces is SAVED (State, Market, Resource Type) and stored with the spaces, so it sorts above \"Admin\"; digits removed in Role, Status, Branch, Department, Exchange Type; \"& ( )\" removed in State, Market, Landmark, Province, Role, Status, Branch, Department, Exchange Type (\"Edge & Co (Test)\" -> \"Edge Co Test\"). Same as BUG-22/25/26, now spread beyond Product\n\n### Expected result\nSpaces trimmed, duplicate refused (\"already exists\"), what the user types is kept (as before v1.0.2)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-*-06, TC-*-08, TC-*-16, TC-*-26  |  **Bug report ID:** BUG-113  |  previously Linear SAH-158"
+ },
+ {
+  "id": "BUG-114",
+  "summary": "BUG-114: Empty search shows an internal or wrong screen name (new in stage build v1.0.2)",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui",
+   "reopened"
+  ],
+  "priority": "Low",
+  "status": "Reopened",
+  "linear": "SAH-159",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-114-empty-search-says-contact-type.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core (Application / Accounts)  |  **Screen:** List > search with no match  |  **Type:** UI  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Application > Role\n2. Type \"zzzqqq\" in the Name search\n\n### Actual result\nRole: \"There are no records in Contact Type\"; Theme: \"...in Property Theme\"; Chart of Accounts: \"...in Chart Of Accounts\"; Personnel and Asset: \"...in Resource\"\n\n### Expected result\n\"There are no records in Role\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-APP-Role-06, TC-APP-Theme-06, TC-ACC-Account-06, TC-RES-Personnel-06, TC-RES-Asset-06  |  **Bug report ID:** BUG-114  |  previously Linear SAH-159\n\n🔁 **Reopened 21 Nov 2026** - reported as fixed but still reproduced on the stage build of 21 Nov 2026."
+ },
+ {
+  "id": "BUG-115",
+  "summary": "BUG-115: Clicking a Currency row no longer opens \"Edit Currency\" - the Symbol cannot be changed any more (new in stage build v1.0.2)",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Application",
+  "label": "core-application",
+  "labels": [
+   "automation",
+   "core-application",
+   "regression",
+   "reopened"
+  ],
+  "priority": "Medium",
+  "status": "Reopened",
+  "linear": "SAH-160",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-115-currency-row-opens-no-edit.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Application  |  **Screen:** Currency list  |  **Type:** Regression  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Application > Currency\n2. Click \"US Dollar\"\n\n### Actual result\nNothing happens (normal cursor, no dialog)\n\n### Expected result\n\"Edit Currency\" opens with Name and Symbol (as before v1.0.2, like every other list)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-APP-Currency-11, -21  |  **Bug report ID:** BUG-115  |  previously Linear SAH-160\n\n🔁 **Reopened 21 Nov 2026** - reported as fixed but still reproduced on the stage build of 21 Nov 2026."
+ },
+ {
+  "id": "BUG-116",
+  "summary": "BUG-116: Deactivating a record that is still in use gives no \"already in use\" warning",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "business-rule"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-161",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-116-in-use-record-no-warning.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core  |  **Screen:** Deactivate popup (Resource Type, Branch, Department, Currency, Exchange Type)  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. Core > Resource > Resource Types\n2. Switch off \"Driver\" (used by personnel Amrat Choudhary)\n\n### Actual result\nStandard popup only: \"Deactivate resource type? This will mark it as deactive.\" Same for Delhi Branch, Reservations (department), US Dollar, Default Exchange\n\n### Expected result\nPopup warns that the record is in use and where (product owner rule, 13 Nov)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-BR-INUSE  |  **Bug report ID:** BUG-116  |  previously Linear SAH-161"
+ },
+ {
+  "id": "BUG-117",
+  "summary": "BUG-117: New required \"Asset Type\" shows only a banner \"Please select a asset type.\" (wrong grammar) - field not marked (new in stage build v1.0.2)",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Resource",
+  "label": "core-resource",
+  "labels": [
+   "automation",
+   "core-resource",
+   "error-message-consistency"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-163",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-117-asset-type-banner-only.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Resource  |  **Screen:** Assets > Add Asset  |  **Type:** Error-message consistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Resource > Assets > Add Asset\n2. Name only > Save\n\n### Actual result\nBanner \"Please select a asset type.\" at the top of the dialog\n\n### Expected result\n\"Asset Type is required\" under the field (Core standard)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-ASSET-01  |  **Bug report ID:** BUG-117  |  previously Linear SAH-163"
+ },
+ {
+  "id": "BUG-118",
+  "summary": "BUG-118: No Tax can be created: saving with only Name (other fields optional) fails with 400 and \"Request failed\" (new in stage build v1.0.2)",
+  "epic": "Accounts",
+  "epicKey": "KAN-7",
+  "component": "Accounts – Configuration",
+  "label": "accounts-configuration",
+  "labels": [
+   "automation",
+   "accounts-configuration",
+   "functional"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-165",
+  "duplicateOf": null,
+  "screenshots": [],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Accounts > Configuration  |  **Screen:** Tax > Add Tax  |  **Type:** Functional  |  **Severity:** High\n\n### Steps to reproduce\n1. Core > Accounts > Configuration > Tax > Add Tax\n2. Name \"QA Auto Tax X\" > Save\n\n### Actual result\nBanner \"Request failed\"; server 400 \"The JSON value could not be converted ... $.appliedId\" (empty \"Applied On\" is sent as text)\n\n### Expected result\nTax created (\"Tax created successfully\")\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-TAX-01  |  **Bug report ID:** BUG-118  |  previously Linear SAH-165"
+ },
+ {
+  "id": "BUG-119",
+  "summary": "BUG-119: Success message says \"Branch created\" - every other screen says \"<X> created successfully\" (new in stage build v1.0.2)",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Organization",
+  "label": "core-organization",
+  "labels": [
+   "automation",
+   "core-organization",
+   "ui-consistency"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-167",
+  "duplicateOf": null,
+  "screenshots": [],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Organization  |  **Screen:** Branch, Department > Add  |  **Type:** UI consistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Core > Organization > Branches > Add Branch\n2. Name > Save\n\n### Actual result\n\"Branch created\"\n\n### Expected result\n\"Branch created successfully\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-BRANCH-01, TC-DEPARTMENT-01  |  **Bug report ID:** BUG-119  |  previously Linear SAH-167"
+ },
+ {
+  "id": "BUG-120",
+  "summary": "BUG-120: Province and City accept duplicate names - same name, other letter case, spaces around, and renaming to an existing name (new in stage build v1.0.2)",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "regression"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-168",
+  "duplicateOf": null,
+  "screenshots": [],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Region  |  **Screen:** Province, City > Add / Edit  |  **Type:** Regression  |  **Severity:** High\n\n### Steps to reproduce\n1. Core > Region > Provinces > Add Province\n2. Name of an existing province (e.g. \"QA Auto Province X edited\"), Country India, a city > Save\n\n### Actual result\nSaved (201); renaming another province to that name is saved too (200) - two identical rows\n\n### Expected result\nRefused with \"already exists\" (as before v1.0.2, like every other screen)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-PROVINCE-04, -05, -06, -09, TC-CITY-04, -05, -06, -09  |  **Bug report ID:** BUG-120  |  previously Linear SAH-168"
+ },
+ {
+  "id": "BUG-121",
+  "summary": "BUG-121: \"Post journal\" / \"Save\" is just disabled on an empty form - nothing says which fields are missing (new in stage build v1.0.2)",
+  "epic": "Accounts",
+  "epicKey": "KAN-7",
+  "component": "Accounts – Journals",
+  "label": "accounts-journals",
+  "labels": [
+   "automation",
+   "accounts-journals",
+   "error-message-consistency"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-170",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-121-journal-post-disabled-no-message.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Accounts > Transactions  |  **Screen:** Journals, Recurring Journals  |  **Type:** Error-message consistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Accounts > Journals > New journal\n2. Leave everything empty\n\n### Actual result\nThe button is greyed out with no message\n\n### Expected result\n\"<Field> is required\" under each missing field (Core standard), or a hint why the button is disabled\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-JRN-04, TC-RJ-03  |  **Bug report ID:** BUG-121  |  previously Linear SAH-170"
+ },
+ {
+  "id": "BUG-122",
+  "summary": "BUG-122: A negative Net amount is accepted - the invoice total shows \"Total -100.00\" (new in stage build v1.0.2)",
+  "epic": "Accounts",
+  "epicKey": "KAN-7",
+  "component": "Accounts – Invoices",
+  "label": "accounts-invoices",
+  "labels": [
+   "automation",
+   "accounts-invoices",
+   "validation"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-172",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-122-agent-invoice-negative-total.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Accounts > Transactions  |  **Screen:** Agent Invoices > Raise invoice  |  **Type:** Validation  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Agent Invoices > Raise invoice\n2. Net = -100\n\n### Actual result\n\"Tax 0.00 · Total -100.00\", no message\n\n### Expected result\nRefused (\"must be more than 0\"); total not negative\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-AINV-07  |  **Bug report ID:** BUG-122  |  previously Linear SAH-172"
+ },
+ {
+  "id": "BUG-123",
+  "summary": "BUG-123: \"Close year\" is enabled for a year that has no periods (new in stage build v1.0.2)",
+  "epic": "Accounts",
+  "epicKey": "KAN-7",
+  "component": "Accounts – Periods & Bank",
+  "label": "accounts-periods-and-bank",
+  "labels": [
+   "automation",
+   "accounts-periods-and-bank",
+   "business-rule"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-174",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-123-close-year-enabled-without-periods.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Accounts  |  **Screen:** Financial Periods  |  **Type:** Business rule  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Accounts > Financial Periods, year 2026 (\"No periods for 2026 yet\")\n\n### Actual result\n\"Close year\" is enabled\n\n### Expected result\n\"Close year\" disabled until the year has periods\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-FP-03  |  **Bug report ID:** BUG-123  |  previously Linear SAH-174"
+ },
+ {
+  "id": "BUG-124",
+  "summary": "BUG-124: The logged-in admin can switch off their OWN account - the normal \"Deactivate user?\" popup appears (new in stage build v1.0.2)",
+  "epic": "System",
+  "epicKey": "KAN-8",
+  "component": "System – Users & Access",
+  "label": "system-users-and-access",
+  "labels": [
+   "automation",
+   "system-users-and-access",
+   "business-rule"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-175",
+  "duplicateOf": null,
+  "screenshots": [],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > System  |  **Screen:** Users list  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. System > User (logged in as sahil)\n2. Switch off the \"sahil\" row\n\n### Actual result\nStandard popup \"Deactivate user? ... Yes, deactivate\" (the test pressed Cancel)\n\n### Expected result\nSwitch locked, or \"You cannot deactivate yourself\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-USR-07  |  **Bug report ID:** BUG-124  |  previously Linear SAH-175"
+ },
+ {
+  "id": "BUG-125",
+  "summary": "BUG-125: The same Personnel -> Asset pairing that is already listed is sent again (no \"already exists\" check)",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Resource",
+  "label": "core-resource",
+  "labels": [
+   "automation",
+   "core-resource",
+   "validation"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-176",
+  "duplicateOf": null,
+  "screenshots": [],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Resource  |  **Screen:** Resource Mapping > Add Mapping  |  **Type:** Validation  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Resource Mapping > Add Mapping\n2. Amrat Choudhary + Car (already mapped) > Save\n\n### Actual result\nPOST /core/resource/mappings is sent\n\n### Expected result\n\"This pairing already exists\"; nothing sent\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RMAP-05  |  **Bug report ID:** BUG-125  |  previously Linear SAH-176"
+ },
+ {
+  "id": "BUG-126",
+  "summary": "BUG-126: /flex/11 opens a working \"Flex 11\" list although only Flex 1-10 exist",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Application",
+  "label": "core-application",
+  "labels": [
+   "automation",
+   "core-application",
+   "ui"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-179",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-126-flex-11-opens.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Application  |  **Screen:** Flex lists  |  **Type:** UI  |  **Severity:** Low\n\n### Steps to reproduce\n1. Open https://erp.nexgenpilot.com/flex/11\n\n### Actual result\nHeading and tab \"Flex 11\" with an empty grid \"There are no records in Flex Value\"\n\n### Expected result\nNot-found page or back to the list\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-FLEX-15  |  **Bug report ID:** BUG-126  |  previously Linear SAH-179"
+ },
+ {
+  "id": "BUG-127",
+  "summary": "BUG-127: Two rates have no automatic reverse rate: EUR -> INR 100 and USD -> INR 88 (01 Oct 2026)",
+  "epic": "Accounts",
+  "epicKey": "KAN-7",
+  "component": "Accounts – Configuration",
+  "label": "accounts-configuration",
+  "labels": [
+   "automation",
+   "accounts-configuration",
+   "business-rule"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-180",
+  "duplicateOf": null,
+  "screenshots": [],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Accounts  |  **Screen:** Exchange Rates  |  **Type:** Business rule  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Accounts > Exchange Rates\n2. Look for INR -> EUR and INR -> USD on 01 Oct 2026\n\n### Actual result\nNo INR -> EUR / INR -> USD row for that date\n\n### Expected result\nEvery rate has its reverse with 1 / rate (product owner rule, 13 Nov)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-BR-XR-01  |  **Bug report ID:** BUG-127  |  previously Linear SAH-180"
+ },
+ {
+  "id": "BUG-128",
+  "summary": "BUG-128: Switching a retention rule on or off saves at once - no \"Are you sure?\" although the rule deletes personal data (new in stage build v1.0.2)",
+  "epic": "System",
+  "epicKey": "KAN-8",
+  "component": "System – Settings",
+  "label": "system-settings",
+  "labels": [
+   "automation",
+   "system-settings",
+   "business-rule"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-181",
+  "duplicateOf": null,
+  "screenshots": [],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > System  |  **Screen:** Data Retention  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. System > Data Retention\n2. Click the Reservations retention switch\n\n### Actual result\nThe save request (PUT) is sent immediately with no confirmation (the test blocked it, so nothing changed)\n\n### Expected result\nA confirmation first (what will be removed and when); nothing saved until confirmed\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RET-04  |  **Bug report ID:** BUG-128  |  previously Linear SAH-181"
+ },
+ {
+  "id": "BUG-129",
+  "summary": "BUG-129: A deactivated City is still offered in the Landmark \"City\" dropdown (new in stage build v1.0.2)",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Region",
+  "label": "core-region",
+  "labels": [
+   "automation",
+   "core-region",
+   "regression"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-182",
+  "duplicateOf": null,
+  "screenshots": [],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Region  |  **Screen:** City (used by Landmark)  |  **Type:** Regression  |  **Severity:** Medium\n\n### Steps to reproduce\n1. Core > Region > Cities: switch off a city (\"QA Auto City X edited\")\n2. Landmarks > Add Landmark > City: type its name\n\n### Actual result\nThe deactivated city is offered and can be picked\n\n### Expected result\nDeactivated cities are not offered (as before, like every other picker)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CITY-12  |  **Bug report ID:** BUG-129  |  previously Linear SAH-182"
+ },
+ {
+  "id": "BUG-130",
+  "summary": "BUG-130: A confirmed reservation is cancelled with one click from the status menu - no \"Are you sure?\" and no cancellation charge shown",
+  "epic": "Reservation",
+  "epicKey": "KAN-14",
+  "component": "Reservation – Booking",
+  "label": "reservation-booking",
+  "labels": [
+   "automation",
+   "reservation-booking",
+   "business-rule"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-214",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-130-1-status-menu.png",
+   "screenshots/bugs/BUG-130-2-no-confirmation.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Reservation  |  **Screen:** Reservation > status menu  |  **Type:** Business rule  |  **Severity:** High\n\n### Steps to reproduce\n1. Reservation > open a CONFIRMED QA booking\n2. Status menu > Cancelled\n\n### Actual result\nThe booking is cancelled at once, no confirmation, no charge shown\n\n### Expected result\nA confirmation that shows the cancellation policy / charge before the booking is cancelled\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** tests/e2e/booking-flow.spec.ts  |  **Bug report ID:** BUG-130  |  previously Linear SAH-214"
+ },
+ {
+  "id": "BUG-131",
+  "summary": "BUG-131: Cancelling a reservation leaves its hotel line Confirmed, and the agent and supplier amounts stay unpaid / open",
+  "epic": "Reservation",
+  "epicKey": "KAN-14",
+  "component": "Reservation – Money & Cancellation",
+  "label": "reservation-money-and-cancellation",
+  "labels": [
+   "automation",
+   "reservation-money-and-cancellation",
+   "functional"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-215",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-131-1-cancelled-but-service-confirmed.png",
+   "screenshots/bugs/BUG-131-2-cancelled-but-agent-still-owes.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Reservation  |  **Screen:** Reservation > cancel  |  **Type:** Functional  |  **Severity:** High\n\n### Steps to reproduce\n1. Reservation 000007 (confirmed QA booking)\n2. Cancel the reservation\n3. Look at the hotel line and the accounting\n\n### Actual result\nReservation is Cancelled but the hotel line stays Confirmed; agent and supplier amounts remain as unpaid\n\n### Expected result\nEvery service line is cancelled and the agent / supplier amounts are reversed or follow the cancellation policy\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** tests/e2e/booking-flow.spec.ts  |  **Bug report ID:** BUG-131  |  previously Linear SAH-215"
+ },
+ {
+  "id": "BUG-132",
+  "summary": "BUG-132: Early-bird saving on single rooms is 2 fils off (350.98 instead of 351.00)",
+  "epic": "Reservation",
+  "epicKey": "KAN-14",
+  "component": "Reservation – Product Search",
+  "label": "reservation-product-search",
+  "labels": [
+   "automation",
+   "reservation-product-search",
+   "calculation",
+   "reopened"
+  ],
+  "priority": "Low",
+  "status": "Reopened",
+  "linear": "SAH-216",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-132-single-early-bird-rounding.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier / Product Search  |  **Screen:** Product Search > hotel price (early-bird promotion)  |  **Type:** Calculation  |  **Severity:** Low\n\n### Steps to reproduce\n1. Contract with an early-bird promotion (Testing season 3)\n2. Product Search: single room, stay inside the promotion\n3. Compare the saving with contract price x discount\n\n### Actual result\nSaving = 350.98 (rounded per night / per step)\n\n### Expected result\nSaving = 351.00 (rounded once, at the end)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** tests/supplier/supplier-sales.spec.ts  |  **Bug report ID:** BUG-132  |  previously Linear SAH-216\n\n🔁 **Reopened 21 Nov 2026** - reported as fixed but still reproduced on the stage build of 21 Nov 2026."
+ },
+ {
+  "id": "BUG-134",
+  "summary": "BUG-134: New contract dates default to the UTC date - between 00:00 and 04:00 UAE time Valid from / Sell from is yesterday",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Contracts & Rates",
+  "label": "supplier-contracts-and-rates",
+  "labels": [
+   "automation",
+   "supplier-contracts-and-rates",
+   "date-time-zone"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-217",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-134-contract-default-dates-utc.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier - Contract  |  **Screen:** Products > Hotel > Contract > Add contract  |  **Type:** Date / time zone  |  **Severity:** Low\n\n### Steps to reproduce\n1. After midnight in Dubai (seen 01:01 on 21 Nov 2026 Dubai = 21:01 on 20 Nov UTC)\n2. Testing season 3 > Products > Hotel > Contract > Add contract\n3. Read Valid from / Sell from\n\n### Actual result\n20 Nov 2026 (the UTC date)\n\n### Expected result\n21 Nov 2026 (the company / user day)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-CON-10  |  **Bug report ID:** BUG-134  |  previously Linear SAH-217"
+ },
+ {
+  "id": "BUG-135",
+  "summary": "BUG-135: Deactivate popup button says \"Yes, deactivate\" (small d) - buttons are Title Case",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – UI Text",
+  "label": "cross-module-ui-text",
+  "labels": [
+   "automation",
+   "cross-module-ui-text",
+   "ui-text"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-218",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/bugs/BUG-135-yes-deactivate-lowercase.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Cross-module (common UI)  |  **Screen:** Deactivate popup (all list screens)  |  **Type:** UI text  |  **Severity:** Low\n\n### Steps to reproduce\n1. Open any list screen (e.g. Core > Application > Currency)\n2. Switch off an active record\n3. Read the popup button\n\n### Actual result\n\"Yes, deactivate\"\n\n### Expected result\n\"Yes, Deactivate\"\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-*-31 (master-ui)  |  **Bug report ID:** BUG-135  |  previously Linear SAH-218"
+ },
+ {
+  "id": "BUG-136",
+  "summary": "BUG-136: Shared buttons are not Title Case on every screen: \"Audit history\", \"Close all\", quick filters, \"Yes, unpublish\"",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – UI Text",
+  "label": "cross-module-ui-text",
+  "labels": [
+   "automation",
+   "cross-module-ui-text",
+   "ui-text"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-219",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/ui-text/BUG-136.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Cross-module (common UI)  |  **Screen:** toolbar of ~70 list screens (Core, Accounts, Supplier, Quotes, Reservation, ...), Supplier / Agent detail pages (closes the open sections), Reservation list quick filters  |  **Type:** UI text  |  **Severity:** Medium\n\n### Steps to reproduce\nOpen the screens listed below and read the button / label text.\n- \"Audit history\" → \"Audit History\" (toolbar of ~70 list screens (Core, Accounts, Supplier, Quotes, Reservation, ...))\n- \"Close all\" → \"Close All\" (Supplier / Agent detail pages (closes the open sections))\n- \"Arriving today / Arriving in 7 days / Travelling now / Amendment requests\" → \"Arriving Today / Arriving in 7 Days / Travelling Now / Amendment Requests\" (Reservation list quick filters)\n- \"Quoted today / Last 7 days / Last 30 days / Follow-up due\" → \"Quoted Today / Last 7 Days / Last 30 Days / Follow-up Due\" (Quotes list quick filters)\n- \"Yes, unpublish\" → \"Yes, Unpublish\" (Package > Unpublish popup)\n\n### Actual result\n\"Audit history\" → \"Audit History\" (toolbar of ~70 list screens (Core, Accounts, Supplier, Quotes, Reservation, ...)); \"Close all\" → \"Close All\" (Supplier / Agent detail pages (closes the open sections)); \"Arriving today / Arriving in 7 days / Travelling now / Amendment requests\" → \"Arriving Today / Arriving in 7 Days / Travelling Now / Amendment Requests\" (Reservation list quick filters); \"Quoted today / Last 7 days / Last 30 days / Follow-up due\" → \"Quoted Today / Last 7 Days / Last 30 Days / Follow-up Due\" (Quotes list quick filters)\n\n### Expected result\nButtons in Title Case (\"Add Currency\", \"Yes, Deactivate\"); the same label written the same way everywhere\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** scripts/reports/ui-text-audit.mjs  |  **Bug report ID:** BUG-136  |  previously Linear SAH-219"
+ },
+ {
+  "id": "BUG-137",
+  "summary": "BUG-137: The same label is written in two different ways on different screens",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – UI Text",
+  "label": "cross-module-ui-text",
+  "labels": [
+   "automation",
+   "cross-module-ui-text",
+   "ui-text"
+  ],
+  "priority": "Medium",
+  "status": "To Do",
+  "linear": "SAH-220",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/ui-text/BUG-137.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Cross-module (common UI)  |  **Screen:** Cross-module (common UI)  |  **Type:** UI text  |  **Severity:** Medium\n\n### Steps to reproduce\nOpen the screens listed below and read the button / label text.\n- Add currency (Supplier > Financials, Agent > Financials)  vs  Add Currency (Core > Currency list)\n- Credit Requests (Agent list button)  vs  Credit requests (Agent > Financials section)\n- Add Agent (Agent list button)  vs  Add agent (Add agent page heading)\n- Amendment requests (Reservation list button)  vs  Amendment Requests (menu + page heading)\n- Data retention (Reservation header button)  vs  Data Retention (System menu / page)\n- Exchange Type (Quote, Reservation forms)  vs  Exchange type (Agent form)\n- Recurring Journals (page heading)  vs  Recurring journals (Help article)\n- Bank Reconciliation (page heading)  vs  Bank reconciliation (Help article)\n- Bank Account (Chart of Accounts column)  vs  Bank account (Bank Reconciliation field)\n- Applies To (Status list column)  vs  Applies to (Add Status form label)\n- Name is required (most forms)  vs  Name is required. (Resource Type, Supplier - with a full stop)\n- All 0 (Enquiries tab)  vs  All (0) (Playground tab)\n\n### Actual result\nAdd currency (Supplier > Financials, Agent > Financials)  vs  Add Currency (Core > Currency list); Credit Requests (Agent list button)  vs  Credit requests (Agent > Financials section); Add Agent (Agent list button)  vs  Add agent (Add agent page heading); Amendment requests (Reservation list button)  vs  Amendment Requests (menu + page heading)\n\n### Expected result\nOne spelling everywhere: Title Case for buttons, page headings and menu items (\"Add Currency\", \"Credit Requests\", \"Amendment Requests\", \"Data Retention\", \"Exchange Type\", \"Bank Account\", \"Applies To\"), field messages without a final full stop (\"Name is required\"), counters in one format (\"All (0)\").\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** scripts/reports/ui-text-audit.mjs  |  **Bug report ID:** BUG-137  |  previously Linear SAH-220"
+ },
+ {
+  "id": "BUG-138",
+  "summary": "BUG-138: Field labels end with a \"#\" sign: \"Phone#\", \"PAN#\", \"TAN#\"",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – Financials",
+  "label": "supplier-financials",
+  "labels": [
+   "automation",
+   "supplier-financials",
+   "ui-text"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-221",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/ui-text/BUG-138.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier / Company  |  **Screen:** Supplier / Company  |  **Type:** UI text  |  **Severity:** Low\n\n### Steps to reproduce\nOpen the screens listed below and read the button / label text.\n- Phone# (Supplier > Overview)  vs  Phone\n- PAN# (Supplier > Financials, Company)  vs  PAN\n- TAN# (Supplier > Financials, Company)  vs  TAN\n\n### Actual result\nPhone# (Supplier > Overview)  vs  Phone; PAN# (Supplier > Financials, Company)  vs  PAN; TAN# (Supplier > Financials, Company)  vs  TAN\n\n### Expected result\nPlain labels (\"Phone\", \"PAN\", \"TAN\") like every other field; the same field is called \"Phone\" in the Agent and Contact forms.\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** scripts/reports/ui-text-audit.mjs  |  **Bug report ID:** BUG-138  |  previously Linear SAH-221"
+ },
+ {
+  "id": "BUG-139",
+  "summary": "BUG-139: Supplier buttons are not Title Case: \"Add supplier\", \"Create supplier\", \"Add contact\", \"Add currency\"",
+  "epic": "Supplier",
+  "epicKey": "KAN-9",
+  "component": "Supplier – List & Overview",
+  "label": "supplier-list-and-overview",
+  "labels": [
+   "automation",
+   "supplier-list-and-overview",
+   "ui-text"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-222",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/ui-text/BUG-139.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Supplier  |  **Screen:** Supplier list, Add supplier page, Supplier > Contacts  |  **Type:** UI text  |  **Severity:** Low\n\n### Steps to reproduce\nOpen the screens listed below and read the button / label text.\n- \"Add supplier\" → \"Add Supplier\" (Supplier list)\n- \"Create supplier\" → \"Create Supplier\" (Add supplier page)\n- \"Add contact\" → \"Add Contact\" (Supplier > Contacts)\n- \"Add currency\" → \"Add Currency\" (Supplier > Financials)\n- \"Add room\" → \"Add Room\" (Supplier > Products > Hotel)\n\n### Actual result\n\"Add supplier\" → \"Add Supplier\" (Supplier list); \"Create supplier\" → \"Create Supplier\" (Add supplier page); \"Add contact\" → \"Add Contact\" (Supplier > Contacts); \"Add currency\" → \"Add Currency\" (Supplier > Financials)\n\n### Expected result\nButtons in Title Case (\"Add Currency\", \"Yes, Deactivate\"); the same label written the same way everywhere\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** scripts/reports/ui-text-audit.mjs  |  **Bug report ID:** BUG-139  |  previously Linear SAH-222"
+ },
+ {
+  "id": "BUG-140",
+  "summary": "BUG-140: Agent buttons are not Title Case: \"Create agent\", \"Edit agent\", \"Add currency\", \"Add top-up\"",
+  "epic": "Agent (B2B)",
+  "epicKey": "KAN-10",
+  "component": "Agent – List & Overview",
+  "label": "agent-list-and-overview",
+  "labels": [
+   "automation",
+   "agent-list-and-overview",
+   "ui-text"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-223",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/ui-text/BUG-140.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Agents  |  **Screen:** Add agent page, Agent header, Agent > Financials  |  **Type:** UI text  |  **Severity:** Low\n\n### Steps to reproduce\nOpen the screens listed below and read the button / label text.\n- \"Create agent\" → \"Create Agent\" (Add agent page)\n- \"Edit agent\" → \"Edit Agent\" (Agent header)\n- \"Add currency\" → \"Add Currency\" (Agent > Financials)\n- \"Add top-up\" → \"Add Top-up\" (Agent > Financials > Ledger)\n\n### Actual result\n\"Create agent\" → \"Create Agent\" (Add agent page); \"Edit agent\" → \"Edit Agent\" (Agent header); \"Add currency\" → \"Add Currency\" (Agent > Financials); \"Add top-up\" → \"Add Top-up\" (Agent > Financials > Ledger)\n\n### Expected result\nButtons in Title Case (\"Add Currency\", \"Yes, Deactivate\"); the same label written the same way everywhere\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** scripts/reports/ui-text-audit.mjs  |  **Bug report ID:** BUG-140  |  previously Linear SAH-223"
+ },
+ {
+  "id": "BUG-141",
+  "summary": "BUG-141: Dashboard shortcut buttons are not Title Case: \"Search products\", \"New reservation\", \"New quote\", \"View all\"",
+  "epic": "Insights",
+  "epicKey": "KAN-16",
+  "component": "Insights – Dashboard",
+  "label": "insights-dashboard",
+  "labels": [
+   "automation",
+   "insights-dashboard",
+   "ui-text"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-224",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/ui-text/BUG-141.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Dashboard  |  **Screen:** Dashboard greeting, Dashboard greeting, Dashboard greeting  |  **Type:** UI text  |  **Severity:** Low\n\n### Steps to reproduce\nOpen the screens listed below and read the button / label text.\n- \"Search products\" → \"Search Products\" (Dashboard greeting)\n- \"New reservation\" → \"New Reservation\" (Dashboard greeting)\n- \"New quote\" → \"New Quote\" (Dashboard greeting)\n- \"View all\" → \"View All\" (Dashboard > Agent network)\n\n### Actual result\n\"Search products\" → \"Search Products\" (Dashboard greeting); \"New reservation\" → \"New Reservation\" (Dashboard greeting); \"New quote\" → \"New Quote\" (Dashboard greeting); \"View all\" → \"View All\" (Dashboard > Agent network)\n\n### Expected result\nButtons in Title Case (\"Add Currency\", \"Yes, Deactivate\"); the same label written the same way everywhere\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** scripts/reports/ui-text-audit.mjs  |  **Bug report ID:** BUG-141  |  previously Linear SAH-224"
+ },
+ {
+  "id": "BUG-142",
+  "summary": "BUG-142: Reservation / Quote buttons are not Title Case: \"Send to customer\", \"Add room\", \"Build now\", \"From a quote\", \"From a package\"",
+  "epic": "Reservation",
+  "epicKey": "KAN-14",
+  "component": "Reservation – Booking",
+  "label": "reservation-booking",
+  "labels": [
+   "automation",
+   "reservation-booking",
+   "ui-text"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-225",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/ui-text/BUG-142.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Reservation / Quotes  |  **Screen:** Quote detail, Add Reservation / Add Quote, Add Reservation itinerary source  |  **Type:** UI text  |  **Severity:** Low\n\n### Steps to reproduce\nOpen the screens listed below and read the button / label text.\n- \"Send to customer\" → \"Send to Customer\" (Quote detail)\n- \"Add room\" → \"Add Room\" (Add Reservation / Add Quote)\n- \"Build now / From a quote / From a package\" → \"Build Now / From a Quote / From a Package\" (Add Reservation itinerary source)\n- \"Room wise / Pax wise\" → \"Room Wise / Pax Wise\" (Add Reservation)\n\n### Actual result\n\"Send to customer\" → \"Send to Customer\" (Quote detail); \"Add room\" → \"Add Room\" (Add Reservation / Add Quote); \"Build now / From a quote / From a package\" → \"Build Now / From a Quote / From a Package\" (Add Reservation itinerary source); \"Room wise / Pax wise\" → \"Room Wise / Pax Wise\" (Add Reservation)\n\n### Expected result\nButtons in Title Case (\"Add Currency\", \"Yes, Deactivate\"); the same label written the same way everywhere\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** scripts/reports/ui-text-audit.mjs  |  **Bug report ID:** BUG-142  |  previously Linear SAH-225"
+ },
+ {
+  "id": "BUG-143",
+  "summary": "BUG-143: Enquiry buttons are not Title Case: \"New enquiry\", \"Create enquiry\"",
+  "epic": "CRM",
+  "epicKey": "KAN-15",
+  "component": "CRM – Enquiries",
+  "label": "crm-enquiries",
+  "labels": [
+   "automation",
+   "crm-enquiries",
+   "ui-text"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-226",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/ui-text/BUG-143.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Enquiries  |  **Screen:** Enquiries list, New enquiry form  |  **Type:** UI text  |  **Severity:** Low\n\n### Steps to reproduce\nOpen the screens listed below and read the button / label text.\n- \"New enquiry\" → \"New Enquiry\" (Enquiries list)\n- \"Create enquiry\" → \"Create Enquiry\" (New enquiry form)\n\n### Actual result\n\"New enquiry\" → \"New Enquiry\" (Enquiries list); \"Create enquiry\" → \"Create Enquiry\" (New enquiry form)\n\n### Expected result\nButtons in Title Case (\"Add Currency\", \"Yes, Deactivate\"); the same label written the same way everywhere\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** scripts/reports/ui-text-audit.mjs  |  **Bug report ID:** BUG-143  |  previously Linear SAH-226"
+ },
+ {
+  "id": "BUG-144",
+  "summary": "BUG-144: Portal CMS buttons are not Title Case: \"Save draft\", \"Save and publish\", \"New offer\", \"New deal card\", \"Reset to default\"...",
+  "epic": "Portal CMS",
+  "epicKey": "KAN-17",
+  "component": "Portal CMS – Storefront & Content",
+  "label": "portal-cms-storefront-and-content",
+  "labels": [
+   "automation",
+   "portal-cms-storefront-and-content",
+   "ui-text"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-227",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/ui-text/BUG-144.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Portal CMS  |  **Screen:** Storefront, Offers, Deals, Slider, Documents, Emails editors, same editors, Sponsored offers  |  **Type:** UI text  |  **Severity:** Low\n\n### Steps to reproduce\nOpen the screens listed below and read the button / label text.\n- \"Save draft\" → \"Save Draft\" (Storefront, Offers, Deals, Slider, Documents, Emails editors)\n- \"Save and publish\" → \"Save and Publish\" (same editors)\n- \"New offer / New sponsored offer\" → \"New Offer / New Sponsored Offer\" (Sponsored offers)\n- \"New deal card\" → \"New Deal Card\" (Deal cards)\n- \"New document\" → \"New Document\" (Documents)\n- \"Add a slide / Add a photo\" → \"Add a Slide / Add a Photo\" (Storefront / Login slider)\n- \"Reset to default / Reset to defaults\" → \"Reset to Default (one spelling)\" (Listing layout, Package options / Checkout fields)\n- \"Start from built-in / Add block / Insert field / Add field\" → \"Start from Built-in / Add Block / Insert Field / Add Field\" (Documents, Emails, Checkout fields)\n- \"Search flights\" → \"Search Flights\" (Offer editor preview)\n\n### Actual result\n\"Save draft\" → \"Save Draft\" (Storefront, Offers, Deals, Slider, Documents, Emails editors); \"Save and publish\" → \"Save and Publish\" (same editors); \"New offer / New sponsored offer\" → \"New Offer / New Sponsored Offer\" (Sponsored offers); \"New deal card\" → \"New Deal Card\" (Deal cards)\n\n### Expected result\nButtons in Title Case (\"Add Currency\", \"Yes, Deactivate\"); the same label written the same way everywhere\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** scripts/reports/ui-text-audit.mjs  |  **Bug report ID:** BUG-144  |  previously Linear SAH-227"
+ },
+ {
+  "id": "BUG-145",
+  "summary": "BUG-145: Accounts buttons are not Title Case: \"New journal voucher\", \"Post journal\", \"Close year\", \"Raise invoice\"...",
+  "epic": "Accounts",
+  "epicKey": "KAN-7",
+  "component": "Accounts – Journals",
+  "label": "accounts-journals",
+  "labels": [
+   "automation",
+   "accounts-journals",
+   "ui-text"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-228",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/ui-text/BUG-145.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Accounts  |  **Screen:** Journals, Journal / Recurring journal form, Journal form  |  **Type:** UI text  |  **Severity:** Low\n\n### Steps to reproduce\nOpen the screens listed below and read the button / label text.\n- \"New journal voucher\" → \"New Journal Voucher\" (Journals)\n- \"Add line\" → \"Add Line\" (Journal / Recurring journal form)\n- \"Post journal\" → \"Post Journal\" (Journal form)\n- \"New recurring journal / Post due now\" → \"New Recurring Journal / Post Due Now\" (Recurring Journals)\n- \"Revalue currencies\" → \"Revalue Currencies\" (Financial Periods)\n- \"Close year\" → \"Close Year\" (Financial Periods)\n- \"Raise invoice\" → \"Raise Invoice\" (Agent Invoices)\n- \"Enter supplier invoice\" → \"Enter Supplier Invoice\" (Supplier Invoices)\n\n### Actual result\n\"New journal voucher\" → \"New Journal Voucher\" (Journals); \"Add line\" → \"Add Line\" (Journal / Recurring journal form); \"Post journal\" → \"Post Journal\" (Journal form); \"New recurring journal / Post due now\" → \"New Recurring Journal / Post Due Now\" (Recurring Journals)\n\n### Expected result\nButtons in Title Case (\"Add Currency\", \"Yes, Deactivate\"); the same label written the same way everywhere\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** scripts/reports/ui-text-audit.mjs  |  **Bug report ID:** BUG-145  |  previously Linear SAH-228"
+ },
+ {
+  "id": "BUG-146",
+  "summary": "BUG-146: Core / System buttons are not Title Case: \"Upload image(s)\", \"Select all\", \"Save changes\", \"Add article\", \"Add section\"",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – UI Text",
+  "label": "cross-module-ui-text",
+  "labels": [
+   "automation",
+   "cross-module-ui-text",
+   "ui-text"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-229",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/ui-text/BUG-146.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core / System  |  **Screen:** Core > Region > City > Add City, Core > Product > Addon > Add Addon, Core > Application > Status > Add Status  |  **Type:** UI text  |  **Severity:** Low\n\n### Steps to reproduce\nOpen the screens listed below and read the button / label text.\n- \"Upload images\" → \"Upload Images\" (Core > Region > City > Add City)\n- \"Upload image\" → \"Upload Image\" (Core > Product > Addon > Add Addon)\n- \"Select all\" → \"Select All\" (Core > Application > Status > Add Status)\n- \"Save changes\" → \"Save Changes\" (System > Configurations)\n- \"Add article / Add section\" → \"Add Article / Add Section\" (System > Help)\n- \"Build a report / New report / Save report / Show all 13\" → \"Build a Report / New Report / Save Report / Show All 13\" (Reports, Playground)\n\n### Actual result\n\"Upload images\" → \"Upload Images\" (Core > Region > City > Add City); \"Upload image\" → \"Upload Image\" (Core > Product > Addon > Add Addon); \"Select all\" → \"Select All\" (Core > Application > Status > Add Status); \"Save changes\" → \"Save Changes\" (System > Configurations)\n\n### Expected result\nButtons in Title Case (\"Add Currency\", \"Yes, Deactivate\"); the same label written the same way everywhere\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** scripts/reports/ui-text-audit.mjs  |  **Bug report ID:** BUG-146  |  previously Linear SAH-229"
+ },
+ {
+  "id": "BUG-147",
+  "summary": "BUG-147: Resource menu items are plural (\"Resource Types\", \"Assets\") while \"Personnel\" and all other menu items are singular",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Resource",
+  "label": "core-resource",
+  "labels": [
+   "automation",
+   "core-resource",
+   "inconsistency"
+  ],
+  "priority": "Low",
+  "status": "To Do",
+  "linear": "SAH-230",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/revalidation/BUG-147-resource-menu-plural.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Resource  |  **Screen:** Menu Core > Resource  |  **Type:** Inconsistency  |  **Severity:** Low\n\n### Steps to reproduce\n1. Open the menu Core > Resource\n\n### Actual result\n\"Resource Types\", \"Assets\"\n\n### Expected result\n\"Resource Type\", \"Asset\" (singular like every other menu item)\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-RES-ResourceType-01, TC-RES-Asset-01  |  **Bug report ID:** BUG-147  |  previously Linear SAH-230"
+ },
+ {
+  "id": "BUG-148",
+  "summary": "BUG-148: Asset accepts duplicate names - the same name, other letter case and spaces around are all saved",
+  "epic": "Core",
+  "epicKey": "KAN-6",
+  "component": "Core – Resource",
+  "label": "core-resource",
+  "labels": [
+   "automation",
+   "core-resource",
+   "bug"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-231",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/revalidation/BUG-148-asset-duplicates-saved.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Core > Resource  |  **Screen:** Assets > Add Asset  |  **Type:** Bug  |  **Severity:** High\n\n### Steps to reproduce\n1. Core > Resource > Assets > Add Asset \"QA Auto Asset X\"\n2. Add Asset again with the same name / \"QA AUTO ASSET X\" / \"   QA Auto Asset X   \"\n\n### Actual result\nAll three duplicates saved (201 Created)\n\n### Expected result\n\"Asset already exists\", nothing saved\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** TC-ASSET-04/05/06  |  **Bug report ID:** BUG-148  |  previously Linear SAH-231"
+ },
+ {
+  "id": "BUG-149",
+  "summary": "BUG-149: Deactivate fails silently - server answers 400 \"Duplicate value\", the screen shows no message and the switch stays ON",
+  "epic": "Cross-module",
+  "epicKey": "KAN-18",
+  "component": "Cross-module – Common List Screens",
+  "label": "cross-module-common-list-screens",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "bug"
+  ],
+  "priority": "High",
+  "status": "To Do",
+  "linear": "SAH-232",
+  "duplicateOf": null,
+  "screenshots": [
+   "screenshots/revalidation/BUG-149-deactivate-fails-silently.png"
+  ],
+  "fixScreenshots": [],
+  "description": "**Module:** Cross-module (common UI)  |  **Screen:** Deactivate switch (State, Product Class, Resource Type)  |  **Type:** Bug  |  **Severity:** High\n\n### Steps to reproduce\n1. Two records with the same name exist, one inactive\n2. Switch off the active one > Yes, deactivate\n\n### Actual result\nDELETE answers 400 DUPLICATE_KEY; no message, switch stays ON\n\n### Expected result\nRecord deactivated - or a clear error message\n\n**Environment:** STAGE https://erp.nexgenpilot.com (company \"sb\", Chrome)  |  **Automated test:** cleanup.spec.ts, TC-*-15  |  **Bug report ID:** BUG-149  |  previously Linear SAH-232"
+ }
+]

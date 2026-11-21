@@ -1,0 +1,1462 @@
+{
+ "BUG-01": {
+  "key": "KAN-19",
+  "url": "https://piloterp.atlassian.net/browse/KAN-19",
+  "epic": "KAN-4",
+  "label": "login-session",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-09": {
+  "key": "KAN-20",
+  "url": "https://piloterp.atlassian.net/browse/KAN-20",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-13": {
+  "key": "KAN-21",
+  "url": "https://piloterp.atlassian.net/browse/KAN-21",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "Reopened",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-02": {
+  "key": "KAN-22",
+  "url": "https://piloterp.atlassian.net/browse/KAN-22",
+  "epic": "KAN-4",
+  "label": "login-session",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-03": {
+  "key": "KAN-23",
+  "url": "https://piloterp.atlassian.net/browse/KAN-23",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-04": {
+  "key": "KAN-24",
+  "url": "https://piloterp.atlassian.net/browse/KAN-24",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-05": {
+  "key": "KAN-25",
+  "url": "https://piloterp.atlassian.net/browse/KAN-25",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-06": {
+  "key": "KAN-26",
+  "url": "https://piloterp.atlassian.net/browse/KAN-26",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "To Do",
+  "shots": 0,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-07": {
+  "key": "KAN-27",
+  "url": "https://piloterp.atlassian.net/browse/KAN-27",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-08": {
+  "key": "KAN-28",
+  "url": "https://piloterp.atlassian.net/browse/KAN-28",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-10": {
+  "key": "KAN-29",
+  "url": "https://piloterp.atlassian.net/browse/KAN-29",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-11": {
+  "key": "KAN-30",
+  "url": "https://piloterp.atlassian.net/browse/KAN-30",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-12": {
+  "key": "KAN-31",
+  "url": "https://piloterp.atlassian.net/browse/KAN-31",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-14": {
+  "key": "KAN-32",
+  "url": "https://piloterp.atlassian.net/browse/KAN-32",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-15": {
+  "key": "KAN-33",
+  "url": "https://piloterp.atlassian.net/browse/KAN-33",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-16": {
+  "key": "KAN-34",
+  "url": "https://piloterp.atlassian.net/browse/KAN-34",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-17": {
+  "key": "KAN-35",
+  "url": "https://piloterp.atlassian.net/browse/KAN-35",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "Reopened",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-18": {
+  "key": "KAN-36",
+  "url": "https://piloterp.atlassian.net/browse/KAN-36",
+  "epic": "KAN-6",
+  "label": "core-product",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-19": {
+  "key": "KAN-37",
+  "url": "https://piloterp.atlassian.net/browse/KAN-37",
+  "epic": "KAN-6",
+  "label": "core-product",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-20": {
+  "key": "KAN-38",
+  "url": "https://piloterp.atlassian.net/browse/KAN-38",
+  "epic": "KAN-6",
+  "label": "core-product",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-21": {
+  "key": "KAN-39",
+  "url": "https://piloterp.atlassian.net/browse/KAN-39",
+  "epic": "KAN-6",
+  "label": "core-product",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-22": {
+  "key": "KAN-40",
+  "url": "https://piloterp.atlassian.net/browse/KAN-40",
+  "epic": "KAN-6",
+  "label": "core-product",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-23": {
+  "key": "KAN-41",
+  "url": "https://piloterp.atlassian.net/browse/KAN-41",
+  "epic": "KAN-6",
+  "label": "core-product",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-24": {
+  "key": "KAN-42",
+  "url": "https://piloterp.atlassian.net/browse/KAN-42",
+  "epic": "KAN-6",
+  "label": "core-product",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-25": {
+  "key": "KAN-43",
+  "url": "https://piloterp.atlassian.net/browse/KAN-43",
+  "epic": "KAN-6",
+  "label": "core-product",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-26": {
+  "key": "KAN-44",
+  "url": "https://piloterp.atlassian.net/browse/KAN-44",
+  "epic": "KAN-6",
+  "label": "core-product",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-27": {
+  "key": "KAN-45",
+  "url": "https://piloterp.atlassian.net/browse/KAN-45",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-28": {
+  "key": "KAN-46",
+  "url": "https://piloterp.atlassian.net/browse/KAN-46",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do",
+  "shots": 0,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-29": {
+  "key": "KAN-47",
+  "url": "https://piloterp.atlassian.net/browse/KAN-47",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do",
+  "shots": 0,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-30": {
+  "key": "KAN-48",
+  "url": "https://piloterp.atlassian.net/browse/KAN-48",
+  "epic": "KAN-6",
+  "label": "core-organization",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-31": {
+  "key": "KAN-49",
+  "url": "https://piloterp.atlassian.net/browse/KAN-49",
+  "epic": "KAN-6",
+  "label": "core-application",
+  "status": "Complete",
+  "shots": 2,
+  "fixShots": 2,
+  "statusSet": true
+ },
+ "BUG-32": {
+  "key": "KAN-50",
+  "url": "https://piloterp.atlassian.net/browse/KAN-50",
+  "epic": "KAN-7",
+  "label": "accounts-configuration",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-33": {
+  "key": "KAN-51",
+  "url": "https://piloterp.atlassian.net/browse/KAN-51",
+  "epic": "KAN-7",
+  "label": "accounts-configuration",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-34": {
+  "key": "KAN-52",
+  "url": "https://piloterp.atlassian.net/browse/KAN-52",
+  "epic": "KAN-8",
+  "label": "system-users-and-access",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-35": {
+  "key": "KAN-53",
+  "url": "https://piloterp.atlassian.net/browse/KAN-53",
+  "epic": "KAN-8",
+  "label": "system-users-and-access",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-36": {
+  "key": "KAN-54",
+  "url": "https://piloterp.atlassian.net/browse/KAN-54",
+  "epic": "KAN-6",
+  "label": "core-application",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-37": {
+  "key": "KAN-55",
+  "url": "https://piloterp.atlassian.net/browse/KAN-55",
+  "epic": "KAN-6",
+  "label": "core-application",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-38": {
+  "key": "KAN-56",
+  "url": "https://piloterp.atlassian.net/browse/KAN-56",
+  "epic": "KAN-7",
+  "label": "accounts-configuration",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-39": {
+  "key": "KAN-57",
+  "url": "https://piloterp.atlassian.net/browse/KAN-57",
+  "epic": "KAN-7",
+  "label": "accounts-configuration",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-40": {
+  "key": "KAN-58",
+  "url": "https://piloterp.atlassian.net/browse/KAN-58",
+  "epic": "KAN-6",
+  "label": "core-resource",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-41": {
+  "key": "KAN-59",
+  "url": "https://piloterp.atlassian.net/browse/KAN-59",
+  "epic": "KAN-6",
+  "label": "core-resource",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-42": {
+  "key": "KAN-60",
+  "url": "https://piloterp.atlassian.net/browse/KAN-60",
+  "epic": "KAN-7",
+  "label": "accounts-configuration",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-43": {
+  "key": "KAN-61",
+  "url": "https://piloterp.atlassian.net/browse/KAN-61",
+  "epic": "KAN-9",
+  "label": "supplier-list-and-overview",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-44": {
+  "key": "KAN-62",
+  "url": "https://piloterp.atlassian.net/browse/KAN-62",
+  "epic": "KAN-9",
+  "label": "supplier-list-and-overview",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-45": {
+  "key": "KAN-63",
+  "url": "https://piloterp.atlassian.net/browse/KAN-63",
+  "epic": "KAN-9",
+  "label": "supplier-list-and-overview",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-46": {
+  "key": "KAN-64",
+  "url": "https://piloterp.atlassian.net/browse/KAN-64",
+  "epic": "KAN-9",
+  "label": "supplier-financials",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-47": {
+  "key": "KAN-65",
+  "url": "https://piloterp.atlassian.net/browse/KAN-65",
+  "epic": "KAN-9",
+  "label": "supplier-list-and-overview",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-48": {
+  "key": "KAN-66",
+  "url": "https://piloterp.atlassian.net/browse/KAN-66",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-49": {
+  "key": "KAN-67",
+  "url": "https://piloterp.atlassian.net/browse/KAN-67",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-50": {
+  "key": "KAN-68",
+  "url": "https://piloterp.atlassian.net/browse/KAN-68",
+  "epic": "KAN-11",
+  "label": "contracts-list",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-51": {
+  "key": "KAN-69",
+  "url": "https://piloterp.atlassian.net/browse/KAN-69",
+  "epic": "KAN-9",
+  "label": "supplier-list-and-overview",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-52": {
+  "key": "KAN-70",
+  "url": "https://piloterp.atlassian.net/browse/KAN-70",
+  "epic": "KAN-9",
+  "label": "supplier-contacts",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-53": {
+  "key": "KAN-71",
+  "url": "https://piloterp.atlassian.net/browse/KAN-71",
+  "epic": "KAN-9",
+  "label": "supplier-financials",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-54": {
+  "key": "KAN-72",
+  "url": "https://piloterp.atlassian.net/browse/KAN-72",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-55": {
+  "key": "KAN-73",
+  "url": "https://piloterp.atlassian.net/browse/KAN-73",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-56": {
+  "key": "KAN-74",
+  "url": "https://piloterp.atlassian.net/browse/KAN-74",
+  "epic": "KAN-9",
+  "label": "supplier-list-and-overview",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-57": {
+  "key": "KAN-75",
+  "url": "https://piloterp.atlassian.net/browse/KAN-75",
+  "epic": "KAN-9",
+  "label": "supplier-list-and-overview",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-58": {
+  "key": "KAN-76",
+  "url": "https://piloterp.atlassian.net/browse/KAN-76",
+  "epic": "KAN-9",
+  "label": "supplier-financials",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-59": {
+  "key": "KAN-77",
+  "url": "https://piloterp.atlassian.net/browse/KAN-77",
+  "epic": "KAN-9",
+  "label": "supplier-financials",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-60": {
+  "key": "KAN-78",
+  "url": "https://piloterp.atlassian.net/browse/KAN-78",
+  "epic": "KAN-9",
+  "label": "supplier-contacts",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-61": {
+  "key": "KAN-79",
+  "url": "https://piloterp.atlassian.net/browse/KAN-79",
+  "epic": "KAN-9",
+  "label": "supplier-list-and-overview",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-62": {
+  "key": "KAN-80",
+  "url": "https://piloterp.atlassian.net/browse/KAN-80",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-63": {
+  "key": "KAN-81",
+  "url": "https://piloterp.atlassian.net/browse/KAN-81",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-64": {
+  "key": "KAN-82",
+  "url": "https://piloterp.atlassian.net/browse/KAN-82",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-65": {
+  "key": "KAN-83",
+  "url": "https://piloterp.atlassian.net/browse/KAN-83",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-66": {
+  "key": "KAN-84",
+  "url": "https://piloterp.atlassian.net/browse/KAN-84",
+  "epic": "KAN-9",
+  "label": "supplier-excursions",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-67": {
+  "key": "KAN-85",
+  "url": "https://piloterp.atlassian.net/browse/KAN-85",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-68": {
+  "key": "KAN-86",
+  "url": "https://piloterp.atlassian.net/browse/KAN-86",
+  "epic": "KAN-9",
+  "label": "supplier-hotel-products",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-69": {
+  "key": "KAN-87",
+  "url": "https://piloterp.atlassian.net/browse/KAN-87",
+  "epic": "KAN-10",
+  "label": "agent-financials-and-credit",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-70": {
+  "key": "KAN-88",
+  "url": "https://piloterp.atlassian.net/browse/KAN-88",
+  "epic": "KAN-10",
+  "label": "agent-list-and-overview",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-71": {
+  "key": "KAN-89",
+  "url": "https://piloterp.atlassian.net/browse/KAN-89",
+  "epic": "KAN-10",
+  "label": "agent-list-and-overview",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-72": {
+  "key": "KAN-90",
+  "url": "https://piloterp.atlassian.net/browse/KAN-90",
+  "epic": "KAN-10",
+  "label": "agent-list-and-overview",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-73": {
+  "key": "KAN-91",
+  "url": "https://piloterp.atlassian.net/browse/KAN-91",
+  "epic": "KAN-10",
+  "label": "agent-list-and-overview",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-74": {
+  "key": "KAN-92",
+  "url": "https://piloterp.atlassian.net/browse/KAN-92",
+  "epic": "KAN-10",
+  "label": "agent-list-and-overview",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-75": {
+  "key": "KAN-93",
+  "url": "https://piloterp.atlassian.net/browse/KAN-93",
+  "epic": "KAN-10",
+  "label": "agent-financials-and-credit",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-76": {
+  "key": "KAN-94",
+  "url": "https://piloterp.atlassian.net/browse/KAN-94",
+  "epic": "KAN-10",
+  "label": "agent-financials-and-credit",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-77": {
+  "key": "KAN-95",
+  "url": "https://piloterp.atlassian.net/browse/KAN-95",
+  "epic": "KAN-10",
+  "label": "agent-list-and-overview",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-78": {
+  "key": "KAN-96",
+  "url": "https://piloterp.atlassian.net/browse/KAN-96",
+  "epic": "KAN-9",
+  "label": "supplier-list-and-overview",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-79": {
+  "key": "KAN-97",
+  "url": "https://piloterp.atlassian.net/browse/KAN-97",
+  "epic": "KAN-9",
+  "label": "supplier-list-and-overview",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 1,
+  "statusSet": true
+ },
+ "BUG-80": {
+  "key": "KAN-98",
+  "url": "https://piloterp.atlassian.net/browse/KAN-98",
+  "epic": "KAN-9",
+  "label": "supplier-list-and-overview",
+  "status": "Reopened",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-81": {
+  "key": "KAN-99",
+  "url": "https://piloterp.atlassian.net/browse/KAN-99",
+  "epic": "KAN-9",
+  "label": "supplier-list-and-overview",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-82": {
+  "key": "KAN-100",
+  "url": "https://piloterp.atlassian.net/browse/KAN-100",
+  "epic": "KAN-12",
+  "label": "package-builder",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-83": {
+  "key": "KAN-101",
+  "url": "https://piloterp.atlassian.net/browse/KAN-101",
+  "epic": "KAN-15",
+  "label": "crm-enquiries",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-84": {
+  "key": "KAN-102",
+  "url": "https://piloterp.atlassian.net/browse/KAN-102",
+  "epic": "KAN-11",
+  "label": "contracts-list",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-85": {
+  "key": "KAN-103",
+  "url": "https://piloterp.atlassian.net/browse/KAN-103",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-86": {
+  "key": "KAN-104",
+  "url": "https://piloterp.atlassian.net/browse/KAN-104",
+  "epic": "KAN-5",
+  "label": "company-profile",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-87": {
+  "key": "KAN-105",
+  "url": "https://piloterp.atlassian.net/browse/KAN-105",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-88": {
+  "key": "KAN-106",
+  "url": "https://piloterp.atlassian.net/browse/KAN-106",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-89": {
+  "key": "KAN-107",
+  "url": "https://piloterp.atlassian.net/browse/KAN-107",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-90": {
+  "key": "KAN-108",
+  "url": "https://piloterp.atlassian.net/browse/KAN-108",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-91": {
+  "key": "KAN-109",
+  "url": "https://piloterp.atlassian.net/browse/KAN-109",
+  "epic": "KAN-9",
+  "label": "supplier-hotel-products",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-92": {
+  "key": "KAN-110",
+  "url": "https://piloterp.atlassian.net/browse/KAN-110",
+  "epic": "KAN-10",
+  "label": "agent-financials-and-credit",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-93": {
+  "key": "KAN-111",
+  "url": "https://piloterp.atlassian.net/browse/KAN-111",
+  "epic": "KAN-17",
+  "label": "portal-cms-storefront-and-content",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-94": {
+  "key": "KAN-112",
+  "url": "https://piloterp.atlassian.net/browse/KAN-112",
+  "epic": "KAN-17",
+  "label": "portal-cms-emails-and-documents",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-95": {
+  "key": "KAN-113",
+  "url": "https://piloterp.atlassian.net/browse/KAN-113",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-96": {
+  "key": "KAN-114",
+  "url": "https://piloterp.atlassian.net/browse/KAN-114",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "Reopened",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-97": {
+  "key": "KAN-115",
+  "url": "https://piloterp.atlassian.net/browse/KAN-115",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "Reopened",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-98": {
+  "key": "KAN-116",
+  "url": "https://piloterp.atlassian.net/browse/KAN-116",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "Reopened",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-99": {
+  "key": "KAN-117",
+  "url": "https://piloterp.atlassian.net/browse/KAN-117",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "Reopened",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-101": {
+  "key": "KAN-118",
+  "url": "https://piloterp.atlassian.net/browse/KAN-118",
+  "epic": "KAN-11",
+  "label": "contracts-list",
+  "status": "Complete",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-102": {
+  "key": "KAN-119",
+  "url": "https://piloterp.atlassian.net/browse/KAN-119",
+  "epic": "KAN-11",
+  "label": "contracts-list",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-104": {
+  "key": "KAN-120",
+  "url": "https://piloterp.atlassian.net/browse/KAN-120",
+  "epic": "KAN-12",
+  "label": "package-builder",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-105": {
+  "key": "KAN-121",
+  "url": "https://piloterp.atlassian.net/browse/KAN-121",
+  "epic": "KAN-12",
+  "label": "package-builder",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-106": {
+  "key": "KAN-122",
+  "url": "https://piloterp.atlassian.net/browse/KAN-122",
+  "epic": "KAN-12",
+  "label": "package-builder",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-107": {
+  "key": "KAN-123",
+  "url": "https://piloterp.atlassian.net/browse/KAN-123",
+  "epic": "KAN-14",
+  "label": "reservation-booking",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-108": {
+  "key": "KAN-124",
+  "url": "https://piloterp.atlassian.net/browse/KAN-124",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-109": {
+  "key": "KAN-125",
+  "url": "https://piloterp.atlassian.net/browse/KAN-125",
+  "epic": "KAN-14",
+  "label": "reservation-booking",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-110": {
+  "key": "KAN-126",
+  "url": "https://piloterp.atlassian.net/browse/KAN-126",
+  "epic": "KAN-15",
+  "label": "crm-enquiries",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-111": {
+  "key": "KAN-127",
+  "url": "https://piloterp.atlassian.net/browse/KAN-127",
+  "epic": "KAN-16",
+  "label": "insights-dashboard",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-112": {
+  "key": "KAN-128",
+  "url": "https://piloterp.atlassian.net/browse/KAN-128",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "Reopened",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-113": {
+  "key": "KAN-129",
+  "url": "https://piloterp.atlassian.net/browse/KAN-129",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-114": {
+  "key": "KAN-130",
+  "url": "https://piloterp.atlassian.net/browse/KAN-130",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "Reopened",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-115": {
+  "key": "KAN-131",
+  "url": "https://piloterp.atlassian.net/browse/KAN-131",
+  "epic": "KAN-6",
+  "label": "core-application",
+  "status": "Reopened",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-116": {
+  "key": "KAN-132",
+  "url": "https://piloterp.atlassian.net/browse/KAN-132",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-117": {
+  "key": "KAN-133",
+  "url": "https://piloterp.atlassian.net/browse/KAN-133",
+  "epic": "KAN-6",
+  "label": "core-resource",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-118": {
+  "key": "KAN-134",
+  "url": "https://piloterp.atlassian.net/browse/KAN-134",
+  "epic": "KAN-7",
+  "label": "accounts-configuration",
+  "status": "To Do",
+  "shots": 0,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-119": {
+  "key": "KAN-135",
+  "url": "https://piloterp.atlassian.net/browse/KAN-135",
+  "epic": "KAN-6",
+  "label": "core-organization",
+  "status": "To Do",
+  "shots": 0,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-120": {
+  "key": "KAN-136",
+  "url": "https://piloterp.atlassian.net/browse/KAN-136",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "To Do",
+  "shots": 0,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-121": {
+  "key": "KAN-137",
+  "url": "https://piloterp.atlassian.net/browse/KAN-137",
+  "epic": "KAN-7",
+  "label": "accounts-journals",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-122": {
+  "key": "KAN-138",
+  "url": "https://piloterp.atlassian.net/browse/KAN-138",
+  "epic": "KAN-7",
+  "label": "accounts-invoices",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-123": {
+  "key": "KAN-139",
+  "url": "https://piloterp.atlassian.net/browse/KAN-139",
+  "epic": "KAN-7",
+  "label": "accounts-periods-and-bank",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-124": {
+  "key": "KAN-140",
+  "url": "https://piloterp.atlassian.net/browse/KAN-140",
+  "epic": "KAN-8",
+  "label": "system-users-and-access",
+  "status": "To Do",
+  "shots": 0,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-125": {
+  "key": "KAN-141",
+  "url": "https://piloterp.atlassian.net/browse/KAN-141",
+  "epic": "KAN-6",
+  "label": "core-resource",
+  "status": "To Do",
+  "shots": 0,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-126": {
+  "key": "KAN-142",
+  "url": "https://piloterp.atlassian.net/browse/KAN-142",
+  "epic": "KAN-6",
+  "label": "core-application",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-127": {
+  "key": "KAN-143",
+  "url": "https://piloterp.atlassian.net/browse/KAN-143",
+  "epic": "KAN-7",
+  "label": "accounts-configuration",
+  "status": "To Do",
+  "shots": 0,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-128": {
+  "key": "KAN-144",
+  "url": "https://piloterp.atlassian.net/browse/KAN-144",
+  "epic": "KAN-8",
+  "label": "system-settings",
+  "status": "To Do",
+  "shots": 0,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-129": {
+  "key": "KAN-145",
+  "url": "https://piloterp.atlassian.net/browse/KAN-145",
+  "epic": "KAN-6",
+  "label": "core-region",
+  "status": "To Do",
+  "shots": 0,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-130": {
+  "key": "KAN-146",
+  "url": "https://piloterp.atlassian.net/browse/KAN-146",
+  "epic": "KAN-14",
+  "label": "reservation-booking",
+  "status": "To Do",
+  "shots": 2,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-131": {
+  "key": "KAN-147",
+  "url": "https://piloterp.atlassian.net/browse/KAN-147",
+  "epic": "KAN-14",
+  "label": "reservation-money-and-cancellation",
+  "status": "To Do",
+  "shots": 2,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-132": {
+  "key": "KAN-148",
+  "url": "https://piloterp.atlassian.net/browse/KAN-148",
+  "epic": "KAN-14",
+  "label": "reservation-product-search",
+  "status": "Reopened",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-134": {
+  "key": "KAN-149",
+  "url": "https://piloterp.atlassian.net/browse/KAN-149",
+  "epic": "KAN-9",
+  "label": "supplier-contracts-and-rates",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-135": {
+  "key": "KAN-150",
+  "url": "https://piloterp.atlassian.net/browse/KAN-150",
+  "epic": "KAN-18",
+  "label": "cross-module-ui-text",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-136": {
+  "key": "KAN-151",
+  "url": "https://piloterp.atlassian.net/browse/KAN-151",
+  "epic": "KAN-18",
+  "label": "cross-module-ui-text",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-137": {
+  "key": "KAN-152",
+  "url": "https://piloterp.atlassian.net/browse/KAN-152",
+  "epic": "KAN-18",
+  "label": "cross-module-ui-text",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-138": {
+  "key": "KAN-153",
+  "url": "https://piloterp.atlassian.net/browse/KAN-153",
+  "epic": "KAN-9",
+  "label": "supplier-financials",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-139": {
+  "key": "KAN-154",
+  "url": "https://piloterp.atlassian.net/browse/KAN-154",
+  "epic": "KAN-9",
+  "label": "supplier-list-and-overview",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-140": {
+  "key": "KAN-155",
+  "url": "https://piloterp.atlassian.net/browse/KAN-155",
+  "epic": "KAN-10",
+  "label": "agent-list-and-overview",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-141": {
+  "key": "KAN-156",
+  "url": "https://piloterp.atlassian.net/browse/KAN-156",
+  "epic": "KAN-16",
+  "label": "insights-dashboard",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-142": {
+  "key": "KAN-157",
+  "url": "https://piloterp.atlassian.net/browse/KAN-157",
+  "epic": "KAN-14",
+  "label": "reservation-booking",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-143": {
+  "key": "KAN-158",
+  "url": "https://piloterp.atlassian.net/browse/KAN-158",
+  "epic": "KAN-15",
+  "label": "crm-enquiries",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-144": {
+  "key": "KAN-159",
+  "url": "https://piloterp.atlassian.net/browse/KAN-159",
+  "epic": "KAN-17",
+  "label": "portal-cms-storefront-and-content",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-145": {
+  "key": "KAN-160",
+  "url": "https://piloterp.atlassian.net/browse/KAN-160",
+  "epic": "KAN-7",
+  "label": "accounts-journals",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-146": {
+  "key": "KAN-161",
+  "url": "https://piloterp.atlassian.net/browse/KAN-161",
+  "epic": "KAN-18",
+  "label": "cross-module-ui-text",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-147": {
+  "key": "KAN-162",
+  "url": "https://piloterp.atlassian.net/browse/KAN-162",
+  "epic": "KAN-6",
+  "label": "core-resource",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-148": {
+  "key": "KAN-163",
+  "url": "https://piloterp.atlassian.net/browse/KAN-163",
+  "epic": "KAN-6",
+  "label": "core-resource",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ },
+ "BUG-149": {
+  "key": "KAN-164",
+  "url": "https://piloterp.atlassian.net/browse/KAN-164",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do",
+  "shots": 1,
+  "fixShots": 0,
+  "statusSet": true
+ }
+}

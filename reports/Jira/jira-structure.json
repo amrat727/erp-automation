@@ -1,0 +1,28 @@
+{
+ "site": "https://piloterp.atlassian.net",
+ "cloudId": "2cb422ab-25f7-4d1d-b9ff-1900688a797f",
+ "project": { "key": "KAN", "name": "Pilot-ERP", "type": "team-managed software" },
+ "decided": "2026-11-21: one project; module = Epic, sub-module = Component; summary keeps our BUG-nnn id; priority = severity",
+ "workflow": {
+  "statuses": ["Idea", "To Do", "In Development", "In Testing", "Complete", "Reopened (to add)"],
+  "meaning": { "To Do": "new bug", "In Development": "developer working", "In Testing": "fixed, ready for QA revalidation", "Complete": "verified fixed (comment + fix screenshot)", "Reopened": "revalidation failed - back to developer with proof" }
+ },
+ "labels": { "always": ["automation"], "build": "stage-21nov (etc.)", "kind": ["ui-text", "validation", "data-flow", "business-rule", "e2e"], "epics": ["module"] },
+ "epics": {
+  "Login & Access": { "key": "KAN-4", "components": ["Login – Session"] },
+  "Company": { "key": "KAN-5", "components": ["Company – Profile"] },
+  "Core": { "key": "KAN-6", "components": ["Core – Application", "Core – Region", "Core – Product", "Core – Resource", "Core – Organization"] },
+  "Accounts": { "key": "KAN-7", "components": ["Accounts – Configuration", "Accounts – Journals", "Accounts – Invoices", "Accounts – Periods & Bank"] },
+  "System": { "key": "KAN-8", "components": ["System – Users & Access", "System – Settings", "System – Help"] },
+  "Supplier": { "key": "KAN-9", "components": ["Supplier – List & Overview", "Supplier – Contacts", "Supplier – Financials", "Supplier – Hotel Products", "Supplier – Contracts & Rates", "Supplier – Excursions"] },
+  "Agent (B2B)": { "key": "KAN-10", "components": ["Agent – List & Overview", "Agent – Financials & Credit", "Agent – Product Access", "Agent – B2B Portal"] },
+  "Contracts": { "key": "KAN-11", "components": ["Contracts – List"] },
+  "Package": { "key": "KAN-12", "components": ["Package – Builder", "Package – Publishing"] },
+  "Quotes": { "key": "KAN-13", "components": ["Quotes – List & Detail"] },
+  "Reservation": { "key": "KAN-14", "components": ["Reservation – Product Search", "Reservation – Booking", "Reservation – Money & Cancellation"] },
+  "CRM": { "key": "KAN-15", "components": ["CRM – Enquiries", "CRM – Amendment Requests", "CRM – Feedback"] },
+  "Insights": { "key": "KAN-16", "components": ["Insights – Dashboard", "Insights – Reports", "Insights – Playground"] },
+  "Portal CMS": { "key": "KAN-17", "components": ["Portal CMS – Storefront & Content", "Portal CMS – Emails & Documents", "Portal CMS – Checkout"] },
+  "Cross-module": { "key": "KAN-18", "components": ["Cross-module – UI Text", "Cross-module – Common List Screens"] }
+ }
+}
