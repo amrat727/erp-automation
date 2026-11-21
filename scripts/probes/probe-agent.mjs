@@ -1,0 +1,28 @@
+// Helper (not a test): READ-ONLY first look at the Agent module (all saves blocked).  Run: node scripts/probes/probe-agent.mjs <outDir>
+import { chromium } from '@playwright/test';
+import fs from 'fs';
+const DIR = process.argv[2] ?? 'agent-probe';
+fs.mkdirSync(DIR, { recursive: true });
+const session = fs.readFileSync('playwright/.auth/session.json', 'utf-8');
+const browser = await chromium.launch();
+const ctx = await browser.newContext({ baseURL: process.env.BASE_URL ?? 'https://erp.nexgenpilot.com', viewport: { width: 1500, height: 950 } });
+await ctx.addInitScript(d => { if (!sessionStorage.getItem('token')) for (const [k, v] of Object.entries(JSON.parse(d))) sessionStorage.setItem(k, v); }, session);
+const sent = [];
+await ctx.route('**/pilottest.runasp.net/**', r => { const m = r.request().method(); if (['POST','PUT','DELETE','PATCH'].includes(m) && !r.request().url().includes('negotiate')) { sent.push(`${m} ${r.request().url()}`); return r.abort(); } return r.continue(); });
+const page = await ctx.newPage();
+await page.goto('/dashboard');
+const nav = page.locator('nav, aside').first();
+await nav.getByRole('button', { name: 'Agent', exact: true }).first().click({ timeout: 90_000 });
+await page.waitForTimeout(6000);
+console.log('URL:', page.url());
+console.log('HEADINGS:', JSON.stringify(await page.getByRole('heading').allInnerTexts()));
+console.log('NAV BUTTONS:', JSON.stringify((await nav.getByRole('button').allInnerTexts()).map(s => s.trim()).filter(Boolean)));
+console.log('NAV LINKS:', JSON.stringify(await nav.getByRole('link').evaluateAll(a => a.map(x => x.innerText.trim() + ' -> ' + x.getAttribute('href')))));
+console.log('MAIN BUTTONS:', JSON.stringify((await page.locator('main').getByRole('button').allInnerTexts()).map(s => s.replace(/\s+/g, ' ').trim()).filter(Boolean)));
+console.log('HEADERS:', JSON.stringify(await page.getByRole('columnheader').allInnerTexts()));
+console.log('TABS:', JSON.stringify(await page.getByRole('tab').allInnerTexts()));
+console.log('INPUTS:', JSON.stringify(await page.locator('main input:visible, main textarea:visible').evaluateAll(e => e.map(x => [x.type, x.placeholder, x.getAttribute('role')].join('|')))));
+console.log('ROWS:', JSON.stringify((await page.locator('main tbody tr:visible').allInnerTexts()).slice(0, 6).map(s => s.replace(/\s+/g, ' ').slice(0, 150))));
+console.log('TEXT:', (await page.locator('main').innerText()).replace(/\s+/g, ' ').slice(0, 800));
+await page.screenshot({ path: `${DIR}/agent-first-look.png`, fullPage: true });
+await browser.close();

@@ -1,0 +1,21 @@
+// Helper (not a test): READ-ONLY evidence for BUG-130 - choosing "Cancelled" sends the status change at once (no confirmation). Save BLOCKED.
+import { open } from '../lib/probe-lib.mjs';
+const log = [];
+const { browser, page } = await open({ log });
+const id = process.argv[2] || '4';
+await page.goto(`/reservations/${id}`);
+await page.getByRole('tab', { name: /^Itinerary/ }).first().click({ timeout: 90000 });
+await page.waitForTimeout(3000);
+await page.locator('main').getByRole('button', { name: 'Change status' }).click();
+const item = page.getByRole('menuitem', { name: 'Cancelled', exact: true });
+await item.hover();
+await item.evaluate(e => { e.style.outline = '3px solid red'; });
+await page.screenshot({ path: 'screenshots/bugs/BUG-130-1-status-menu.png' });
+await item.click();
+await page.waitForTimeout(1500);
+const status = page.locator('main').getByRole('button', { name: 'Change status' });
+await status.evaluate(e => { e.style.outline = '3px solid red'; });
+await page.screenshot({ path: 'screenshots/bugs/BUG-130-2-no-confirmation.png' });
+console.log('dialogs visible:', await page.locator('.MuiDialog-paper:visible').count());
+console.log(log.join('\n'));
+await browser.close();

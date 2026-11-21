@@ -13,7 +13,7 @@ then you run them yourself and do a small exercise.
 | 6 | One screen, many tests | `pages/MasterListPage.ts`, `tests/core/country.spec.ts` | Tables, dialogs, filters, search |
 | 7 | Data-driven tests | `tests/core/*.config.ts`, `master-ui.ts`, `master-crud.ts` | One test written once, run on 17 screens; `test.fail` for known bugs |
 | 8 | Debugging | (any failing test) | UI mode, trace viewer, headed + slow motion, codegen |
-| 9 | Reporting | `scripts/bug-report.js` | Turning results into an Excel bug report |
+| 9 | Reporting | `scripts/reports/bug-report.js` | Turning results into an Excel bug report |
 | 10 | Your turn | a new module | Automate a screen yourself with Claude reviewing |
 
 Ask Claude: **"next lesson"** whenever you are ready.
