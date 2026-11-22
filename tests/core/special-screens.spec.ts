@@ -1,5 +1,5 @@
 import { test, expect } from '../../fixtures';
-import { Page } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 import { blockWrites } from '../../pages/MasterListPage';
 import { openPage, dialogTitled } from '../../pages/FormHelpers';
 
@@ -10,7 +10,7 @@ import { openPage, dialogTitled } from '../../pages/FormHelpers';
  *   Resource    > Resource Mapping
  *   Product     > Excursion Setup
  *   Accounts    > Exchange Rate, Tax Detail
- *   System      > Restriction Groups
+ *   (System > Restriction Groups moved to tests/system/restriction-groups.spec.ts)
  */
 let blocked: string[];
 test.beforeEach(async ({ page }) => { blocked = await blockWrites(page); });
@@ -25,21 +25,28 @@ test.describe('Feedback Questions', () => {
     return dlg;
   };
 
+  // the dropdown that follows a field label ("Answer*", "Asks about*")
+  const combo = (dlg: Locator, label: string) => dlg.getByText(new RegExp('^' + label + '\\s*\\*?$')).first().locator('xpath=following::*[@role="combobox"][1]');
+
   test('TC-FBQ-01: Page explains the questionnaire and shows Questions / Groups counters', async ({ page }) => {
     await openPage(page, '/feedback-questions', 'Feedback Questions');
-    await expect(page.getByText(/trip feedback questionnaire/)).toBeVisible();
+    // stage 22 Nov 2026: the explanation moved behind the (i) next to the title; the empty list explains instead
+    await expect(page.getByText(/No questions yet|feedback forms ask/).first().or(page.getByRole('row').nth(1))).toBeVisible();
     // v1.0.2: the counters are tabs "Questions 0" / "Groups 0"
     await expect(page.getByRole('tab', { name: /^Questions \d+$/ })).toBeVisible();
     await expect(page.getByRole('tab', { name: /^Groups \d+$/ })).toBeVisible();
     for (const col of ['Group', 'Order', 'Question', 'Asks about', 'Answer', 'Languages', 'Answers', 'Active'])
-      await expect(page.getByRole('columnheader', { name: col, exact: true })).toBeVisible();   // exact: "Answer" vs "Answers"
+      await expect(page.locator('thead')).toContainText(col);   // stage 22 Nov 2026: header cells also hold filter / sort controls
   });
 
   test('TC-FBQ-02: Question form offers 4 answer types and 2 "asks about" choices', async ({ page }) => {
     const dlg = await openAdd(page);
-    for (const b of ['Rating (1–5)', 'Yes / no', 'Text', 'Choice', 'Whole trip', 'Each service of a kind'])
-      await expect(dlg.getByRole('button', { name: b })).toBeVisible();
-    await expect(dlg.getByText('Asked once per questionnaire.')).toBeVisible();     // help text for "Whole trip"
+    // stage 22 Nov 2026: "Answer" and "Asks about" are dropdowns (were button groups)
+    await combo(dlg, 'Answer').click();
+    await expect(page.getByRole('option')).toHaveText(['Rating (1–5)', 'Yes / no', 'Text', 'Choice']);
+    await page.keyboard.press('Escape');
+    await combo(dlg, 'Asks about').click();
+    await expect(page.getByRole('option')).toHaveText(['Whole trip', 'Each service of a kind']);
   });
 
   test('TC-FBQ-03: Saving without the English question is blocked with a clear reason', async ({ page }) => {
@@ -52,7 +59,9 @@ test.describe('Feedback Questions', () => {
   test('TC-FBQ-04: Missing translation (Hindi) is flagged and falls back to English', async ({ page }) => {
     const dlg = await openAdd(page);
     await expect(dlg.getByText('missing')).toBeVisible();
-    await expect(dlg.getByText('No Hindi wording yet — the form shows English in that language.')).toBeVisible();
+    // stage 22 Nov 2026: the Hindi tab is marked "missing" and its question is optional (English is the fallback)
+    await dlg.getByText('Hindi', { exact: true }).first().click();
+    await expect(dlg.getByText('Question in Hindi (optional)')).toBeVisible();
   });
 
   test('TC-FBQ-05: English question limited to 500 characters', async ({ page }) => {
@@ -65,7 +74,9 @@ test.describe('Feedback Questions', () => {
   test('TC-FBQ-06: "Choice" answer type asks for the choices', async ({ page }) => {
     const dlg = await openAdd(page);
     const before = await dlg.locator('input, textarea').count();
-    await dlg.getByRole('button', { name: 'Choice' }).click();
+    await combo(dlg, 'Answer').click();
+    await page.getByRole('option', { name: 'Choice' }).click();
+    await expect(dlg.getByText(/^Options\s*\*?$/).first()).toBeVisible();   // required "Options*" field appears
     await expect(async () => expect(await dlg.locator('input, textarea').count()).toBeGreaterThan(before)).toPass({ timeout: 5_000 });
   });
 });
@@ -119,7 +130,7 @@ test.describe('Flex lists', () => {
   });
 
   test('TC-FLEX-15: Unknown Flex number (/flex/11) does not show a broken page', async ({ page }) => {
-    test.fail(true, 'BUG-126: /flex/11 opens a working "Flex 11" list although the menu has only Flex 1-10');
+    // BUG-126 fixed 22 Nov 2026
     await page.goto('/flex/11');
     await page.waitForTimeout(8000);
     const heading = page.getByRole('heading', { name: 'Flex 11' });
@@ -174,7 +185,7 @@ test.describe('Resource Mapping', () => {
   });
 
   test('TC-RMAP-05: The SAME pairing that already exists cannot be added twice', async ({ page }) => {
-    test.fail(true, 'BUG-125: the same Personnel -> Asset pairing that is already listed is sent again (no "already exists" check in the form)');
+    // BUG-125 fixed 22 Nov 2026
     const dlg = await openAdd(page);
     await dlg.getByRole('combobox').nth(0).click();
     await page.getByRole('option', { name: /Amrat Choudhary/ }).click();
@@ -322,46 +333,5 @@ test.describe('Tax Detail', () => {
     await dlg.getByRole('button', { name: 'Save' }).click();
     await page.waitForTimeout(1500);
     expect(blocked, 'a range 1000 -> 10 was sent to the server').toEqual([]);
-  });
-});
-
-// ======================= RESTRICTION GROUPS =======================
-test.describe('Restriction Groups', () => {
-  test('TC-RG-01: Opens from Core > System > Restriction Group; list has Name, Modules, Active @smoke', async ({ page }) => {
-    await page.goto('/dashboard');
-    for (const b of ['Core', 'System', 'Restriction Group']) await page.getByRole('button', { name: b, exact: true }).click({ timeout: 60_000 });
-    await expect(page).toHaveURL(/\/restrictions$/);
-    for (const col of ['Name', 'Modules', 'Active'])
-      await expect(page.getByRole('columnheader', { name: new RegExp(`^${col}`) })).toBeVisible({ timeout: 60_000 });
-  });
-
-  test('TC-RG-02: Has an "Audit history" button like other screens (access rights must be traceable)', async ({ page }) => {
-    // BUG-35 fixed 21 Nov 2026: Audit history is there
-    await openPage(page, '/restrictions', 'Restriction Groups');
-    await expect(page.getByRole('button', { name: 'Audit history' })).toBeVisible({ timeout: 5_000 });
-  });
-
-  test('TC-RG-03: Add Group: empty Name shows "Name is required", nothing is sent', async ({ page }) => {
-    await openPage(page, '/restrictions', 'Restriction Groups');
-    await page.getByRole('button', { name: 'Add Group' }).click();
-    const dlg = dialogTitled(page, 'Add Restriction Group');
-    await dlg.getByRole('button', { name: 'Create & Continue' }).click();
-    await expect(dlg.getByText('Name is required')).toBeVisible();
-    expect(blocked).toEqual([]);
-  });
-
-  test('TC-RG-04: Users still need a Restriction Group although the list is EMPTY', async ({ page }) => {
-    await openPage(page, '/restrictions', 'Restriction Groups');
-    const empty = await page.getByText('There are no records in Restriction Group').isVisible();
-    test.skip(!empty, 'groups exist');
-    // business rule check: "Restriction Group*" is REQUIRED on Add User -> with no groups no user can be created
-    await page.goto('/users');
-    await page.getByRole('button', { name: 'Add User' }).click({ timeout: 60_000 });
-    const dlg = dialogTitled(page, 'Add User');
-    await dlg.getByText(/^Restriction Group\s*\*$/).locator('xpath=following::input[1]').click();
-    await page.waitForTimeout(2000);
-    const options = await page.getByRole('option').allInnerTexts();
-    test.info().annotations.push({ type: 'groups offered on Add User', description: options.join(', ') || '(none)' });
-    expect(options.filter(o => !/no options/i.test(o)).length, 'Add User requires a Restriction Group but none can be picked').toBeGreaterThan(0);
   });
 });

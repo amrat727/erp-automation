@@ -12,39 +12,11 @@ export const STRIPS = 'BUG-113: since v1.0.2 the Name field silently removes dig
 const EMPTY = (shown: string) => `BUG-114: empty search says "There are no records in ${shown}" - internal / wrong screen name`;
 
 export const V102: Record<string, NonNullable<Screen['differs']>> = {
-  // Region
-  'State': { nameMax: NAME_100 },
-  'City': { nameMax: NAME_100 },
-  'Market': { nameMax: NAME_100 },
-  'Desk Location': { nameMax: NAME_100 },
-  'Province': { nameMax: NAME_100 },
-  // Resource
-  'Resource Type': { nameMax: NAME_NO_LIMIT },
-  'Personnel': { nameMax: NAME_NO_LIMIT, emptyMessage: EMPTY('Resource') },
-  'Asset': { nameMax: NAME_NO_LIMIT, emptyMessage: EMPTY('Resource') },
+  // 22 Nov 2026 build: FIXED - every Name now stops at 150 (BUG-112), Currency edit is back (BUG-115),
+  // empty-search message fixed on Role, Theme, Personnel, Asset (BUG-114; Account still wrong)
   // Accounts > Configuration
-  'Account': { nameMax: NAME_100, emptyMessage: EMPTY('Chart Of Accounts') },
-  'Account Group': { nameMax: NAME_NO_LIMIT },
-  // 'Tax': fixed 21 Nov 2026 - Name takes 150 characters (BUG-33)
-  'Exchange Type': { nameMax: NAME_100, stripsDigits: STRIPS },
-  // Application
-  'Currency': { noEdit: 'BUG-115: since v1.0.2 clicking a Currency row opens nothing (no "Edit Currency" - Symbol can no longer be changed)' },
-  'Role': { nameMax: NAME_100, emptyMessage: EMPTY('Contact Type') },
-  'Language': { nameMax: NAME_NO_LIMIT },
-  'Theme': { emptyMessage: EMPTY('Property Theme') },
-  'Status': { nameMax: NAME_100 },
-  // Organization
-  'Branch': { nameMax: NAME_100 },
-  'Department': { nameMax: NAME_100 },
-  // Product
-  'Product Type': { nameMax: NAME_100 },
-  'Product Class': { nameMax: NAME_100 },
-  'Room Type': { nameMax: NAME_NO_LIMIT },
-  'View Type': { nameMax: NAME_100 },
-  'Room Category': { nameMax: NAME_100 },
-  'Supplement': { nameMax: NAME_100 },
-  'Allotment': { nameMax: NAME_100 },
-  'Addon': { nameMax: NAME_100 },
+  'Account': { emptyMessage: EMPTY('Chart Of Accounts') },
+  'Exchange Type': { stripsDigits: STRIPS },
 };
 
 /** data-flow steps (master-crud.ts) that v1.0.2 broke: entity -> step -> reason */
@@ -56,16 +28,11 @@ const PROVINCE_DUP = 'BUG-120: since v1.0.2 Province and City accept DUPLICATE n
 const TAX_400 = 'BUG-118: since v1.0.2 Add Tax with only Name fails - 400 "appliedId could not be converted", banner "Request failed"; no Tax can be created';
 const ASSET_DUP = 'BUG-148: stage 21 Nov 2026 - Asset saves DUPLICATE names (same name, other letter case, spaces around) with 201';
 export const V102_FLOW: Record<string, Record<number, string>> = {
-  // 'State': fixed 21 Nov 2026 - duplicates blocked in the browser, trimmed, & ( ) kept
-  'Market': { 6: DUP_SPACES },
-  'City': { 4: PROVINCE_DUP, 5: PROVINCE_DUP, 6: PROVINCE_DUP, 9: PROVINCE_DUP, 12: CITY_OFFERED },
-  'Province': { 4: PROVINCE_DUP, 5: PROVINCE_DUP, 6: PROVINCE_DUP, 9: PROVINCE_DUP },
-  'Resource Type': { 6: DUP_SPACES },
-  'Asset': Object.fromEntries([4, 5, 6].map(n => [n, ASSET_DUP])),
-  'Branch': { 1: CREATED('Branch') },
-  'Department': { 1: CREATED('Department') },
+  // fixed 22 Nov 2026: duplicates with spaces (Market, Resource Type), Province / City duplicates (BUG-120),
+  // deactivated City in Landmark dropdown (BUG-129), Asset duplicates (BUG-148), "<X> created successfully" (BUG-119)
   'Tax': Object.fromEntries([1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 13, 14].map(n => [n, TAX_400])),
   'Exchange Type': { 8: SPECIALS },
+  'Status': { 14: 'BUG-150 (KAN-165): stage 22 Nov 2026 - Status audit history shows "0 changes" although records were created / edited / deactivated' },
 };
 
 /** the screen with the v1.0.2 known regressions added (the screen's own "differs" win) */

@@ -2,7 +2,7 @@ import { crudSuite, Flow } from './master-crud';
 
 // bugs found on the 5 screens whose Name field strips characters (Product Type, Product Class, Supplement, Allotment, Addon)
 const STRIPPING: Flow['known'] = {
-  6: 'a DUPLICATE name with spaces around it is SAVED (201) - two records with the same name appear in the list',
+  // 6: fixed 22 Nov 2026 - a duplicate typed with spaces around it is rejected (BUG-25)
   // 8: fixed 21 Nov 2026 - trimmed, & ( ) kept (BUG-26)
 };
 

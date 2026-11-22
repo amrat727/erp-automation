@@ -201,6 +201,8 @@ export function crudSuite(flows: Flow[]) {
         await p.clickToggle(edited);
         // case-insensitive: Province shows "Deactivate Province?" (capital P) - reported in the consistency findings
         await expect(p.popupTitle).toHaveText(new RegExp(`^Deactivate ${f.entity}\\?$`, 'i'));
+        test.info().annotations.push({ type: 'popup title', description: (await p.popupTitle.innerText()).trim() });
+        await page.screenshot({ path: test.info().outputPath('deactivate-popup.png') });
         await p.popupConfirm.click();
         await expect(page.getByText(new RegExp(`${f.entity} deactivated`, 'i')).first()).toBeVisible();
         await expect(p.toggle(edited)).not.toBeChecked();

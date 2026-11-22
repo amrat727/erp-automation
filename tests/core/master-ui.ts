@@ -38,6 +38,13 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
       });
 
       test(`${id(2)}: Toolbar has "Add ${s.entity}" button`, async () => {
+        if (s.noAddByDesign) {
+          // no Add on purpose (product owner) - make sure it stays that way
+          await p.open(s.path);
+          await expect(p.heading).toBeVisible();
+          await expect(p.addButton).toHaveCount(0);
+          return;
+        }
         known(s.differs?.noAdd);
         await p.open(s.path);
         await expect(p.addButton).toBeVisible({ timeout: 5_000 });
@@ -102,6 +109,7 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
 
       // ---------------- add dialog ----------------
       test(`${id(9)}: Add dialog has title, × / Cancel / Save, and Cancel closes it`, async () => {
+        test.skip(!!s.noAddByDesign, s.noAddByDesign ?? '');
         known(s.differs?.noAdd);
         await p.open(s.path);
         await p.addButton.click({ timeout: 5_000 });
@@ -114,6 +122,7 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
       });
 
       test(`${id(10)}: Saving an empty form shows "Name is required"`, async () => {
+        test.skip(!!s.noAddByDesign, s.noAddByDesign ?? '');
         known(s.differs?.noAdd ?? s.differs?.nameRequiredMsg);
         await p.open(s.path);
         await p.addButton.click({ timeout: 5_000 });
@@ -137,6 +146,7 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
 
       test(`${id(16)}: Name field keeps what the user typed (letters, digits, spaces)`, async () => {
         test.skip(s.entity === 'Country' || !!s.nameFromList, 'Name is picked from a list');
+        test.skip(!!s.noAddByDesign, s.noAddByDesign ?? '');
         known(s.differs?.noAdd ?? s.differs?.stripsDigits);
         await p.open(s.path);
         await p.addButton.click({ timeout: 5_000 });
@@ -146,7 +156,16 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
       });
 
       // ---------------- edit ----------------
-      test(`${id(11)}: Clicking a row opens "Edit ${s.entity}" with its data filled in`, async () => {
+      test(`${id(11)}: Clicking a row opens "Edit ${s.entity}" with its data filled in`, async ({ page }) => {
+        if (s.noEditByDesign) {
+          // read-only on purpose (product owner) - clicking a row must open nothing
+          await p.open(s.path);
+          await p.search(s.sample!);
+          await nameCell(p, s.sample!).click();
+          await page.waitForTimeout(1_000);
+          await expect(page.getByRole('dialog')).toHaveCount(0);
+          return;
+        }
         known(s.differs?.noEdit);
         test.skip(!s.sample && !s.differs?.noEdit, `${s.entity} has no records yet`);
         await p.open(s.path);
@@ -224,6 +243,7 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
       // ================= EDGE CASES (still nothing can be saved) =================
       test(`${id(18)}: Name with only spaces is rejected ("Name is required")`, async () => {
         test.skip(s.entity === 'Country' || !!s.nameFromList, 'Name is picked from a list');
+        test.skip(!!s.noAddByDesign, s.noAddByDesign ?? '');
         known(s.differs?.noAdd ?? s.differs?.nameRequiredMsg);
         await p.open(s.path);
         await p.addButton.click({ timeout: 5_000 });
@@ -236,6 +256,7 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
 
       test(`${id(19)}: Name is limited to 150 characters`, async () => {
         test.skip(s.entity === 'Country' || !!s.nameFromList, 'Name is picked from a list');
+        test.skip(!!s.noAddByDesign, s.noAddByDesign ?? '');
         known(s.differs?.noAdd ?? s.differs?.nameMax);
         await p.open(s.path);
         await p.addButton.click({ timeout: 5_000 });
@@ -246,6 +267,7 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
 
       test(`${id(20)}: × and Escape close the Add dialog without saving; it reopens empty`, async ({ page }) => {
         test.skip(s.entity === 'Country' || !!s.nameFromList, 'Name is picked from a list');
+        test.skip(!!s.noAddByDesign, s.noAddByDesign ?? '');
         known(s.differs?.noAdd);
         await p.open(s.path);
         await p.addButton.click({ timeout: 5_000 });
@@ -263,6 +285,7 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
       });
 
       test(`${id(21)}: Edit -> change Name -> Cancel keeps the old name`, async () => {
+        test.skip(!!s.noEditByDesign, s.noEditByDesign ?? '');
         known(s.differs?.noEdit);
         test.skip(!s.sample, `${s.entity} has no records yet`);
         await p.open(s.path);

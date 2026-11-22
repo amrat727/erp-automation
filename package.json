@@ -6,9 +6,10 @@
   "scripts": {
     "test": "playwright test",
     "test:smoke": "playwright test --grep @smoke",
-    "test:readonly": "playwright test ui.spec forms.spec consistency.spec readonly- special-screens",
+    "test:readonly": "playwright test ui.spec forms.spec consistency.spec system-screens restriction-groups special-screens",
     "test:login": "playwright test --project=login",
     "test:core": "playwright test --project=core",
+    "test:system": "playwright test --project=system",
     "test:supplier": "playwright test --project=supplier",
     "test:agent": "playwright test --project=agent",
     "test:consistency": "playwright test --project=consistency",

@@ -24,7 +24,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-21",
   "epic": "KAN-6",
   "label": "core-region",
-  "status": "Reopened",
+  "status": "Complete (not a bug)",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -74,7 +74,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-26",
   "epic": "KAN-6",
   "label": "core-region",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 0,
   "fixShots": 0,
   "statusSet": true
@@ -104,7 +104,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-29",
   "epic": "KAN-6",
   "label": "core-region",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -134,7 +134,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-32",
   "epic": "KAN-6",
   "label": "core-region",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -144,7 +144,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-33",
   "epic": "KAN-6",
   "label": "core-region",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -154,7 +154,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-34",
   "epic": "KAN-6",
   "label": "core-region",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -164,7 +164,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-35",
   "epic": "KAN-6",
   "label": "core-region",
-  "status": "Reopened",
+  "status": "Complete",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -244,7 +244,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-43",
   "epic": "KAN-6",
   "label": "core-product",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -334,7 +334,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-52",
   "epic": "KAN-8",
   "label": "system-users-and-access",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -1094,7 +1094,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-128",
   "epic": "KAN-18",
   "label": "cross-module-common-list-screens",
-  "status": "Reopened",
+  "status": "Complete",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -1124,7 +1124,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-131",
   "epic": "KAN-6",
   "label": "core-application",
-  "status": "Reopened",
+  "status": "Complete",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -1144,7 +1144,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-133",
   "epic": "KAN-6",
   "label": "core-resource",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -1164,7 +1164,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-135",
   "epic": "KAN-6",
   "label": "core-organization",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 0,
   "fixShots": 0,
   "statusSet": true
@@ -1174,7 +1174,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-136",
   "epic": "KAN-6",
   "label": "core-region",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 0,
   "fixShots": 0,
   "statusSet": true
@@ -1214,7 +1214,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-140",
   "epic": "KAN-8",
   "label": "system-users-and-access",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 0,
   "fixShots": 0,
   "statusSet": true
@@ -1224,7 +1224,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-141",
   "epic": "KAN-6",
   "label": "core-resource",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 0,
   "fixShots": 0,
   "statusSet": true
@@ -1234,7 +1234,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-142",
   "epic": "KAN-6",
   "label": "core-application",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -1254,7 +1254,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-144",
   "epic": "KAN-8",
   "label": "system-settings",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 0,
   "fixShots": 0,
   "statusSet": true
@@ -1264,7 +1264,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-145",
   "epic": "KAN-6",
   "label": "core-region",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 0,
   "fixShots": 0,
   "statusSet": true
@@ -1434,7 +1434,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-162",
   "epic": "KAN-6",
   "label": "core-resource",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -1444,7 +1444,7 @@
   "url": "https://piloterp.atlassian.net/browse/KAN-163",
   "epic": "KAN-6",
   "label": "core-resource",
-  "status": "To Do",
+  "status": "Complete",
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
@@ -1458,5 +1458,13 @@
   "shots": 1,
   "fixShots": 0,
   "statusSet": true
+ },
+ "BUG-150": {
+  "key": "KAN-165",
+  "url": "https://piloterp.atlassian.net/browse/KAN-165",
+  "epic": "KAN-6",
+  "label": "core-application",
+  "status": "To Do",
+  "shots": 1
  }
 }

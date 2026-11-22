@@ -46,6 +46,11 @@ crudSuite([
   // ---- Accounts > Configuration
   { entity: 'Exchange Type', plural: 'Exchange Types', path: '/exchangetypes', subModule: 'Accounts > Configuration',
     usedBy: { entity: 'Exchange Rate', plural: 'Exchange Rates', path: '/exchangerates', field: 'Exchange Type', activeExample: 'Default Exchange' } },
-  { entity: 'Account Group', plural: 'Account Group', path: '/accountgroup', subModule: 'Accounts > Configuration' },
+  { entity: 'Account Group', plural: 'Account Group', path: '/accountgroup', subModule: 'Accounts > Configuration',
+    // stage 22 Nov 2026: new required "Group Class"
+    fillRequired: async (p, dlg, page) => {
+      await dlg.getByText(/^Group Class\s*\*?$/).first().locator('xpath=following::*[@role="combobox"][1]').click();
+      await page.getByRole('option').first().click();
+    } },
   { entity: 'Tax', plural: 'Tax', path: '/tax', subModule: 'Accounts > Configuration' },
 ]);

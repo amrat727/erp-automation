@@ -169,9 +169,10 @@ test.describe('Add Country form', () => {
 
   test('TC-CTRY-18: Name dropdown lists countries and filters while typing', async ({ page }) => {
     await country.nameField.click();
-    expect(await page.getByRole('option').count()).toBeGreaterThan(200);
+    await expect(async () => expect(await page.getByRole('option').count()).toBeGreaterThan(200)).toPass({ timeout: 20_000 });
     await country.nameField.fill('Ind');
-    await expect(page.getByRole('option')).toHaveText(['British Indian Ocean Territory', 'India', 'Indonesia']);
+    // stage 22 Nov 2026: India is already added, so it is no longer offered (BUG-14 fixed)
+    await expect(page.getByRole('option')).toHaveText(['British Indian Ocean Territory', 'Indonesia']);
   });
 
   test('TC-CTRY-19: Typing a name that is not a country gives no options', async ({ page }) => {
@@ -180,7 +181,16 @@ test.describe('Add Country form', () => {
     await expect(page.getByRole('option')).toHaveCount(0);
   });
 
-  test('TC-CTRY-20: Adding an existing country (India) is blocked with an error', async () => {
+  test('TC-CTRY-20: An existing country (India) cannot be added again - it is not offered', async ({ page }) => {
+    // stage 22 Nov 2026 (BUG-14 fixed): countries already added are left out of the Name list, so a duplicate cannot be picked
+    await country.nameField.click();
+    await country.nameField.fill('India');
+    await expect(page.getByRole('option', { name: 'British Indian Ocean Territory' })).toBeVisible();
+    await expect(page.getByRole('option', { name: 'India', exact: true })).toHaveCount(0);
+    await expect(country.saveButton).toBeDisabled();
+  });
+
+  test.skip('TC-CTRY-20 (old): saving India gave "already exists"', async () => {
     const before = await country.rows.count();
     await country.chooseCountry('India');
     const [res] = await Promise.all([
@@ -252,7 +262,7 @@ test.describe.serial('Add & deactivate a country (E2E)', () => {
   });
 
   test('TC-CTRY-29: Deactivate popup message has correct grammar', async () => {
-    test.fail(true, 'BUG: popup says "mark the country as deactive." - should be "inactive"');
+    // fixed 22 Nov 2026: "This will mark the country as inactive."
     expect(popupMessage, 'popup text captured in TC-CTRY-23').not.toBe('');
     expect(popupMessage).toBe('This will mark the country as inactive.');
   });

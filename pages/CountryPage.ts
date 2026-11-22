@@ -128,17 +128,25 @@ export class CountryPage {
 
   /** open the Active dropdown list (stage 20 Nov: revealing the filter may already open the list) */
   async openActiveFilter() {
-    await this.showFilters('active');
-    if (await this.page.getByRole('listbox').isVisible().catch(() => false)) return;
-    await this.activeFilter.click();
-    await this.page.getByRole('listbox').waitFor({ timeout: 10_000 });
+    // stage 22 Nov 2026: after a value is picked the filter shows as a chip ("change filter") - click it to change the value
+    const listbox = this.page.getByRole('listbox');
+    await expect(async () => {
+      if (await listbox.isVisible().catch(() => false)) return;
+      const chip = this.page.locator('thead').getByRole('button', { name: /change filter/ }).first();
+      if (await chip.isVisible().catch(() => false)) await chip.click();
+      if (await listbox.isVisible().catch(() => false)) return;
+      await this.showFilters('active');
+      await this.activeFilter.click({ force: true, timeout: 5_000 });
+      await listbox.waitFor({ timeout: 3_000 });
+    }).toPass({ timeout: 45_000 });
   }
 
   async filterActive(option: 'All' | 'Active' | 'Deactive') {
     await this.openActiveFilter();
     await Promise.all([
       this.page.waitForResponse(r => r.url().startsWith(API + '?')),
-      this.page.getByRole('option', { name: option, exact: true }).click(),
+      // stage 22 Nov 2026: the option is "Inactive" (was "Deactive") - accept both
+      this.page.getByRole('option', { name: option === 'Deactive' ? /^(Deactive|Inactive)$/ : new RegExp(`^${option}$`) }).click(),
     ]);
   }
 

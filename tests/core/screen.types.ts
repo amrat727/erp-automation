@@ -13,6 +13,8 @@ export type Screen = {
   required?: string[];   // required fields besides Name (must show "<field> is required")
   nameFromList?: boolean; // Name is picked from a fixed list (like Country / Currency) -> free-typing tests are skipped
   addLabel?: string;     // text on the Add button if not "Add <entity>"
+  noAddByDesign?: string; // the screen has NO Add on purpose (confirmed by the product owner) -> expect no Add button, skip add-dialog tests
+  noEditByDesign?: string; // the screen is read-only on purpose -> clicking a row must open nothing, edit tests skipped
   differs?: {
     menuName?: string;
     noAdd?: string;

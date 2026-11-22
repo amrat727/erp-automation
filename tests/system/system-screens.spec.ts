@@ -4,7 +4,7 @@ import { blockWrites } from '../../pages/MasterListPage';
 import { openPage, dialogTitled } from '../../pages/FormHelpers';
 
 /*
- * CORE > SYSTEM - READ-ONLY tests (agreed: users, settings and retention rules must never change).
+ * SYSTEM (menu Core > System) - Configurations, Help Center, Data Retention, Users. READ-ONLY tests (agreed: users, settings and retention rules must never change).
  * EVERY save request is BLOCKED in the browser; a test fails if the app tries to send something it should not.
  */
 let blocked: string[];
@@ -133,7 +133,7 @@ test.describe('Data Retention', () => {
   });
 
   test('TC-RET-04: Retention switch does not silently save without asking', async ({ page }) => {
-    test.fail(true, 'BUG-128: since v1.0.2 switching a retention rule on/off sends the save at once - no confirmation (rule deletes personal data)');
+    // BUG-128 fixed 22 Nov 2026
     await openPage(page, '/system/data-retention', 'Data Retention');
     const sw = page.getByRole('switch', { name: 'Reservations retention' });
     const before = await sw.isChecked();
@@ -213,7 +213,7 @@ test.describe('Users', () => {
   test('TC-USR-07: The logged-in admin cannot deactivate THEMSELF', async ({ page }) => {
     await openPage(page, '/users', 'Users');
     const sw = page.getByRole('row').filter({ hasText: 'sahil' }).locator('input[type=checkbox]');
-    test.fail(true, 'BUG-124: since v1.0.2 the logged-in admin gets the normal "Deactivate user?" popup for their OWN account');
+    // BUG-124 fixed 22 Nov 2026
     await expect(sw).toBeChecked();
     if (await sw.isDisabled()) return;                  // rule enforced by a locked switch
     await sw.click();
@@ -226,7 +226,10 @@ test.describe('Users', () => {
 
   test('TC-USR-08: Search by username finds the user; no match hides it', async ({ page }) => {
     await openPage(page, '/users', 'Users');
-    const search = page.locator('thead input[placeholder=Search]').first();
+    // stage 22 Nov 2026: each column has its own search box ("Search username", "Search name", ...)
+    const search = page.locator('thead input[placeholder="Search username"]').first();
+    if (!(await search.isVisible().catch(() => false)))   // the search box is hidden until the column title is clicked
+      await page.locator('thead th:has(input[placeholder="Search username"])').first().click({ position: { x: 30, y: 15 }, force: true });
     await search.fill('SAH');
     await expect(page.getByRole('cell', { name: 'sahil', exact: true })).toBeVisible();
     await search.fill('zzzqqq');

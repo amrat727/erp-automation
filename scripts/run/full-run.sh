@@ -6,7 +6,7 @@
 # Results: full-run/<chunk>.txt (console) and full-run/<chunk>.json (machine-readable); summary in full-run/summary.txt
 cd "$(dirname "$0")/../.."
 W="${1:-2}"; shift || true
-CHUNKS="${*:-login core-ui1 core-ui2 core-crud core-rest supplier agent consistency contracts package quotes reservation crm insights portal-cms}"
+CHUNKS="${*:-login core-ui1 core-ui2 core-crud core-rest system supplier agent consistency contracts package quotes reservation crm insights portal-cms}"
 
 # chunk -> "project|file filters" (filters are Playwright path regexes, empty = whole project)
 files_for() {
@@ -14,7 +14,7 @@ files_for() {
     core-ui1)  echo "core|accounts-ui application-ui organization-ui" ;;
     core-ui2)  echo "core|product-ui region-ui resource-ui" ;;
     core-crud) echo "core|product-crud.spec region-crud.spec" ;;
-    core-rest) echo "core|more-crud.spec business-rules.spec country.spec readonly- special-screens bug-evidence.spec cleanup.spec" ;;
+    core-rest) echo "core|more-crud.spec business-rules.spec country.spec special-screens bug-evidence.spec cleanup.spec" ;;
     *)         echo "$1|" ;;
   esac
 }

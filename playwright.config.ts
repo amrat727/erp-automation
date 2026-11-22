@@ -27,7 +27,7 @@ export default defineConfig({
     : [['html', { open: 'never' }], ['list']],
   use: {
     baseURL: BASE_URL,                      // tests use page.goto('/suppliers')
-    screenshot: 'only-on-failure',          // save a picture when a test fails
+    screenshot: process.env.SHOT_ALL ? 'on' : 'only-on-failure',   // save a picture when a test fails (SHOT_ALL=1: after every test, for fix evidence)
     video: 'retain-on-failure',             // save a video when a test fails
     trace: 'retain-on-failure',             // save a step-by-step trace when a test fails
     // Slow motion for watching: set SLOWMO=800 to pause 0.8s between every action
@@ -40,6 +40,7 @@ export default defineConfig({
     { name: 'setup', testMatch: /auth\.setup\.ts/ },
     // 3) ERP modules
     { name: 'core', testDir: './tests/core', dependencies: ['setup'], use: { ...devices['Desktop Chrome'] } },
+    { name: 'system', testDir: './tests/system', dependencies: ['setup'], use: { ...devices['Desktop Chrome'] } },   // Core > System: Users, Restriction Groups, Configurations, Data Retention, Help
     { name: 'supplier', testDir: './tests/supplier', dependencies: ['setup'], use: wide },
     { name: 'agent', testDir: './tests/agent', dependencies: ['setup'], use: wide },
     { name: 'contracts', testDir: './tests/contracts', dependencies: ['setup'], use: wide },

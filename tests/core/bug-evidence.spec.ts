@@ -142,6 +142,7 @@ test.describe('Bug evidence', () => {
     });
 
     test('BUG-13 Airport: no "Add Airport" button', async ({ page }) => {
+      test.skip(true, 'Not a bug: no Add on purpose, all airports are already loaded (product owner, 22 Nov 2026; KAN-21)');
       const p = new MasterListPage(page, 'Airport', 'Airports');
       await p.open('/airports');
       await shot(page, 'BUG-13-airport-no-add-button', p.columnsButton.locator('xpath=..'));

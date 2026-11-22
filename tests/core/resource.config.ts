@@ -4,9 +4,7 @@ import { Screen } from './screen.types';
 const PLURAL_MENU = (m: string) => `Menu item is plural "${m}" - "Personnel" and most Core menu items are singular`;
 
 export const RESOURCE_SCREENS: Screen[] = [
-  { entity: 'Resource Type', plural: 'Resource Types', path: '/resourcetypes', menu: 'Resource Types', sample: 'Driver',
-    differs: { menuName: PLURAL_MENU('Resource Types') } },
+  { entity: 'Resource Type', plural: 'Resource Types', path: '/resourcetypes', sample: 'Driver' }, // menu singular since 22 Nov 2026 (BUG-147 / KAN-162)
   { entity: 'Personnel', plural: 'Personnel', path: '/resources/personnel', sample: 'Amrat Choudhary', required: ['Personnel Type'] },
-  { entity: 'Asset', plural: 'Assets', path: '/resources/assets', menu: 'Assets', sample: 'Car',
-    differs: { menuName: PLURAL_MENU('Assets') } },
+  { entity: 'Asset', plural: 'Assets', path: '/resources/assets', sample: 'Car' },
 ];

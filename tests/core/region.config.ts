@@ -3,8 +3,7 @@ export type { Screen };
 
 
 export const REGION_SCREENS: Screen[] = [
-  { entity: 'Country', plural: 'Countries', path: '/countries', sample: 'India',
-    differs: { noEdit: 'Country has no Edit - clicking a row does nothing' } },
+  { entity: 'Country', plural: 'Countries', path: '/countries', sample: 'India' }, // Edit fixed 22 Nov 2026 (BUG-17 / KAN-35)
   { entity: 'State', plural: 'States', path: '/states', sample: 'Haryana', required: ['Country'] },
   { entity: 'City', plural: 'Cities', path: '/cities', sample: 'Dubai' },
   { entity: 'Market', plural: 'Markets', path: '/markets', sample: 'Default Market' },
@@ -15,9 +14,9 @@ export const REGION_SCREENS: Screen[] = [
       popupTitle: 'Popup title is "Deactivate Province?" (capital P) - other screens use lower case',
     } },
   { entity: 'Airport', plural: 'Airports', path: '/airports', sample: 'Aalborg Airport',
+    noAddByDesign: 'Airport has no Add on purpose - all airports are already loaded (product owner, 22 Nov 2026; KAN-21 closed as not-a-bug)',
+    noEditByDesign: 'Airport has no Edit on purpose - the airport list is fixed (product owner, 22 Nov 2026; KAN-21)',
     differs: {
-      noAdd: 'Airport has no "Add Airport" button',
-      noEdit: 'Airport has no Edit - clicking a row does nothing',
       emptyMessage: 'Empty search says "No records match these filters." instead of "There are no records in Airport"',
     } },
 ];
