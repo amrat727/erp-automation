@@ -41,6 +41,9 @@ test.describe('Supplier contract: end-to-end data flow', () => {
       await on.first().click();
       const d = page.getByRole('dialog').last();
       if (await d.isVisible({ timeout: 3000 }).catch(() => false)) await d.getByRole('button', { name: /Deactivate|Turn off|Yes|Confirm|Save/ }).last().click();
+      // stage 24 Nov 2026: the confirmation is a popup that is not a dialog - "Deactivate contract? ... Yes, Deactivate"
+      const yes = page.getByRole('button', { name: /^Yes, Deactivate$/i });
+      if (await yes.isVisible({ timeout: 3000 }).catch(() => false)) await yes.click();
       await page.waitForTimeout(2500);
       console.log(`cleanup: ${sub} "${label}" -> Active = No`);
       await c.openProduct(SUP, 'Hotel', sub);
