@@ -14,3 +14,6 @@ erp-automation.zip
 # full regression output (scripts/full-run.sh)
 full-run/
 playwright-report-fork*/
+
+# raw Dashboard / source-list dumps (contain personal data such as e-mails)
+reports/dashboard/

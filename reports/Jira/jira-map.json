@@ -1466,5 +1466,45 @@
   "label": "core-application",
   "status": "To Do",
   "shots": 1
+ },
+ "BUG-151": {
+  "key": "KAN-167",
+  "url": "https://piloterp.atlassian.net/browse/KAN-167",
+  "epic": "KAN-16",
+  "label": "insights-dashboard",
+  "status": "To Do",
+  "shots": 1
+ },
+ "BUG-152": {
+  "key": "KAN-168",
+  "url": "https://piloterp.atlassian.net/browse/KAN-168",
+  "epic": "KAN-16",
+  "label": "insights-dashboard",
+  "status": "To Do",
+  "shots": 1
+ },
+ "BUG-153": {
+  "key": "KAN-169",
+  "url": "https://piloterp.atlassian.net/browse/KAN-169",
+  "epic": "KAN-16",
+  "label": "insights-dashboard",
+  "status": "To Do",
+  "shots": 1
+ },
+ "BUG-154": {
+  "key": "KAN-170",
+  "url": "https://piloterp.atlassian.net/browse/KAN-170",
+  "epic": "KAN-16",
+  "label": "insights-dashboard",
+  "status": "To Do",
+  "shots": 1
+ },
+ "BUG-155": {
+  "key": "KAN-171",
+  "url": "https://piloterp.atlassian.net/browse/KAN-171",
+  "epic": "KAN-16",
+  "label": "insights-dashboard",
+  "status": "To Do",
+  "shots": 1
  }
 }
