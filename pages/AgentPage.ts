@@ -41,11 +41,12 @@ export class AgentPage {
     this.rows = page.locator('main tbody tr:visible');
     this.rangeText = page.getByText(/^\d+–\d+ of \d+$/).first();
 
-    this.name = page.locator('main input[placeholder="Agent name"]:visible');
-    this.email = page.locator('main input[placeholder="agency@example.com"]:visible');
-    this.country = page.locator('main input[placeholder="Country"]:visible').first();
-    this.state = page.locator('main input[placeholder="State"]:visible').first();
-    this.createButton = page.getByRole('button', { name: 'Create agent' });
+    // stage 24 Nov 2026: new Add Agent layout - placeholders "Agent trading name", "Enter email", "Search countries", "Search states"
+    this.name = page.locator('main input[placeholder="Agent name"]:visible, main input[placeholder="Agent trading name"]:visible').first();
+    this.email = page.locator('main input[placeholder="agency@example.com"]:visible, main input[placeholder="Enter email"]:visible').first();
+    this.country = page.locator('main input[placeholder="Country"]:visible, main input[placeholder="Search countries"]:visible').first();
+    this.state = page.locator('main input[placeholder="State"]:visible, main input[placeholder="Search states"]:visible').first();
+    this.createButton = page.getByRole('button', { name: /^Create agent$/i });
     this.cancelButton = page.getByRole('button', { name: 'Cancel', exact: true });
   }
 
@@ -65,7 +66,8 @@ export class AgentPage {
   async openAdd() {
     await this.open();
     await this.addButton.click();
-    await expect(this.page.getByRole('heading', { name: 'Add agent' })).toBeVisible({ timeout: 60_000 });
+    // stage 24 Nov 2026: the page title "Add Agent" is not a heading element any more
+    await expect(this.page.locator('main').getByText(/^Add agent$/i).first()).toBeVisible({ timeout: 60_000 });
     await expect(this.name).toBeVisible();
   }
 

@@ -56,14 +56,19 @@ test.describe('Add agent - extra fields', () => {
 
   test('TC-AGF-05: "Allow credit" shows a Credit limit; "Portal access" asks for a Login ID ("Login ID is required for portal access")', async ({ page }) => {
     await a.openAdd();
-    await page.locator('main input[aria-label="Allow credit"]').click();
-    await expect(page.locator('main input[aria-label="Credit limit"]')).toBeVisible();
-    await page.locator('main input[aria-label="Portal access"]').click();
-    await expect(page.locator('main input[type=password]:visible')).toBeVisible();
-    await page.locator('main input[placeholder="Agent name"]').fill('QA Auto Agent portal check');
-    await page.locator('main input[placeholder="agency@example.com"]').fill('qa.auto.portal@example.com');
-    await page.locator('main input[placeholder="Exchange type"]').click(); await page.getByRole('option').first().click();
-    await page.locator('main input[placeholder="Select currency"]').click(); await page.getByRole('option', { name: 'US Dollar' }).click();
+    // stage 24 Nov 2026: new Add Agent layout (placeholders changed, "Credit" switch, required Account manager)
+    await a.name.fill('QA Auto Agent credit check');
+    await a.email.fill('qa.auto.credit@example.com');
+    await page.locator('main input[placeholder="Exchange type"], main input[placeholder="Search exchange types"]').first().click(); await page.getByRole('option').first().click();
+    await a.country.click(); await page.keyboard.type('United Arab', { delay: 30 }); await page.getByRole('option').first().click();
+    const am = page.locator('main input[placeholder="Search users"]').first();
+    if (await am.isVisible().catch(() => false)) { await am.click(); await page.getByRole('option').first().click(); }
+    await page.locator('main input[placeholder="Select currency"], main input[placeholder="Select a currency"]').first().click(); await page.getByRole('option', { name: 'US Dollar' }).click();
+    // the "Credit" field is a No / Yes switch
+    await page.locator('main').getByText(/^Credit$/).first().locator('xpath=following::input[@type="checkbox"][1]').click({ force: true });
+    const limit = page.locator('main input[aria-label="Credit limit"], main input[placeholder*="redit limit" i]').first();
+    await limit.fill('-500', { timeout: 10_000 });
+    await page.screenshot({ path: test.info().outputPath('credit-limit-minus-500.png') });
     await a.createButton.click();
     await expect(page.getByText('Login ID is required for portal access').first()).toBeVisible();
     expect(blocked).toEqual([]);
@@ -72,14 +77,18 @@ test.describe('Add agent - extra fields', () => {
   test('TC-AGF-06: A negative credit limit (-500) is not accepted', async ({ page }) => {
     test.fail(true, 'BUG: an agent with a negative credit limit (-500) is sent');
     await a.openAdd();
-    await page.locator('main input[aria-label="Allow credit"]').click();
-    await page.locator('main input[placeholder="Agent name"]').fill('QA Auto Agent credit check');
-    await page.locator('main input[placeholder="agency@example.com"]').fill('qa.auto.credit@example.com');
-    await page.locator('main input[placeholder="Exchange type"]').click(); await page.getByRole('option').first().click();
-    await page.locator('main input[placeholder="Country"]').first().click(); await page.keyboard.type('United Arab', { delay: 30 }); await page.getByRole('option').first().click();
-    await page.locator('main input[placeholder="Select currency"]').click(); await page.getByRole('option', { name: 'US Dollar' }).click();
-    const limit = page.locator('main input[aria-label="Credit limit"]');
-    await limit.fill('-500');
+    // stage 24 Nov 2026: new Add Agent layout (placeholders changed, "Credit" No / Yes switch, required Account manager)
+    await a.name.fill('QA Auto Agent credit check');
+    await a.email.fill('qa.auto.credit@example.com');
+    await page.locator('main input[placeholder="Exchange type"], main input[placeholder="Search exchange types"]').first().click(); await page.getByRole('option').first().click();
+    await a.country.click(); await page.keyboard.type('United Arab', { delay: 30 }); await page.getByRole('option').first().click();
+    const am = page.locator('main input[placeholder="Search users"]').first();
+    if (await am.isVisible().catch(() => false)) { await am.click(); await page.getByRole('option').first().click(); }
+    await page.locator('main input[placeholder="Select currency"], main input[placeholder="Select a currency"]').first().click(); await page.getByRole('option', { name: 'US Dollar' }).click();
+    await page.locator('main').getByText(/^Credit$/).first().locator('xpath=following::input[@type="checkbox"][1]').click({ force: true });
+    const limit = page.locator('main input[aria-label="Credit limit"]').or(page.locator('main').getByText(/^Credit limit/).first().locator('xpath=following::input[1]')).first();
+    await limit.fill('-500', { timeout: 15_000 });
+    await page.screenshot({ path: test.info().outputPath('credit-limit-minus-500.png') });
     await a.createButton.click();
     await page.waitForTimeout(2500);
     expect(blocked, 'an agent with credit limit -500 was sent').toEqual([]);

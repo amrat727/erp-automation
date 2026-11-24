@@ -139,7 +139,7 @@ test.describe('Quotes - Add Quote (nothing is saved)', () => {
 
   test('TC-QT-15: Agent list offers only agents that may do business (no Blocked agents)', async ({ page }) => {
     // the QA Auto test agents are all Blocked at the end of every agent run
-    await page.getByRole('combobox', { name: 'Agent', exact: true }).click();
+    await page.getByRole('combobox', { name: 'Agent', exact: true }).or(page.locator('main input[placeholder="Agent"]')).first().click();
     await page.keyboard.type('QA Auto Agent', { delay: 30 });
     await page.waitForTimeout(2500);
     const offered = (await page.getByRole('option').allInnerTexts()).map(s => s.trim()).filter(s => s.startsWith('QA Auto Agent'));

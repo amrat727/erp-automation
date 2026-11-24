@@ -79,7 +79,7 @@ test.describe('Part A - supplier screens (nothing is saved)', () => {
   test('TC-R2-05: A contact without an email is not accepted (email is mandatory)', async ({ page }) => {
     test.fail(true, 'BUG: a contact without email is sent - email must be mandatory');
     await page.goto(`/suppliers/${SUP}/contacts`);
-    await page.getByRole('button', { name: /Add contact$/ }).last().click();
+    await page.getByRole('button', { name: /Add contact$/i }).last().click();
     const d = page.getByRole('dialog').last();
     await d.getByPlaceholder('Full name').fill(`QA Auto Contact ${STAMP} no email`);
     await d.getByPlaceholder('Reservations, Sales, Accounts…').click();

@@ -29,7 +29,7 @@ export const visible = (l: Locator): Locator => l.locator('visible=true').first(
 /** Visible button whose whole text is `name` (default scope: <main>) */
 export function buttonNamed(scope: Page | Locator, name: string): Locator {
   const root = 'locator' in scope && 'goto' in scope ? (scope as Page).locator('main') : scope as Locator;
-  return root.locator('button:visible', { hasText: new RegExp(`^${name.replace(/[.*+?^${}()|[\]\\−-]/g, '\\$&')}$`) }).first();
+  return root.locator('button:visible', { hasText: new RegExp(`^${name.replace(/[.*+?^${}()|[\]\\−-]/g, '\\$&')}$`, 'i') }).first();   // 'i': stage 24 Nov 2026 moved buttons to Title Case ("Add Currency")
 }
 
 /** Body of the open dialog (in this app role=dialog only wraps the title, so use the MUI paper) */

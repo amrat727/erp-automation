@@ -54,7 +54,9 @@ test.describe('Part A - agent screens (nothing is saved)', () => {
   test('TC-AR-04: The agent list can be filtered by Code', async ({ page }) => {
     test.fail(true, 'ENHANCEMENT (product owner): the Code column has no search / filter');
     await a.open();
-    await expect(page.getByRole('columnheader', { name: /^Code/ }).getByRole('textbox')).toBeVisible();
+    // stage 24 Nov 2026: column searches open when the column title is clicked (like Name)
+    await page.getByRole('columnheader', { name: /^Code/ }).getByRole('button', { name: 'Code', exact: true }).click();
+    await expect(page.getByRole('columnheader', { name: /^Code/ }).getByRole('textbox').or(page.locator('main thead input[placeholder="Search code"]')).first()).toBeVisible();
   });
 
   test('TC-AR-05: Account manager is required when creating an agent', async ({ page }) => {
@@ -102,9 +104,12 @@ test.describe('Part B - rules the server decides (REAL saves on a QA agent)', ()
     await a.openAdd();
     await a.name.fill(name);
     await a.email.fill(email);
-    await page.locator('main input[placeholder="Exchange type"]').click(); await page.getByRole('option').first().click();
+    await page.locator('main input[placeholder="Exchange type"], main input[placeholder="Search exchange types"]').first().click(); await page.getByRole('option').first().click();
     await a.country.click(); await page.keyboard.type('United Arab', { delay: 30 }); await page.waitForTimeout(1500); await page.getByRole('option', { name: 'United Arab Emirates' }).first().click();
-    await page.locator('main input[placeholder="Select currency"]').click(); await page.getByRole('option', { name: 'UAE Dirham' }).click();
+    await page.locator('main input[placeholder="Select currency"], main input[placeholder="Select a currency"]').first().click(); await page.getByRole('option', { name: 'UAE Dirham' }).click();
+    // stage 24 Nov 2026: Account manager is required (BUG-74 fixed) - pick the first user
+    const am = page.locator('main input[placeholder="Search users"]').first();
+    if (await am.isVisible().catch(() => false)) { await am.click(); await page.getByRole('option').first().click(); }
     return saved(() => a.createButton.click(), /\/agent\/agents$/);
   };
 
@@ -114,15 +119,16 @@ test.describe('Part B - rules the server decides (REAL saves on a QA agent)', ()
       for (let i = 0; i < 10; i++) {
         await a.open();
         await a.search('QA Auto Agent');
-        const open = a.rows.filter({ hasText: 'QA Auto Agent' }).filter({ hasNot: page.locator('td:nth-child(5)', { hasText: 'Blocked' }) });
+        // stage 24 Nov 2026: Status moved to another column (Sales channel added) -> match "Blocked" anywhere in the row
+        const open = a.rows.filter({ hasText: 'QA Auto Agent' }).filter({ hasNotText: 'Blocked' });
         if (await open.count() === 0) break;
         await open.first().locator('td').first().click();
         await expect(page.getByRole('tab', { name: 'Overview', exact: true }).first()).toBeVisible({ timeout: 60_000 });
         await page.waitForTimeout(2000);
-        await vbtn(page, 'Edit').click();
-        await page.locator('main input[value="Approved"], main input[value="On Hold"]').first().click();
-        await page.getByRole('option', { name: 'Blocked', exact: true }).click();
-        await saved(() => vbtn(page, 'Save').click());
+        // stage 24 Nov 2026: "Edit Agent" opens the full form; Status is a button group Approved / On hold / Blocked
+        await page.getByRole('button', { name: /^Edit agent$/i }).first().click();
+        await page.locator('main').getByRole('button', { name: 'Blocked', exact: true }).first().click({ timeout: 60_000 });
+        await saved(() => page.getByRole('button', { name: /^(Save|Save changes|Update agent)$/i }).first().click());
         console.log(`cleanup: ${page.url()} -> Blocked`);
       }
     } catch (e) { console.log('cleanup failed: ' + e); } finally { await page.close(); }

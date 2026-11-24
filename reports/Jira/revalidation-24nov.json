@@ -1,0 +1,418 @@
+[
+ {
+  "key": "KAN-19",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: spaces around Company code / Username are trimmed - signing in with them now succeeds.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-19-1.png"
+  ]
+ },
+ {
+  "key": "KAN-22",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: a signed-in user who opens /login no longer sees the login form.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-22-1.png"
+  ]
+ },
+ {
+  "key": "KAN-45",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: a search with spaces before / after the text finds the records.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-45-1.png"
+  ]
+ },
+ {
+  "key": "KAN-46",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: switching an inactive record back on asks \"Activate state? This will mark the state as active.\" (Yes, Activate / Cancel). Checked with saves blocked, then cancelled.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-46-1.png"
+  ]
+ },
+ {
+  "key": "KAN-47",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: form labels are linked to their inputs (Add State: Name and Country found by label, 0 unlinked inputs).",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-47-1.png"
+  ]
+ },
+ {
+  "key": "KAN-61",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: a second supplier with the same name is refused - only one \"QA Auto Supplier QA1939 evidence\" exists (left Blocked).",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-61-1.png"
+  ]
+ },
+ {
+  "key": "KAN-64",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: a 3-character SWIFT code (\"ABC\") is refused (8 or 11 characters). Automated test TC-SUP-54.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-64-1.png"
+  ]
+ },
+ {
+  "key": "KAN-72",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: a second contract for the same dates with the same priority is refused (the Priority help says it must not be one another contract has). Automated test TC-RULE-11.",
+  "shots": []
+ },
+ {
+  "key": "KAN-78",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: a supplier contact without an email is not accepted. (A QA Contact Type was created for the check and deactivated afterwards.) Automated test TC-R2-05.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-78-1.png"
+  ]
+ },
+ {
+  "key": "KAN-81",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: a new contract shows no \"add an allotment first / on request\" warning. Automated test TC-R2-11.",
+  "shots": []
+ },
+ {
+  "key": "KAN-83",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: a second contract with the same name is not accepted. Automated test TC-R2-23.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-83-1.png"
+  ]
+ },
+ {
+  "key": "KAN-85",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: a promotion discount above 99 % (100 %) is not accepted. Automated test TC-R2-31.",
+  "shots": []
+ },
+ {
+  "key": "KAN-87",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: a credit limit of -500 on Add Agent shows \"Credit limit can't be negative\" and nothing is sent. Automated test TC-AGF-06.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-87-1.png"
+  ]
+ },
+ {
+  "key": "KAN-88",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: an Approved agent offers Approved / Blocked only - it can no longer go back to On hold. Automated test TC-AR-01.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-88-1.png"
+  ]
+ },
+ {
+  "key": "KAN-89",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: the new Add Agent form has no General / Concierge / Desk client type; Sales channel is B2B.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-89-1.png"
+  ]
+ },
+ {
+  "key": "KAN-90",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: an address phone \"abc!!\" is refused. Automated test TC-AR-03.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-90-1.png"
+  ]
+ },
+ {
+  "key": "KAN-91",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: the Agent list has a search box in the Code column.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-91-1.png"
+  ]
+ },
+ {
+  "key": "KAN-92",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: Add Agent has a required \"Account manager*\" field.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-92-1.png"
+  ]
+ },
+ {
+  "key": "KAN-93",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: agent currency payment days of 366 are not accepted (0-365). Automated test TC-AR-06.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-93-1.png"
+  ]
+ },
+ {
+  "key": "KAN-94",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: an agent currency can no longer be removed - there is no \"Remove currency\" any more (only the Active switch).",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-94-1.png"
+  ]
+ },
+ {
+  "key": "KAN-95",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: a second agent with the same name (different email) is created (\"Agent created successfully\"). The QA agents were set to Blocked afterwards.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-95-1.png"
+  ]
+ },
+ {
+  "key": "KAN-98",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: supplier names are saved without spaces before / after. Automated test TC-SUP-14.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-98-1.png"
+  ]
+ },
+ {
+  "key": "KAN-99",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: the Supplier list button says \"Add Supplier\".",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-99-1.png"
+  ]
+ },
+ {
+  "key": "KAN-102",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: the Contracts list has \"Add Contract\", \"Audit History\", \"Columns\" and column searches (\"Search contract\", \"Search\" open when the column title is clicked).",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-102-1.png",
+   "screenshots/revalidation-24nov/KAN-102-2.png"
+  ]
+ },
+ {
+  "key": "KAN-103",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: the Agent and Package lists have \"Audit History\" and \"Columns\".",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-103-1.png",
+   "screenshots/revalidation-24nov/KAN-103-2.png"
+  ]
+ },
+ {
+  "key": "KAN-104",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: the Company list has a column search, the standard empty message and paging.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-104-1.png",
+   "screenshots/revalidation-24nov/KAN-104-2.png"
+  ]
+ },
+ {
+  "key": "KAN-105",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: the Supplier and Agent status filters use the same words: All / Approved / On hold / Blocked.",
+  "shots": []
+ },
+ {
+  "key": "KAN-106",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: every Active filter (Core, Supplier, Package, Quotes, Reservation) offers the same words: All / Active / Inactive.",
+  "shots": []
+ },
+ {
+  "key": "KAN-107",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: Add Quote and Add Reservation show the errors under the fields only - no extra \"Please fix the highlighted fields.\" popup.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-107-1.png",
+   "screenshots/revalidation-24nov/KAN-107-2.png"
+  ]
+ },
+ {
+  "key": "KAN-108",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: mandatory-field messages follow \"<Field> is required\" (Reservation Travel Dates, Portal CMS checkout field Label).",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-108-1.png",
+   "screenshots/revalidation-24nov/KAN-108-2.png"
+  ]
+ },
+ {
+  "key": "KAN-109",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: Add room shows \"<Field> is required\" under Room name and View - no numbered banner.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-109-1.png"
+  ]
+ },
+ {
+  "key": "KAN-110",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: Agent \"Add Currency\" and \"Add Top-up\" mark the field with \"<Field> is required\" (no banner only).",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-110-1.png",
+   "screenshots/revalidation-24nov/KAN-110-2.png"
+  ]
+ },
+ {
+  "key": "KAN-115",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: approving a contract of an On hold supplier is refused - \"This supplier is On hold. Approve the supplier before approving its contracts or promotions.\" (400). Note: the 13 contracts approved earlier on \"Testing season 3\" are still Approved (data from before the fix).",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-115-1.png"
+  ]
+ },
+ {
+  "key": "KAN-119",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: clicking a contract opens THAT contract. Automated test TC-CTM-15.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-119-1.png"
+  ]
+ },
+ {
+  "key": "KAN-123",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: Add Quote and Add Reservation do not offer Blocked agents (typing \"QA Auto Agent\" finds none; \"Gulf\" finds Gulf Horizons Travel LLC).",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-123-1.png",
+   "screenshots/revalidation-24nov/KAN-123-2.png"
+  ]
+ },
+ {
+  "key": "KAN-124",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: Quote and Reservation history no longer show internal numbers like \"-9223372036854774807\". (Raw JSON in Reservation history is a different bug, KAN-125.)",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-124-1.png",
+   "screenshots/revalidation-24nov/KAN-124-2.png"
+  ]
+ },
+ {
+  "key": "KAN-129",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: names keep digits and & ( ) and are trimmed (Role \"Zone 2 North-1 & Co (Test)\", Exchange Type).",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-129-1.png",
+   "screenshots/revalidation-24nov/KAN-129-2.png"
+  ]
+ },
+ {
+  "key": "KAN-132",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: deactivating a record that is in use shows an \"in use\" warning (Driver, Delhi Branch, Reservations, US Dollar, Default Exchange).",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-132-1.png",
+   "screenshots/revalidation-24nov/KAN-132-2.png"
+  ]
+ },
+ {
+  "key": "KAN-150",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: the deactivate popup button says \"Yes, Deactivate\". Automated tests TC-*-31.",
+  "shots": []
+ },
+ {
+  "key": "KAN-151",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: the shared buttons are Title Case (\"Audit History\", ...) - none of the old lower-case labels found.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-151-1.png"
+  ]
+ },
+ {
+  "key": "KAN-152",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: one spelling everywhere - \"Add Agent\", \"Credit Requests\", \"Add Currency\", \"Exchange Type\", \"Amendment Requests\", \"Applies To\", \"Name is required\" (no full stop), \"All (0)\".",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-152-1.png",
+   "screenshots/revalidation-24nov/KAN-152-2.png"
+  ]
+ },
+ {
+  "key": "KAN-153",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: no \"Phone#\", \"PAN#\", \"TAN#\" labels any more.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-153-1.png"
+  ]
+ },
+ {
+  "key": "KAN-154",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: Supplier buttons are Title Case (\"Add Supplier\", \"Create Supplier\", \"Add Contact\").",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-154-1.png"
+  ]
+ },
+ {
+  "key": "KAN-155",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: Agent buttons are Title Case (\"Create Agent\", \"Edit Agent\", \"Add Currency\", \"Add Top-up\").",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-155-1.png"
+  ]
+ },
+ {
+  "key": "KAN-161",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: Core / System buttons are Title Case - none of the old labels found.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-161-1.png"
+  ]
+ },
+ {
+  "key": "KAN-164",
+  "result": "fixed",
+  "comment": "Verified FIXED on the stage build of 24 Nov 2026: deactivating the records that used to fail silently (\"QA Auto State QKVRQT edited\", Product Class / Resource Type \"... PTKLLV edited\") now works - the cleanup deactivated them with no refusal.",
+  "shots": []
+ },
+ {
+  "key": "KAN-113",
+  "result": "reopen",
+  "comment": "Retested on the stage build of 24 Nov 2026 - STILL BROKEN (partly): the Supplier list now has an Active switch, but the Agent list still has none - an agent can only be \"deactivated\" by setting Status = Blocked in Edit Agent.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-113-1.png",
+   "screenshots/revalidation-24nov/KAN-113-2.png"
+  ]
+ },
+ {
+  "key": "KAN-116",
+  "result": "reopen",
+  "comment": "Retested on the stage build of 24 Nov 2026 - STILL BROKEN: a promotion still has only a \"Combinable\" switch - no choice of WHICH promotions it combines with, no cumulative / non-cumulative option. Automated test TC-R3-04.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-116-1.png"
+  ]
+ },
+ {
+  "key": "KAN-127",
+  "result": "reopen",
+  "comment": "Retested on the stage build of 24 Nov 2026 - STILL BROKEN: Dashboard \"Approved agents 9 of 41 active · 8 on hold\" - the 41 \"active\" includes the Blocked agents. Automated test TC-DSH-05.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-127-1.png"
+  ]
+ },
+ {
+  "key": "KAN-130",
+  "result": "reopen",
+  "comment": "Retested on the stage build of 24 Nov 2026 - STILL BROKEN (partly): Role, Theme, Personnel and Asset are fixed, but an empty search on Account (Accounts > Configuration) still does not say \"There are no records in Account\". Automated test TC-ACC-Account-06.",
+  "shots": [
+   "screenshots/revalidation-24nov/KAN-130-1.png"
+  ]
+ },
+ {
+  "key": "KAN-148",
+  "result": "reopen",
+  "comment": "Retested on the stage build of 24 Nov 2026 - STILL BROKEN: 1 adult, Deluxe Single, 3 nights Peak: sell price 650 x 1.2 = 780 x 3 = 2,340.00; early bird 15 % = 351.00 - the portal shows a saving of 350.99 (was 350.98). Probably the discount is rounded per night instead of on the total. Automated test TC-SS-09.",
+  "shots": []
+ },
+ {
+  "key": "KAN-73",
+  "result": "comment",
+  "comment": "Not validated on 24 Nov 2026: the check needs an APPROVED contract whose currency is then removed, but the QA supplier \"Testing season 3\" is On hold and approving its contracts is now refused (KAN-115 fixed). Needs an Approved test supplier - kept in Ready for Testing.",
+  "shots": []
+ },
+ {
+  "key": "KAN-149",
+  "result": "comment",
+  "comment": "Not validated on 24 Nov 2026: the wrong default date only appears between 00:00 and 04:00 UAE time (UTC date); the test ran in the afternoon. Kept in Ready for Testing - to be checked in that window.",
+  "shots": []
+ }
+]

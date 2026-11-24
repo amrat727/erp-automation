@@ -43,7 +43,9 @@ export class ContractPage {
   }
 
   button(name: string | RegExp): Locator {
-    return this.page.getByRole('button', { name, exact: typeof name === 'string' }).last();
+    // stage 24 Nov 2026: buttons moved to Title Case ("Add Contract") -> match the exact words, any letter case
+    const re = typeof name === 'string' ? new RegExp(`^${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i') : name;
+    return this.page.getByRole('button', { name: re }).last();
   }
 
   subTab(name: SubTab): Locator {

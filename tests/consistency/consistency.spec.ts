@@ -106,7 +106,7 @@ test.describe('Lists look and work like Core', () => {
         known(`${s.entity}-add`);
         const any = page.locator('main').getByRole('button', { name: /^(\+\s*)?(Add|New|Create)\b/i });
         console.log(`${s.module} add buttons: ${JSON.stringify(await any.allInnerTexts())}`);
-        await expect(vis(page.locator('main').getByRole('button', { name: `Add ${s.entity}`, exact: true }))).toBeVisible({ timeout: 5_000 });
+        await expect(vis(page.locator('main').getByRole('button', { name: new RegExp(`^Add ${s.entity}$`, 'i') }))).toBeVisible({ timeout: 5_000 });
       });
 
       test(`TC-CONS-${s.entity}-02: Toolbar has "Audit history" and "Columns"`, async ({ page }) => {
@@ -117,12 +117,12 @@ test.describe('Lists look and work like Core', () => {
 
       test(`TC-CONS-${s.entity}-03: Columns can be searched ("Search" box in the header)`, async ({ page }) => {
         known(`${s.entity}-search`);
-        await expect(vis(page.locator('main thead input[placeholder="Search"]'))).toBeVisible({ timeout: 5_000 });
+        await expect(await headerSearch(page)).toBeVisible({ timeout: 5_000 });
       });
 
       test(`TC-CONS-${s.entity}-04: No match shows "There are no records in ${s.entity}" and "0–0 of 0"`, async ({ page }) => {
         known(`${s.entity}-empty`);
-        const box = vis(page.locator('main thead input[placeholder="Search"]'));
+        const box = await headerSearch(page);
         await box.fill('zzzqqq', { timeout: 5_000 });
         await page.waitForTimeout(4000);
         console.log(`${s.module} no-match text: ${(await page.locator('main tbody').innerText().catch(() => '')).replace(/\s+/g, ' ').slice(0, 120)}`);
@@ -140,12 +140,31 @@ test.describe('Lists look and work like Core', () => {
   }
 });
 
+// stage 24 Nov 2026: column searches are hidden until the column title is clicked; placeholders "Search name", "Search" ...
+async function headerSearch(page: Page) {
+  const box = page.locator('main thead input[placeholder^="Search"]:visible').first();
+  if (!(await box.isVisible().catch(() => false))) await page.locator('main thead th').first().click({ position: { x: 30, y: 15 }, force: true }).catch(() => {});
+  return box;
+}
+
 // ======================================================================= STATUS FILTER WORDING
 test.describe('Status words are the same everywhere', () => {
   test.setTimeout(150_000);
   const options = async (page: Page, path: string, header: RegExp) => {
     await page.goto(path); await waitList(page);
-    await vis(page.getByRole('columnheader', { name: header }).getByRole('combobox')).click();
+    // stage 24 Nov 2026: the Status / Active filter sits in a header cell WITHOUT a title -> open every header
+    // dropdown and keep the one whose options match (Status: "Approved ...", Active: "Active ...")
+    const want = /Status/.test(header.source) ? /Approved/ : /^Active$/;
+    const boxes = page.locator('main thead [role=combobox]:visible');
+    for (let i = 0; i < await boxes.count(); i++) {
+      await boxes.nth(i).click();
+      const o = (await page.getByRole('option').allInnerTexts()).map(t => t.trim());
+      await page.keyboard.press('Escape');
+      if (o.some(t => want.test(t))) return o;
+    }
+    // older layout: the dropdown inside the titled header
+    const h = page.getByRole('columnheader', { name: header }).first();
+    await vis(h.getByRole('combobox')).click({ timeout: 10_000 });
     const o = (await page.getByRole('option').allInnerTexts()).map(t => t.trim());
     await page.keyboard.press('Escape');
     return o;
@@ -173,33 +192,33 @@ type Form = { module: string; name: string; open: (page: Page) => Promise<void>;
 const SUP = 18, AG = 6;
 const FORMS: Form[] = [
   { module: 'Core (standard)', name: 'Add State', dialog: true, required: ['Name'],   // Country only gets a banner - already BUG-11
-    open: async page => { await page.goto('/states'); await waitList(page); await page.getByRole('button', { name: 'Add State', exact: true }).click(); } },
+    open: async page => { await page.goto('/states'); await waitList(page); await page.getByRole('button', { name: /^Add State$/i }).click(); } },
   { module: 'Supplier', name: 'Add supplier', dialog: false, required: ['Name', 'City', 'Default currency']   /* Payment due is pre-filled */, save: 'Create supplier',
     open: async page => { await page.goto('/suppliers/new'); await expect(page.getByRole('button', { name: 'Create supplier' })).toBeVisible({ timeout: 90_000 }); } },
   { module: 'Supplier', name: 'Add contact', dialog: true, required: ['Name', 'Role'],
-    open: async page => { await page.goto(`/suppliers/${SUP}/contacts`); await page.waitForTimeout(3000); await vis(page.getByRole('button', { name: 'Add contact', exact: true })).click({ timeout: 90_000 }); } },
+    open: async page => { await page.goto(`/suppliers/${SUP}/contacts`); await page.waitForTimeout(3000); await vis(page.getByRole('button', { name: /^Add contact$/i })).click({ timeout: 90_000 }); } },
   { module: 'Supplier', name: 'Add currency', dialog: true, required: ['Currency']   /* Payment due is pre-filled */,
     open: async page => { await page.goto(`/suppliers/${SUP}/financials`); await page.getByRole('button', { name: /Add currency$/ }).last().click({ timeout: 90_000 }); } },
   { module: 'Supplier', name: 'Add bank account', dialog: true, required: ['Account holder', 'Bank'],
     open: async page => { await page.goto(`/suppliers/${SUP}/financials`); await vis(page.getByRole('button', { name: 'Add bank account' })).click({ timeout: 90_000 }); } },
   { module: 'Supplier', name: 'Add room', dialog: false, required: ['Room name', 'View'], save: 'Create product',
-    open: async page => { await new ProductPage(page).open(SUP, 'Hotel'); await vis(page.locator('main').getByRole('button', { name: /^Add room/ })).click({ timeout: 90_000 }); } },
+    open: async page => { await new ProductPage(page).open(SUP, 'Hotel'); await vis(page.locator('main').getByRole('button', { name: /^Add room/i })).click({ timeout: 90_000 }); } },
   { module: 'Agent', name: 'Add Agent', dialog: false, required: ['Name', 'Email', 'Default currency'], save: 'Create agent',
     open: async page => { await page.goto('/agents/new'); await expect(page.locator('main input:visible').first()).toBeVisible({ timeout: 90_000 }); await page.waitForTimeout(2000); } },
   { module: 'Agent', name: 'Add currency', dialog: true, required: ['Currency'],
-    open: async page => { await page.goto(`/agents/${AG}/financials`); await vis(page.getByRole('button', { name: 'Add currency', exact: true })).click({ timeout: 90_000 }); } },
+    open: async page => { await page.goto(`/agents/${AG}/financials`); await vis(page.getByRole('button', { name: /^Add currency$/i })).click({ timeout: 90_000 }); } },
   { module: 'Agent', name: 'Add wallet top-up', dialog: true, required: ['Amount'],
-    open: async page => { await page.goto(`/agents/${AG}/financials`); await vis(page.getByRole('button', { name: 'Add top-up', exact: true })).click({ timeout: 90_000 }); } },
+    open: async page => { await page.goto(`/agents/${AG}/financials`); await vis(page.getByRole('button', { name: /^Add top\-up$/i })).click({ timeout: 90_000 }); } },
   { module: 'Quotes', name: 'Add Quote', dialog: false, required: ['Agent', 'Currency', 'Exchange Type', 'Date', 'Name'], save: 'Save Quote',
     open: async page => { await page.goto('/quotes/new'); await expect(page.getByRole('button', { name: 'Save Quote' })).toBeVisible({ timeout: 90_000 }); await page.waitForTimeout(2000); } },
   { module: 'Reservation', name: 'Add Reservation', dialog: false, required: ['Travel Dates', 'Agent', 'Currency', 'Exchange Type'], save: 'Save Reservation',
     open: async page => { await page.goto('/reservations/new'); await expect(page.getByRole('button', { name: 'Save Reservation' })).toBeVisible({ timeout: 90_000 }); await page.waitForTimeout(2000); } },
   { module: 'Portal CMS', name: 'New offer', dialog: true, required: ['Heading', 'Image'], save: 'Save and publish',
-    open: async page => { await page.goto('/portal-cms/offers'); await vis(page.getByRole('button', { name: 'New offer', exact: true })).click({ timeout: 90_000 }); } },
+    open: async page => { await page.goto('/portal-cms/offers'); await vis(page.getByRole('button', { name: /^New offer$/i })).click({ timeout: 90_000 }); } },
   { module: 'Portal CMS', name: 'New document', dialog: true, required: ['Name'], save: 'Save and publish',
-    open: async page => { await page.goto('/portal-cms/documents'); await vis(page.getByRole('button', { name: 'New document', exact: true })).click({ timeout: 90_000 }); } },
+    open: async page => { await page.goto('/portal-cms/documents'); await vis(page.getByRole('button', { name: /^New document$/i })).click({ timeout: 90_000 }); } },
   { module: 'Portal CMS', name: 'Add checkout field', dialog: true, required: ['Label'], save: 'Add',
-    open: async page => { await page.goto('/portal-cms/checkout'); await vis(page.getByRole('button', { name: 'Add field', exact: true })).click({ timeout: 90_000 }); } },
+    open: async page => { await page.goto('/portal-cms/checkout'); await vis(page.getByRole('button', { name: /^Add field$/i })).click({ timeout: 90_000 }); } },
 ];
 
 test.describe('Mandatory-field errors follow the Core pattern', () => {
@@ -215,7 +234,7 @@ test.describe('Mandatory-field errors follow the Core pattern', () => {
         // dialogs and side drawers (Enquiries / Portal CMS); the left menu is also a drawer, so only right-hand ones
         scope = f.dialog ? page.locator('.MuiDialog-paper:visible, .MuiDrawer-anchorRight .MuiDrawer-paper:visible').last() : page.locator('main');
         if (f.dialog) await expect(scope).toBeVisible({ timeout: 30_000 });
-        const save = f.save ? vis(scope.getByRole('button', { name: f.save, exact: true })) : scope.getByRole('button', { name: /^(Save|Add)$/ }).last();
+        const save = f.save ? vis(scope.getByRole('button', { name: new RegExp(`^${f.save}$`, 'i') })) : scope.getByRole('button', { name: /^(Save|Add)$/ }).last();
         await save.click({ timeout: 30_000 });
       });
 
@@ -251,7 +270,7 @@ test.describe('Same problem -> same message', () => {
     // supplier contact
     await page.goto(`/suppliers/${SUP}/contacts`);
     await page.waitForTimeout(3000);
-    await vis(page.getByRole('button', { name: 'Add contact', exact: true })).click({ timeout: 90_000 });
+    await vis(page.getByRole('button', { name: /^Add contact$/i })).click({ timeout: 90_000 });
     await dlg(page).getByPlaceholder('Full name').fill('QA Auto email check');
     await dlg(page).getByPlaceholder('name@company.com').fill('abc');
     await dlg(page).getByRole('button', { name: 'Save' }).click();

@@ -58,7 +58,7 @@ export class SupplierPage {
   constructor(page: Page) {
     this.page = page;
     this.heading = page.getByRole('heading', { name: /^Suppliers/ });
-    this.addButton = page.getByRole('button', { name: 'Add supplier', exact: true });
+    this.addButton = page.getByRole('button', { name: /^Add supplier$/i });   // Title Case since 24 Nov 2026
     this.auditButton = page.getByRole('button', { name: 'Audit history' });
     this.columnsButton = page.getByRole('button', { name: 'Columns' });
     this.nameSearch = page.getByRole('columnheader', { name: /^Name/ }).getByRole('textbox');
@@ -77,7 +77,7 @@ export class SupplierPage {
     this.advance = page.locator('main input[type=number]:visible').nth(1);
     this.advanceDue = page.locator('main input[type=number][placeholder="Optional"]:visible');
     this.serviceSearch = page.locator('main input[placeholder="Find a service"]:visible');
-    this.createButton = page.getByRole('button', { name: 'Create supplier' });
+    this.createButton = page.getByRole('button', { name: /^Create supplier$/i });
     this.cancelButton = page.getByRole('button', { name: 'Cancel', exact: true });
     this.fixFieldsToast = page.getByText('Please fix the highlighted fields.');
   }
@@ -98,7 +98,7 @@ export class SupplierPage {
   async openAdd() {
     await this.open();
     await this.addButton.click();
-    await expect(this.page.getByRole('heading', { name: /^Add supplier/ })).toBeVisible({ timeout: 60_000 });
+    await expect(this.page.locator('main').getByText(/^Add supplier/i).first()).toBeVisible({ timeout: 60_000 });   // title is no longer a heading element
     await expect(this.name).toBeVisible();
   }
 

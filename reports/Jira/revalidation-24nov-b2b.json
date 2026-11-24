@@ -1,0 +1,4 @@
+[
+ {"key":"PB2B-18","result":"done","comment":"Verified FIXED on the portal build of 24 Nov 2026: Add Sub-Agent and Add User now mark every required field the same way - \"Agency name is required\", \"Contact person is required\", \"Email is required\", \"Sign-in ID is required\", \"Password is required\" / \"Name is required\" (checked with saves blocked).","shots":["../b2b-automation/screenshots/sahil/PB2B-18-subagent-empty-save.png","../b2b-automation/screenshots/sahil/PB2B-18-user-empty-save.png"]},
+ {"key":"PB2B-23","result":"keep","comment":"Retested on the portal build of 24 Nov 2026 - nearly fixed: menu and buttons are Title Case now (\"Search & Book\", \"Trip Builder\", \"Sub-Agents\", \"Add User\", \"Add Sub-Agent\", \"Create Agent\"; dialog title and button match). Still sentence case: \"Search flights\" and \"Keep open\" in the side menu. Back to Sahil.","shots":["../b2b-automation/screenshots/sahil/PB2B-23-buttons.png"]}
+]

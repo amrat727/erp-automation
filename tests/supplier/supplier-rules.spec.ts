@@ -116,7 +116,7 @@ test.describe('Supplier business rules', () => {
   test('TC-RULE-03: Blocked supplier - a new currency cannot be added', async () => {
     // BUG-53 fixed on the stage build of 21 Nov 2026 (was: 'BUG: a currency can still be added to a Blocked supplier (POST .../currencies -> 204)')
     await openBlocked('financials');
-    const add = page.getByRole('button', { name: /Add currency$/ }).last();
+    const add = page.getByRole('button', { name: /Add currency$/i }).last();
     if (!(await add.isVisible()) || await add.isDisabled()) return;
     await add.click();
     const d = page.getByRole('dialog').last();
@@ -188,10 +188,10 @@ test.describe('Supplier business rules', () => {
   const NAME_USD = `QA Auto Contract ${STAMP} USD`;
   test('TC-RULE-20: Add USD to "Testing season 3" and create + approve a USD contract', async () => {
     await page.goto(`/suppliers/${SUP}/financials`);
-    await expect(page.getByRole('button', { name: /Add currency$/ }).last()).toBeVisible({ timeout: 90_000 });
+    await expect(page.getByRole('button', { name: /Add currency$/i }).last()).toBeVisible({ timeout: 90_000 });
     await page.waitForTimeout(2000);
     if (!(await page.getByRole('button', { name: 'Remove USD' }).count())) {
-      await page.getByRole('button', { name: /Add currency$/ }).last().click();
+      await page.getByRole('button', { name: /Add currency$/i }).last().click();
       const d = page.getByRole('dialog').last();
       await d.getByPlaceholder('Select a currency').fill('USD');
       await page.getByRole('option', { name: /USD/ }).first().click();

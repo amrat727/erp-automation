@@ -162,7 +162,7 @@ test.describe('Reservation - Add Reservation (nothing is saved)', () => {
   });
 
   test('TC-RES-13: Agent list offers only agents that may do business (no Blocked agents)', async ({ page }) => {
-    await page.getByRole('combobox', { name: 'Agent', exact: true }).click();
+    await page.getByRole('combobox', { name: 'Agent', exact: true }).or(page.locator('main input[placeholder="Agent"]')).first().click();
     await page.keyboard.type('QA Auto Agent', { delay: 30 });
     await page.waitForTimeout(2500);
     const offered = (await page.getByRole('option').allInnerTexts()).map(s => s.trim()).filter(s => s.startsWith('QA Auto Agent'));
@@ -269,8 +269,13 @@ test.describe(`Reservation - ${R3.ref}`, () => {
   test('TC-RES-28: History shows readable values (no raw JSON, no internal ids)', async ({ page }) => {
     await tab(page, 'History').click();
     await expect(page.locator('main').getByText(/created itinerary item/).first()).toBeVisible({ timeout: 20_000 });
-    test.fail(true, 'BUG-109: History shows raw JSON ("itemId":"PILOT.17.11.HB...","providerBookingId":null...) and "Reservation -9223372036854774807"');
-    await expect(page.locator('main').getByText(/"itemId"|-9223372036854\d+/)).toHaveCount(0);
+    const main = page.locator('main');
+    const ids = await main.getByText(/-9223372036854\d+/).count(), json = await main.getByText(/"itemId"/).count();
+    test.info().annotations.push({ type: 'history check', description: `internal ids (BUG-108): ${ids}, raw JSON (BUG-109): ${json}` });
+    await page.screenshot({ path: test.info().outputPath('reservation-history.png'), fullPage: true });
+    test.fail(ids + json > 0, 'BUG-108 / BUG-109: History shows "Reservation -9223372036854774807" and / or raw JSON ("itemId":...)');
+    expect(ids, 'internal ids like "Reservation -9223372036854774807" (BUG-108)').toBe(0);
+    expect(json, 'raw JSON like "itemId": ... (BUG-109)').toBe(0);
   });
 
   test('TC-RES-29: Documents - 10 document types, for whole / chosen services, layouts; Close', async ({ page }) => {

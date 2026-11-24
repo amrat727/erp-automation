@@ -74,6 +74,16 @@ for (const it of plan) {
   const c = await api('POST', `/rest/api/3/issue/${key}/comment`, { body: doc(body) });
   let st = '-';
   if (it.result === 'fixed') st = await moveTo(key, 'Complete');
-  if (it.result === 'reopen') { st = await moveTo(key, 'Reopened'); await labels(key, ['reopened']); }
+  if (it.result === 'reopen') {
+    st = await moveTo(key, 'Reopened'); await labels(key, ['reopened']);
+    // user rule (24 Nov 2026): a reopened bug goes back to Sahil
+    const a = await api('PUT', `/rest/api/3/issue/${key}/assignee`, { accountId: ASSIGNEE });
+    st += a.ok ? ' + assigned to Sahil' : ` (assign failed ${a.status})`;
+  }
+  if (it.result === 'keep') {   // still broken where the workflow has no "Reopened" (e.g. PB2B): comment + back to Sahil
+    const a = await api('PUT', `/rest/api/3/issue/${key}/assignee`, { accountId: ASSIGNEE });
+    st = a.ok ? 'assigned to Sahil' : `assign failed ${a.status}`;
+  }
+  if (it.result === 'done') st = await moveTo(key, 'Done');
   console.log(`${key} ${it.result} | comment ${c.ok ? 'ok' : c.status} | ${files.length} shot(s) | ${st}`);
 }
