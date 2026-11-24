@@ -1473,7 +1473,9 @@
   "epic": "KAN-16",
   "label": "insights-dashboard",
   "status": "To Do",
-  "shots": 1
+  "shots": 1,
+  "type": "Feature (suggestion)",
+  "note": "converted from Bug 24 Nov 2026: show confirmed and cancelled bookings separately"
  },
  "BUG-152": {
   "key": "KAN-168",
@@ -1506,5 +1508,37 @@
   "label": "insights-dashboard",
   "status": "To Do",
   "shots": 1
+ },
+ "BUG-156": {
+  "key": "KAN-172",
+  "url": "https://piloterp.atlassian.net/browse/KAN-172",
+  "epic": "KAN-16",
+  "label": "insights-dashboard",
+  "status": "To Do",
+  "shots": 1
+ },
+ "BUG-157": {
+  "key": "KAN-173",
+  "url": "https://piloterp.atlassian.net/browse/KAN-173",
+  "epic": "KAN-16",
+  "label": "insights-dashboard",
+  "status": "To Do",
+  "shots": 1
+ },
+ "BUG-158": {
+  "key": "KAN-174",
+  "url": "https://piloterp.atlassian.net/browse/KAN-174",
+  "epic": "KAN-14",
+  "label": "reservation-money-and-cancellation",
+  "status": "To Do",
+  "shots": 1
+ },
+ "SUGG-01": {
+  "key": "KAN-175",
+  "url": "https://piloterp.atlassian.net/browse/KAN-175",
+  "epic": "KAN-16",
+  "label": "insights-dashboard",
+  "type": "Feature (suggestion)",
+  "status": "To Do"
  }
 }

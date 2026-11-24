@@ -60,7 +60,7 @@ for (const it of plan) {
   let key = it.key;
   if (it.result === 'new') {
     const r = await api('POST', '/rest/api/3/issue', { fields: {
-      project: { key: KEY }, issuetype: { name: 'Bug' }, summary: it.summary, description: doc(it.description),
+      project: { key: KEY }, issuetype: { name: it.type || 'Bug' }, summary: it.summary, description: doc(it.description),
       parent: { key: it.epic }, labels: it.labels ?? [], priority: { name: it.priority ?? 'Medium' }, assignee: { accountId: ASSIGNEE } } });
     if (!r.ok) { console.log(`NEW failed ${r.status} ${JSON.stringify(r.data).slice(0, 300)}`); continue; }
     key = r.data.key;
