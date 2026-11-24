@@ -1,0 +1,342 @@
+[
+ {
+  "menu": "/accountgroup",
+  "path": "/accountgroup"
+ },
+ {
+  "menu": "/accountingsettings",
+  "path": "/accountingsettings"
+ },
+ {
+  "menu": "/addons",
+  "path": "/addons"
+ },
+ {
+  "menu": "/agentinvoices",
+  "path": "/agentinvoices"
+ },
+ {
+  "menu": "/agents",
+  "path": "/agents"
+ },
+ {
+  "menu": "/airports",
+  "path": "/airports"
+ },
+ {
+  "menu": "/allotments",
+  "path": "/allotments"
+ },
+ {
+  "menu": "/amendments",
+  "path": "/amendments"
+ },
+ {
+  "menu": "/amenities",
+  "path": "/amenities"
+ },
+ {
+  "menu": "/bankreconciliation",
+  "path": "/bankreconciliation"
+ },
+ {
+  "menu": "/chartofaccounts",
+  "path": "/chartofaccounts"
+ },
+ {
+  "menu": "/cities",
+  "path": "/cities"
+ },
+ {
+  "menu": "/companies",
+  "path": "/companies"
+ },
+ {
+  "menu": "/contacttype",
+  "path": "/contacttype"
+ },
+ {
+  "menu": "/contracts",
+  "path": "/contracts"
+ },
+ {
+  "menu": "/countries",
+  "path": "/countries"
+ },
+ {
+  "menu": "/currency",
+  "path": "/currency"
+ },
+ {
+  "menu": "/dashboard",
+  "path": "/dashboard"
+ },
+ {
+  "menu": "/desk-locations",
+  "path": "/desk-locations"
+ },
+ {
+  "menu": "/enquiries",
+  "path": "/enquiries"
+ },
+ {
+  "menu": "/exchangerates",
+  "path": "/exchangerates"
+ },
+ {
+  "menu": "/exchangetypes",
+  "path": "/exchangetypes"
+ },
+ {
+  "menu": "/excursion-setup",
+  "path": "/excursion-setup"
+ },
+ {
+  "menu": "/feedback",
+  "path": "/feedback"
+ },
+ {
+  "menu": "/feedback-questions",
+  "path": "/feedback-questions"
+ },
+ {
+  "menu": "/financialperiods",
+  "path": "/financialperiods"
+ },
+ {
+  "menu": "/flex/1",
+  "path": "/flex/1"
+ },
+ {
+  "menu": "/flex/10",
+  "path": "/flex/10"
+ },
+ {
+  "menu": "/flex/2",
+  "path": "/flex/2"
+ },
+ {
+  "menu": "/flex/3",
+  "path": "/flex/3"
+ },
+ {
+  "menu": "/flex/4",
+  "path": "/flex/4"
+ },
+ {
+  "menu": "/flex/5",
+  "path": "/flex/5"
+ },
+ {
+  "menu": "/flex/6",
+  "path": "/flex/6"
+ },
+ {
+  "menu": "/flex/7",
+  "path": "/flex/7"
+ },
+ {
+  "menu": "/flex/8",
+  "path": "/flex/8"
+ },
+ {
+  "menu": "/flex/9",
+  "path": "/flex/9"
+ },
+ {
+  "menu": "/journals",
+  "path": "/journals"
+ },
+ {
+  "menu": "/landmarks",
+  "path": "/landmarks"
+ },
+ {
+  "menu": "/languages",
+  "path": "/languages"
+ },
+ {
+  "menu": "/markets",
+  "path": "/markets"
+ },
+ {
+  "menu": "/organization/branches",
+  "path": "/organization/branches"
+ },
+ {
+  "menu": "/organization/departments",
+  "path": "/organization/departments"
+ },
+ {
+  "menu": "/packages",
+  "path": "/packages"
+ },
+ {
+  "menu": "/playground",
+  "path": "/playground"
+ },
+ {
+  "menu": "/portal-cms/checkout",
+  "path": "/portal-cms/checkout"
+ },
+ {
+  "menu": "/portal-cms/deals",
+  "path": "/portal-cms/deals"
+ },
+ {
+  "menu": "/portal-cms/documents",
+  "path": "/portal-cms/documents"
+ },
+ {
+  "menu": "/portal-cms/emails",
+  "path": "/portal-cms/emails"
+ },
+ {
+  "menu": "/portal-cms/listing",
+  "path": "/portal-cms/listing"
+ },
+ {
+  "menu": "/portal-cms/offers",
+  "path": "/portal-cms/offers"
+ },
+ {
+  "menu": "/portal-cms/overview",
+  "path": "/portal-cms/overview"
+ },
+ {
+  "menu": "/portal-cms/packages",
+  "path": "/portal-cms/packages"
+ },
+ {
+  "menu": "/portal-cms/scheduler",
+  "path": "/portal-cms/scheduler"
+ },
+ {
+  "menu": "/portal-cms/slider",
+  "path": "/portal-cms/slider"
+ },
+ {
+  "menu": "/portal-cms/storefront",
+  "path": "/portal-cms/storefront"
+ },
+ {
+  "menu": "/product-search",
+  "path": "/product-search"
+ },
+ {
+  "menu": "/productclass",
+  "path": "/productclass"
+ },
+ {
+  "menu": "/producttype",
+  "path": "/producttype"
+ },
+ {
+  "menu": "/provinces",
+  "path": "/provinces"
+ },
+ {
+  "menu": "/quotes",
+  "path": "/quotes"
+ },
+ {
+  "menu": "/recurringjournals",
+  "path": "/recurringjournals"
+ },
+ {
+  "menu": "/refundpayouts",
+  "path": "/refundpayouts"
+ },
+ {
+  "menu": "/reports",
+  "path": "/reports"
+ },
+ {
+  "menu": "/reservations",
+  "path": "/reservations"
+ },
+ {
+  "menu": "/resourcemapping",
+  "path": "/resourcemapping"
+ },
+ {
+  "menu": "/resources/assets",
+  "path": "/resources/assets"
+ },
+ {
+  "menu": "/resources/personnel",
+  "path": "/resources/personnel"
+ },
+ {
+  "menu": "/resourcetypes",
+  "path": "/resourcetypes"
+ },
+ {
+  "menu": "/restrictions",
+  "path": "/restrictions"
+ },
+ {
+  "menu": "/roles",
+  "path": "/roles"
+ },
+ {
+  "menu": "/roomcategories",
+  "path": "/roomcategories"
+ },
+ {
+  "menu": "/roomtypes",
+  "path": "/roomtypes"
+ },
+ {
+  "menu": "/states",
+  "path": "/states"
+ },
+ {
+  "menu": "/status",
+  "path": "/status"
+ },
+ {
+  "menu": "/supplements",
+  "path": "/supplements"
+ },
+ {
+  "menu": "/supplierinvoices",
+  "path": "/supplierinvoices"
+ },
+ {
+  "menu": "/suppliers",
+  "path": "/suppliers"
+ },
+ {
+  "menu": "/system/configurations",
+  "path": "/system/configurations"
+ },
+ {
+  "menu": "/system/data-retention",
+  "path": "/system/data-retention"
+ },
+ {
+  "menu": "/system/help",
+  "path": "/system/help"
+ },
+ {
+  "menu": "/tax",
+  "path": "/tax"
+ },
+ {
+  "menu": "/taxdetail",
+  "path": "/taxdetail"
+ },
+ {
+  "menu": "/themes",
+  "path": "/themes"
+ },
+ {
+  "menu": "/users",
+  "path": "/users"
+ },
+ {
+  "menu": "/viewtypes",
+  "path": "/viewtypes"
+ }
+]

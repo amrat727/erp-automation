@@ -1,0 +1,3819 @@
+{
+ "/accountgroup": {
+  "menu": "/accountgroup",
+  "path": "/accountgroup",
+  "url": "/accountgroup",
+  "kind": "list",
+  "title": "Account Groups",
+  "toolbarButtons": [
+   "Add Account Group",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Group Class",
+   "Group Priority",
+   "Active",
+   ""
+  ],
+  "sortButtons": 4,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 15",
+   "pageOf": "Page 1 of 2"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Account Group 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Account Group Name* Group Class* Group Priority Cancel "
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "45 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 3,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Account Group",
+   "opens": "dialog",
+   "title": "Add Account Group",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Group Class*",
+    "Group Priority"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required",
+    "Group Class is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/addons": {
+  "menu": "/addons",
+  "path": "/addons",
+  "url": "/addons",
+  "kind": "list",
+  "title": "Addons",
+  "toolbarButtons": [
+   "Add Addon",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Product Type",
+   "Image",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 20",
+   "pageOf": "Page 1 of 2"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Addon 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Addon Name* Product Type* Addon Image Upload Image Canc"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "52 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 2,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Addon",
+   "opens": "dialog",
+   "title": "Add Addon",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Product Type*",
+    "Upload Image"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required",
+    "Product Type is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/agentinvoices": {
+  "menu": "/agentinvoices",
+  "path": "/agentinvoices",
+  "url": "/agentinvoices",
+  "kind": "list",
+  "title": "Agent Invoices",
+  "toolbarButtons": [
+   "To Invoice 8",
+   "Download Excel",
+   "Upload Excel",
+   "Raise invoice",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Number",
+   "Type",
+   "Date",
+   "Due",
+   "Agent",
+   "Reservation",
+   "Total",
+   "Status"
+  ],
+  "sortButtons": 0,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": null,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search number",
+   "emptyMessage": "No invoices match these filters.",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Status",
+    "options": [
+     "All",
+     "Posted",
+     "Cancelled"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "button": null
+  }
+ },
+ "/agents": {
+  "menu": "/agents",
+  "path": "/agents",
+  "url": "/agents",
+  "kind": "list",
+  "title": "Agents",
+  "toolbarButtons": [
+   "Credit Requests",
+   "Add Agent",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Code",
+   "Name",
+   "Email",
+   "Country",
+   "Sales channel",
+   "Status",
+   ""
+  ],
+  "sortButtons": 5,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 41",
+   "pageOf": "Page 1 of 5"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search code",
+   "emptyMessage": "There are no records in Agent 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Status",
+    "options": [
+     "All",
+     "Approved",
+     "On hold",
+     "Blocked"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": {
+   "opens": "page",
+   "url": "/agents/1/overview"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "125 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     30,
+     40
+    ],
+    "inputCount": 15,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     33,
+     31
+    ],
+    "width": 1258
+   },
+   "button": "Add Agent",
+   "opens": "page",
+   "title": "Add Agent",
+   "buttons": [
+    "Credit Requests",
+    "Add Agent",
+    "Audit History",
+    "Columns",
+    "Cancel",
+    "Create Agent",
+    "Approved",
+    "On hold",
+    "Blocked"
+   ],
+   "labels": [
+    "Agent name*",
+    "Email*",
+    "Exchange Type *",
+    "Country *",
+    "State",
+    "City",
+    "Nationality",
+    "Account manager *",
+    "Status",
+    "Sales channel",
+    "Markets",
+    "Allotment markets",
+    "Default currency *",
+    "Credit",
+    "Payment due *",
+    "Days",
+    "Portal access"
+   ],
+   "saveLabel": "Create Agent",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Agent Name is required",
+    "Email is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/airports": {
+  "menu": "/airports",
+  "path": "/airports",
+  "url": "/airports",
+  "kind": "list",
+  "title": "Airports",
+  "toolbarButtons": [
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "City",
+   "Country",
+   "Active",
+   ""
+  ],
+  "sortButtons": 4,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 6",
+   "pageOf": "Page 1 of 608"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": null,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "No records match these filters.",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate airport? This will mark the airport as inactive. Yes, Deactivate Cancel",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "nothing"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "0 changes"
+  },
+  "addForm": {
+   "button": null
+  }
+ },
+ "/allotments": {
+  "menu": "/allotments",
+  "path": "/allotments",
+  "url": "/allotments",
+  "kind": "list",
+  "title": "Allotments",
+  "toolbarButtons": [
+   "Add Allotment",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Configuration",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 20",
+   "pageOf": "Page 1 of 2"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Allotment 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Allotment Name* Configuration Room Adult Cancel Save"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "52 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 1,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Allotment",
+   "opens": "dialog",
+   "title": "Add Allotment",
+   "buttons": [
+    "Room",
+    "Adult",
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/amenities": {
+  "menu": "/amenities",
+  "path": "/amenities",
+  "url": "/amenities",
+  "kind": "list",
+  "title": "Amenities",
+  "toolbarButtons": [
+   "Add Amenity",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 45",
+   "pageOf": "Page 1 of 5"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Amenity 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate amenity? This will mark the amenity as inactive. Yes, Deactivate Cancel",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Amenity Name* Cancel Save"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "45 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 1,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Amenity",
+   "opens": "dialog",
+   "title": "Add Amenity",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/chartofaccounts": {
+  "menu": "/chartofaccounts",
+  "path": "/chartofaccounts",
+  "url": "/chartofaccounts",
+  "kind": "list",
+  "title": "Chart of Accounts",
+  "toolbarButtons": [
+   "Add Account",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Code",
+   "Name",
+   "Classification",
+   "Branch",
+   "Department",
+   "Currency",
+   "Group",
+   "Control Account",
+   "Bank Account",
+   "IC Account",
+   "Active",
+   ""
+  ],
+  "sortButtons": 8,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search code",
+   "emptyMessage": "There are no records in Chart of Accounts 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "0 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 7,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 900
+   },
+   "button": "Add Account",
+   "opens": "dialog",
+   "title": "Add Account",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Code*",
+    "Name*",
+    "Classification*",
+    "Branch*",
+    "Department*",
+    "Currency*",
+    "Group*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Code is required",
+    "Name is required",
+    "Classification is required",
+    "Branch is required",
+    "Department is required",
+    "Currency is required",
+    "Group is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/cities": {
+  "menu": "/cities",
+  "path": "/cities",
+  "url": "/cities",
+  "kind": "list",
+  "title": "Cities",
+  "toolbarButtons": [
+   "Add City",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Country",
+   "State",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 32",
+   "pageOf": "Page 1 of 4"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in City 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate city? This will mark the city as inactive. This city is still in use by: 31 Suppliers 13 Supplier Products 4 Landmarks 2 Package Cities 1 Agent Add",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit City Code* Name* Country* State (optional) Images Uploa"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "82 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 4,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add City",
+   "opens": "dialog",
+   "title": "Add City",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Code*",
+    "Name*",
+    "Country*",
+    "State (optional)",
+    "Upload Images"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Code is required",
+    "Name is required",
+    "Country is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/companies": {
+  "menu": "/companies",
+  "path": "/companies",
+  "url": "/companies",
+  "kind": "list",
+  "title": "Companies",
+  "toolbarButtons": [
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Email",
+   ""
+  ],
+  "sortButtons": 0,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–1 of 1",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 1,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": null,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Company 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [],
+  "rowControls": {
+   "switch": false,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": {
+   "opens": "page",
+   "url": "/companies/2"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "0 changes"
+  },
+  "addForm": {
+   "button": null
+  }
+ },
+ "/contacttype": {
+  "menu": "/contacttype",
+  "path": "/contacttype",
+  "url": "/roles",
+  "kind": "list",
+  "title": "Roles",
+  "toolbarButtons": [
+   "Add Role",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 31",
+   "pageOf": "Page 1 of 4"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Role 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Role Name* Cancel Save"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "89 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 1,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Role",
+   "opens": "dialog",
+   "title": "Add Role",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/contracts": {
+  "menu": "/contracts",
+  "path": "/contracts",
+  "url": "/contracts",
+  "kind": "list",
+  "title": "Contracts",
+  "toolbarButtons": [
+   "Add Contract",
+   "Audit History",
+   "Clear All Filters",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Contract",
+   "Supplier",
+   "Service",
+   "Valid",
+   "Status",
+   "Active",
+   "Rates"
+  ],
+  "sortButtons": 0,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–15 of 15",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 15,
+  "listSizes": {
+   "rowHeight": 55,
+   "rowHeights": [
+    55,
+    55,
+    55
+   ],
+   "headerHeight": 44,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search contract",
+   "emptyMessage": "No contracts match these filters.",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Status",
+    "options": [
+     "Any status",
+     "Draft",
+     "Pending approval",
+     "Approved",
+     "Rejected",
+     "Expired"
+    ]
+   },
+   {
+    "column": "Active",
+    "options": [
+     "Active",
+     "Inactive",
+     "All"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": {
+   "error": "TimeoutError: page.goto: Timeout 8000ms exceeded."
+  },
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "button": null
+  }
+ },
+ "/countries": {
+  "menu": "/countries",
+  "path": "/countries",
+  "url": "/countries",
+  "kind": "list",
+  "title": "Countries",
+  "toolbarButtons": [
+   "Add Country",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 20",
+   "pageOf": "Page 1 of 2"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Country 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate country? This will mark the country as inactive. This country is still in use by: 27 Market Countries 5 Cities 4 States 3 Agents 1 Agent Address 1 ",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Country Name* Cancel Save"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "31 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 1,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Country",
+   "opens": "dialog",
+   "title": "Add Country",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/currency": {
+  "menu": "/currency",
+  "path": "/currency",
+  "url": "/currency",
+  "kind": "list",
+  "title": "Currencies",
+  "toolbarButtons": [
+   "Add Currency",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Symbol",
+   "Active",
+   ""
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "1–4 of 4",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 4,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Currency 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate currency? This will mark the currency as inactive. This currency is still in use by: 5 Exchange Rates 2 Agent Currencies 2 Supplier Currencies Thos",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Currency Name* Symbol Cancel Save"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "5 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 2,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Currency",
+   "opens": "dialog",
+   "title": "Add Currency",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Symbol"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/dashboard": {
+  "menu": "/dashboard",
+  "path": "/dashboard",
+  "url": "/dashboard",
+  "kind": "page",
+  "title": "Good evening, Sahil",
+  "toolbarButtons": [
+   "Search Products",
+   "New Reservation",
+   "New Quote",
+   "Overview",
+   "Sales",
+   "Partners",
+   "Contracts",
+   "Allotments",
+   "Look-to-book",
+   "Quotations",
+   "Enquiries",
+   "Feedback",
+   "United Arab Emirates 100% 3",
+   "View All"
+  ],
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     30,
+     40
+    ],
+    "inputCount": 11,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     33,
+     39
+    ],
+    "width": 1258
+   },
+   "button": "New Reservation",
+   "opens": "page",
+   "title": "(no form title found)",
+   "buttons": [
+    "All",
+    "Arriving Today",
+    "Arriving in 7 Days",
+    "Travelling Now",
+    "Storefront",
+    "Amendment Requests",
+    "Add Reservation",
+    "Audit History",
+    "Columns",
+    "Private",
+    "Group",
+    "Room wise",
+    "Pax wise",
+    "Add Room",
+    "Build now",
+    "From a quote",
+    "From a package",
+    "Cancel",
+    "Save Reservation"
+   ],
+   "labels": [
+    "Travel Dates *",
+    "Agent *",
+    "Currency *",
+    "Reservation Name",
+    "Booking Type",
+    "Branch",
+    "Department",
+    "Exchange Type *",
+    "Remarks",
+    "Reservation For",
+    "Client Reference"
+   ],
+   "saveLabel": "Save Reservation",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Travel Dates is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/desk-locations": {
+  "menu": "/desk-locations",
+  "path": "/desk-locations",
+  "url": "/desk-locations",
+  "kind": "list",
+  "title": "Desk Locations",
+  "toolbarButtons": [
+   "Add Desk Location",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Partner hotels",
+   "Agents",
+   "Active"
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Desk Location 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "0 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 2,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Desk Location",
+   "opens": "dialog",
+   "title": "Add Desk Location",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Partner hotels *"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/enquiries": {
+  "menu": "/enquiries",
+  "path": "/enquiries",
+  "url": "/enquiries",
+  "kind": "list",
+  "title": "Enquiries",
+  "toolbarButtons": [
+   "New Enquiry",
+   "Source",
+   "Assigned to",
+   "Follow-up",
+   "Open (0)",
+   "New (0)",
+   "In progress (0)",
+   "Quoted (0)",
+   "Won (0)",
+   "Lost (0)",
+   "Closed (0)",
+   "All (0)",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Ref",
+   "Received",
+   "Customer",
+   "Source",
+   "About",
+   "Travellers",
+   "Priority",
+   "Assigned to",
+   "Follow-up",
+   "Status",
+   "Actions"
+  ],
+  "sortButtons": 0,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "",
+   "pageOf": ""
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": false
+  },
+  "filters": [
+   {
+    "column": "Status",
+    "options": []
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "0 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 14,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 900
+   },
+   "button": "New Enquiry",
+   "opens": "dialog",
+   "title": "New Enquiry A call, an email",
+   "buttons": [
+    "Low",
+    "Normal",
+    "High",
+    "Urgent",
+    "Cancel",
+    "Create Enquiry"
+   ],
+   "labels": [
+    "Source*",
+    "Agent",
+    "Customer name",
+    "Email",
+    "Phone",
+    "Subject",
+    "Destination",
+    "Travel from",
+    "Travel to",
+    "Adults",
+    "Children",
+    "Infants",
+    "Products of interest",
+    "Budget",
+    "Currency",
+    "What they asked for",
+    "Assigned to",
+    "Follow up on"
+   ],
+   "saveLabel": "Create Enquiry",
+   "saveEnabledWhenEmpty": true,
+   "messages": [],
+   "banner": [
+    "Pilot can't be reached right now. Try again in a moment.",
+    "Pilot can't be reached right now. Try again in a moment."
+   ],
+   "sentToServer": 1
+  }
+ },
+ "/exchangerates": {
+  "menu": "/exchangerates",
+  "path": "/exchangerates",
+  "url": "/exchangerates",
+  "kind": "list",
+  "title": "Exchange Rates",
+  "toolbarButtons": [
+   "Add Exchange Rate",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Exchange Type",
+   "From",
+   "To",
+   "Rate",
+   "Effective Date",
+   "Active"
+  ],
+  "sortButtons": 1,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 11",
+   "pageOf": "Page 1 of 2"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 37,
+   "rowHeights": [
+    37,
+    37,
+    37
+   ],
+   "headerHeight": 44,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search exchange type",
+   "emptyMessage": "There are no records in Exchange Rate 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate exchange rate? Quotes will stop converting with this rate. Yes, Deactivate Cancel",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Exchange Rate Exchange Type * From Currency * To Curren"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "9 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 5,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Exchange Rate",
+   "opens": "dialog",
+   "title": "Add Exchange Rate",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Exchange Type *",
+    "From Currency *",
+    "To Currency *",
+    "Rate*",
+    "Effective Date*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Rate must be greater than 0"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/exchangetypes": {
+  "menu": "/exchangetypes",
+  "path": "/exchangetypes",
+  "url": "/exchangetypes",
+  "kind": "list",
+  "title": "Exchange Types",
+  "toolbarButtons": [
+   "Add Exchange Type",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 19",
+   "pageOf": "Page 1 of 2"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Exchange Type 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate exchange type? This will mark the exchange type as inactive. This exchange type is still in use by: 41 Agents 21 Reservations 11 Exchange Rates 1 Q",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Exchange Type Name* Cancel Save"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "55 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 1,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Exchange Type",
+   "opens": "dialog",
+   "title": "Add Exchange Type",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/feedback": {
+  "menu": "/feedback",
+  "path": "/feedback",
+  "url": "/feedback",
+  "kind": "list",
+  "title": "Feedback",
+  "toolbarButtons": [
+   "All",
+   "5★",
+   "4★",
+   "3★",
+   "2★",
+   "1★",
+   "Columns"
+  ],
+  "headers": [
+   "Latest",
+   "Booking",
+   "Agent",
+   "Rating",
+   "From"
+  ],
+  "sortButtons": 0,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "",
+   "pageOf": ""
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": null,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": false
+  },
+  "filters": [],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "button": null
+  }
+ },
+ "/feedback-questions": {
+  "menu": "/feedback-questions",
+  "path": "/feedback-questions",
+  "url": "/feedback-questions",
+  "kind": "list",
+  "title": "Feedback Questions",
+  "toolbarButtons": [
+   "Add Question",
+   "Questions (0)",
+   "Groups (0)",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Group",
+   "Order",
+   "Question",
+   "Asks about",
+   "Answer",
+   "Languages",
+   "Answers",
+   "Active"
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search",
+   "emptyMessage": "",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "0 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40,
+     60
+    ],
+    "inputCount": 5,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 900
+   },
+   "button": "Add Question",
+   "opens": "dialog",
+   "title": "Add Question",
+   "buttons": [
+    "English",
+    "Hindi missing",
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Answer*",
+    "Group",
+    "Asks about*",
+    "Order",
+    "Question in English*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [],
+   "banner": [
+    "Write the question in English — it's what the form falls back to.",
+    "Write the question in English — it's what the form falls back to."
+   ],
+   "sentToServer": 0
+  }
+ },
+ "/financialperiods": {
+  "menu": "/financialperiods",
+  "path": "/financialperiods",
+  "url": "/financialperiods",
+  "kind": "list",
+  "title": "Financial Periods",
+  "toolbarButtons": [
+   "Revalue Currencies",
+   "Close Year",
+   "Create 2026",
+   "Columns"
+  ],
+  "headers": [
+   "Period",
+   "Dates",
+   "Receivable",
+   "Payable",
+   "General ledger"
+  ],
+  "sortButtons": 0,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "",
+   "pageOf": ""
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 37,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": false
+  },
+  "filters": [],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 1,
+    "labelFont": null,
+    "buttonHeights": [
+     37
+    ],
+    "width": 1258
+   },
+   "button": "Create 2026",
+   "opens": "same page",
+   "title": "(no form title found)",
+   "buttons": [
+    "Revalue Currencies",
+    "Close Year",
+    "Create 2026",
+    "Columns"
+   ],
+   "labels": [],
+   "saveLabel": "Create 2026",
+   "saveEnabledWhenEmpty": true,
+   "messages": [],
+   "banner": [
+    "Pilot can't be reached right now. Try again in a moment.",
+    "Pilot can't be reached right now. Try again in a moment."
+   ],
+   "sentToServer": 1
+  }
+ },
+ "/flex/1": {
+  "menu": "/flex/1",
+  "path": "/flex/1",
+  "url": "/flex/1",
+  "kind": "list",
+  "title": "Flex 1",
+  "toolbarButtons": [
+   "Bulk Add",
+   "Add Flex",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Description",
+   "Module",
+   "Active",
+   "Actions"
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 39,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search description",
+   "emptyMessage": "There are no records in Flex Value 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 3,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Flex",
+   "opens": "dialog",
+   "title": "Add Flex",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Code*",
+    "Description*",
+    "Module*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Code is required",
+    "Description is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/flex/10": {
+  "menu": "/flex/10",
+  "path": "/flex/10",
+  "url": "/flex/10",
+  "kind": "list",
+  "title": "Flex 10",
+  "toolbarButtons": [
+   "Bulk Add",
+   "Add Flex",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Description",
+   "Module",
+   "Active",
+   "Actions"
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 39,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search description",
+   "emptyMessage": "There are no records in Flex Value 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 3,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Flex",
+   "opens": "dialog",
+   "title": "Add Flex",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Code*",
+    "Description*",
+    "Module*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Code is required",
+    "Description is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/flex/2": {
+  "menu": "/flex/2",
+  "path": "/flex/2",
+  "url": "/flex/2",
+  "kind": "list",
+  "title": "Flex 2",
+  "toolbarButtons": [
+   "Bulk Add",
+   "Add Flex",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Description",
+   "Module",
+   "Active",
+   "Actions"
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 39,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search description",
+   "emptyMessage": "There are no records in Flex Value 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 3,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Flex",
+   "opens": "dialog",
+   "title": "Add Flex",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Code*",
+    "Description*",
+    "Module*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Code is required",
+    "Description is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/flex/3": {
+  "menu": "/flex/3",
+  "path": "/flex/3",
+  "url": "/flex/3",
+  "kind": "list",
+  "title": "Flex 3",
+  "toolbarButtons": [
+   "Bulk Add",
+   "Add Flex",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Description",
+   "Module",
+   "Active",
+   "Actions"
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 39,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search description",
+   "emptyMessage": "There are no records in Flex Value 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 3,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Flex",
+   "opens": "dialog",
+   "title": "Add Flex",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Code*",
+    "Description*",
+    "Module*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Code is required",
+    "Description is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/flex/4": {
+  "menu": "/flex/4",
+  "path": "/flex/4",
+  "url": "/flex/4",
+  "kind": "list",
+  "title": "Flex 4",
+  "toolbarButtons": [
+   "Bulk Add",
+   "Add Flex",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Description",
+   "Module",
+   "Active",
+   "Actions"
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 39,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search description",
+   "emptyMessage": "There are no records in Flex Value 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 3,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Flex",
+   "opens": "dialog",
+   "title": "Add Flex",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Code*",
+    "Description*",
+    "Module*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Code is required",
+    "Description is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/flex/5": {
+  "menu": "/flex/5",
+  "path": "/flex/5",
+  "url": "/flex/5",
+  "kind": "list",
+  "title": "Flex 5",
+  "toolbarButtons": [
+   "Bulk Add",
+   "Add Flex",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Description",
+   "Module",
+   "Active",
+   "Actions"
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 39,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search description",
+   "emptyMessage": "There are no records in Flex Value 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 3,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Flex",
+   "opens": "dialog",
+   "title": "Add Flex",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Code*",
+    "Description*",
+    "Module*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Code is required",
+    "Description is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/flex/6": {
+  "menu": "/flex/6",
+  "path": "/flex/6",
+  "url": "/flex/6",
+  "kind": "list",
+  "title": "Flex 6",
+  "toolbarButtons": [
+   "Bulk Add",
+   "Add Flex",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Description",
+   "Module",
+   "Active",
+   "Actions"
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 39,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search description",
+   "emptyMessage": "There are no records in Flex Value 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 3,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Flex",
+   "opens": "dialog",
+   "title": "Add Flex",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Code*",
+    "Description*",
+    "Module*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Code is required",
+    "Description is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/flex/7": {
+  "menu": "/flex/7",
+  "path": "/flex/7",
+  "url": "/flex/7",
+  "kind": "list",
+  "title": "Flex 7",
+  "toolbarButtons": [
+   "Bulk Add",
+   "Add Flex",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Description",
+   "Module",
+   "Active",
+   "Actions"
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 39,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search description",
+   "emptyMessage": "There are no records in Flex Value 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 3,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Flex",
+   "opens": "dialog",
+   "title": "Add Flex",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Code*",
+    "Description*",
+    "Module*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Code is required",
+    "Description is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/flex/8": {
+  "menu": "/flex/8",
+  "path": "/flex/8",
+  "url": "/flex/8",
+  "kind": "list",
+  "title": "Flex 8",
+  "toolbarButtons": [
+   "Bulk Add",
+   "Add Flex",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Description",
+   "Module",
+   "Active",
+   "Actions"
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 39,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search description",
+   "emptyMessage": "There are no records in Flex Value 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 3,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Flex",
+   "opens": "dialog",
+   "title": "Add Flex",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Code*",
+    "Description*",
+    "Module*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Code is required",
+    "Description is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/flex/9": {
+  "menu": "/flex/9",
+  "path": "/flex/9",
+  "url": "/flex/9",
+  "kind": "list",
+  "title": "Flex 9",
+  "toolbarButtons": [
+   "Bulk Add",
+   "Add Flex",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Description",
+   "Module",
+   "Active",
+   "Actions"
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 39,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search description",
+   "emptyMessage": "There are no records in Flex Value 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 3,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Flex",
+   "opens": "dialog",
+   "title": "Add Flex",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Code*",
+    "Description*",
+    "Module*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Code is required",
+    "Description is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/journals": {
+  "menu": "/journals",
+  "path": "/journals",
+  "url": "/journals",
+  "kind": "list",
+  "title": "Journals",
+  "toolbarButtons": [
+   "New Journal Voucher",
+   "Columns"
+  ],
+  "headers": [
+   "Number",
+   "Date",
+   "Source",
+   "Narration",
+   "Reference",
+   "Amount (base)",
+   "Status"
+  ],
+  "sortButtons": 0,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "listSizes": {
+   "rowHeight": null,
+   "rowHeights": [],
+   "headerHeight": 44,
+   "addButtonHeight": 37,
+   "auditButtonHeight": null,
+   "cellFont": null,
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search number",
+   "emptyMessage": "No journals match these filters.",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Status",
+    "options": [
+     "All",
+     "Posted",
+     "Reversed"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 12,
+    "labelFont": "13px",
+    "buttonHeights": [
+     31,
+     37
+    ],
+    "width": 1200
+   },
+   "button": "New Journal Voucher",
+   "opens": "dialog",
+   "title": "New Journal Voucher",
+   "buttons": [
+    "Add Line",
+    "Cancel",
+    "Post Journal"
+   ],
+   "labels": [
+    "Date*",
+    "Narration*",
+    "Reference"
+   ],
+   "saveLabel": null,
+   "saveEnabledWhenEmpty": null,
+   "messages": [],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/landmarks": {
+  "menu": "/landmarks",
+  "path": "/landmarks",
+  "url": "/landmarks",
+  "kind": "list",
+  "title": "Landmarks",
+  "toolbarButtons": [
+   "Add Landmark",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Description",
+   "City",
+   "Latitude",
+   "Longitude",
+   "Active",
+   ""
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 19",
+   "pageOf": "Page 1 of 2"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Landmark 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate landmark? This will mark the landmark as inactive. Yes, Deactivate Cancel",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Landmark Name* Description City* Latitude Longitude Can"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "41 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 5,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 900
+   },
+   "button": "Add Landmark",
+   "opens": "dialog",
+   "title": "Add Landmark",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Description",
+    "City*",
+    "Latitude",
+    "Longitude"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required",
+    "City is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/languages": {
+  "menu": "/languages",
+  "path": "/languages",
+  "url": "/languages",
+  "kind": "list",
+  "title": "Languages",
+  "toolbarButtons": [
+   "Add Language",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 26",
+   "pageOf": "Page 1 of 3"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Language 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate language? This will mark the language as inactive. This language is still in use by: 1 Supplier Content Description Those records keep working, but",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Language Name* Cancel Save"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "74 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 1,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Language",
+   "opens": "dialog",
+   "title": "Add Language",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/markets": {
+  "menu": "/markets",
+  "path": "/markets",
+  "url": "/markets",
+  "kind": "list",
+  "title": "Markets",
+  "toolbarButtons": [
+   "Add Market",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Countries",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 27",
+   "pageOf": "Page 1 of 3"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Market 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate market? This will mark the market as inactive. This market is still in use by: 3 Agent Allotments 3 Agent Markets 1 Service Contract Market Those r",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Market Name* Countries* India United Arab Emirates Unit"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "71 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40
+    ],
+    "inputCount": 2,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Market",
+   "opens": "dialog",
+   "title": "Add Market",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Countries*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required",
+    "Select at least one country"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/organization/branches": {
+  "menu": "/organization/branches",
+  "path": "/organization/branches",
+  "url": "/organization/branches",
+  "kind": "list",
+  "title": "Branches",
+  "toolbarButtons": [
+   "Add Branch",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "City",
+   "Active",
+   ""
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 28",
+   "pageOf": "Page 1 of 3"
+  },
+  "rows": 10,
+  "listSizes": {
+   "rowHeight": 43,
+   "rowHeights": [
+    43,
+    43,
+    43
+   ],
+   "headerHeight": 46,
+   "addButtonHeight": 37,
+   "auditButtonHeight": 31,
+   "cellFont": "14px",
+   "headerFont": "14px"
+  },
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Branch 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate branch? This will mark the branch as inactive. This branch is still in use by: 1 Supplier Currency Those records keep working, but it can no longer",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Branch Name* City Address Cancel Save"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "81 changes"
+  },
+  "addForm": {
+   "sizes": {
+    "inputHeights": [
+     40,
+     60
+    ],
+    "inputCount": 3,
+    "labelFont": "13px",
+    "buttonHeights": [
+     37,
+     31
+    ],
+    "width": 600
+   },
+   "button": "Add Branch",
+   "opens": "dialog",
+   "title": "Add Branch",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "City",
+    "Address"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ }
+}

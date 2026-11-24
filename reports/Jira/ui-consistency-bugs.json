@@ -1,0 +1,254 @@
+[
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-text"
+  ],
+  "priority": "Medium",
+  "summary": "BUG-159: Deactivate popup titles are not Title Case on 28 screens (\"Deactivate state?\" - should be \"Deactivate State?\")",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Medium\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: Every dialog / popup title in Title Case: \"Deactivate State?\", \"Deactivate Room Category?\" (product owner 24 Nov 2026: Title Case everywhere - replaces the lower-case wording accepted in KAN-26). The popup text stays a sentence: \"This will mark the state as inactive.\"\nActual - 28 screen(s):\n- /airports: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate airport?\"\n- /amenities: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate amenity?\"\n- /cities: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate city?\"\n- /countries: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate country?\"\n- /currency: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate currency?\"\n- /exchangerates: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate exchange rate?\"\n- /exchangetypes: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate exchange type?\"\n- /landmarks: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate landmark?\"\n- /languages: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate language?\"\n- /markets: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate market?\"\n- /organization/branches: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate branch?\"\n- /organization/departments: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate department?\"\n- /producttype: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate product type?\"\n- /quotes: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate quote?\"\n- /reservations: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate reservation?\"\n- /resourcemapping: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate mapping?\"\n- /resources/assets: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate asset?\"\n- /resources/personnel: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate personnel?\"\n- /resourcetypes: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate resource type?\"\n- /restrictions: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate restriction group?\"\n- /roomcategories: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate room category?\"\n- /roomtypes: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate room type?\"\n- /states: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate state?\"\n- /status: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate status?\"\n- /supplements: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate supplement?\"\n- /suppliers: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate supplier?\"\n- /themes: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate theme?\"\n- /viewtypes: Deactivate popup title in Title Case \"Deactivate <Item>?\" -> shown \"Deactivate view type?\"\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-159",
+  "shots": [
+   "screenshots/ui-consistency/airports-deactivate.png",
+   "screenshots/ui-consistency/amenities-deactivate.png",
+   "screenshots/ui-consistency/cities-deactivate.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-text"
+  ],
+  "priority": "Low",
+  "summary": "BUG-160: Page titles are not Title Case on 7 Portal CMS screens (\"Checkout fields\", \"Deal cards\", \"Email templates\" ...)",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Low\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: Page titles in Title Case like every other screen: \"Checkout Fields\", \"Deal Cards\", \"Email Templates\", \"Listing Layout\", \"Sponsored Offers\", \"Package Options\", \"Login Slider\".\nActual - 7 screen(s):\n- /portal-cms/checkout: Title in Title Case -> shown \"Checkout fields\"\n- /portal-cms/deals: Title in Title Case -> shown \"Deal cards\"\n- /portal-cms/emails: Title in Title Case -> shown \"Email templates\"\n- /portal-cms/listing: Title in Title Case -> shown \"Listing layout\"\n- /portal-cms/offers: Title in Title Case -> shown \"Sponsored offers\"\n- /portal-cms/packages: Title in Title Case -> shown \"Package options\"\n- /portal-cms/slider: Title in Title Case -> shown \"Login slider\"\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-160",
+  "shots": [
+   "screenshots/ui-consistency/portal-cms-checkout.png",
+   "screenshots/ui-consistency/portal-cms-deals.png",
+   "screenshots/ui-consistency/portal-cms-emails.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-consistency"
+  ],
+  "priority": "Low",
+  "summary": "BUG-161: \"New ...\" / \"Create ...\" instead of \"Add <Item>\" on 9 screens (button and form title)",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Low\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: The toolbar button and the form title both say \"Add <Item>\" (\"Add Journal Voucher\", \"Add Document\", \"Add Offer\"), and the form opens as a dialog titled \"Add <Item>\" like Add State.\nActual - 9 screen(s):\n- /journals: Toolbar \"Add <Screen>\" -> shown \"New Journal Voucher\"; Add opens \"Add <Screen>\" -> shown \"dialog: New Journal Voucher\"\n- /playground: Add button says \"Add <Screen>\" -> shown \"New Report\"; Add opens a dialog titled \"Add ...\" -> shown \"page: (no form title found)\"\n- /portal-cms/deals: Add button says \"Add <Screen>\" -> shown \"New Deal Card\"; Add opens a dialog titled \"Add ...\" -> shown \"dialog: New Deal Card New · draft\"\n- /portal-cms/documents: Toolbar \"Add <Screen>\" -> shown \"New Document\"; Add opens \"Add <Screen>\" -> shown \"dialog: Itinerary Itinerary\"\n- /portal-cms/emails: Add button says \"Add <Screen>\" -> shown \"New\"; Add opens a dialog titled \"Add ...\" -> shown \"same page: (no form title found)\"\n- /portal-cms/offers: Add button says \"Add <Screen>\" -> shown \"New Offer\"; Add opens a dialog titled \"Add ...\" -> shown \"dialog: New Sponsored Offer New · draft\"\n- /portal-cms/slider: Add opens a dialog titled \"Add ...\" -> shown \"dialog: New Login Photo New · draft\"\n- /portal-cms/storefront: Add opens a dialog titled \"Add ...\" -> shown \"dialog: New slide New · draft until\"\n- /recurringjournals: Toolbar \"Add <Screen>\" -> shown \"New Recurring Journal\"; Add opens \"Add <Screen>\" -> shown \"dialog: New Recurring Journal\"\nAlready reported (not repeated here): /enquiries (KAN-101), /packages (KAN-100)\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-161",
+  "shots": [
+   "screenshots/ui-consistency/journals-add.png",
+   "screenshots/ui-consistency/playground-add.png",
+   "screenshots/ui-consistency/portal-cms-deals-add.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-consistency"
+  ],
+  "priority": "Low",
+  "summary": "BUG-162: Form buttons are not \"Cancel\" + \"Save\" on 7 screens (\"Create Agent\", \"Create Supplier\", \"Post Journal\", \"Create & Continue\" ...)",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Low\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: Every Add / Edit form ends with the same two buttons: \"Cancel\" and \"Save\".\nActual - 7 screen(s):\n- /agents: Form buttons \"Cancel\" + \"Save\" -> shown \"Add Agent / Cancel / Create Agent\"\n- /enquiries: Form buttons \"Cancel\" + \"Save\" -> shown \"Cancel / Create Enquiry\"\n- /journals: Form buttons \"Cancel\" + \"Save\" -> shown \"Add Line / Cancel / Post Journal\"\n- /portal-cms/documents: Form buttons \"Cancel\" + \"Save\" -> shown \"Add Block / Cancel / Save Draft / Save and Publish\"\n- /reservations: Form buttons \"Cancel\" + \"Save\" -> shown \"Add Reservation / Add Room / Cancel / Save Reservation\"\n- /restrictions: Form buttons \"Cancel\" + \"Save\" -> shown \"Cancel / Create & Continue\"\n- /suppliers: Form buttons \"Cancel\" + \"Save\" -> shown \"Add Supplier / Cancel / Create Supplier\"\nAlready reported (not repeated here): /packages (KAN-100)\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-162",
+  "shots": [
+   "screenshots/ui-consistency/agents-add.png",
+   "screenshots/ui-consistency/enquiries-add.png",
+   "screenshots/ui-consistency/journals-add.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "error-message-consistency"
+  ],
+  "priority": "Medium",
+  "summary": "BUG-163: Empty Save does not mark every required (*) field on 19 screens (e.g. Add Supplier: 1 message for 5 required fields)",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Medium\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: An empty Save shows \"<Field> is required\" under EVERY required (*) field, like Add State (\"Name is required\", \"Country is required\").\nActual - 19 screen(s):\n- /agents: Every required (*) field gets its message -> shown \"2 message(s) for 7 required field(s)\"\n- /desk-locations: Every required (*) field gets its message -> shown \"1 message(s) for 2 required field(s)\"\n- /enquiries: Every required (*) field gets its message -> shown \"0 message(s) for 1 required field(s)\"\n- /exchangerates: Every required (*) field gets its message -> shown \"1 message(s) for 5 required field(s)\"\n- /feedback-questions: Every required (*) field gets its message -> shown \"0 message(s) for 3 required field(s)\"\n- /flex/1: Every required (*) field gets its message -> shown \"2 message(s) for 3 required field(s)\"\n- /flex/10: Every required (*) field gets its message -> shown \"2 message(s) for 3 required field(s)\"\n- /flex/2: Every required (*) field gets its message -> shown \"2 message(s) for 3 required field(s)\"\n- /flex/3: Every required (*) field gets its message -> shown \"2 message(s) for 3 required field(s)\"\n- /flex/4: Every required (*) field gets its message -> shown \"2 message(s) for 3 required field(s)\"\n- /flex/5: Every required (*) field gets its message -> shown \"2 message(s) for 3 required field(s)\"\n- /flex/6: Every required (*) field gets its message -> shown \"2 message(s) for 3 required field(s)\"\n- /flex/7: Every required (*) field gets its message -> shown \"2 message(s) for 3 required field(s)\"\n- /flex/8: Every required (*) field gets its message -> shown \"2 message(s) for 3 required field(s)\"\n- /flex/9: Every required (*) field gets its message -> shown \"2 message(s) for 3 required field(s)\"\n- /reservations: Every required (*) field gets its message -> shown \"1 message(s) for 4 required field(s)\"\n- /resourcemapping: Every required (*) field gets its message -> shown \"0 message(s) for 2 required field(s)\"\n- /resourcetypes: Every required (*) field gets its message -> shown \"0 message(s) for 2 required field(s)\"\n- /suppliers: Every required (*) field gets its message -> shown \"1 message(s) for 5 required field(s)\"\nAlready reported (not repeated here): /journals (KAN-137), /portal-cms/documents (KAN-112), /recurringjournals (KAN-137)\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-163",
+  "shots": [
+   "screenshots/ui-consistency/agents-add.png",
+   "screenshots/ui-consistency/desk-locations-add.png",
+   "screenshots/ui-consistency/enquiries-add.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "error-message-consistency"
+  ],
+  "priority": "Medium",
+  "summary": "BUG-164: Empty Save shows a different message or a banner instead of \"<Field> is required\" on 10 screens",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Medium\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: \"<Field> is required\" under each missing field - no banner, no other wording (\"Select at least one country\", \"Rate must be greater than 0\", \"Write the article before saving\"), Save not just disabled, required fields marked *.\nActual - 10 screen(s):\n- /enquiries: Empty Save: \"<Field> is required\" under the fields, no banner -> shown \"(none) | banner: Pilot can't be reached right now. Try again in a moment.; Pilot can't be reached right now. Try again in a moment.\"\n- /exchangerates: Empty Save: \"<Field> is required\" under the fields, no banner -> shown \"Rate must be greater than 0\"\n- /feedback-questions: Empty Save: \"<Field> is required\" under the fields, no banner -> shown \"(none) | banner: Write the question in English — it's what the form falls back to.; Write the question in English — it's what the form falls back to.\"\n- /markets: Empty Save: \"<Field> is required\" under the fields, no banner -> shown \"Name is required; Select at least one country\"\n- /playground: Empty Save: \"<Field> is required\" under the fields, no banner -> shown \"(none) | Save disabled\"\n- /portal-cms/emails: Empty Save: \"<Field> is required\" under the fields, no banner -> shown \"(none) | banner: Pilot can't be reached right now. Try again in a moment.; Pilot can't be reached right now. Try again in a moment.; i Give the template a name. OK\"\n- /provinces: Empty Save: \"<Field> is required\" under the fields, no banner -> shown \"Name is required; Country is required; Select at least one city\"\n- /resourcemapping: Empty Save: \"<Field> is required\" under the fields, no banner -> shown \"(none) | banner: Select both a source resource and a target resource.; Select both a source resource and a target resource.\"\n- /resourcetypes: Empty Save: \"<Field> is required\" under the fields, no banner -> shown \"(none) | banner: Name is required; Name is required\"\n- /system/help: Empty Save: \"<Field> is required\" under the fields, no banner -> shown \"Title is required; Write the article before saving\"\nAlready reported (not repeated here): /journals (KAN-137), /packages (KAN-120), /portal-cms/deals (KAN-111), /portal-cms/documents (KAN-112), /portal-cms/offers (KAN-111), /portal-cms/slider (KAN-111), /portal-cms/storefront (KAN-111), /recurringjournals (KAN-137)\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-164",
+  "shots": [
+   "screenshots/ui-consistency/enquiries-add.png",
+   "screenshots/ui-consistency/exchangerates-add.png",
+   "screenshots/ui-consistency/feedback-questions-add.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "validation"
+  ],
+  "priority": "Medium",
+  "summary": "BUG-165: An EMPTY form is sent to the server on 1 screen(s) - no check in the screen first",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Medium\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: An empty Save is stopped in the screen (\"<Field> is required\") and nothing is sent, like Add State. (The test blocked the request, so the screen then said \"Pilot can't be reached right now.\")\nActual - 1 screen(s):\n- /enquiries: Nothing is sent on an empty Save -> shown \"1 request(s)\"\nAlready reported (not repeated here): /portal-cms/documents (KAN-112)\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-165",
+  "shots": [
+   "screenshots/ui-consistency/enquiries-add.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-consistency"
+  ],
+  "priority": "Low",
+  "summary": "BUG-166: No \"Audit History\" button on 18 list screens (Flex 1-10, Journals, Invoices, Feedback ...)",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Low\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: Every list has \"Audit History\" next to \"Columns\", opening the drawer with All / Created / Updated / Inactive.\nActual - 18 screen(s):\n- /agentinvoices: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /feedback: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /financialperiods: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /flex/1: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /flex/10: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /flex/2: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /flex/3: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /flex/4: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /flex/5: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /flex/6: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /flex/7: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /flex/8: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /flex/9: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /journals: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /portal-cms/documents: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /recurringjournals: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /supplierinvoices: Toolbar \"Audit History\" -> shown \"(missing)\"\n- /system/data-retention: Toolbar \"Audit History\" -> shown \"(missing)\"\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-166",
+  "shots": [
+   "screenshots/ui-consistency/agentinvoices.png",
+   "screenshots/ui-consistency/feedback.png",
+   "screenshots/ui-consistency/financialperiods.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-consistency"
+  ],
+  "priority": "Low",
+  "summary": "BUG-167: No column search (or a wrong placeholder) on 7 list screens",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Low\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: Each column title opens a search box with the placeholder \"Search <column>\" (\"Search name\").\nActual - 7 screen(s):\n- /feedback: Column search (\"Search <column>\") -> shown \"(no column search)\"\n- /feedback-questions: Column search (\"Search <column>\") -> shown \"opens on click, \"Search\"\"\n- /financialperiods: Column search (\"Search <column>\") -> shown \"(no column search)\"\n- /portal-cms/documents: Column search (\"Search <column>\") -> shown \"(no column search)\"\n- /recurringjournals: Column search (\"Search <column>\") -> shown \"(no column search)\"\n- /system/data-retention: Column search (\"Search <column>\") -> shown \"(no column search)\"\n- /taxdetail: Column search (\"Search <column>\") -> shown \"opens on click, \"All\"\"\nAlready reported (not repeated here): /enquiries (KAN-101)\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-167",
+  "shots": [
+   "screenshots/ui-consistency/feedback.png",
+   "screenshots/ui-consistency/feedback-questions.png",
+   "screenshots/ui-consistency/financialperiods.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-consistency"
+  ],
+  "priority": "Low",
+  "summary": "BUG-168: No paging (\"1-N of N\", \"Page X of Y\") on 5 list screens",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Low\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: Every list shows \"1–N of N\" and \"Page X of Y\" (and \"Rows per page\" when there are more than 10 rows).\nActual - 5 screen(s):\n- /feedback: Paging (1–N of N, Page X of Y; Rows per page when more than 10 rows) -> shown \"- | - | -\"\n- /financialperiods: Paging (1–N of N, Page X of Y; Rows per page when more than 10 rows) -> shown \"- | - | -\"\n- /portal-cms/documents: Paging (1–N of N, Page X of Y; Rows per page when more than 10 rows) -> shown \"- | - | -\"\n- /recurringjournals: Paging (1–N of N, Page X of Y; Rows per page when more than 10 rows) -> shown \"- | - | -\"\n- /system/data-retention: Paging (1–N of N, Page X of Y; Rows per page when more than 10 rows) -> shown \"- | - | -\"\nAlready reported (not repeated here): /enquiries (KAN-101)\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-168",
+  "shots": [
+   "screenshots/ui-consistency/feedback.png",
+   "screenshots/ui-consistency/financialperiods.png",
+   "screenshots/ui-consistency/portal-cms-documents.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-consistency"
+  ],
+  "priority": "Low",
+  "summary": "BUG-169: No Active filter, or a different one, on 12 list screens (Contracts lists \"Active / Inactive / All\")",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Low\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: The Active column filter offers \"All\", \"Active\", \"Inactive\" in this order.\nActual - 12 screen(s):\n- /agentinvoices: Active filter \"All / Active / Inactive\" -> shown \"(no Active filter)\"\n- /agents: Active filter \"All / Active / Inactive\" -> shown \"(no Active filter)\"\n- /companies: Active filter \"All / Active / Inactive\" -> shown \"(no Active filter)\"\n- /contracts: Active filter \"All / Active / Inactive\" -> shown \"Active / Inactive / All\"\n- /feedback: Active filter \"All / Active / Inactive\" -> shown \"(no Active filter)\"\n- /financialperiods: Active filter \"All / Active / Inactive\" -> shown \"(no Active filter)\"\n- /journals: Active filter \"All / Active / Inactive\" -> shown \"(no Active filter)\"\n- /portal-cms/documents: Active filter \"All / Active / Inactive\" -> shown \"(no Active filter)\"\n- /recurringjournals: Active filter \"All / Active / Inactive\" -> shown \"(no Active filter)\"\n- /supplierinvoices: Active filter \"All / Active / Inactive\" -> shown \"(no Active filter)\"\n- /system/data-retention: Active filter \"All / Active / Inactive\" -> shown \"(no Active filter)\"\n- /users: Active filter \"All / Active / Inactive\" -> shown \"(no Active filter)\"\nAlready reported (not repeated here): /enquiries (KAN-101)\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-169",
+  "shots": [
+   "screenshots/ui-consistency/agentinvoices.png",
+   "screenshots/ui-consistency/agents.png",
+   "screenshots/ui-consistency/companies.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-text"
+  ],
+  "priority": "Low",
+  "summary": "BUG-170: A search with no match shows a different message on 6 list screens (\"No records match these filters.\")",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Low\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: A search with no match shows \"There are no records in <Item>\" and \"0–0 of 0\".\nActual - 6 screen(s):\n- /agentinvoices: Empty search message -> shown \"No invoices match these filters.\"\n- /airports: Empty search message -> shown \"No records match these filters.\"\n- /contracts: Empty search message -> shown \"No contracts match these filters.\"\n- /feedback-questions: Empty search message -> shown \"(none)\"\n- /journals: Empty search message -> shown \"No journals match these filters.\"\n- /supplierinvoices: Empty search message -> shown \"No invoices match these filters.\"\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-170",
+  "shots": [
+   "screenshots/ui-consistency/agentinvoices.png",
+   "screenshots/ui-consistency/airports.png",
+   "screenshots/ui-consistency/contracts.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-consistency"
+  ],
+  "priority": "Medium",
+  "summary": "BUG-171: No Active switch per row (or the row opens nothing) on 3 list screens (Company, Contracts, Documents)",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Medium\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: Each row has an Active switch with the \"Deactivate <Item>?\" popup, and clicking a row opens the record - like the Core lists.\nActual - 3 screen(s):\n- /companies: Active switch on each row -> shown \"(no switch)\"\n- /contracts: Active switch on each row -> shown \"(no switch)\"\n- /portal-cms/documents: Clicking a row opens the record -> shown \"nothing\"; Active switch on each row -> shown \"(no switch)\"\nAlready reported (not repeated here): /agents (KAN-113)\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-171",
+  "shots": [
+   "screenshots/ui-consistency/companies.png",
+   "screenshots/ui-consistency/contracts.png",
+   "screenshots/ui-consistency/portal-cms-documents.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-text"
+  ],
+  "priority": "Low",
+  "summary": "BUG-172: The deactivate popup text / buttons differ on 2 screens (Exchange Rates, Package \"Unpublish\")",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Low\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: Popup text \"This will mark the <item> as inactive.\" and the buttons \"Yes, Deactivate\" + \"Cancel\". (Package \"Unpublish\" may be intended - please confirm.)\nActual - 2 screen(s):\n- /exchangerates: Popup text \"This will mark the <screen> as inactive.\" -> shown \"Quotes will stop converting with this rate. Yes, Deactivate Cancel\"\n- /packages: Popup text \"This will mark the <screen> as inactive.\" -> shown \"Agents won't find Dubai Delights 4N/5D in the portal until it's published again. Yes, Unpu\"; Popup buttons \"Yes, Deactivate\" + \"Cancel\" -> shown \"Yes, Unpublish / Cancel\"\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-172",
+  "shots": [
+   "screenshots/ui-consistency/exchangerates-deactivate.png",
+   "screenshots/ui-consistency/packages-deactivate.png"
+  ]
+ },
+ {
+  "result": "new",
+  "epic": "KAN-18",
+  "labels": [
+   "automation",
+   "cross-module-common-list-screens",
+   "ui-consistency"
+  ],
+  "priority": "Low",
+  "summary": "BUG-173: Sizes differ from the standard on 36 screens - dialog width, row / header height, button height",
+  "description": "Module: Cross-module (all ERP screens) | Type: UI/UX consistency | Severity: Low\nStandard (product owner, 24 Nov 2026): the Core list screens, e.g. Core > Region > State / Add State.\nExpected: The same sizes as Add State / the States list: dialog 600 px wide, inputs 40 px, labels 13 px, Save 37 px / Cancel 31 px, list rows 43 px, header 46 px, toolbar Add 37 px, Audit History 31 px. (Wider dialogs for long forms may be intended - please confirm per screen.)\nActual - 36 screen(s):\n- /chartofaccounts: Add dialog width 600 px -> shown \"900 px\"\n- /contracts: List row height 43 px -> shown \"55 px\"; List header height 46 px -> shown \"44 px\"\n- /enquiries: Add dialog width 600 px -> shown \"900 px\"\n- /exchangerates: List row height 43 px -> shown \"37 px\"; List header height 46 px -> shown \"44 px\"\n- /feedback-questions: Add dialog width 600 px -> shown \"900 px\"\n- /flex/1: Toolbar Add button height 37 px -> shown \"39 px\"\n- /flex/10: Toolbar Add button height 37 px -> shown \"39 px\"\n- /flex/2: Toolbar Add button height 37 px -> shown \"39 px\"\n- /flex/3: Toolbar Add button height 37 px -> shown \"39 px\"\n- /flex/4: Toolbar Add button height 37 px -> shown \"39 px\"\n- /flex/5: Toolbar Add button height 37 px -> shown \"39 px\"\n- /flex/6: Toolbar Add button height 37 px -> shown \"39 px\"\n- /flex/7: Toolbar Add button height 37 px -> shown \"39 px\"\n- /flex/8: Toolbar Add button height 37 px -> shown \"39 px\"\n- /flex/9: Toolbar Add button height 37 px -> shown \"39 px\"\n- /journals: Add dialog width 600 px -> shown \"1200 px\"\n- /landmarks: Add dialog width 600 px -> shown \"900 px\"\n- /organization/departments: Add dialog width 600 px -> shown \"444 px\"\n- /packages: List row height 43 px -> shown \"81 px\"\n- /portal-cms/checkout: Form button heights like Add State -> shown \"37 px\"\n- /portal-cms/deals: Form button heights like Add State -> shown \"37 / 33 / 31 px\"; Add dialog width 600 px -> shown \"1200 px\"\n- /portal-cms/documents: List row height 43 px -> shown \"44 px\"; List header height 46 px -> shown \"44 px\"; Toolbar Add button height 37 px -> shown \"31 px\"; Form button heights like Add State -> shown \"31 / 37 / 33 px\"; Add dialog width 600 px -> shown \"1490 px\"\n- /portal-cms/offers: Form button heights like Add State -> shown \"37 / 33 / 31 px\"; Add dialog width 600 px -> shown \"1200 px\"\n- /portal-cms/slider: Form button heights like Add State -> shown \"37 / 33 / 31 px\"; Add dialog width 600 px -> shown \"1200 px\"\n- /portal-cms/storefront: Form button heights like Add State -> shown \"37 / 33 / 31 px\"; Add dialog width 600 px -> shown \"900 px\"\n- /recurringjournals: Add dialog width 600 px -> shown \"1200 px\"\n- /resourcemapping: List row height 43 px -> shown \"55 px\"\n- /resources/assets: Add dialog width 600 px -> shown \"900 px\"\n- /resources/personnel: Add dialog width 600 px -> shown \"900 px\"\n- /resourcetypes: List row height 43 px -> shown \"53 px\"; Add dialog width 600 px -> shown \"900 px\"\n- /restrictions: Add dialog width 600 px -> shown \"444 px\"\n- /status: Add dialog width 600 px -> shown \"900 px\"\n- /system/help: Add dialog width 600 px -> shown \"900 px\"\n- /tax: Add dialog width 600 px -> shown \"900 px\"\n- /taxdetail: Add dialog width 600 px -> shown \"900 px\"\n- /users: Add dialog width 600 px -> shown \"900 px\"\nEnvironment: STAGE https://erp.nexgenpilot.com (company sb, Chrome), build of 24 Nov 2026 | found by the ERP UI/UX consistency check (85 screens, every save blocked) | Bug report ID: BUG-173",
+  "shots": [
+   "screenshots/ui-consistency/chartofaccounts-add.png",
+   "screenshots/ui-consistency/contracts-add.png",
+   "screenshots/ui-consistency/enquiries-add.png"
+  ]
+ }
+]

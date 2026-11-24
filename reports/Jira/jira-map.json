@@ -1540,5 +1540,110 @@
   "label": "insights-dashboard",
   "type": "Feature (suggestion)",
   "status": "To Do"
+ },
+ "BUG-159": {
+  "key": "KAN-176",
+  "url": "https://piloterp.atlassian.net/browse/KAN-176",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-160": {
+  "key": "KAN-177",
+  "url": "https://piloterp.atlassian.net/browse/KAN-177",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-161": {
+  "key": "KAN-178",
+  "url": "https://piloterp.atlassian.net/browse/KAN-178",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-162": {
+  "key": "KAN-179",
+  "url": "https://piloterp.atlassian.net/browse/KAN-179",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-163": {
+  "key": "KAN-180",
+  "url": "https://piloterp.atlassian.net/browse/KAN-180",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-164": {
+  "key": "KAN-181",
+  "url": "https://piloterp.atlassian.net/browse/KAN-181",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-165": {
+  "key": "KAN-182",
+  "url": "https://piloterp.atlassian.net/browse/KAN-182",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-166": {
+  "key": "KAN-183",
+  "url": "https://piloterp.atlassian.net/browse/KAN-183",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-167": {
+  "key": "KAN-184",
+  "url": "https://piloterp.atlassian.net/browse/KAN-184",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-168": {
+  "key": "KAN-185",
+  "url": "https://piloterp.atlassian.net/browse/KAN-185",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-169": {
+  "key": "KAN-186",
+  "url": "https://piloterp.atlassian.net/browse/KAN-186",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-170": {
+  "key": "KAN-187",
+  "url": "https://piloterp.atlassian.net/browse/KAN-187",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-171": {
+  "key": "KAN-188",
+  "url": "https://piloterp.atlassian.net/browse/KAN-188",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-172": {
+  "key": "KAN-189",
+  "url": "https://piloterp.atlassian.net/browse/KAN-189",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
+ },
+ "BUG-173": {
+  "key": "KAN-190",
+  "url": "https://piloterp.atlassian.net/browse/KAN-190",
+  "epic": "KAN-18",
+  "label": "cross-module-common-list-screens",
+  "status": "To Do"
  }
 }

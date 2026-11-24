@@ -1,0 +1,70 @@
+[
+ {
+  "menu": "Company",
+  "path": "/companies"
+ },
+ {
+  "menu": "Core > Application > Accounts > Product Search",
+  "path": "/product-search"
+ },
+ {
+  "menu": "Core > Application > Accounts > Agent",
+  "path": "/agents"
+ },
+ {
+  "menu": "Core > Application > Accounts > Supplier",
+  "path": "/suppliers"
+ },
+ {
+  "menu": "Core > Application > Accounts > Contracts",
+  "path": "/contracts"
+ },
+ {
+  "menu": "Core > Application > Accounts > Package",
+  "path": "/packages"
+ },
+ {
+  "menu": "Core > Application > Accounts > Enquiries",
+  "path": "/enquiries"
+ },
+ {
+  "menu": "Core > Application > Accounts > Quotes",
+  "path": "/quotes"
+ },
+ {
+  "menu": "Core > Application > Accounts > Reservation",
+  "path": "/reservations"
+ },
+ {
+  "menu": "Core > Application > Accounts > Amendment Requests",
+  "path": "/amendments"
+ },
+ {
+  "menu": "Core > Application > Accounts > Feedback",
+  "path": "/feedback"
+ },
+ {
+  "menu": "Core > Application > Accounts > Playground",
+  "path": "/playground"
+ },
+ {
+  "menu": "Core > Application > Transactions > User",
+  "path": "/users"
+ },
+ {
+  "menu": "Core > Application > Transactions > Restriction Group",
+  "path": "/restrictions"
+ },
+ {
+  "menu": "Core > Application > Transactions > Configurations",
+  "path": "/system/configurations"
+ },
+ {
+  "menu": "Core > Application > Transactions > Help Center",
+  "path": "/system/help"
+ },
+ {
+  "menu": "Core > Application > Transactions > Data Retention",
+  "path": "/system/data-retention"
+ }
+]

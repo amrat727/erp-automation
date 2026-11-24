@@ -1,0 +1,3079 @@
+{
+ "/playground": {
+  "menu": "/playground",
+  "path": "/playground",
+  "url": "/playground",
+  "kind": "page",
+  "title": "Playground",
+  "toolbarButtons": [
+   "New Report",
+   "Create",
+   "Bookings per month this year",
+   "Top 10 agents by bookings",
+   "Suppliers by status",
+   "Agent wallet top-ups last 30 days",
+   "All (0)",
+   "Mine (0)",
+   "Shared with Me (0)",
+   "New Report",
+   "Show All 13"
+  ],
+  "addForm": {
+   "button": "New Report",
+   "opens": "page",
+   "title": "Browse by area",
+   "buttons": [
+    "Publish",
+    "Save Report",
+    "Create",
+    "Bookings per month this year",
+    "Top 10 agents by bookings",
+    "Suppliers by status"
+   ],
+   "labels": [
+    "Share with team"
+   ],
+   "saveLabel": "Create",
+   "saveEnabledWhenEmpty": false,
+   "messages": [],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/portal-cms/checkout": {
+  "menu": "/portal-cms/checkout",
+  "path": "/portal-cms/checkout",
+  "url": "/portal-cms/checkout",
+  "kind": "page",
+  "title": "Checkout fields · Sandbox",
+  "toolbarButtons": [
+   "Lead contact 12 fields · 2 hidden",
+   "Flight 13 fields · 1 hidden",
+   "Hotel 8 fields",
+   "Activity 8 fields",
+   "Transfer 13 fields",
+   "Visa 17 fields",
+   "Cruise 11 fields",
+   "Rail 9 fields",
+   "Self drive 14 fields",
+   "Package 10 fields",
+   "Reset to Defaults",
+   "Unpublish",
+   "All travellers",
+   "Lead only",
+   "Add Field",
+   "Required",
+   "Optional",
+   "Hidden",
+   "Required",
+   "Optional",
+   "Hidden",
+   "Required",
+   "Optional",
+   "Hidden",
+   "Required"
+  ],
+  "addForm": {
+   "button": "Add Field",
+   "opens": "dialog",
+   "title": "Add a Checkout Field Flight checkout",
+   "buttons": [
+    "Cancel",
+    "Add"
+   ],
+   "labels": [
+    "Label*",
+    "Type",
+    "Asked for",
+    "Rule"
+   ],
+   "saveLabel": "Add",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Label is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/portal-cms/deals": {
+  "menu": "/portal-cms/deals",
+  "path": "/portal-cms/deals",
+  "url": "/portal-cms/deals",
+  "kind": "page",
+  "title": "Deal cards · Sandbox",
+  "toolbarButtons": [
+   "All · 10",
+   "Home page · 4",
+   "Search screens · 10",
+   "New Deal Card",
+   "New deal card"
+  ],
+  "addForm": {
+   "button": "New Deal Card",
+   "opens": "dialog",
+   "title": "In the Flights search's featured deals",
+   "buttons": [
+    "Cancel",
+    "Save Draft",
+    "Save and Publish"
+   ],
+   "labels": [
+    "Title*",
+    "Subtitle",
+    "Badge",
+    "Product",
+    "Order",
+    "Image*",
+    "Upload",
+    "From price",
+    "Currency",
+    "Per",
+    "Starts",
+    "Offer ends",
+    "Shown to"
+   ],
+   "saveLabel": "Save and Publish",
+   "saveEnabledWhenEmpty": true,
+   "messages": [],
+   "banner": [
+    "Give the card a title.",
+    "Give the card a title."
+   ],
+   "sentToServer": 0
+  }
+ },
+ "/portal-cms/documents": {
+  "menu": "/portal-cms/documents",
+  "path": "/portal-cms/documents",
+  "url": "/portal-cms/documents",
+  "kind": "list",
+  "title": "Documents · Sandbox",
+  "toolbarButtons": [
+   "Documents",
+   "Headers & footers",
+   "Portal Itinerary & Quote View",
+   "Columns",
+   "New Document",
+   "Customise",
+   "Customise",
+   "Customise",
+   "Customise",
+   "Customise",
+   "Customise",
+   "Customise",
+   "Customise",
+   "Customise",
+   "Customise"
+  ],
+  "headers": [
+   "Document",
+   "Template",
+   "Language",
+   "Header / footer",
+   "Status",
+   "Actions"
+  ],
+  "sortButtons": 0,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "",
+   "pageOf": ""
+  },
+  "rows": 10,
+  "search": {
+   "found": false
+  },
+  "filters": [],
+  "rowControls": {
+   "switch": false,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": {
+   "opens": "nothing"
+  },
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "button": "New Document",
+   "opens": "dialog",
+   "title": "Itinerary Itinerary",
+   "buttons": [
+    "A4",
+    "A5",
+    "Letter",
+    "Portrait",
+    "Landscape",
+    "Start from Built-in",
+    "Add Block",
+    "Insert Field",
+    "PDF",
+    "Cancel",
+    "Save Draft",
+    "Save and Publish"
+   ],
+   "labels": [
+    "Document",
+    "Name*",
+    "Language",
+    "Header",
+    "Footer",
+    "Margins (mm)",
+    "Accent colour",
+    "Title (optional)",
+    "Text (HTML) with fields",
+    "Title (optional)",
+    "Lists",
+    "Columns",
+    "Title (optional)",
+    "Lists",
+    "Columns",
+    "Title (optional)",
+    "Text (HTML), printed as written"
+   ],
+   "saveLabel": "Save and Publish",
+   "saveEnabledWhenEmpty": true,
+   "messages": [],
+   "banner": [
+    "Pilot can't be reached right now. Try again in a moment.",
+    "Pilot can't be reached right now. Try again in a moment.",
+    "Pilot can't be reached right now. Try again in a moment.",
+    "Pilot can't be reached right now. Try again in a moment."
+   ],
+   "sentToServer": 1
+  }
+ },
+ "/portal-cms/emails": {
+  "menu": "/portal-cms/emails",
+  "path": "/portal-cms/emails",
+  "url": "/portal-cms/emails",
+  "kind": "page",
+  "title": "Email templates · Sandbox",
+  "toolbarButtons": [
+   "New",
+   "Insert Field",
+   "Start from Built-in"
+  ],
+  "addForm": {
+   "button": "New",
+   "opens": "same page",
+   "title": "Email templates · Sandbox",
+   "buttons": [
+    "New",
+    "Discard",
+    "Save Draft",
+    "Save and Publish",
+    "Insert Field"
+   ],
+   "labels": [
+    "Template name*",
+    "Subject*",
+    "Email text (HTML)",
+    "Header",
+    "Footer",
+    "Attach documents"
+   ],
+   "saveLabel": "Save and Publish",
+   "saveEnabledWhenEmpty": true,
+   "messages": [],
+   "banner": [
+    "Pilot can't be reached right now. Try again in a moment.",
+    "Pilot can't be reached right now. Try again in a moment.",
+    "i Give the template a name. OK"
+   ],
+   "sentToServer": 0
+  }
+ },
+ "/portal-cms/listing": {
+  "menu": "/portal-cms/listing",
+  "path": "/portal-cms/listing",
+  "url": "/portal-cms/listing",
+  "kind": "page",
+  "title": "Listing layout · Sandbox",
+  "toolbarButtons": [
+   "List",
+   "Grid",
+   "Reset to Default",
+   "Unpublish",
+   "Give an Agent Their Own Layout",
+   "List",
+   "Grid",
+   "Reset to Default",
+   "Unpublish",
+   "Give an Agent Their Own Layout"
+  ],
+  "addForm": {
+   "button": null
+  }
+ },
+ "/portal-cms/offers": {
+  "menu": "/portal-cms/offers",
+  "path": "/portal-cms/offers",
+  "url": "/portal-cms/offers",
+  "kind": "page",
+  "title": "Sponsored offers · Sandbox",
+  "toolbarButtons": [
+   "All · 4",
+   "Live · 4",
+   "Scheduled · 0",
+   "Drafts · 0",
+   "Ended · 0",
+   "New Offer",
+   "New sponsored offer"
+  ],
+  "addForm": {
+   "button": "New Offer",
+   "opens": "dialog",
+   "title": "Under the Flights search tabs",
+   "buttons": [
+    "Search flights",
+    "Cancel",
+    "Save Draft",
+    "Save and Publish"
+   ],
+   "labels": [
+    "Heading*",
+    "Subtitle",
+    "Sponsor",
+    "Badge",
+    "Product",
+    "Button text",
+    "Image*",
+    "Upload",
+    "From price",
+    "Currency",
+    "Per",
+    "Starts",
+    "Ends",
+    "Priority",
+    "Shown to"
+   ],
+   "saveLabel": "Save and Publish",
+   "saveEnabledWhenEmpty": true,
+   "messages": [],
+   "banner": [
+    "Give the offer a heading.",
+    "Give the offer a heading."
+   ],
+   "sentToServer": 0
+  }
+ },
+ "/portal-cms/overview": {
+  "menu": "/portal-cms/overview",
+  "path": "/portal-cms/overview",
+  "url": "/portal-cms/overview",
+  "kind": "page",
+  "title": "Portal CMS · Sandbox",
+  "toolbarButtons": [
+   "Flights London winter sale $612",
+   "Sponsored offers 4 live",
+   "Deal cards 10 live",
+   "Listing layout 2 customised",
+   "Package options 3 customised",
+   "Documents Portal default",
+   "Checkout fields 10 customised",
+   "Storefront Storefront defaults",
+   "Email templates Built-in emails"
+  ],
+  "addForm": {
+   "button": null
+  }
+ },
+ "/portal-cms/packages": {
+  "menu": "/portal-cms/packages",
+  "path": "/portal-cms/packages",
+  "url": "/portal-cms/packages",
+  "kind": "page",
+  "title": "Package options · Sandbox",
+  "toolbarButtons": [
+   "Reset to Default",
+   "Unpublish"
+  ],
+  "addForm": {
+   "button": null
+  }
+ },
+ "/portal-cms/scheduler": {
+  "menu": "/portal-cms/scheduler",
+  "path": "/portal-cms/scheduler",
+  "url": "/portal-cms/scheduler",
+  "kind": "page",
+  "title": "Scheduler",
+  "toolbarButtons": [],
+  "addForm": {
+   "button": null
+  }
+ },
+ "/portal-cms/slider": {
+  "menu": "/portal-cms/slider",
+  "path": "/portal-cms/slider",
+  "url": "/portal-cms/slider",
+  "kind": "page",
+  "title": "Login slider · Sandbox",
+  "toolbarButtons": [
+   "Add a Photo"
+  ],
+  "addForm": {
+   "button": "Add a Photo",
+   "opens": "dialog",
+   "title": "On the sign-in page",
+   "buttons": [
+    "Cancel",
+    "Save Draft",
+    "Save and Publish"
+   ],
+   "labels": [
+    "Image*",
+    "Upload",
+    "Name",
+    "Starts",
+    "Ends",
+    "Order"
+   ],
+   "saveLabel": "Save and Publish",
+   "saveEnabledWhenEmpty": true,
+   "messages": [],
+   "banner": [
+    "Add a photo — upload one or paste a link.",
+    "Add a photo — upload one or paste a link."
+   ],
+   "sentToServer": 0
+  }
+ },
+ "/portal-cms/storefront": {
+  "menu": "/portal-cms/storefront",
+  "path": "/portal-cms/storefront",
+  "url": "/portal-cms/storefront",
+  "kind": "page",
+  "title": "Storefront · Sandbox",
+  "toolbarButtons": [
+   "Hero (0)",
+   "Offers (0)",
+   "Routes (0)",
+   "Destinations (0)",
+   "Hotels (0)",
+   "Testimonials (0)",
+   "Why Book & Trust (0)",
+   "Pages (0)",
+   "SEO (0)",
+   "Settings (0)",
+   "Add a slide"
+  ],
+  "addForm": {
+   "button": "Add a slide",
+   "opens": "dialog",
+   "title": "New slide New · draft until published",
+   "buttons": [
+    "Cancel",
+    "Save Draft",
+    "Save and Publish"
+   ],
+   "labels": [
+    "Heading*",
+    "Eyebrow",
+    "Subtitle",
+    "Desktop photo*",
+    "Upload",
+    "Phone photo",
+    "Upload",
+    "Button text",
+    "Button link",
+    "Search tab",
+    "Starts",
+    "Ends",
+    "Order"
+   ],
+   "saveLabel": "Save and Publish",
+   "saveEnabledWhenEmpty": true,
+   "messages": [],
+   "banner": [
+    "Give the slide a heading.",
+    "Give the slide a heading."
+   ],
+   "sentToServer": 0
+  }
+ },
+ "/product-search": {
+  "menu": "/product-search",
+  "path": "/product-search",
+  "url": "/product-search",
+  "kind": "page",
+  "title": "Product Search",
+  "toolbarButtons": [
+   "Continue"
+  ],
+  "addForm": {
+   "button": null
+  }
+ },
+ "/productclass": {
+  "menu": "/productclass",
+  "path": "/productclass",
+  "url": "/productclass",
+  "kind": "list",
+  "title": "Product Classes",
+  "toolbarButtons": [
+   "Add Product Class",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Description",
+   "Product Type",
+   "Active",
+   ""
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 28",
+   "pageOf": "Page 1 of 3"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Product Class 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "",
+    "options": [
+     "Hotel",
+     "Excursion",
+     "Flight",
+     "Transfer",
+     "Packages",
+     "Villa",
+     "Private transfer",
+     "Shared transfer"
+    ]
+   },
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": {
+   "opens": "nothing"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "73 changes"
+  },
+  "addForm": {
+   "button": "Add Product Class",
+   "opens": "dialog",
+   "title": "Add Product Class",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Description",
+    "Product Type*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required",
+    "Product Type is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/producttype": {
+  "menu": "/producttype",
+  "path": "/producttype",
+  "url": "/producttype",
+  "kind": "list",
+  "title": "Product Types",
+  "toolbarButtons": [
+   "Add Product Type",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Name",
+   "Description",
+   "Product",
+   "Active",
+   ""
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 40",
+   "pageOf": "Page 1 of 4"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Product Type 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "",
+    "options": [
+     "Accommodation",
+     "Bundle Service",
+     "Car Rental",
+     "Deals",
+     "Excursion",
+     "Flight",
+     "Guide",
+     "Package",
+     "Restaurant",
+     "Transfer"
+    ]
+   },
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate product type? This will mark the product type as inactive. This product type is still in use by: 31 Supplier Products 13 Agent Products 5 Supplemen",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Product Type Name* Description Product* Cancel Save"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "91 changes"
+  },
+  "addForm": {
+   "button": "Add Product Type",
+   "opens": "dialog",
+   "title": "Add Product Type",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Description",
+    "Product*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required",
+    "Product is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/provinces": {
+  "menu": "/provinces",
+  "path": "/provinces",
+  "url": "/provinces",
+  "kind": "list",
+  "title": "Provinces",
+  "toolbarButtons": [
+   "Add Province",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Country",
+   "City",
+   "Active",
+   ""
+  ],
+  "sortButtons": 4,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 37",
+   "pageOf": "Page 1 of 4"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Province 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "",
+    "options": [
+     "India",
+     "United Arab Emirates",
+     "United States",
+     "Vietnam",
+     "China",
+     "Japan",
+     "Malaysia",
+     "Afghanistan",
+     "Albania",
+     "Algeria"
+    ]
+   },
+   {
+    "column": "",
+    "options": [
+     "Dubai",
+     "Abu Dhabi",
+     "Mumbai",
+     "Delhi",
+     "Chandigarh",
+     "Gurugram",
+     "Noida",
+     "QA Auto City STQTQM edited",
+     "QA Auto City RTNMQT edited",
+     "QA Auto City RNRRMK edited"
+    ]
+   },
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": {
+   "opens": "nothing"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "108 changes"
+  },
+  "addForm": {
+   "button": "Add Province",
+   "opens": "dialog",
+   "title": "Add Province",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Country*",
+    "Cities*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required",
+    "Country is required",
+    "Select at least one city"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/quotes": {
+  "menu": "/quotes",
+  "path": "/quotes",
+  "url": "/quotes",
+  "kind": "list",
+  "title": "Quotes",
+  "toolbarButtons": [
+   "All",
+   "Quoted Today",
+   "Last 7 Days",
+   "Last 30 Days",
+   "Follow-up Due",
+   "Add Quote",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Ref",
+   "Name",
+   "Progress",
+   "Status",
+   "Date",
+   "Agent",
+   "Next follow-up",
+   "Currency",
+   "Source",
+   "SIC",
+   "Created",
+   "Active",
+   ""
+  ],
+  "sortButtons": 10,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "1–1 of 1",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 1,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search ref",
+   "emptyMessage": "There are no records in Quote 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "",
+    "options": [
+     "Draft",
+     "Published",
+     "Quoted",
+     "Re-quoted",
+     "Accepted",
+     "Booked",
+     "Rejected"
+    ]
+   },
+   {
+    "column": "Status",
+    "options": [
+     "All",
+     "Pending",
+     "Quoted",
+     "On Request",
+     "Held",
+     "Confirmed",
+     "Ticketed",
+     "Vouchered",
+     "Cancelled",
+     "Failed"
+    ]
+   },
+   {
+    "column": "",
+    "options": []
+   },
+   {
+    "column": "Next",
+    "options": [
+     "All",
+     "Due"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate quote? This will mark the quote as inactive. Yes, Deactivate Cancel",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "page",
+   "url": "/quotes/1"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "6 changes"
+  },
+  "addForm": {
+   "button": "Add Quote",
+   "opens": "page",
+   "title": "Add Quote",
+   "buttons": [
+    "All",
+    "Quoted Today",
+    "Last 7 Days",
+    "Last 30 Days",
+    "Follow-up Due",
+    "Add Quote",
+    "Audit History",
+    "Columns",
+    "No SIC",
+    "SIC",
+    "Cancel",
+    "Save Quote"
+   ],
+   "labels": [
+    "Date*",
+    "Agent *",
+    "Currency *",
+    "Name*",
+    "Source",
+    "Exchange Type *",
+    "Contact Person Name",
+    "SIC"
+   ],
+   "saveLabel": "Save Quote",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Date is required",
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/recurringjournals": {
+  "menu": "/recurringjournals",
+  "path": "/recurringjournals",
+  "url": "/recurringjournals",
+  "kind": "list",
+  "title": "Recurring Journals",
+  "toolbarButtons": [
+   "Post Due Now",
+   "New Recurring Journal",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Narration",
+   "Day",
+   "Next run",
+   "Last posted",
+   "Amount",
+   "Status"
+  ],
+  "sortButtons": 0,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "",
+   "pageOf": ""
+  },
+  "rows": 0,
+  "search": {
+   "found": false
+  },
+  "filters": [],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "button": "New Recurring Journal",
+   "opens": "dialog",
+   "title": "New Recurring Journal",
+   "buttons": [
+    "Add Line",
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Narration*",
+    "Reference",
+    "Posts on day*",
+    "From*",
+    "Until",
+    "Active"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": false,
+   "messages": [],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/refundpayouts": {
+  "menu": "/refundpayouts",
+  "path": "/refundpayouts",
+  "url": "/refundpayouts",
+  "kind": "page",
+  "title": "Refund Payouts",
+  "toolbarButtons": [],
+  "addForm": {
+   "button": null
+  }
+ },
+ "/reports": {
+  "menu": "/reports",
+  "path": "/reports",
+  "url": "/reports",
+  "kind": "page",
+  "title": "Reports",
+  "toolbarButtons": [
+   "Build a Report"
+  ],
+  "addForm": {
+   "button": null
+  }
+ },
+ "/reservations": {
+  "menu": "/reservations",
+  "path": "/reservations",
+  "url": "/reservations",
+  "kind": "list",
+  "title": "Reservations",
+  "toolbarButtons": [
+   "All",
+   "Arriving Today",
+   "Arriving in 7 Days",
+   "Travelling Now",
+   "Storefront",
+   "Amendment Requests",
+   "Add Reservation",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Ref",
+   "Name",
+   "Status",
+   "Arrival",
+   "Departure",
+   "Agent",
+   "Type",
+   "Country",
+   "Currency",
+   "Branch",
+   "Active",
+   ""
+  ],
+  "sortButtons": 11,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 21",
+   "pageOf": "Page 1 of 3"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search ref",
+   "emptyMessage": "There are no records in Reservation 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Status",
+    "options": [
+     "All",
+     "Pending",
+     "On Request",
+     "Held",
+     "Confirmed",
+     "Ticketed",
+     "Vouchered",
+     "Cancelled",
+     "Failed"
+    ]
+   },
+   {
+    "column": "",
+    "options": []
+   },
+   {
+    "column": "Type",
+    "options": [
+     "All",
+     "Group",
+     "Private"
+    ]
+   },
+   {
+    "column": "",
+    "options": []
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate reservation? This will mark the reservation as inactive. Yes, Deactivate Cancel",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "nothing"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "135 changes"
+  },
+  "addForm": {
+   "button": "Add Reservation",
+   "opens": "page",
+   "title": "Add Reservation",
+   "buttons": [
+    "All",
+    "Arriving Today",
+    "Arriving in 7 Days",
+    "Travelling Now",
+    "Storefront",
+    "Amendment Requests",
+    "Add Reservation",
+    "Audit History",
+    "Columns",
+    "Private",
+    "Group",
+    "Room wise",
+    "Pax wise",
+    "Add Room",
+    "Build now",
+    "From a quote",
+    "From a package",
+    "Cancel",
+    "Save Reservation"
+   ],
+   "labels": [
+    "Travel Dates *",
+    "Agent *",
+    "Currency *",
+    "Reservation Name",
+    "Booking Type",
+    "Branch",
+    "Department",
+    "Exchange Type *",
+    "Remarks",
+    "Reservation For",
+    "Client Reference"
+   ],
+   "saveLabel": "Save Reservation",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Travel Dates is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/resourcemapping": {
+  "menu": "/resourcemapping",
+  "path": "/resourcemapping",
+  "url": "/resourcemapping",
+  "kind": "list",
+  "title": "Resource Mapping",
+  "toolbarButtons": [
+   "Add Mapping",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Source Resource",
+   "Target Resource",
+   "Primary",
+   "Active",
+   ""
+  ],
+  "sortButtons": 4,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "1–1 of 1",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 1,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search source resource",
+   "emptyMessage": "There are no records in Resource Mapping 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Primary",
+    "options": [
+     "All",
+     "Yes",
+     "No"
+    ]
+   },
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate mapping? This will mark the mapping as inactive. Yes, Deactivate Cancel",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Resource Mapping Source Resource (Personnel)* Target Re"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "0 changes"
+  },
+  "addForm": {
+   "button": "Add Mapping",
+   "opens": "dialog",
+   "title": "Add Resource Mapping",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Source Resource (Personnel)*",
+    "Target Resource (Asset)*",
+    "Set as primary pairing"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [],
+   "banner": [
+    "Select both a source resource and a target resource.",
+    "Select both a source resource and a target resource."
+   ],
+   "sentToServer": 0
+  }
+ },
+ "/resources/assets": {
+  "menu": "/resources/assets",
+  "path": "/resources/assets",
+  "url": "/resources/assets",
+  "kind": "list",
+  "title": "Assets",
+  "toolbarButtons": [
+   "Add Asset",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Type",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 24",
+   "pageOf": "Page 1 of 3"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Asset 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "",
+    "options": [
+     "Vehicle"
+    ]
+   },
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate asset? This will mark the asset as inactive. This asset is still in use by: 1 Resource Mapping Those records keep working, but it can no longer be ",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Asset Name* Asset Type* Category* Make* Model* Registra"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "66 changes"
+  },
+  "addForm": {
+   "button": "Add Asset",
+   "opens": "dialog",
+   "title": "Add Asset",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Asset Type*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required",
+    "Asset Type is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/resources/personnel": {
+  "menu": "/resources/personnel",
+  "path": "/resources/personnel",
+  "url": "/resources/personnel",
+  "kind": "list",
+  "title": "Personnel",
+  "toolbarButtons": [
+   "Add Personnel",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Type",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "1–1 of 1",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 1,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Personnel 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "",
+    "options": [
+     "Caretaker",
+     "Driver",
+     "Escort",
+     "Guide"
+    ]
+   },
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate personnel? This will mark the personnel as inactive. This personnel is still in use by: 1 Resource Mapping Those records keep working, but it can n",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Personnel Name* Personnel Type* Languages Date of Birth"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "66 changes"
+  },
+  "addForm": {
+   "button": "Add Personnel",
+   "opens": "dialog",
+   "title": "Add Personnel",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Personnel Type*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required",
+    "Personnel Type is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/resourcetypes": {
+  "menu": "/resourcetypes",
+  "path": "/resourcetypes",
+  "url": "/resourcetypes",
+  "kind": "list",
+  "title": "Resource Types",
+  "toolbarButtons": [
+   "Add Resource Type",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Resource Class",
+   "Active",
+   "Actions",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 31",
+   "pageOf": "Page 1 of 4"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Resource Type 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Resource",
+    "options": [
+     "All",
+     "Personnel",
+     "Asset"
+    ]
+   },
+   {
+    "column": "All",
+    "options": []
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate resource type? This will mark the resource type as inactive. This resource type is still in use by: 1 Resource Those records keep working, but it c",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Resource Type Name* Description Resource Class* Cancel "
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "69 changes"
+  },
+  "addForm": {
+   "button": "Add Resource Type",
+   "opens": "dialog",
+   "title": "Add Resource Type",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Description",
+    "Resource Class*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [],
+   "banner": [
+    "Name is required",
+    "Name is required"
+   ],
+   "sentToServer": 0
+  }
+ },
+ "/restrictions": {
+  "menu": "/restrictions",
+  "path": "/restrictions",
+  "url": "/restrictions",
+  "kind": "list",
+  "title": "Restriction Groups",
+  "toolbarButtons": [
+   "Add Group",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Modules",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "1–1 of 1",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 1,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Restriction Group 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate restriction group? This will mark the restriction group as inactive. This restriction group is still in use by: 1 User Those records keep working, ",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "page",
+   "url": "/restrictions/2"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "2 changes"
+  },
+  "addForm": {
+   "button": "Add Group",
+   "opens": "dialog",
+   "title": "Add Restriction Group",
+   "buttons": [
+    "Cancel",
+    "Create & Continue"
+   ],
+   "labels": [
+    "Name*"
+   ],
+   "saveLabel": "Create & Continue",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/roles": {
+  "menu": "/roles",
+  "path": "/roles",
+  "url": "/roles",
+  "kind": "list",
+  "title": "Roles",
+  "toolbarButtons": [
+   "Add Role",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 31",
+   "pageOf": "Page 1 of 4"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Role 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": {
+   "opens": "nothing"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "89 changes"
+  },
+  "addForm": {
+   "button": "Add Role",
+   "opens": "dialog",
+   "title": "Add Role",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/roomcategories": {
+  "menu": "/roomcategories",
+  "path": "/roomcategories",
+  "url": "/roomcategories",
+  "kind": "list",
+  "title": "Room Categories",
+  "toolbarButtons": [
+   "Add Room Category",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 25",
+   "pageOf": "Page 1 of 3"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Room Category 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate room category? This will mark the room category as inactive. Yes, Deactivate Cancel",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "nothing"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "45 changes"
+  },
+  "addForm": {
+   "button": "Add Room Category",
+   "opens": "dialog",
+   "title": "Add Room Category",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/roomtypes": {
+  "menu": "/roomtypes",
+  "path": "/roomtypes",
+  "url": "/roomtypes",
+  "kind": "list",
+  "title": "Room Types",
+  "toolbarButtons": [
+   "Add Room Type",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Default",
+   "Adults",
+   "Children",
+   "Infants",
+   "Total",
+   "Ex-bed",
+   "Roll bed",
+   "Ad chk",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 21",
+   "pageOf": "Page 1 of 3"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Room Type 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate room type? This will mark the room type as inactive. Yes, Deactivate Cancel",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Room Type Name* Default Default occupancy Adults Childr"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "48 changes"
+  },
+  "addForm": {
+   "button": "Add Room Type",
+   "opens": "dialog",
+   "title": "Default occupancy",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Adults",
+    "Children",
+    "Infants",
+    "Total"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/states": {
+  "menu": "/states",
+  "path": "/states",
+  "url": "/states",
+  "kind": "list",
+  "title": "States",
+  "toolbarButtons": [
+   "Add State",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Country",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 43",
+   "pageOf": "Page 1 of 5"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in State 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "",
+    "options": [
+     "India",
+     "United Arab Emirates",
+     "United States",
+     "Vietnam",
+     "China",
+     "Japan",
+     "Malaysia",
+     "Afghanistan",
+     "Albania",
+     "Algeria"
+    ]
+   },
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate state? This will mark the state as inactive. This state is still in use by: 2 Agents 1 City Those records keep working, but it can no longer be pic",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "nothing"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "123 changes"
+  },
+  "addForm": {
+   "button": "Add State",
+   "opens": "dialog",
+   "title": "Add State",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Country*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required",
+    "Country is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/status": {
+  "menu": "/status",
+  "path": "/status",
+  "url": "/status",
+  "kind": "list",
+  "title": "Statuses",
+  "toolbarButtons": [
+   "Add Status",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Behaves as",
+   "Applies To",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 38",
+   "pageOf": "Page 1 of 4"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Status 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate status? This will mark the status as inactive. This status is still in use by: 9 Reservation Itinerary Items 1 Reservation Those records keep worki",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "nothing"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "0 changes"
+  },
+  "addForm": {
+   "button": "Add Status",
+   "opens": "dialog",
+   "title": "Applies To",
+   "buttons": [
+    "Select All",
+    "Clear",
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Behaves as",
+    "Custom colour"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/supplements": {
+  "menu": "/supplements",
+  "path": "/supplements",
+  "url": "/supplements",
+  "kind": "list",
+  "title": "Supplements",
+  "toolbarButtons": [
+   "Add Supplement",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Product Type",
+   "Sequence",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 25",
+   "pageOf": "Page 1 of 3"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Supplement 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "",
+    "options": [
+     "Hotel",
+     "Excursion",
+     "Flight",
+     "Transfer",
+     "Packages",
+     "Villa",
+     "Private transfer",
+     "Shared transfer"
+    ]
+   },
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate supplement? This will mark the supplement as inactive. Yes, Deactivate Cancel",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Supplement Name* Product Type* Sequence* Cancel Save"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "59 changes"
+  },
+  "addForm": {
+   "button": "Add Supplement",
+   "opens": "dialog",
+   "title": "Add Supplement",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Product Type*",
+    "Sequence*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required",
+    "Product Type is required",
+    "Sequence is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/supplierinvoices": {
+  "menu": "/supplierinvoices",
+  "path": "/supplierinvoices",
+  "url": "/supplierinvoices",
+  "kind": "list",
+  "title": "Supplier Invoices",
+  "toolbarButtons": [
+   "Download Excel",
+   "Upload Excel",
+   "Enter supplier invoice",
+   "Columns"
+  ],
+  "headers": [
+   "",
+   "Number",
+   "Type",
+   "Date",
+   "Due",
+   "Supplier",
+   "Supplier ref",
+   "Reservation",
+   "Total",
+   "Status"
+  ],
+  "sortButtons": 0,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search number",
+   "emptyMessage": "No invoices match these filters.",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Type",
+    "options": [
+     "All",
+     "Invoice",
+     "Debit note"
+    ]
+   },
+   {
+    "column": "All",
+    "options": []
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "button": null
+  }
+ },
+ "/suppliers": {
+  "menu": "/suppliers",
+  "path": "/suppliers",
+  "url": "/suppliers",
+  "kind": "list",
+  "title": "Suppliers",
+  "toolbarButtons": [
+   "Add Supplier",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Code",
+   "Name",
+   "City",
+   "Status",
+   "Active",
+   ""
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 39",
+   "pageOf": "Page 1 of 4"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search code",
+   "emptyMessage": "There are no records in Supplier 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Status",
+    "options": [
+     "All",
+     "Approved",
+     "On hold",
+     "Blocked"
+    ]
+   },
+   {
+    "column": "All",
+    "options": []
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate supplier? This will mark the supplier as inactive. An approved supplier is put On hold. Yes, Deactivate Cancel",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "page",
+   "url": "/suppliers/46/overview"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "283 changes"
+  },
+  "addForm": {
+   "button": "Add Supplier",
+   "opens": "page",
+   "title": "Services offered",
+   "buttons": [
+    "Add Supplier",
+    "Audit History",
+    "Columns",
+    "Cancel",
+    "Create Supplier",
+    "Approved",
+    "On hold",
+    "Blocked",
+    "Hotel",
+    "Villa",
+    "Excursion",
+    "Flight",
+    "Packages",
+    "Private transfer",
+    "Shared transfer",
+    "Transfer"
+   ],
+   "labels": [
+    "Name *",
+    "City *",
+    "Status",
+    "Default currency *",
+    "Branch",
+    "Department",
+    "Payment due *",
+    "Days*",
+    "Advance type",
+    "Advance",
+    "Advance due"
+   ],
+   "saveLabel": "Create Supplier",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/system/configurations": {
+  "menu": "/system/configurations",
+  "path": "/system/configurations",
+  "url": "/system/configurations",
+  "kind": "page",
+  "title": "Configurations",
+  "toolbarButtons": [
+   "Discard",
+   "Save Changes"
+  ],
+  "addForm": {
+   "button": null
+  }
+ },
+ "/system/data-retention": {
+  "menu": "/system/data-retention",
+  "path": "/system/data-retention",
+  "url": "/system/data-retention",
+  "kind": "list",
+  "title": "Data Retention",
+  "toolbarButtons": [
+   "Edit",
+   "Edit",
+   "Edit",
+   "All",
+   "Reservations",
+   "Enquiries",
+   "Feedback",
+   "Columns"
+  ],
+  "headers": [
+   "When",
+   "Record",
+   "Removed",
+   "By",
+   "Message"
+  ],
+  "sortButtons": 0,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "",
+   "pageOf": ""
+  },
+  "rows": 0,
+  "search": {
+   "found": false
+  },
+  "filters": [],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": false
+  },
+  "addForm": {
+   "button": null
+  }
+ },
+ "/system/help": {
+  "menu": "/system/help",
+  "path": "/system/help",
+  "url": "/system/help",
+  "kind": "page",
+  "title": "Help Center",
+  "toolbarButtons": [
+   "Add Article",
+   "Add Section",
+   "Report Outdated"
+  ],
+  "addForm": {
+   "button": "Add Article",
+   "opens": "dialog",
+   "title": "Add Article",
+   "buttons": [
+    "Write",
+    "Preview",
+    "Cancel",
+    "Add Article"
+   ],
+   "labels": [
+    "Title*",
+    "Status",
+    "Section*",
+    "Screens",
+    "Audience",
+    "Review",
+    "Summary"
+   ],
+   "saveLabel": "Add Article",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Title is required",
+    "Write the article before saving"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/tax": {
+  "menu": "/tax",
+  "path": "/tax",
+  "url": "/tax",
+  "kind": "list",
+  "title": "Taxes",
+  "toolbarButtons": [
+   "Add Tax",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Factor",
+   "Applied",
+   "Tax-In Account",
+   "Tax-Out Account",
+   "With Hold",
+   "Central",
+   "Include",
+   "Tax Seq",
+   "Tax Type",
+   "Active",
+   ""
+  ],
+  "sortButtons": 11,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Tax 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Factor",
+    "options": [
+     "All",
+     "Perc",
+     "Abs"
+    ]
+   },
+   {
+    "column": "",
+    "options": []
+   },
+   {
+    "column": "",
+    "options": []
+   },
+   {
+    "column": "",
+    "options": []
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "0 changes"
+  },
+  "addForm": {
+   "button": "Add Tax",
+   "opens": "dialog",
+   "title": "Add Tax",
+   "buttons": [
+    "GST",
+    "VAT",
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*",
+    "Factor",
+    "Applied On",
+    "Tax-In Account",
+    "Tax-Out Account",
+    "Tax Sequence"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/taxdetail": {
+  "menu": "/taxdetail",
+  "path": "/taxdetail",
+  "url": "/taxdetail",
+  "kind": "list",
+  "title": "Tax Detail",
+  "toolbarButtons": [
+   "Add Tax Detail",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Tax",
+   "State",
+   "Service Type",
+   "Type",
+   "From Date",
+   "Range From",
+   "Range To",
+   "Value",
+   "Active",
+   ""
+  ],
+  "sortButtons": 9,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "0–0 of 0",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 0,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "All",
+   "emptyMessage": "There are no records in Tax Detail 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "",
+    "options": []
+   },
+   {
+    "column": "",
+    "options": [
+     "Haryana",
+     "Punjab",
+     "Maharashtra",
+     "Himachal Pradesh",
+     "QA Auto State STQTQM edited",
+     "QA Auto State QKVRQT edited",
+     "QA Auto State QKVRQT edited",
+     "QA Auto State QKVRQT Twice",
+     "QA Auto State SSKPVL edited",
+     "QA Auto State SSKPVL edited"
+    ]
+   },
+   {
+    "column": "",
+    "options": [
+     "Hotel",
+     "Excursion",
+     "Flight",
+     "Transfer",
+     "Packages",
+     "Villa",
+     "Private transfer",
+     "Shared transfer",
+     "QA Auto Product Type QMTVQV edited",
+     "QA Auto Product Type QMTVQV edited"
+    ]
+   },
+   {
+    "column": "Type",
+    "options": [
+     "Both",
+     "Input",
+     "Output"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": false,
+   "share": false
+  },
+  "deactivatePopup": {
+   "tested": false,
+   "reason": "no active switch"
+  },
+  "rowClick": "no rows",
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "0 changes"
+  },
+  "addForm": {
+   "button": "Add Tax Detail",
+   "opens": "dialog",
+   "title": "Add Tax Detail",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Tax*",
+    "State",
+    "Service Type",
+    "Type*",
+    "From Date*",
+    "Range From",
+    "Range To",
+    "Value*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Tax is required",
+    "Type is required",
+    "From Date is required",
+    "Value is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/themes": {
+  "menu": "/themes",
+  "path": "/themes",
+  "url": "/themes",
+  "kind": "list",
+  "title": "Themes",
+  "toolbarButtons": [
+   "Add Theme",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 50",
+   "pageOf": "Page 1 of 5"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in Theme 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate theme? This will mark the theme as inactive. Yes, Deactivate Cancel",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit Theme Name* Cancel Save"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "86 changes"
+  },
+  "addForm": {
+   "button": "Add Theme",
+   "opens": "dialog",
+   "title": "Add Theme",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/users": {
+  "menu": "/users",
+  "path": "/users",
+  "url": "/users",
+  "kind": "list",
+  "title": "Users",
+  "toolbarButtons": [
+   "Add User",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Username",
+   "Name",
+   "Email",
+   "Role",
+   "Designation",
+   "Active",
+   ""
+  ],
+  "sortButtons": 3,
+  "paging": {
+   "rowsPerPage": false,
+   "range": "1–2 of 2",
+   "pageOf": "Page 1 of 1"
+  },
+  "rows": 2,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search username",
+   "emptyMessage": "There are no records in User 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Role",
+    "options": [
+     "All",
+     "Company Admin",
+     "User"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": false
+  },
+  "rowClick": {
+   "opens": "page",
+   "url": "/users/2"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "20 changes"
+  },
+  "addForm": {
+   "button": "Add User",
+   "opens": "dialog",
+   "title": "Add User",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Username*",
+    "Password*",
+    "Name*",
+    "Email*",
+    "Designation",
+    "City",
+    "Department*",
+    "Reports To*",
+    "Restriction Group*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Username is required",
+    "Password is required",
+    "Name is required",
+    "Email is required",
+    "Department is required",
+    "Reports To is required",
+    "Restriction Group is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ },
+ "/viewtypes": {
+  "menu": "/viewtypes",
+  "path": "/viewtypes",
+  "url": "/viewtypes",
+  "kind": "list",
+  "title": "View Types",
+  "toolbarButtons": [
+   "Add View Type",
+   "Audit History",
+   "Columns"
+  ],
+  "headers": [
+   "Name",
+   "Active",
+   ""
+  ],
+  "sortButtons": 2,
+  "paging": {
+   "rowsPerPage": true,
+   "range": "1–10 of 17",
+   "pageOf": "Page 1 of 2"
+  },
+  "rows": 10,
+  "search": {
+   "found": true,
+   "how": "opens on click",
+   "placeholder": "Search name",
+   "emptyMessage": "There are no records in View Type 0–0 of 0 Page 1 of 1 Nexgenpilot © 2026",
+   "range": "0–0 of 0"
+  },
+  "filters": [
+   {
+    "column": "Active",
+    "options": [
+     "All",
+     "Active",
+     "Inactive"
+    ]
+   }
+  ],
+  "rowControls": {
+   "switch": true,
+   "share": true
+  },
+  "deactivatePopup": {
+   "tested": true,
+   "popup": true,
+   "text": "! Deactivate view type? This will mark the view type as inactive. This view type is still in use by: 11 Supplier Products Those records keep working, but it can",
+   "buttons": [
+    "Yes, Deactivate",
+    "Cancel"
+   ]
+  },
+  "rowClick": {
+   "opens": "dialog",
+   "title": "Edit View Type Name* Cancel Save"
+  },
+  "audit": {
+   "button": true,
+   "tabs": [
+    "All",
+    "Created",
+    "Updated",
+    "Inactive"
+   ],
+   "changes": "47 changes"
+  },
+  "addForm": {
+   "button": "Add View Type",
+   "opens": "dialog",
+   "title": "Add View Type",
+   "buttons": [
+    "Cancel",
+    "Save"
+   ],
+   "labels": [
+    "Name*"
+   ],
+   "saveLabel": "Save",
+   "saveEnabledWhenEmpty": true,
+   "messages": [
+    "Name is required"
+   ],
+   "banner": [],
+   "sentToServer": 0
+  }
+ }
+}
