@@ -57,8 +57,9 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
         await expect(p.columnsButton).toBeVisible();
         await expect(p.auditButton).toBeVisible({ timeout: 5_000 });
         await p.auditButton.click();
-        const audit = page.getByRole('dialog').filter({ hasText: 'Audit history' });
-        for (const tab of ['All', 'Created', 'Updated', 'Deactivated']) await expect(audit.getByText(tab, { exact: true }).first()).toBeVisible();
+        const audit = page.getByRole('dialog').filter({ hasText: /Audit history/i });
+        // stage 24 Nov 2026: the last tab is "Inactive" (was "Deactivated")
+        for (const tab of ['All', 'Created', 'Updated', 'Inactive']) await expect(audit.getByText(tab, { exact: true }).first()).toBeVisible();
       });
 
       test(`${id(4)}: Table has Name search, Active filter (default All) and paging`, async ({ page }) => {
@@ -215,7 +216,7 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
         await p.search(s.sample!);
         test.skip(!(await p.toggle(s.sample!).isChecked()), `sample "${s.sample}" is switched off`);
         await p.clickToggle(s.sample!);
-        await expect(p.popupText).toHaveText(`This will mark the ${s.entity.toLowerCase()} as inactive.`, { timeout: 5_000 });   // "deactive" before the 21 Nov 2026 build (BUG-03 fix)
+        await expect(p.popupText).toHaveText(new RegExp(`^\\s*This will mark the ${s.entity.toLowerCase()} as inactive\\.`), { timeout: 5_000 });   // + optional "still in use by" list (KAN-132)   // "deactive" before the 21 Nov 2026 build (BUG-03 fix)
       });
 
       test(`${id(14)}: Popup grammar is correct ("inactive", not "deactive")`, async () => {
@@ -225,7 +226,7 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
         await p.search(s.sample!);
         test.skip(!(await p.toggle(s.sample!).isChecked()), `sample "${s.sample}" is switched off`);
         await p.clickToggle(s.sample!);
-        await expect(p.popupText).toHaveText(`This will mark the ${s.entity.toLowerCase()} as inactive.`, { timeout: 5_000 });
+        await expect(p.popupText).toHaveText(new RegExp(`^\\s*This will mark the ${s.entity.toLowerCase()} as inactive\\.`), { timeout: 5_000 });   // + optional "still in use by" list (KAN-132)
       });
 
       test(`${id(15)}: Cancel on the popup keeps the record Active`, async () => {
@@ -379,12 +380,12 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
         const activeCol = p.activeHeader;
         await expect(activeCol).toBeVisible({ timeout: 5_000 });
         await p.columnsButton.click();
-        const menu = page.locator('[role=presentation]').filter({ hasText: 'Show all' }).last();
+        const menu = page.locator('[role=presentation]').filter({ hasText: /Show all/i }).last();
         await menu.getByText('Active', { exact: true }).click();
         await page.keyboard.press('Escape');
         await expect(activeCol).toBeHidden();
         await p.columnsButton.click();
-        await menu.getByText('Show all', { exact: true }).click();     // restore (the choice may be remembered)
+        await menu.getByText(/^Show all$/i).click();     // restore (the choice may be remembered)
         await page.keyboard.press('Escape');
         await expect(activeCol).toBeVisible();
       });
@@ -393,7 +394,7 @@ export function consistencySuite(prefix: string, subModule: string, screens: Scr
         known(s.differs?.noAudit);
         await p.open(s.path);
         await p.auditButton.click({ timeout: 5_000 });
-        const audit = page.getByRole('dialog').filter({ hasText: 'Audit history' });
+        const audit = page.getByRole('dialog').filter({ hasText: /Audit history/i });
         await audit.getByText('Created', { exact: true }).first().click();
         await expect(audit.getByText(/ changes?$/)).toBeVisible();
         await page.waitForTimeout(1500);

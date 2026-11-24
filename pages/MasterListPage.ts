@@ -38,7 +38,7 @@ export class MasterListPage {
     // stage build of 21 Nov 2026: the singular headings became plural ("Role" -> "Roles", "Tax" -> "Taxes", "Account Group" -> "Account Groups", BUG-36 fix)
     this.heading = page.getByRole('heading', { name: new RegExp(`^${plural}(s|es)?(\\s|$)`) });
     this.addButton = page.getByRole('button', { name: opts.addLabel ?? `Add ${entity}`, exact: true });
-    this.auditButton = page.getByRole('button', { name: 'Audit history' });
+    this.auditButton = page.getByRole('button', { name: /^Audit history$/i });   // "Audit History" (Title Case) since 24 Nov 2026
     this.columnsButton = page.getByRole('button', { name: 'Columns' });
     // the box is in the Name header, or (some screens) in a separate filter row under it
     // Columns found by content that is ALWAYS in the DOM (stage 20 Nov: the header names change while a filter is open,
